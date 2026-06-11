@@ -2,12 +2,14 @@ name: Daily Roatan Tourism Tracker Update & Deploy
 
 on:
   schedule:
-    - cron: '0 5 * * *'      # Runs every day at 5:00 AM UTC
-  workflow_dispatch:         # Allows manual trigger from GitHub
+    - cron: '0 5 * * *'
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write     # This is the key fix
 
     steps:
       - name: Checkout code
@@ -25,7 +27,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Generate fresh monthly data & static HTML
+      - name: Generate fresh data & static HTML
         run: python generate_static.py
 
       - name: Deploy to GitHub Pages
