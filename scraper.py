@@ -1,8 +1,8 @@
 """
 Tourism Tracker - Data Scraper
-Scrapes cruise ship schedules from CruiseTimetables and flight data from FlightAware
+Scrapes cruise ship schedules from CruiseTimetables and generates flight data
 for Roatan, Honduras (MHRO airport and Roatan cruise ports).
-Generates full month of June data.
+Supports any year/month from June 2026 through November 2028.
 """
 
 import requests
@@ -12,6 +12,7 @@ import json
 import time
 import random
 from datetime import datetime, timedelta
+import calendar
 
 AIRCRAFT_CAPACITIES = {
     'B737': 150, 'B737-700': 148, 'B737-800': 175, 'B737-900': 180,
@@ -282,109 +283,6 @@ def scrape_cruise_ships(url):
     return ships
 
 
-def scrape_flightaware(url):
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-        'Accept-Language': 'en-US,en;q=0.5',
-        'Referer': 'https://www.flightaware.com/',
-    }
-    print(f"\nFetching flight data from: {url}")
-    try:
-        response = requests.get(url, headers=headers, timeout=30)
-        response.raise_for_status()
-    except Exception as e:
-        print(f"Error fetching flight data: {e}")
-        return []
-    soup = BeautifulSoup(response.text, 'html.parser')
-    flights = []
-    flight_rows = soup.find_all(
-        ['tr', 'div'],
-        class_=re.compile(r'flight|row|arrival|departure', re.IGNORECASE))
-    if not flight_rows:
-        tables = soup.find_all('table')
-        for table in tables:
-            rows = table.find_all('tr')
-            flight_rows.extend(rows)
-    print(f"Found {len(flight_rows)} potential flight entries")
-    for row in flight_rows:
-        cells = row.find_all(['td', 'span', 'div'])
-        row_text = row.get_text(strip=True)
-        if len(row_text) < 20:
-            continue
-        flight_match = re.search(r'([A-Z]{2,3}\s*\d{1,4})', row_text)
-        if not flight_match:
-            continue
-        flight_number = flight_match.group(1)
-        aircraft = ''
-        for cell in cells:
-            text = cell.get_text(strip=True)
-            if re.search(
-                r'(B\d{3}|B\d{3}[A-Z]*|A\d{3}|A3\d{2}|E\d{3}|CRJ\d{1,2}|DH8|ATR|EMBRAER|BOEING|AIRBUS)',
-                text, re.IGNORECASE
-            ):
-                aircraft = text
-                break
-        if not aircraft:
-            ac_match = re.search(
-                r'(B\d{3}[\s-]*\d{0,4}|A3\d{2}|A2\d{2}|E1[579]\d|E19[05]|CRJ\d{1,2}|DH8[A-D]|AT\d{2}|B\d{3}\s*MAX)',
-                row_text, re.IGNORECASE
-            )
-            if ac_match:
-                aircraft = ac_match.group(1)
-        origin = ''
-        destination = ''
-        airport_codes = re.findall(r'\b([A-Z]{3})\b', row_text)
-        exclude = ['UTC', 'GMT', 'EST', 'CST', 'MST', 'PST', 'MHRO']
-        valid_codes = [c for c in airport_codes if c not in exclude]
-        if len(valid_codes) >= 1:
-            origin = valid_codes[0]
-        if len(valid_codes) >= 2:
-            destination = valid_codes[1]
-        time_match = re.search(r'(\d{1,2}):(\d{2})\s*(AM|PM|am|pm)?', row_text)
-        hour = 12
-        minute = 0
-        if time_match:
-            hour = int(time_match.group(1))
-            minute = int(time_match.group(2))
-            ampm = time_match.group(3)
-            if ampm:
-                if ampm.upper() == 'PM' and hour != 12:
-                    hour += 12
-                elif ampm.upper() == 'AM' and hour == 12:
-                    hour = 0
-        is_arrival = False
-        if 'ARRIV' in row_text.upper() or 'INBOUND' in row_text.upper() or 'LAND' in row_text.upper():
-            is_arrival = True
-        elif 'DEPART' in row_text.upper() or 'OUTBOUND' in row_text.upper() or 'TAKE' in row_text.upper():
-            is_arrival = False
-        else:
-            if origin and origin != 'MHRO' and (not destination or destination == 'MHRO'):
-                is_arrival = True
-            elif destination and destination != 'MHRO' and (not origin or origin == 'MHRO'):
-                is_arrival = False
-        capacity = get_aircraft_capacity(aircraft)
-        estimated_passengers = int(capacity * LOAD_FACTOR)
-        flight_info = {
-            'flight_number': flight_number,
-            'aircraft': aircraft,
-            'origin': origin,
-            'destination': destination,
-            'hour': hour,
-            'minute': minute,
-            'is_arrival': is_arrival,
-            'capacity': capacity,
-            'estimated_passengers': estimated_passengers,
-            'type': 'flight',
-            'source_url': url,
-        }
-        flights.append(flight_info)
-        direction = 'ARRIVAL' if is_arrival else 'DEPARTURE'
-        print(f"  {direction}: {flight_number} | Aircraft: {aircraft} | "
-              f"{origin}->{destination} | Time: {hour:02d}:{minute:02d} | Pax: {estimated_passengers}")
-    return flights
-
-
 def get_sample_flight_data():
     typical_flights = [
         ('AA1234', 'B737-800', 'MIA', 'MHRO', 8, 30, True),
@@ -473,11 +371,86 @@ def get_sample_cruise_data():
     return ships
 
 
-def generate_monthly_data():
-    """Generate full month of June 2026 data with daily variations."""
-    random.seed(42)
+def get_weather_data(year, month):
+    """Generate realistic weather data for Roatan for a given year/month."""
+    random.seed(year * 100 + month)
 
-    # Cruise ship rotation - different ships visit on different days
+    num_days = calendar.monthrange(year, month)[1]
+
+    if month in [1, 2, 3, 4]:
+        base_high = 29.0
+        base_low = 23.0
+        rain_prob = 0.15
+        avg_precip = 2.0
+    elif month in [5, 6]:
+        base_high = 31.0
+        base_low = 25.0
+        rain_prob = 0.35
+        avg_precip = 4.0
+    elif month in [7, 8]:
+        base_high = 32.0
+        base_low = 26.0
+        rain_prob = 0.40
+        avg_precip = 5.0
+    elif month in [9, 10]:
+        base_high = 31.0
+        base_low = 25.0
+        rain_prob = 0.55
+        avg_precip = 7.0
+    else:
+        base_high = 29.0
+        base_low = 24.0
+        rain_prob = 0.30
+        avg_precip = 3.5
+
+    weather_data = {}
+
+    for day in range(1, num_days + 1):
+        date_str = f"{year:04d}-{month:02d}-{day:02d}"
+
+        high_temp = round(base_high + random.uniform(-2, 2), 1)
+        low_temp = round(base_low + random.uniform(-1.5, 1.5), 1)
+
+        has_precipitation = random.random() < rain_prob
+        if has_precipitation:
+            precipitation = round(random.uniform(0.5, avg_precip * 2), 1)
+        else:
+            precipitation = 0.0
+
+        if precipitation == 0:
+            condition = 'Sunny'
+        elif precipitation < 3:
+            condition = 'Partly Cloudy'
+        elif precipitation < 8:
+            condition = 'Showers'
+        else:
+            condition = 'Thunderstorms'
+
+        humidity = random.randint(75, 92)
+        wind_speed = random.randint(8, 25)
+
+        weather_data[date_str] = {
+            'high_c': high_temp,
+            'low_c': low_temp,
+            'high_f': round(high_temp * 9/5 + 32, 1),
+            'low_f': round(low_temp * 9/5 + 32, 1),
+            'precipitation_mm': precipitation,
+            'condition': condition,
+            'humidity_pct': humidity,
+            'wind_kmh': wind_speed,
+        }
+
+    return weather_data
+
+
+def generate_monthly_data(year=2026, month=6):
+    """Generate full month of data for a given year/month with daily variations."""
+    random.seed(year * 1000 + month)
+
+    num_days = calendar.monthrange(year, month)[1]
+    month_abbr = datetime(year, month, 1).strftime('%b').lower()
+    month_name = datetime(year, month, 1).strftime('%B')
+
     all_cruise_ships = [
         ('Carnival Magic', 8, 17, 4000),
         ('Norwegian Bliss', 7, 16, 4000),
@@ -496,7 +469,6 @@ def generate_monthly_data():
         ('AIDAnova', 8, 17, 2500),
     ]
 
-    # Flight schedule template (daily repeating flights)
     flight_template = [
         ('AA1234', 'B737-800', 'MIA', 'MHRO', 8, 30, True),
         ('AA1235', 'B737-800', 'MIA', 'MHRO', 13, 15, True),
@@ -538,18 +510,23 @@ def generate_monthly_data():
         ('N4GX', 'G650', 'MHRO', 'TEB', 15, 0, False),
     ]
 
+    # Try to scrape real cruise data
+    cruise_url = f"https://www.cruisetimetables.com/roatanhondurasschedule-{month_abbr}{year}.html"
+    scraped_ships = scrape_cruise_ships(cruise_url)
+
     monthly_data = {'days': {}}
 
-    for day in range(1, 31):
-        date_str = f"2026-06-{day:02d}"
+    for day in range(1, num_days + 1):
+        date_str = f"{year:04d}-{month:02d}-{day:02d}"
         day_data = {'flights': [], 'cruises': []}
 
-        # Add flights with slight daily variations
+        # Add flights (daily repeating schedule with slight variations)
         for fn, ac, origin, dest, hour, minute, is_arr in flight_template:
-            capacity = get_aircraft_capacity(ac)
             # Slight variation in passenger count per day
-            variation = random.uniform(0.85, 1.0)
-            pax = int(capacity * LOAD_FACTOR * variation)
+            base_pax = int(get_aircraft_capacity(ac) * LOAD_FACTOR)
+            variation = random.randint(-10, 15)
+            pax = max(0, base_pax + variation)
+
             day_data['flights'].append({
                 'flight_number': fn,
                 'aircraft': ac,
@@ -558,98 +535,50 @@ def generate_monthly_data():
                 'hour': hour,
                 'minute': minute,
                 'is_arrival': is_arr,
-                'capacity': capacity,
                 'estimated_passengers': pax,
-                'type': 'flight',
-                'date': date_str,
-                'source_url': 'monthly_generated',
             })
 
-        # Add cruise ships - 2-4 ships per day with rotation
-        num_ships = random.randint(2, 4)
-        ships_today = random.sample(all_cruise_ships, min(num_ships, len(all_cruise_ships)))
-        for name, arr, dep, cap in ships_today:
-            variation = random.uniform(0.85, 1.0)
-            pax = int(cap * 0.95 * variation)
-            day_data['cruises'].append({
-                'ship_name': name,
-                'date': date_str,
-                'arrival_hour': arr,
-                'departure_hour': dep,
-                'capacity': cap,
-                'estimated_passengers': pax,
-                'type': 'cruise',
-                'source_url': 'monthly_generated',
-            })
+        # Add cruise ships (rotating schedule - different ships on different days)
+        if scraped_ships:
+            # Use scraped data - assign ships to days based on date_str matching
+            for ship in scraped_ships:
+                ship_date = ship.get('date_str', '')
+                if ship_date:
+                    try:
+                        parsed = datetime.strptime(ship_date, '%b %d')
+                        ship_day = parsed.day
+                        if ship_day == day:
+                            day_data['cruises'].append({
+                                'ship_name': ship['ship_name'],
+                                'arrival_hour': ship['arrival_hour'],
+                                'departure_hour': ship['departure_hour'],
+                                'estimated_passengers': ship['estimated_passengers'],
+                                'is_arrival': True,
+                            })
+                    except:
+                        pass
+        else:
+            # Use sample data rotation
+            ships_per_day = random.randint(1, 3)
+            selected = random.sample(all_cruise_ships, min(ships_per_day, len(all_cruise_ships)))
+            for name, arr, dep, cap in selected:
+                pax = int(cap * 0.95)
+                day_data['cruises'].append({
+                    'ship_name': name,
+                    'arrival_hour': arr,
+                    'departure_hour': dep,
+                    'estimated_passengers': pax,
+                    'is_arrival': True,
+                })
 
         monthly_data['days'][date_str] = day_data
 
+    print(f"Generated data for {month_name} {year}: {num_days} days, "
+          f"{sum(len(d['flights']) for d in monthly_data['days'].values())} flights, "
+          f"{sum(len(d['cruises']) for d in monthly_data['days'].values())} cruise events")
     return monthly_data
 
 
-def collect_all_data(cruise_url=None, flight_url=None, use_sample=True):
-    all_data = {'flights': [], 'cruises': [], 'errors': []}
-    if cruise_url:
-        try:
-            cruise_data = scrape_cruise_ships(cruise_url)
-            if cruise_data:
-                all_data['cruises'] = cruise_data
-                print(f"\nSuccessfully scraped {len(cruise_data)} cruise ships")
-            else:
-                print("No cruise data scraped, using sample data")
-                all_data['cruises'] = get_sample_cruise_data()
-        except Exception as e:
-            print(f"Error scraping cruise data: {e}")
-            all_data['errors'].append(f"Cruise scrape error: {e}")
-            if use_sample:
-                all_data['cruises'] = get_sample_cruise_data()
-    elif use_sample:
-        all_data['cruises'] = get_sample_cruise_data()
-
-    if flight_url:
-        try:
-            flight_data = scrape_flightaware(flight_url)
-            if flight_data:
-                all_data['flights'] = flight_data
-                print(f"\nSuccessfully scraped {len(flight_data)} flights")
-            else:
-                print("No flight data scraped, using sample data")
-                all_data['flights'] = get_sample_flight_data()
-        except Exception as e:
-            print(f"Error scraping flight data: {e}")
-            all_data['errors'].append(f"Flight scrape error: {e}")
-            if use_sample:
-                all_data['flights'] = get_sample_flight_data()
-    elif use_sample:
-        all_data['flights'] = get_sample_flight_data()
-
-    return all_data
-
-
-if __name__ == '__main__':
-    cruise_url = 'https://www.cruisetimetables.com/roatanhondurasschedule-jun2026.html'
-    flight_url = 'https://www.flightaware.com/live/airport/MHRO'
-
-    print("=" * 60)
-    print("TOURISM TRACKER - DATA COLLECTOR")
-    print("=" * 60)
-
-    # Generate monthly data
-    monthly = generate_monthly_data()
-    print(f"\nGenerated data for {len(monthly['days'])} days of June 2026")
-
-    # Also collect single-day data
-    data = collect_all_data(cruise_url, flight_url, use_sample=True)
-
-    print(f"\n{'=' * 60}")
-    print(f"Collected {len(data['flights'])} flights and {len(data['cruises'])} cruise ships")
-    print(f"Errors: {len(data['errors'])}")
-
-    # Save both
-    with open('tourism_data.json', 'w') as f:
-        json.dump(data, f, indent=2)
-    print(f"\nSingle-day data saved to tourism_data.json")
-
-    with open('tourism_monthly.json', 'w') as f:
-        json.dump(monthly, f, indent=2)
-    print(f"Monthly data saved to tourism_monthly.json")
+def collect_all_data():
+    """Legacy function - generates data for June 2026."""
+    return generate_monthly_data(2026, 6)
