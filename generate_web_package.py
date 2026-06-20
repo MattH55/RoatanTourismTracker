@@ -91,15 +91,18 @@ def create_web_package():
     <footer>
         <p>Generated """ + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + """ | Data: June 2026 - November 2028</p>
         <p><a href="https://github.com" target="_blank">GitHub</a> |
-           <a href="README.html" target="_blank">Documentation</a> |
-           <a href="assets/data.json" target="_blank">Data</a></p>
+           <a href="README.md" target="_blank">Documentation</a></p>
     </footer>
 
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="assets/app.js"></script>
     <script>
         const allMonthlyData = """ + json.dumps(all_monthly_data) + """;
         const monthsList = """ + json.dumps(months_list) + """;
-        initializeApp();
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeApp();
+        });
     </script>
 </body>
 </html>
