@@ -3,7 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roatan Tourism Tracker</title>
+    <title>Roatan Cruise Schedule 2026&ndash;2028 | Previous &amp; Next Ports</title>
+    <meta name="description" content="View the full Roatan cruise schedule for 2026&ndash;2028. See which ships are coming to Roatan and the ports they visit before and after.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Roatan Cruise Schedule 2026&ndash;2028">
+    <meta property="og:description" content="See previous and next ports for every cruise stopping in Roatan, Honduras.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://roatantourismtracker.online">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Roatan Tourism Tracker",
+      "url": "https://roatantourismtracker.online",
+      "description": "Roatan cruise schedule with previous and next ports for 2026&ndash;2028."
+    }
+    </script>
+
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -20,7 +39,25 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        .subtitle { color: #8b949e; margin-bottom: 32px; font-size: 16px; }
+        .subtitle { color: #8b949e; margin-bottom: 8px; font-size: 16px; }
+        .value-prop {
+            color: #c0c8d8;
+            font-size: 15px;
+            margin-bottom: 32px;
+            padding: 10px 14px;
+            border-left: 3px solid #A23B72;
+            background: #161b22;
+            border-radius: 0 6px 6px 0;
+            max-width: 620px;
+        }
+        h2 {
+            font-size: 18px;
+            color: #8b949e;
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 8px;
+            margin-bottom: 14px;
+            margin-top: 28px;
+        }
         .month-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -42,140 +79,146 @@
         }
         .month-card .month-name { font-size: 20px; font-weight: bold; }
         .month-card .year-label { font-size: 13px; color: #8b949e; margin-top: 6px; }
-        .year-section { margin-bottom: 8px; margin-top: 28px; }
-        .year-section h2 {
-            font-size: 18px;
-            color: #8b949e;
-            border-bottom: 1px solid #30363d;
-            padding-bottom: 8px;
-            margin-bottom: 14px;
+        footer {
+            margin-top: 48px;
+            font-size: 12px;
+            color: #484f58;
+            border-top: 1px solid #21262d;
+            padding-top: 16px;
         }
     </style>
 </head>
 <body>
     <h1>Roatan Tourism Tracker</h1>
     <p class="subtitle">Flight &amp; cruise analytics for Roatan, Honduras &mdash; June 2026 through November 2028</p>
-    <div class="month-grid">
-        <a href="2026-06.html" class="month-card">
+    <p class="value-prop">See previous &amp; next ports for every cruise stopping in Roatan, plus flight traffic, passenger volumes, and hourly patterns by month.</p>
+
+    <h2>Select a Month</h2>
+    <div class="month-grid" role="navigation" aria-label="Monthly cruise schedule navigation">
+        <a href="2026-06.html" class="month-card" aria-label="June 2026 cruise schedule">
             <div class="month-name">June</div>
             <div class="year-label">2026</div>
         </a>
-        <a href="2026-07.html" class="month-card">
+        <a href="2026-07.html" class="month-card" aria-label="July 2026 cruise schedule">
             <div class="month-name">July</div>
             <div class="year-label">2026</div>
         </a>
-        <a href="2026-08.html" class="month-card">
+        <a href="2026-08.html" class="month-card" aria-label="August 2026 cruise schedule">
             <div class="month-name">August</div>
             <div class="year-label">2026</div>
         </a>
-        <a href="2026-09.html" class="month-card">
+        <a href="2026-09.html" class="month-card" aria-label="September 2026 cruise schedule">
             <div class="month-name">September</div>
             <div class="year-label">2026</div>
         </a>
-        <a href="2026-10.html" class="month-card">
+        <a href="2026-10.html" class="month-card" aria-label="October 2026 cruise schedule">
             <div class="month-name">October</div>
             <div class="year-label">2026</div>
         </a>
-        <a href="2026-11.html" class="month-card">
+        <a href="2026-11.html" class="month-card" aria-label="November 2026 cruise schedule">
             <div class="month-name">November</div>
             <div class="year-label">2026</div>
         </a>
-        <a href="2026-12.html" class="month-card">
+        <a href="2026-12.html" class="month-card" aria-label="December 2026 cruise schedule">
             <div class="month-name">December</div>
             <div class="year-label">2026</div>
         </a>
-        <a href="2027-01.html" class="month-card">
+        <a href="2027-01.html" class="month-card" aria-label="January 2027 cruise schedule">
             <div class="month-name">January</div>
             <div class="year-label">2027</div>
         </a>
-        <a href="2027-02.html" class="month-card">
+        <a href="2027-02.html" class="month-card" aria-label="February 2027 cruise schedule">
             <div class="month-name">February</div>
             <div class="year-label">2027</div>
         </a>
-        <a href="2027-03.html" class="month-card">
+        <a href="2027-03.html" class="month-card" aria-label="March 2027 cruise schedule">
             <div class="month-name">March</div>
             <div class="year-label">2027</div>
         </a>
-        <a href="2027-04.html" class="month-card">
+        <a href="2027-04.html" class="month-card" aria-label="April 2027 cruise schedule">
             <div class="month-name">April</div>
             <div class="year-label">2027</div>
         </a>
-        <a href="2027-05.html" class="month-card">
+        <a href="2027-05.html" class="month-card" aria-label="May 2027 cruise schedule">
             <div class="month-name">May</div>
             <div class="year-label">2027</div>
         </a>
-        <a href="2027-06.html" class="month-card">
+        <a href="2027-06.html" class="month-card" aria-label="June 2027 cruise schedule">
             <div class="month-name">June</div>
             <div class="year-label">2027</div>
         </a>
-        <a href="2027-07.html" class="month-card">
+        <a href="2027-07.html" class="month-card" aria-label="July 2027 cruise schedule">
             <div class="month-name">July</div>
             <div class="year-label">2027</div>
         </a>
-        <a href="2027-08.html" class="month-card">
+        <a href="2027-08.html" class="month-card" aria-label="August 2027 cruise schedule">
             <div class="month-name">August</div>
             <div class="year-label">2027</div>
         </a>
-        <a href="2027-09.html" class="month-card">
+        <a href="2027-09.html" class="month-card" aria-label="September 2027 cruise schedule">
             <div class="month-name">September</div>
             <div class="year-label">2027</div>
         </a>
-        <a href="2027-10.html" class="month-card">
+        <a href="2027-10.html" class="month-card" aria-label="October 2027 cruise schedule">
             <div class="month-name">October</div>
             <div class="year-label">2027</div>
         </a>
-        <a href="2027-11.html" class="month-card">
+        <a href="2027-11.html" class="month-card" aria-label="November 2027 cruise schedule">
             <div class="month-name">November</div>
             <div class="year-label">2027</div>
         </a>
-        <a href="2027-12.html" class="month-card">
+        <a href="2027-12.html" class="month-card" aria-label="December 2027 cruise schedule">
             <div class="month-name">December</div>
             <div class="year-label">2027</div>
         </a>
-        <a href="2028-01.html" class="month-card">
+        <a href="2028-01.html" class="month-card" aria-label="January 2028 cruise schedule">
             <div class="month-name">January</div>
             <div class="year-label">2028</div>
         </a>
-        <a href="2028-02.html" class="month-card">
+        <a href="2028-02.html" class="month-card" aria-label="February 2028 cruise schedule">
             <div class="month-name">February</div>
             <div class="year-label">2028</div>
         </a>
-        <a href="2028-03.html" class="month-card">
+        <a href="2028-03.html" class="month-card" aria-label="March 2028 cruise schedule">
             <div class="month-name">March</div>
             <div class="year-label">2028</div>
         </a>
-        <a href="2028-04.html" class="month-card">
+        <a href="2028-04.html" class="month-card" aria-label="April 2028 cruise schedule">
             <div class="month-name">April</div>
             <div class="year-label">2028</div>
         </a>
-        <a href="2028-05.html" class="month-card">
+        <a href="2028-05.html" class="month-card" aria-label="May 2028 cruise schedule">
             <div class="month-name">May</div>
             <div class="year-label">2028</div>
         </a>
-        <a href="2028-06.html" class="month-card">
+        <a href="2028-06.html" class="month-card" aria-label="June 2028 cruise schedule">
             <div class="month-name">June</div>
             <div class="year-label">2028</div>
         </a>
-        <a href="2028-07.html" class="month-card">
+        <a href="2028-07.html" class="month-card" aria-label="July 2028 cruise schedule">
             <div class="month-name">July</div>
             <div class="year-label">2028</div>
         </a>
-        <a href="2028-08.html" class="month-card">
+        <a href="2028-08.html" class="month-card" aria-label="August 2028 cruise schedule">
             <div class="month-name">August</div>
             <div class="year-label">2028</div>
         </a>
-        <a href="2028-09.html" class="month-card">
+        <a href="2028-09.html" class="month-card" aria-label="September 2028 cruise schedule">
             <div class="month-name">September</div>
             <div class="year-label">2028</div>
         </a>
-        <a href="2028-10.html" class="month-card">
+        <a href="2028-10.html" class="month-card" aria-label="October 2028 cruise schedule">
             <div class="month-name">October</div>
             <div class="year-label">2028</div>
         </a>
-        <a href="2028-11.html" class="month-card">
+        <a href="2028-11.html" class="month-card" aria-label="November 2028 cruise schedule">
             <div class="month-name">November</div>
             <div class="year-label">2028</div>
         </a>
     </div>
+
+    <footer>
+        <p>Last updated: 2026-06-25 &mdash; Data covers June 2026 through November 2028 &mdash; <a href="https://roatantourismtracker.online" style="color:#484f58;">roatantourismtracker.online</a></p>
+    </footer>
 </body>
 </html>
