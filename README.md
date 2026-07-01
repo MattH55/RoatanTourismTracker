@@ -1,0 +1,106 @@
+# Roatan Tourism Tracker
+
+## Overview
+Complete tourism analytics dashboard for Roatan, Honduras. Tracks flight and cruise ship arrivals/departures with comprehensive analytics and scheduling information.
+
+## Features
+
+### Main Dashboard (index.html)
+- Monthly flight and cruise traffic analysis
+- Daily movement statistics
+- Combined tourism flow charts
+- Calendar view with daily breakdown
+- Month-by-month navigation
+
+### Cruise Schedule (pages/schedule.html)
+- Searchable cruise schedule database
+- Ship itinerary information
+- Previous and next port sequences
+- Passenger capacity data
+- Month filtering
+
+### Analytics Dashboard (pages/dashboard.html)
+- Summary statistics
+- Monthly trends
+- Historical data visualization
+- Tourism volume analysis
+
+## File Structure
+
+```
+roatan-tourism-tracker/
+├── index.html                 # Main analytics dashboard
+├── pages/
+│   ├── schedule.html         # Cruise schedule
+│   └── dashboard.html        # Summary analytics
+├── assets/
+│   ├── styles.css            # Shared styles
+│   └── app.js                # JavaScript functions
+└── README.md                 # This file
+```
+
+## Data Coverage
+
+- **Date Range**: June 2026 - November 2028
+- **Total Cruises**: 1,040+
+- **Unique Ships**: 71+
+- **Months Covered**: 30
+
+## Technology
+
+- **Charts**: Plotly.js (interactive visualization)
+- **Styling**: CSS3 with dark theme
+- **Data**: Embedded JSON in HTML files
+- **Compatibility**: All modern browsers
+
+## Deployment
+
+1. Upload all files to your web server
+2. Ensure `index.html` is in the root directory
+3. Keep `pages/` and `assets/` folders intact
+4. No backend server required - fully static site
+
+## Browser Compatibility
+
+- Chrome/Edge: Full support
+- Firefox: Full support
+- Safari: Full support
+- Mobile browsers: Responsive design
+
+## Features by Page
+
+### index.html
+✓ Interactive monthly charts
+✓ Flight traffic analysis
+✓ Cruise traffic analysis
+✓ Combined tourism metrics
+✓ Calendar view
+✓ Dark theme interface
+
+### pages/schedule.html
+✓ Search by ship name
+✓ Filter by month
+✓ Full itinerary data
+✓ Port sequences
+✓ Passenger information
+
+### pages/dashboard.html
+✓ Key statistics
+✓ Monthly trends
+✓ Tourism volume
+✓ Historical analysis
+
+## Navigation
+
+Use the header navigation to switch between pages:
+- **Analytics** - Main dashboard with charts
+- **Cruise Schedule** - Searchable itinerary database
+- **Dashboard** - Summary statistics
+
+## Support
+
+For issues or updates, contact the tourism board.
+
+---
+
+Generated 2026-06-20
