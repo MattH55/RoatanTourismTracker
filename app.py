@@ -782,10 +782,46 @@ def create_hourly_pattern_chart(monthly_data, year=2026, month=6):
     return json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
 
 
+def load_cruise_itinerary_data():
+    """Load enriched cruise itinerary data from public/data/cruise-ships-today.json."""
+    itinerary_file = os.path.join('public', 'data', 'cruise-ships-today.json')
+    if os.path.exists(itinerary_file):
+        try:
+            with open(itinerary_file, 'r') as f:
+                data = json.load(f)
+            return data.get('shipsInPort', [])
+        except:
+            return []
+    return []
+
+
+def enrich_cruise_with_itinerary(cruise_entry, itinerary_data, cruise_date=None):
+    """Enrich cruise entry with segment and pricing data from itinerary_data.
+
+    IMPORTANT: Does NOT overwrite previous_ports and next_ports if they already exist.
+    The JSON files contain the correct dated ports for each specific sailing, which must
+    be preserved. This function only adds marketing/pricing enrichment.
+    """
+    ship_name = cruise_entry.get('ship_name', '').lower()
+    for ship in itinerary_data:
+        if ship['shipName'].lower() == ship_name:
+            # Only enrich with segment, price, and marketing info
+            # DO NOT overwrite ports - use the dated ports from the JSON files
+            cruise_entry['segment'] = ship.get('segment', '')
+            cruise_entry['avg_price'] = ship.get('avgPrice', 0)
+            cruise_entry['marketing_notes'] = ship.get('marketingNotes', '')
+            cruise_entry['price_range'] = ship.get('priceRange', {})
+            return cruise_entry
+    return cruise_entry
+
+
 def create_event_timeline_chart(monthly_data, year=2026, month=6):
     """Create a scatter plot showing each arrival/departure event with size representing passenger count."""
     days = sorted(monthly_data['days'].keys())
     month_abbr = datetime(year, month, 1).strftime('%b')
+
+    # Load itinerary data for enrichment
+    itinerary_data = load_cruise_itinerary_data()
 
     fig = go.Figure()
 
@@ -817,8 +853,18 @@ def create_event_timeline_chart(monthly_data, year=2026, month=6):
             dep_h = c.get('departure_hour', 17)
             pax = c.get('estimated_passengers', 2000)
             ship = c.get('ship_name', '')
-            all_cruise_arrivals.append(dict(x=day_num, y=arr_h, size=pax, label=day_label, ship=ship))
-            all_cruise_departures.append(dict(x=day_num, y=dep_h, size=pax, label=day_label, ship=ship))
+            # Enrich with itinerary data (pass cruise date for date-based matching)
+            c = enrich_cruise_with_itinerary(c, itinerary_data, cruise_date=d)
+            prev_ports = c.get('previous_ports', [])
+            next_ports = c.get('next_ports', [])
+            segment = c.get('segment', '')
+            avg_price = c.get('avg_price', 0)
+            prev_str = ' → '.join(prev_ports) if prev_ports else 'N/A'
+            next_str = ' → '.join(next_ports) if next_ports else 'N/A'
+            all_cruise_arrivals.append(dict(x=day_num, y=arr_h, size=pax, label=day_label, ship=ship,
+                                           prev=prev_str, next=next_str, seg=segment, price=avg_price))
+            all_cruise_departures.append(dict(x=day_num, y=dep_h, size=pax, label=day_label, ship=ship,
+                                            prev=prev_str, next=next_str, seg=segment, price=avg_price))
 
     # Flight arrivals
     if all_flight_arrivals:
@@ -832,8 +878,8 @@ def create_event_timeline_chart(monthly_data, year=2026, month=6):
                 color='#2E86AB', opacity=0.7,
                 line=dict(width=1, color='white')
             ),
-            hovertemplate='<b>Flight Arrival</b><br>Day: %{x}<br>Time: %{y:.1f}h<br>Flight: %{customdata[0]}<br>Aircraft: %{customdata[1]}<br>Origin: %{customdata[2]}<br>Passengers: %{marker.size:.0f}<extra></extra>',
-            customdata=[[e.get('flight', ''), e.get('aircraft', ''), e.get('origin', '')] for e in all_flight_arrivals]
+            hovertemplate='<b>Flight Arrival</b><br>Day: %{x}<br>Time: %{y:.1f}h<br>Flight: %{customdata[0]}<br>Aircraft: %{customdata[1]}<br>Origin: %{customdata[2]}<br>Passengers: %{customdata[3]}<extra></extra>',
+            customdata=[[e.get('flight', ''), e.get('aircraft', ''), e.get('origin', ''), e.get('size', 0)] for e in all_flight_arrivals]
         ))
 
     # Flight departures
@@ -848,8 +894,8 @@ def create_event_timeline_chart(monthly_data, year=2026, month=6):
                 color='#F18F01', opacity=0.7,
                 line=dict(width=1, color='white')
             ),
-            hovertemplate='<b>Flight Departure</b><br>Day: %{x}<br>Time: %{y:.1f}h<br>Flight: %{customdata[0]}<br>Aircraft: %{customdata[1]}<br>Destination: %{customdata[2]}<br>Passengers: %{marker.size:.0f}<extra></extra>',
-            customdata=[[e.get('flight', ''), e.get('aircraft', ''), e.get('origin', '')] for e in all_flight_departures]
+            hovertemplate='<b>Flight Departure</b><br>Day: %{x}<br>Time: %{y:.1f}h<br>Flight: %{customdata[0]}<br>Aircraft: %{customdata[1]}<br>Destination: %{customdata[2]}<br>Passengers: %{customdata[3]}<extra></extra>',
+            customdata=[[e.get('flight', ''), e.get('aircraft', ''), e.get('origin', ''), e.get('size', 0)] for e in all_flight_departures]
         ))
 
     # Cruise arrivals
@@ -865,8 +911,8 @@ def create_event_timeline_chart(monthly_data, year=2026, month=6):
                 symbol='square',
                 line=dict(width=1, color='white')
             ),
-            hovertemplate='<b>Cruise Arrival</b><br>Day: %{x}<br>Time: %{y:.0f}:00<br>Ship: %{customdata[0]}<br>Passengers: %{marker.size:.0f}<extra></extra>',
-            customdata=[[e.get('ship', '')] for e in all_cruise_arrivals]
+            hovertemplate='<b>Cruise Arrival</b><br>Day: %{x}<br>Time: %{y:.0f}:00<br>Ship: %{customdata[0]}<br>Passengers: %{customdata[1]}<br>Previous: %{customdata[2]}<br>Next: %{customdata[3]}<br>Segment: %{customdata[4]}<br>Avg Price: $%{customdata[5]}<extra></extra>',
+            customdata=[[e.get('ship', ''), e.get('size', 0), e.get('prev', 'N/A'), e.get('next', 'N/A'), e.get('seg', ''), e.get('price', 0)] for e in all_cruise_arrivals]
         ))
 
     # Cruise departures
@@ -882,8 +928,8 @@ def create_event_timeline_chart(monthly_data, year=2026, month=6):
                 symbol='diamond',
                 line=dict(width=1, color='white')
             ),
-            hovertemplate='<b>Cruise Departure</b><br>Day: %{x}<br>Time: %{y:.0f}:00<br>Ship: %{customdata[0]}<br>Passengers: %{marker.size:.0f}<extra></extra>',
-            customdata=[[e.get('ship', '')] for e in all_cruise_departures]
+            hovertemplate='<b>Cruise Departure</b><br>Day: %{x}<br>Time: %{y:.0f}:00<br>Ship: %{customdata[0]}<br>Passengers: %{customdata[1]}<br>Previous: %{customdata[2]}<br>Next: %{customdata[3]}<br>Segment: %{customdata[4]}<br>Avg Price: $%{customdata[5]}<extra></extra>',
+            customdata=[[e.get('ship', ''), e.get('size', 0), e.get('prev', 'N/A'), e.get('next', 'N/A'), e.get('seg', ''), e.get('price', 0)] for e in all_cruise_departures]
         ))
 
     month_label = datetime(year, month, 1).strftime('%B %Y')
@@ -897,6 +943,99 @@ def create_event_timeline_chart(monthly_data, year=2026, month=6):
         height=500,
         margin=dict(l=60, r=20, t=60, b=60),
         legend=dict(orientation='h', yanchor='bottom', y=1.02, xanchor='right', x=1),
+        plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)',
+        font=dict(color='#e0e0e0')
+    )
+
+    return json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+
+
+def create_airport_heatmap(monthly_data, year=2026, month=6):
+    """Create a heatmap showing flight passenger volume at the airport by day and hour."""
+    days = sorted(monthly_data['days'].keys())
+    month_abbr = datetime(year, month, 1).strftime('%b')
+    day_labels = [f'{month_abbr} {int(d.split("-")[2])}' for d in days]
+
+    # Build a 2D grid: days x hours, values = total flight passengers (arrivals + departures)
+    z_data = []
+    for d in days:
+        day_data = monthly_data['days'][d]
+        row = [0] * 24
+        for f in day_data.get('flights', []):
+            h = f.get('hour', 12)
+            pax = f.get('estimated_passengers', 100)
+            row[h] += pax
+        z_data.append(row)
+
+    hours = [f'{h:02d}:00' for h in range(24)]
+
+    fig = go.Figure()
+
+    fig.add_trace(go.Heatmap(
+        z=z_data,
+        x=hours,
+        y=day_labels,
+        colorscale='Viridis',
+        hovertemplate='<b>%{y}</b><br>Time: %{x}<br>Flight Passengers: %{z:,.0f}<extra>Airport</extra>',
+        colorbar=dict(title=dict(text='Passengers', side='right'), tickformat=',')
+    ))
+
+    month_label = datetime(year, month, 1).strftime('%B %Y')
+    fig.update_layout(
+        title=dict(text=f'<b>Airport Traffic Heatmap - {month_label}</b><br><span style="font-size:14px;color:#888;">Flight arrivals & departures by time and date</span>', font=dict(size=20)),
+        xaxis=dict(title='Hour of Day', tickangle=45, tickmode='array',
+                   tickvals=hours[::2], ticktext=hours[::2]),
+        yaxis=dict(title='Date', autorange='reversed'),
+        template='plotly_dark', height=500,
+        margin=dict(l=80, r=80, t=60, b=80),
+        plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)',
+        font=dict(color='#e0e0e0')
+    )
+
+    return json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+
+
+def create_cruise_port_heatmap(monthly_data, year=2026, month=6):
+    """Create a heatmap showing cruise passenger volume at the port by day and hour."""
+    days = sorted(monthly_data['days'].keys())
+    month_abbr = datetime(year, month, 1).strftime('%b')
+    day_labels = [f'{month_abbr} {int(d.split("-")[2])}' for d in days]
+
+    # Build a 2D grid: days x hours, values = total cruise passengers (arrivals + departures)
+    z_data = []
+    for d in days:
+        day_data = monthly_data['days'][d]
+        row = [0] * 24
+        for c in day_data.get('cruises', []):
+            arr_h = c.get('arrival_hour', 8)
+            dep_h = c.get('departure_hour', 17)
+            pax = c.get('estimated_passengers', 2000)
+            # Spread cruise passengers over arrival and departure hours
+            row[arr_h] += pax
+            row[dep_h] += pax
+        z_data.append(row)
+
+    hours = [f'{h:02d}:00' for h in range(24)]
+
+    fig = go.Figure()
+
+    fig.add_trace(go.Heatmap(
+        z=z_data,
+        x=hours,
+        y=day_labels,
+        colorscale='Plasma',
+        hovertemplate='<b>%{y}</b><br>Time: %{x}<br>Cruise Passengers: %{z:,.0f}<extra>Cruise Port</extra>',
+        colorbar=dict(title=dict(text='Passengers', side='right'), tickformat=',')
+    ))
+
+    month_label = datetime(year, month, 1).strftime('%B %Y')
+    fig.update_layout(
+        title=dict(text=f'<b>Cruise Port Traffic Heatmap - {month_label}</b><br><span style="font-size:14px;color:#888;">Cruise arrivals & departures by time and date</span>', font=dict(size=20)),
+        xaxis=dict(title='Hour of Day', tickangle=45, tickmode='array',
+                   tickvals=hours[::2], ticktext=hours[::2]),
+        yaxis=dict(title='Date', autorange='reversed'),
+        template='plotly_dark', height=500,
+        margin=dict(l=80, r=80, t=60, b=80),
         plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)',
         font=dict(color='#e0e0e0')
     )
@@ -1093,7 +1232,7 @@ def create_monthly_calendar_chart(monthly_data, weather_data, year=2026, month=6
                 if 1 <= day_num <= num_days:
                     date_str = f"{year:04d}-{month:02d}-{day_num:02d}"
                     weather = weather_data.get(date_str, {})
-                    temp = weather.get('temp_max', weather.get('temp', 30))
+                    temp = weather.get('high_c', 30)
                     condition = weather.get('condition', '')
                     annotations.append(dict(
                         x=di, y=wi,
@@ -1122,6 +1261,15 @@ def create_monthly_calendar_chart(monthly_data, weather_data, year=2026, month=6
 HTML_TEMPLATE = """<!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L2LFYE0L4B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-L2LFYE0L4B');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roatan Tourism Tracker</title>
@@ -1271,13 +1419,202 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         <div id="hourlyPatternChart" class="chart-card"></div>
         <div id="eventTimelineChart" class="chart-card"></div>
     </div>
+    <div class="chart-grid">
+        <div id="airportHeatmap" class="chart-card"></div>
+        <div id="cruisePortHeatmap" class="chart-card"></div>
+    </div>
     <div id="cruiseCalendar" class="chart-full chart-card"></div>
+    <div id="cruiseScheduleTable" class="chart-full chart-card">
+        <h3 style="color:#A23B72;font-size:18px;margin-bottom:12px;">🚢 Monthly Cruise Schedule — Previous Stops → Roatan → Next Stops</h3>
+        <div id="cruiseScheduleContent" style="overflow-x:auto;">
+            <div class="loading">Loading cruise schedule...</div>
+        </div>
+    </div>
+    <div id="cruiseItineraryPanel" class="chart-full chart-card" style="display:none;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+            <h3 style="color:#A23B72;font-size:18px;">🚢 Cruise Itinerary Details</h3>
+            <button onclick="document.getElementById('cruiseItineraryPanel').style.display='none'" style="background:none;border:none;color:#8b949e;font-size:20px;cursor:pointer;">✕</button>
+        </div>
+        <div id="cruiseItineraryContent"></div>
+    </div>
 
     <script>
         let currentFilter = 'all';
         let currentDate = '{{ selected_date }}';
         let currentYear = {{ selected_year }};
         let currentMonth = {{ selected_month }};
+        let cruiseItineraryCache = null;
+
+        // Load cruise itinerary data on page load
+        fetch('/api/cruise-itineraries')
+            .then(r => r.json())
+            .then(data => {
+                cruiseItineraryCache = data.shipsInPort || [];
+            })
+            .catch(() => {});
+
+        function showCruiseItinerary(shipName, dateStr) {
+            const panel = document.getElementById('cruiseItineraryPanel');
+            const content = document.getElementById('cruiseItineraryContent');
+            
+            // Find ship in cache
+            let shipData = null;
+            if (cruiseItineraryCache) {
+                shipData = cruiseItineraryCache.find(s => 
+                    s.shipName.toLowerCase() === shipName.toLowerCase()
+                );
+            }
+            
+            if (!shipData) {
+                content.innerHTML = '<div style="color:#8b949e;">No itinerary data available for <strong>' + shipName + '</strong> on ' + dateStr + '.</div>';
+                panel.style.display = 'block';
+                return;
+            }
+            
+            const prevPorts = shipData.previousPorts || [];
+            const nextPorts = shipData.nextPorts || [];
+            const priceRange = shipData.priceRange || {};
+            const segment = shipData.segment || 'N/A';
+            const marketingNotes = shipData.marketingNotes || '';
+            
+            const segmentColors = {
+                'Budget': '#2ECC40',
+                'Mid-range': '#F18F01',
+                'Premium': '#A23B72',
+                'Luxury': '#FFD700'
+            };
+            const segColor = segmentColors[segment] || '#8b949e';
+            
+            content.innerHTML = `
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+                    <div>
+                        <h4 style="color:#e0e0e0;margin-bottom:8px;">📍 Route</h4>
+                        <div style="background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:12px;">
+                            <div style="color:#8b949e;font-size:12px;margin-bottom:4px;">Previous Ports</div>
+                            <div style="color:#e0e0e0;">${prevPorts.length ? prevPorts.join(' → ') : 'N/A'}</div>
+                            <div style="color:#A23B72;text-align:center;margin:8px 0;font-size:18px;">⬇ Roatan ⬇</div>
+                            <div style="color:#8b949e;font-size:12px;margin-bottom:4px;">Next Ports</div>
+                            <div style="color:#e0e0e0;">${nextPorts.length ? nextPorts.join(' → ') : 'N/A'}</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 style="color:#e0e0e0;margin-bottom:8px;">💰 Pricing & Segment</h4>
+                        <div style="background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:12px;">
+                            <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+                                <span style="color:#8b949e;">Inside:</span>
+                                <span style="color:#e0e0e0;">$${priceRange.inside || 'N/A'}</span>
+                            </div>
+                            <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+                                <span style="color:#8b949e;">Oceanview:</span>
+                                <span style="color:#e0e0e0;">$${priceRange.oceanview || 'N/A'}</span>
+                            </div>
+                            <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+                                <span style="color:#8b949e;">Balcony:</span>
+                                <span style="color:#e0e0e0;">$${priceRange.balcony || 'N/A'}</span>
+                            </div>
+                            <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+                                <span style="color:#8b949e;">Suite:</span>
+                                <span style="color:#e0e0e0;">$${priceRange.suite || 'N/A'}</span>
+                            </div>
+                            <div style="display:flex;justify-content:space-between;margin-top:8px;padding-top:8px;border-top:1px solid #30363d;">
+                                <span style="color:#8b949e;">Segment:</span>
+                                <span style="color:${segColor};font-weight:bold;">${segment}</span>
+                            </div>
+                            <div style="display:flex;justify-content:space-between;margin-top:4px;">
+                                <span style="color:#8b949e;">Avg Price:</span>
+                                <span style="color:#e0e0e0;">$${(shipData.avgPrice || 0).toLocaleString()}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                ${marketingNotes ? `
+                <div style="margin-top:12px;background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:12px;">
+                    <div style="color:#8b949e;font-size:12px;margin-bottom:4px;">📋 Marketing Notes</div>
+                    <div style="color:#e0e0e0;font-size:14px;">${marketingNotes}</div>
+                </div>` : ''}
+            `;
+            panel.style.display = 'block';
+        }
+
+        function loadCruiseSchedule() {
+            const content = document.getElementById('cruiseScheduleContent');
+            content.innerHTML = '<div class="loading">Loading cruise schedule...</div>';
+
+            fetch('/api/cruise-schedule?year=' + currentYear + '&month=' + currentMonth)
+                .then(r => r.json())
+                .then(data => {
+                    const cruises = data.cruises || [];
+                    if (cruises.length === 0) {
+                        content.innerHTML = '<div style="color:#8b949e;text-align:center;padding:20px;">No cruise ships scheduled for this month.</div>';
+                        return;
+                    }
+
+                    let html = '<table style="width:100%;border-collapse:collapse;font-size:13px;">';
+                    html += '<thead><tr style="background:#0d1117;border-bottom:2px solid #30363d;">';
+                    html += '<th style="padding:8px 6px;text-align:left;color:#8b949e;">Date</th>';
+                    html += '<th style="padding:8px 6px;text-align:left;color:#8b949e;">Ship Name</th>';
+                    html += '<th style="padding:8px 6px;text-align:center;color:#8b949e;">Prev 4</th>';
+                    html += '<th style="padding:8px 6px;text-align:center;color:#8b949e;">Prev 3</th>';
+                    html += '<th style="padding:8px 6px;text-align:center;color:#8b949e;">Prev 2</th>';
+                    html += '<th style="padding:8px 6px;text-align:center;color:#8b949e;">Prev 1</th>';
+                    html += '<th style="padding:8px 10px;text-align:center;background:#A23B72;color:white;font-weight:bold;">★ ROATAN ★</th>';
+                    html += '<th style="padding:8px 6px;text-align:center;color:#8b949e;">Next 1</th>';
+                    html += '<th style="padding:8px 6px;text-align:center;color:#8b949e;">Next 2</th>';
+                    html += '<th style="padding:8px 6px;text-align:center;color:#8b949e;">Next 3</th>';
+                    html += '<th style="padding:8px 6px;text-align:center;color:#8b949e;">Next 4</th>';
+                    html += '<th style="padding:8px 6px;text-align:right;color:#8b949e;">Passengers</th>';
+                    html += '<th style="padding:8px 6px;text-align:center;color:#8b949e;">Segment</th>';
+                    html += '<th style="padding:8px 6px;text-align:right;color:#8b949e;">Avg Price</th>';
+                    html += '</tr></thead><tbody>';
+
+                    cruises.forEach((c, idx) => {
+                        const bgColor = idx % 2 === 0 ? '#161b22' : '#1a1f2e';
+                        const dateObj = new Date(c.date + 'T12:00:00');
+                        const dateStr = dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+                        const arrH = c.arrival_hour !== undefined ? c.arrival_hour.toString().padStart(2, '0') + ':00' : '--';
+                        const depH = c.departure_hour !== undefined ? c.departure_hour.toString().padStart(2, '0') + ':00' : '--';
+                        const pax = (c.estimated_passengers || 0).toLocaleString();
+                        const price = c.avg_price ? '$' + c.avg_price.toLocaleString() : 'N/A';
+                        const segment = c.segment || 'N/A';
+
+                        const segmentColors = {
+                            'Budget': '#2ECC40',
+                            'Mid-range': '#F18F01',
+                            'Premium': '#A23B72',
+                            'Luxury': '#FFD700'
+                        };
+                        const segColor = segmentColors[segment] || '#8b949e';
+
+                        function portCell(port) {
+                            if (!port) return '<td style="padding:6px;text-align:center;color:#30363d;font-size:11px;">—</td>';
+                            return '<td style="padding:6px;text-align:center;color:#e0e0e0;font-size:11px;">' + port + '</td>';
+                        }
+
+                        html += '<tr style="border-bottom:1px solid #21262d;background:' + bgColor + ';">';
+                        html += '<td style="padding:8px 6px;white-space:nowrap;color:#e0e0e0;">' + dateStr + '<br><span style="font-size:11px;color:#8b949e;">' + arrH + ' - ' + depH + '</span></td>';
+                        html += '<td style="padding:8px 6px;color:#A23B72;font-weight:bold;white-space:nowrap;">' + c.ship_name + '</td>';
+                        html += portCell(c.prev4 || '');
+                        html += portCell(c.prev3 || '');
+                        html += portCell(c.prev2 || '');
+                        html += portCell(c.prev1 || '');
+                        html += '<td style="padding:8px 10px;text-align:center;background:#A23B72;color:white;font-weight:bold;font-size:13px;">ROATAN</td>';
+                        html += portCell(c.next1 || '');
+                        html += portCell(c.next2 || '');
+                        html += portCell(c.next3 || '');
+                        html += portCell(c.next4 || '');
+                        html += '<td style="padding:8px 6px;text-align:right;color:#e0e0e0;white-space:nowrap;">' + pax + '</td>';
+                        html += '<td style="padding:8px 6px;text-align:center;color:' + segColor + ';font-weight:bold;">' + segment + '</td>';
+                        html += '<td style="padding:8px 6px;text-align:right;color:#e0e0e0;white-space:nowrap;">' + price + '</td>';
+                        html += '</tr>';
+                    });
+
+                    html += '</tbody></table>';
+                    content.innerHTML = html;
+                })
+                .catch(err => {
+                    content.innerHTML = '<div class="error">Error loading cruise schedule: ' + err.message + '</div>';
+                });
+        }
 
         function setFilter(mode) {
             currentFilter = mode;
@@ -1300,10 +1637,15 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         }
 
         function loadMonthData() {
-            document.querySelectorAll('.chart-card').forEach(el => {
+            document.querySelectorAll('.chart-card:not(#cruiseScheduleTable)').forEach(el => {
                 el.innerHTML = '<div class="loading">Loading...</div>';
             });
             document.getElementById('statsRow').innerHTML = '<div class="loading">Loading statistics...</div>';
+            // Keep cruise schedule content intact but show loading
+            const cruiseContent = document.getElementById('cruiseScheduleContent');
+            if (cruiseContent) {
+                cruiseContent.innerHTML = '<div class="loading">Loading cruise schedule...</div>';
+            }
 
             fetch('/api/monthly?year=' + currentYear + '&month=' + currentMonth)
                 .then(r => r.json())
@@ -1323,7 +1665,10 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                     Plotly.newPlot('originInflowChart', JSON.parse(data.origin_inflow_chart));
                     Plotly.newPlot('hourlyPatternChart', JSON.parse(data.hourly_pattern_chart));
                     Plotly.newPlot('eventTimelineChart', JSON.parse(data.event_timeline_chart));
+                    Plotly.newPlot('airportHeatmap', JSON.parse(data.airport_heatmap));
+                    Plotly.newPlot('cruisePortHeatmap', JSON.parse(data.cruise_port_heatmap));
                     Plotly.newPlot('cruiseCalendar', JSON.parse(data.cruise_calendar));
+                    loadCruiseSchedule();
                     loadDayData(currentDate);
                 })
                 .catch(err => {
@@ -1355,7 +1700,6 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                 { label: 'Flight Arrivals', value: stats.total_flight_arrivals.toLocaleString() },
                 { label: 'Flight Departures', value: stats.total_flight_departures.toLocaleString() },
                 { label: 'Cruise Arrivals', value: stats.total_cruise_arrivals.toLocaleString() },
-                { label: 'Cruise Departures', value: stats.total_cruise_departures.toLocaleString() },
                 { label: 'Total Flights', value: stats.total_flights.toLocaleString() },
                 { label: 'Total Cruise Ships', value: stats.total_cruise_ships.toLocaleString() },
             ];
@@ -1416,6 +1760,185 @@ def api_day_detail(date_str):
     return jsonify({'chart': chart_json})
 
 
+@app.route('/api/cruise-itineraries')
+def api_cruise_itineraries():
+    """API endpoint for enriched cruise itinerary data."""
+    itinerary_data = load_cruise_itinerary_data()
+    return jsonify({
+        'shipsInPort': itinerary_data,
+        'lastUpdated': datetime.now().strftime('%Y-%m-%d'),
+    })
+
+
+def _validate_port_order(prev_ports, next_ports, cruise_date):
+    """Check if ports are in chronological order. If not, convert to T-minus notation.
+
+    prev_ports: [prev1 (latest, closest to Roatan), prev2, prev3, prev4 (earliest, furthest)]
+    next_ports: [next1 (earliest, closest after Roatan), next2, next3, next4 (latest, furthest)]
+    cruise_date: the date the ship visits Roatan (e.g., '2026-06-11')
+
+    T-minus notation uses actual day offsets from Roatan arrival:
+    T-1 = 1 day before Roatan, T+1 = 1 day after Roatan, etc.
+
+    Returns (fixed_prev, fixed_next) with T-minus notation if order is broken.
+    """
+    import re
+    from datetime import datetime
+
+    def extract_day_num(port_str):
+        """Extract day number from a port string like 'Jun 22: Tampa' or '22: Tampa'."""
+        if not port_str:
+            return None
+        # Try to match "Mon DD:" or "DD:" at the start
+        m = re.match(r'([A-Za-z]+\s+)?(\d+):', port_str)
+        if m:
+            return int(m.group(2))
+        return None
+
+    def extract_month_num(port_str):
+        """Extract month number from a port string like 'Jun 22: Tampa'.
+        Returns 1-12 or None if no month found."""
+        if not port_str:
+            return None
+        m = re.match(r'([A-Za-z]+)\s+\d+:', port_str)
+        if m:
+            month_abbr = m.group(1).lower()[:3]
+            months = {'jan':1,'feb':2,'mar':3,'apr':4,'may':5,'jun':6,
+                     'jul':7,'aug':8,'sep':9,'oct':10,'nov':11,'dec':12}
+            return months.get(month_abbr)
+        return None
+
+    def get_port_sort_key(port_str):
+        """Get a sortable key (month_num * 100 + day_num) for a port string."""
+        if not port_str:
+            return None
+        month = extract_month_num(port_str)
+        day = extract_day_num(port_str)
+        if month is not None and day is not None:
+            return month * 100 + day
+        if day is not None:
+            return day
+        return None
+
+    def to_t_minus(port_str, day_offset):
+        """Convert a port string to T-minus notation with actual day offset."""
+        if not port_str:
+            return port_str
+        # Remove the date prefix (e.g., "Jun 22: " or "22: ")
+        cleaned = re.sub(r'^[A-Za-z]+\s+\d+:\s*', '', port_str)
+        cleaned = re.sub(r'^\d+:\s*', '', cleaned)
+        if day_offset < 0:
+            return f'T{day_offset}: {cleaned}'
+        elif day_offset > 0:
+            return f'T+{day_offset}: {cleaned}'
+        else:
+            return f'T-0: {cleaned}'
+
+    # Check previous ports (should be decreasing: prev1 > prev2 > prev3 > prev4)
+    # because prev1 is latest and prev4 is earliest
+    prev_keys = [get_port_sort_key(p) for p in prev_ports]
+    prev_has_break = False
+    for i in range(len(prev_keys) - 1):
+        if prev_keys[i] is not None and prev_keys[i+1] is not None:
+            if prev_keys[i] <= prev_keys[i+1]:
+                prev_has_break = True
+                break
+
+    # Check next ports (should be increasing: next1 < next2 < next3 < next4)
+    # because next1 is earliest after Roatan and next4 is latest
+    next_keys = [get_port_sort_key(p) for p in next_ports]
+    next_has_break = False
+    for i in range(len(next_keys) - 1):
+        if next_keys[i] is not None and next_keys[i+1] is not None:
+            if next_keys[i] >= next_keys[i+1]:
+                next_has_break = True
+                break
+
+    # If no breaks, return as-is
+    if not prev_has_break and not next_has_break:
+        return prev_ports, next_ports
+
+    # Convert to T-minus notation using position-based offsets
+    # prev1 (closest to Roatan) = T-1, prev2 = T-2, prev3 = T-3, prev4 = T-4
+    # next1 (closest after Roatan) = T+1, next2 = T+2, next3 = T+3, next4 = T+4
+    fixed_prev = []
+    for i, p in enumerate(prev_ports):
+        offset = -(i + 1)  # T-1, T-2, T-3, T-4
+        fixed_prev.append(to_t_minus(p, offset))
+
+    fixed_next = []
+    for i, p in enumerate(next_ports):
+        offset = i + 1  # T+1, T+2, T+3, T+4
+        fixed_next.append(to_t_minus(p, offset))
+
+    return fixed_prev, fixed_next
+
+
+@app.route('/api/cruise-schedule')
+def api_cruise_schedule():
+    """API endpoint for monthly cruise schedule with itinerary details as a table."""
+    year = request.args.get('year', 2026, type=int)
+    month = request.args.get('month', 6, type=int)
+
+    monthly_data = load_monthly_data(year, month)
+    itinerary_data = load_cruise_itinerary_data()
+    days = sorted(monthly_data['days'].keys())
+
+    cruises = []
+    for d in days:
+        day_data = monthly_data['days'][d]
+        for c in day_data.get('cruises', []):
+            c = enrich_cruise_with_itinerary(c, itinerary_data, cruise_date=d)
+            prev_ports = c.get('previous_ports', [])
+            next_ports = c.get('next_ports', [])
+            # Previous ports are stored latest-first in JSON (e.g., Jun 14, Jun 13, Jun 12)
+            # We keep them as-is: prev1=latest, prev2, prev3, prev4=earliest
+            # Next ports are stored chronologically (earliest-first) and stay as-is
+            # Validate chronological order - use T-minus notation if broken
+            prev_ports, next_ports = _validate_port_order(prev_ports, next_ports, d)
+            # Pad to up to 4 ports each side
+            while len(prev_ports) < 4:
+                prev_ports.append('')
+            while len(next_ports) < 4:
+                next_ports.append('')
+            cruises.append({
+                'date': d,
+                'ship_name': c.get('ship_name', 'Unknown'),
+                'arrival_hour': c.get('arrival_hour', 8),
+                'departure_hour': c.get('departure_hour', 17),
+                'estimated_passengers': c.get('estimated_passengers', 0),
+                'segment': c.get('segment', ''),
+                'avg_price': c.get('avg_price', 0),
+                'prev1': prev_ports[0] if len(prev_ports) > 0 else '',
+                'prev2': prev_ports[1] if len(prev_ports) > 1 else '',
+                'prev3': prev_ports[2] if len(prev_ports) > 2 else '',
+                'prev4': prev_ports[3] if len(prev_ports) > 3 else '',
+                'next1': next_ports[0] if len(next_ports) > 0 else '',
+                'next2': next_ports[1] if len(next_ports) > 1 else '',
+                'next3': next_ports[2] if len(next_ports) > 2 else '',
+                'next4': next_ports[3] if len(next_ports) > 3 else '',
+            })
+
+    return jsonify({
+        'year': year,
+        'month': month,
+        'cruises': cruises,
+    })
+
+
+@app.route('/api/cruise-itineraries/<date_str>')
+def api_cruise_itineraries_by_date(date_str):
+    """API endpoint for cruise itinerary data filtered by date."""
+    itinerary_data = load_cruise_itinerary_data()
+    # Filter ships that match the requested date
+    ships_for_date = [s for s in itinerary_data if s.get('date') == date_str]
+    return jsonify({
+        'date': date_str,
+        'shipsInPort': ships_for_date,
+        'lastUpdated': datetime.now().strftime('%Y-%m-%d'),
+    })
+
+
 @app.route('/api/monthly')
 def api_monthly():
     """API endpoint for all monthly chart data."""
@@ -1436,6 +1959,8 @@ def api_monthly():
     origin_inflow_chart = create_origin_inflow_chart(monthly_data, year, month)
     hourly_pattern_chart = create_hourly_pattern_chart(monthly_data, year, month)
     event_timeline_chart = create_event_timeline_chart(monthly_data, year, month)
+    airport_heatmap = create_airport_heatmap(monthly_data, year, month)
+    cruise_port_heatmap = create_cruise_port_heatmap(monthly_data, year, month)
     cruise_calendar = create_cruise_calendar(monthly_data, year, month)
 
     return jsonify({
@@ -1450,6 +1975,8 @@ def api_monthly():
         'origin_inflow_chart': origin_inflow_chart,
         'hourly_pattern_chart': hourly_pattern_chart,
         'event_timeline_chart': event_timeline_chart,
+        'airport_heatmap': airport_heatmap,
+        'cruise_port_heatmap': cruise_port_heatmap,
         'cruise_calendar': cruise_calendar,
     })
 
@@ -1480,6 +2007,8 @@ def generate_static_html():
         origin_inflow_chart = create_origin_inflow_chart(monthly_data, year, month)
         hourly_pattern_chart = create_hourly_pattern_chart(monthly_data, year, month)
         event_timeline_chart = create_event_timeline_chart(monthly_data, year, month)
+        airport_heatmap = create_airport_heatmap(monthly_data, year, month)
+        cruise_port_heatmap = create_cruise_port_heatmap(monthly_data, year, month)
         cruise_calendar = create_cruise_calendar(monthly_data, year, month)
 
         # Generate first day hourly chart
@@ -1491,6 +2020,15 @@ def generate_static_html():
         html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L2LFYE0L4B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-L2LFYE0L4B');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roatan Tourism Tracker - {get_month_label(year, month)}</title>
@@ -1574,6 +2112,10 @@ def generate_static_html():
         <div id="hourlyPatternChart" class="chart-card"></div>
         <div id="eventTimelineChart" class="chart-card"></div>
     </div>
+    <div class="chart-grid">
+        <div id="airportHeatmap" class="chart-card"></div>
+        <div id="cruisePortHeatmap" class="chart-card"></div>
+    </div>
     <div id="cruiseCalendar" class="chart-full chart-card"></div>
 
     <script>
@@ -1588,6 +2130,8 @@ def generate_static_html():
             originInflowChart: {origin_inflow_chart},
             hourlyPatternChart: {hourly_pattern_chart},
             eventTimelineChart: {event_timeline_chart},
+            airportHeatmap: {airport_heatmap},
+            cruisePortHeatmap: {cruise_port_heatmap},
             cruiseCalendar: {cruise_calendar},
             hourlyChart: {hourly_chart},
         }};
@@ -1633,6 +2177,15 @@ def generate_static_html():
     index_html = """<!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L2LFYE0L4B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-L2LFYE0L4B');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roatan Tourism Tracker - All Months</title>
