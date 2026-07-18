@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L2LFYE0L4B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-L2LFYE0L4B');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roatan Map: Landmarks &amp; Things to Do | Beaches, Parks &amp; Attractions</title>
+    <meta name="description" content="Interactive map of Roatan, Honduras with notable landmarks and things to do: West Bay Beach, Gumbalimba Park, Little French Key, sloth sanctuaries, dive sites, cruise ports, and more — with links.">
+    <link rel="canonical" href="https://roatantourismtracker.online/things-to-do.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Roatan Map: Landmarks &amp; Things to Do">
+    <meta property="og:description" content="Interactive map of Roatan's beaches, wildlife parks, cruise ports, and attractions with links.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://roatantourismtracker.online/things-to-do.html">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TouristDestination",
+      "name": "Roatan, Honduras",
+      "description": "Map of notable landmarks and attractions in Roatan: beaches, wildlife parks, dive areas, and cruise ports.",
+      "url": "https://roatantourismtracker.online/things-to-do.html",
+      "geo": { "@type": "GeoCoordinates", "latitude": 16.33, "longitude": -86.53 }
+    }
+    </script>
+
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0d1117;
+            color: #e0e0e0;
+            padding: 20px 40px 40px;
+        }
+        .top-nav { margin-bottom: 20px; display: flex; gap: 8px; flex-wrap: wrap; }
+        .top-nav a {
+            padding: 6px 14px; border-radius: 6px;
+            border: 1px solid #30363d; background: #161b22;
+            color: #e0e0e0; font-size: 13px; text-decoration: none;
+        }
+        .top-nav a:hover { border-color: #2E86AB; color: #2E86AB; }
+        h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #2E86AB, #A23B72);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .subtitle { color: #8b949e; margin-bottom: 20px; font-size: 15px; max-width: 760px; }
+        #map {
+            height: 520px;
+            border-radius: 10px;
+            border: 1px solid #30363d;
+            margin-bottom: 24px;
+            z-index: 0;
+        }
+        .legend { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; font-size: 13px; color: #8b949e; }
+        .legend span::before { content: '●'; margin-right: 5px; }
+        .legend .c-beach::before { color: #2E86AB; }
+        .legend .c-nature::before { color: #2ECC40; }
+        .legend .c-port::before { color: #A23B72; }
+        .legend .c-town::before { color: #F18F01; }
+        h2 {
+            font-size: 20px;
+            color: #2E86AB;
+            margin: 24px 0 12px;
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 8px;
+        }
+        .poi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 14px;
+        }
+        .poi-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            padding: 14px 16px;
+        }
+        .poi-card h3 { font-size: 15px; margin-bottom: 6px; }
+        .poi-card h3 a { color: #e0e0e0; text-decoration: none; }
+        .poi-card h3 a:hover { color: #2E86AB; }
+        .poi-card .cat { font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+        .poi-card p { font-size: 13px; color: #8b949e; line-height: 1.5; }
+        .poi-card .site-link { font-size: 12px; }
+        .poi-card .site-link a { color: #2E86AB; text-decoration: none; }
+        .poi-card .site-link a:hover { text-decoration: underline; }
+        .cat.beach { color: #2E86AB; } .cat.nature { color: #2ECC40; }
+        .cat.port { color: #A23B72; } .cat.town { color: #F18F01; }
+        footer {
+            margin-top: 40px;
+            font-size: 12px;
+            color: #484f58;
+            border-top: 1px solid #21262d;
+            padding-top: 16px;
+        }
+        footer a { color: #484f58; }
+        .leaflet-popup-content { font-size: 13px; }
+        .leaflet-popup-content a { color: #2E86AB; }
+    </style>
+</head>
+<body>
+    <nav class="top-nav" aria-label="Site navigation">
+        <a href="index.html#all">&larr; All Months</a>
+        <a href="dive-certifications.html">Dive Certifications</a>
+    </nav>
+
+    <h1>Roatan: Landmarks &amp; Things to Do</h1>
+    <p class="subtitle">Interactive map of Roatan's most notable beaches, wildlife parks, cruise ports, and attractions. Click any marker or card for details and official websites.</p>
+
+    <div id="map" role="application" aria-label="Interactive map of Roatan landmarks"></div>
+
+    <div class="legend" aria-hidden="true">
+        <span class="c-beach">Beaches &amp; Diving</span>
+        <span class="c-nature">Nature &amp; Wildlife</span>
+        <span class="c-port">Cruise Ports</span>
+        <span class="c-town">Towns &amp; Transport</span>
+    </div>
+
+    <h2>All Landmarks</h2>
+    <div class="poi-grid" id="poiGrid"></div>
+
+    <footer>
+        <p>Last updated: 2026-06-26 &mdash;
+        <a href="index.html#all">All months</a> &mdash;
+        <a href="dive-certifications.html">Dive Certifications</a> &mdash;
+        <a href="https://roatantourismtracker.online">roatantourismtracker.online</a></p>
+    </footer>
+
+    <script>
+        var POIS = [
+            // Beaches & Diving (blue)
+            { name: 'West Bay Beach', cat: 'beach', lat: 16.2765, lon: -86.6042,
+              desc: "Roatan's most famous beach — powder-white sand with the reef swimmable from shore. Best snorkeling on the island.",
+              url: '' },
+            { name: 'Half Moon Bay', cat: 'beach', lat: 16.2985, lon: -86.5987,
+              desc: 'Sheltered crescent beach in West End village, ringed by dive shops and beach bars. Easy shore snorkeling.',
+              url: '' },
+            { name: 'Roatan Marine Park (West End)', cat: 'beach', lat: 16.2930, lon: -86.5990,
+              desc: 'Non-profit protecting the Sandy Bay–West End marine reserve. Buy your marine park bracelet and eco-store gear here.',
+              url: 'https://roatanmarinepark.org' },
+            { name: 'Camp Bay Beach', cat: 'beach', lat: 16.4050, lon: -86.3050,
+              desc: "The east end's long, undeveloped beach — quiet, palm-lined, and far from the cruise crowds.",
+              url: '' },
+            // Nature & Wildlife (green)
+            { name: 'Gumbalimba Park', cat: 'nature', lat: 16.2820, lon: -86.5945,
+              desc: 'Animal preserve with capuchin monkeys, macaws, and sloths, plus botanical trails, ziplines, and a beach.',
+              url: 'https://gumbalimbapark.com' },
+            { name: 'Carambola Botanical Gardens', cat: 'nature', lat: 16.3225, lon: -86.5695,
+              desc: '40 acres of trails through orchids, spice trees, and iguana habitat; hike to a summit view over the reef.',
+              url: 'https://carambolagardens.com' },
+            { name: "Daniel Johnson's Monkey & Sloth Hangout", cat: 'nature', lat: 16.3480, lon: -86.4380,
+              desc: 'Family-run sanctuary at French Cay — hold sloths and meet monkeys and macaws in small guided groups.',
+              url: 'https://monkeyandslothhangout.com' },
+            { name: "Arch's Iguana & Marine Park", cat: 'nature', lat: 16.3640, lon: -86.4300,
+              desc: 'Hundreds of free-roaming iguanas plus a marine enclosure with tarpon and turtles at French Cay.',
+              url: 'https://archsiguanaandmarinepark.com' },
+            { name: 'Little French Key', cat: 'nature', lat: 16.3530, lon: -86.4340,
+              desc: 'Private island day-resort: beaches, animal rescues, kayaking, and restaurants a short water-taxi ride away.',
+              url: 'https://littlefrenchkey.com' },
+            { name: 'Anthony\'s Key Resort / Roatan Institute for Marine Sciences', cat: 'nature', lat: 16.3245, lon: -86.5670,
+              desc: 'Dolphin encounters, dive resort, and the Roatan Museum at Sandy Bay.',
+              url: 'https://anthonyskey.com' },
+            // Cruise Ports (magenta)
+            { name: 'Mahogany Bay Cruise Center', cat: 'port', lat: 16.3090, lon: -86.5010,
+              desc: "Carnival Corporation's private cruise port with shops, a beach, and the Magical Flying Beach Chair lift.",
+              url: '' },
+            { name: 'Port of Roatan (Town Center, Coxen Hole)', cat: 'port', lat: 16.3155, lon: -86.5350,
+              desc: 'Cruise pier used by Royal Caribbean, MSC, NCL and others, opening onto shops and tour operators in Coxen Hole.',
+              url: '' },
+            // Towns & Transport (orange)
+            { name: 'West End Village', cat: 'town', lat: 16.2925, lon: -86.5995,
+              desc: "The island's dive-and-nightlife hub: waterfront restaurants, dive shops, and sunset bars along a sandy lane.",
+              url: '' },
+            { name: 'Coxen Hole', cat: 'town', lat: 16.3167, lon: -86.5333,
+              desc: "Roatan's capital and commercial center — banks, markets, and transport connections.",
+              url: '' },
+            { name: 'Oak Ridge & Mangrove Tunnels', cat: 'town', lat: 16.3655, lon: -86.3985,
+              desc: 'Stilt-house fishing village; hire a boat to glide through centuries-old mangrove tunnel channels.',
+              url: '' },
+            { name: 'Punta Gorda (Garifuna Village)', cat: 'town', lat: 16.3935, lon: -86.3510,
+              desc: 'The oldest Garifuna settlement in Honduras — drumming, dance, and cultural tours on the north coast.',
+              url: '' },
+            { name: 'Juan Manuel Gálvez International Airport (RTB)', cat: 'town', lat: 16.3168, lon: -86.5230,
+              desc: "Roatan's international airport with direct flights from the US, Canada, and Central America.",
+              url: '' }
+        ];
+
+        var CAT_COLORS = { beach: '#2E86AB', nature: '#2ECC40', port: '#A23B72', town: '#F18F01' };
+        var CAT_LABELS = { beach: 'Beach & Diving', nature: 'Nature & Wildlife', port: 'Cruise Port', town: 'Town & Transport' };
+
+        var map = L.map('map').setView([16.335, -86.47], 11);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        POIS.forEach(function (p) {
+            var marker = L.circleMarker([p.lat, p.lon], {
+                radius: 9,
+                fillColor: CAT_COLORS[p.cat],
+                color: '#ffffff',
+                weight: 2,
+                opacity: 1,
+                fillOpacity: 0.9
+            }).addTo(map);
+
+            var popup = '<strong>' + p.name + '</strong><br>' + p.desc;
+            if (p.url) popup += '<br><a href="' + p.url + '" target="_blank" rel="noopener">' + p.url.replace('https://', '') + '</a>';
+            marker.bindPopup(popup);
+        });
+
+        // Build the card grid
+        var grid = document.getElementById('poiGrid');
+        POIS.forEach(function (p) {
+            var card = document.createElement('div');
+            card.className = 'poi-card';
+            var nameHtml = p.url
+                ? '<a href="' + p.url + '" target="_blank" rel="noopener">' + p.name + '</a>'
+                : p.name;
+            var siteHtml = p.url
+                ? '<p class="site-link"><a href="' + p.url + '" target="_blank" rel="noopener">' + p.url.replace('https://', '') + '</a></p>'
+                : '';
+            card.innerHTML = '<div class="cat ' + p.cat + '">' + CAT_LABELS[p.cat] + '</div>' +
+                             '<h3>' + nameHtml + '</h3>' +
+                             '<p>' + p.desc + '</p>' + siteHtml;
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', function () {
+                map.setView([p.lat, p.lon], 14);
+                document.getElementById('map').scrollIntoView({ behavior: 'smooth' });
+            });
+            grid.appendChild(card);
+        });
+    </script>
+</body>
+</html>
