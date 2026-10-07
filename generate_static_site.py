@@ -326,7 +326,6 @@ def generate_month_page(year, month):
             ('Flight Arrivals', f"{stats['total_flight_arrivals']:,}"),
             ('Flight Departures', f"{stats['total_flight_departures']:,}"),
             ('Cruise Arrivals', f"{stats['total_cruise_arrivals']:,}"),
-            ('Cruise Departures', f"{stats['total_cruise_departures']:,}"),
             ('Total Flights', f"{stats['total_flights']:,}"),
             ('Total Cruise Ships', f"{stats['total_cruise_ships']:,}"),
         ]

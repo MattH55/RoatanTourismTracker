@@ -1136,10 +1136,9 @@ def create_monthly_stats(monthly_data):
         for c in day_data.get('cruises', []):
             total_cruise_ships += 1
             pax = c.get('estimated_passengers', 2000)
-            if c.get('is_arrival'):
-                total_cruise_arrivals += pax
-            else:
-                total_cruise_departures += pax
+            # A cruise call is a same-day visit: everyone who comes ashore leaves with the ship
+            total_cruise_arrivals += pax
+            total_cruise_departures += pax
 
     total_arrivals = total_flight_arrivals + total_cruise_arrivals
     total_departures = total_flight_departures + total_cruise_departures
@@ -2144,7 +2143,6 @@ def generate_static_html():
                 {{ label: 'Flight Arrivals', value: s.total_flight_arrivals.toLocaleString() }},
                 {{ label: 'Flight Departures', value: s.total_flight_departures.toLocaleString() }},
                 {{ label: 'Cruise Arrivals', value: s.total_cruise_arrivals.toLocaleString() }},
-                {{ label: 'Cruise Departures', value: s.total_cruise_departures.toLocaleString() }},
                 {{ label: 'Total Flights', value: s.total_flights.toLocaleString() }},
                 {{ label: 'Total Cruise Ships', value: s.total_cruise_ships.toLocaleString() }},
             ];
