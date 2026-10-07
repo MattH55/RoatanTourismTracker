@@ -383,7 +383,24 @@
           "estimated_passengers": 25
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "MSC Seascape",
+          "arrival_hour": 8,
+          "departure_hour": 16,
+          "estimated_passengers": 5878,
+          "previous_ports": [
+            "May 31, 2028: At Sea",
+            "May 30, 2028: Galveston"
+          ],
+          "next_ports": [
+            "Jun 02, 2028: Cozumel",
+            "Jun 03, 2028: At Sea",
+            "Jun 04, 2028: Galveston"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2028-06-02": {
       "flights": [
@@ -1923,7 +1940,25 @@
           "estimated_passengers": 15
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "MSC World America",
+          "arrival_hour": 9,
+          "departure_hour": 18,
+          "estimated_passengers": 5252,
+          "previous_ports": [
+            "Jun 04, 2028: At Sea",
+            "Jun 03, 2028: Miami"
+          ],
+          "next_ports": [
+            "Jun 06, 2028: Cozumel",
+            "Jun 07, 2028: Miami",
+            "Jun 08, 2028: San Juan",
+            "Jun 09, 2028: At Sea"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2028-06-06": {
       "flights": [
@@ -3078,7 +3113,24 @@
           "estimated_passengers": 5
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "MSC Seascape",
+          "arrival_hour": 8,
+          "departure_hour": 16,
+          "estimated_passengers": 5878,
+          "previous_ports": [
+            "Jun 07, 2028: At Sea",
+            "Jun 06, 2028: Galveston"
+          ],
+          "next_ports": [
+            "Jun 09, 2028: Cozumel",
+            "Jun 10, 2028: At Sea",
+            "Jun 11, 2028: Galveston"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2028-06-09": {
       "flights": [
@@ -5773,7 +5825,24 @@
           "estimated_passengers": 11
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "MSC Seascape",
+          "arrival_hour": 8,
+          "departure_hour": 16,
+          "estimated_passengers": 5878,
+          "previous_ports": [
+            "Jun 14, 2028: At Sea",
+            "Jun 13, 2028: Galveston"
+          ],
+          "next_ports": [
+            "Jun 16, 2028: Cozumel",
+            "Jun 17, 2028: At Sea",
+            "Jun 18, 2028: Galveston"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2028-06-16": {
       "flights": [
@@ -7313,7 +7382,25 @@
           "estimated_passengers": 26
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "MSC World America",
+          "arrival_hour": 9,
+          "departure_hour": 18,
+          "estimated_passengers": 5252,
+          "previous_ports": [
+            "Jun 18, 2028: At Sea",
+            "Jun 17, 2028: Miami"
+          ],
+          "next_ports": [
+            "Jun 20, 2028: Cozumel",
+            "Jun 21, 2028: Miami",
+            "Jun 22, 2028: San Juan",
+            "Jun 23, 2028: At Sea"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2028-06-20": {
       "flights": [
@@ -8468,7 +8555,24 @@
           "estimated_passengers": 30
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "MSC Seascape",
+          "arrival_hour": 8,
+          "departure_hour": 16,
+          "estimated_passengers": 5878,
+          "previous_ports": [
+            "Jun 21, 2028: At Sea",
+            "Jun 20, 2028: Galveston"
+          ],
+          "next_ports": [
+            "Jun 23, 2028: Cozumel",
+            "Jun 24, 2028: At Sea",
+            "Jun 25, 2028: Galveston"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2028-06-23": {
       "flights": [
@@ -11163,7 +11267,23 @@
           "estimated_passengers": 5
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "MSC Seascape",
+          "arrival_hour": 8,
+          "departure_hour": 16,
+          "estimated_passengers": 5878,
+          "previous_ports": [
+            "Jun 28, 2028: At Sea",
+            "Jun 27, 2028: Galveston"
+          ],
+          "next_ports": [
+            "Jul 01, 2028: Galveston",
+            "Jun 30, 2028: Cozumel"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2028-06-30": {
       "flights": [
@@ -11550,5 +11670,10 @@
       ],
       "cruises": []
     }
+  },
+  "meta": {
+    "flight_source": "modelled",
+    "cruise_source": "recovered",
+    "cruise_source_note": "Restored from the published schedule snapshot of 2026-06-20."
   }
 }

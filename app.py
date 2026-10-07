@@ -2024,7 +2024,7 @@ def generate_static_html():
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-L2LFYE0L4B"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      function gtag(){{dataLayer.push(arguments);}}
       gtag('js', new Date());
 
       gtag('config', 'G-L2LFYE0L4B');

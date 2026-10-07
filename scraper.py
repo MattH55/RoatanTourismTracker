@@ -573,6 +573,14 @@ def generate_monthly_data(year=2026, month=6):
 
         monthly_data['days'][date_str] = day_data
 
+    # Record provenance so the site can label modelled/sample figures honestly
+    has_scraped = scraped_ships and any(d['cruises'] for d in monthly_data['days'].values())
+    monthly_data['meta'] = {
+        'flight_source': 'modelled',
+        'cruise_source': 'scraped' if has_scraped else 'sample',
+        'generated_at': datetime.now().strftime('%Y-%m-%d'),
+    }
+
     print(f"Generated data for {month_name} {year}: {num_days} days, "
           f"{sum(len(d['flights']) for d in monthly_data['days'].values())} flights, "
           f"{sum(len(d['cruises']) for d in monthly_data['days'].values())} cruise events")

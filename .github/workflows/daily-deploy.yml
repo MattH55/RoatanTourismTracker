@@ -27,14 +27,16 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Generate fresh data & static HTML
-        run: python generate_static.py
+      - name: Generate static site (pages, robots.txt, sitemap.xml)
+        run: python generate_static_site.py
 
+      # Publish only the generated site, not the repo root (scripts, raw JSON, debug pages)
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
+          publish_dir: ./static_site
           publish_branch: gh-pages
           force_orphan: true
           enable_jekyll: false
+          cname: roatantourismtracker.online

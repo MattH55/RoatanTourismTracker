@@ -768,7 +768,42 @@
           "estimated_passengers": 15
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Oceania Vista",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 1200,
+          "previous_ports": [
+            "Jan 01, 2027: At Sea",
+            "Dec 31, 2026: Miami",
+            "Dec 30, 2026: Belize City"
+          ],
+          "next_ports": [
+            "Jan 03, 2027: Jamaica",
+            "Jan 06, 2027: At Sea",
+            "Jan 07, 2027: Miami"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Seven Seas Splendor",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 750,
+          "previous_ports": [
+            "Jan 01, 2027: At Sea",
+            "Dec 31, 2026: Miami",
+            "Dec 30, 2026: Belize City"
+          ],
+          "next_ports": [
+            "Jan 03, 2027: Jamaica",
+            "Jan 06, 2027: At Sea",
+            "Jan 07, 2027: Miami"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-01-03": {
       "flights": [
@@ -1153,7 +1188,41 @@
           "estimated_passengers": 29
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Queen Elizabeth",
+          "arrival_hour": 6,
+          "departure_hour": 18,
+          "estimated_passengers": 2080,
+          "previous_ports": [
+            "Jan 02, 2027: Jamaica",
+            "Jan 01, 2027: Fort Lauderdale"
+          ],
+          "next_ports": [
+            "Jan 04, 2027: Grand Cayman",
+            "Jan 05, 2027: Cozumel",
+            "Jan 07, 2027: At Sea",
+            "Jan 08, 2027: Fort Lauderdale"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Seven Seas Prestige",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 822,
+          "previous_ports": [
+            "Jan 02, 2027: Jamaica",
+            "Jan 01, 2027: Miami"
+          ],
+          "next_ports": [
+            "Jan 04, 2027: Grand Cayman",
+            "Jan 07, 2027: At Sea",
+            "Jan 08, 2027: Miami"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-01-04": {
       "flights": [
@@ -1538,7 +1607,58 @@
           "estimated_passengers": 6
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Crystal Symphony",
+          "arrival_hour": 8,
+          "departure_hour": 18,
+          "estimated_passengers": 606,
+          "previous_ports": [
+            "Jan 03, 2027: Belize City",
+            "Jan 02, 2027: Miami"
+          ],
+          "next_ports": [
+            "Jan 05, 2027: Jamaica",
+            "Jan 08, 2027: At Sea",
+            "Jan 09, 2027: Miami"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "MSC World America",
+          "arrival_hour": 9,
+          "departure_hour": 18,
+          "estimated_passengers": 5252,
+          "previous_ports": [
+            "Jan 03, 2027: At Sea",
+            "Jan 02, 2027: Miami"
+          ],
+          "next_ports": [
+            "Jan 05, 2027: Cozumel",
+            "Jan 06, 2027: Miami",
+            "Jan 07, 2027: San Juan",
+            "Jan 08, 2027: At Sea"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Norwegian Luna",
+          "arrival_hour": 10,
+          "departure_hour": 18,
+          "estimated_passengers": 3570,
+          "previous_ports": [
+            "Jan 03, 2027: Grand Cayman",
+            "Jan 02, 2027: New York"
+          ],
+          "next_ports": [
+            "Jan 05, 2027: Jamaica",
+            "Jan 06, 2027: Cozumel",
+            "Jan 08, 2027: At Sea",
+            "Jan 09, 2027: New York"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-01-05": {
       "flights": [
@@ -1923,7 +2043,42 @@
           "estimated_passengers": 8
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Norwegian Viva",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 3100,
+          "previous_ports": [
+            "Jan 04, 2027: Belize City",
+            "Jan 03, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jan 06, 2027: Jamaica",
+            "Jan 07, 2027: Grand Cayman",
+            "Jan 09, 2027: At Sea",
+            "Jan 10, 2027: Galveston"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Star Princess",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 4300,
+          "previous_ports": [
+            "Jan 04, 2027: Jamaica",
+            "Jan 03, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jan 06, 2027: Grand Cayman",
+            "Jan 07, 2027: Belize City",
+            "Jan 09, 2027: At Sea",
+            "Jan 10, 2027: Galveston"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-01-06": {
       "flights": [
@@ -2308,7 +2463,94 @@
           "estimated_passengers": 12
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Carnival Jubilee",
+          "arrival_hour": 9,
+          "departure_hour": 18,
+          "estimated_passengers": 5374,
+          "previous_ports": [
+            "Jan 05, 2027: At Sea",
+            "Jan 04, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jan 07, 2027: Cozumel",
+            "Jan 08, 2027: At Sea",
+            "Jan 09, 2027: Galveston"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Carnival Liberty",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 2974,
+          "previous_ports": [
+            "Jan 05, 2027: At Sea",
+            "Jan 04, 2027: Galveston",
+            "Jan 03, 2027: Cozumel"
+          ],
+          "next_ports": [
+            "Jan 07, 2027: Cozumel",
+            "Jan 08, 2027: At Sea",
+            "Jan 09, 2027: Galveston"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Enchantment Of The Seas",
+          "arrival_hour": 9,
+          "departure_hour": 17,
+          "estimated_passengers": 1950,
+          "previous_ports": [
+            "Jan 05, 2027: At Sea",
+            "Jan 04, 2027: Tampa",
+            "Jan 03, 2027: Belize City"
+          ],
+          "next_ports": [
+            "Jan 07, 2027: Cozumel",
+            "Jan 08, 2027: At Sea",
+            "Jan 09, 2027: Tampa"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Norwegian Breakaway",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 3903,
+          "previous_ports": [
+            "Jan 05, 2027: Belize City",
+            "Jan 04, 2027: New York"
+          ],
+          "next_ports": [
+            "Jan 07, 2027: Jamaica",
+            "Jan 08, 2027: Grand Cayman",
+            "Jan 10, 2027: At Sea",
+            "Jan 11, 2027: New York"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Star Of The Seas",
+          "arrival_hour": 7,
+          "departure_hour": 16,
+          "estimated_passengers": 5610,
+          "previous_ports": [
+            "Jan 05, 2027: At Sea",
+            "Jan 04, 2027: Miami",
+            "Jan 03, 2027: Jamaica",
+            "Jan 02, 2027: Grand Cayman"
+          ],
+          "next_ports": [
+            "Jan 07, 2027: Grand Cayman",
+            "Jan 08, 2027: Jamaica",
+            "Jan 09, 2027: At Sea",
+            "Jan 10, 2027: Miami"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-01-07": {
       "flights": [
@@ -2693,7 +2935,57 @@
           "estimated_passengers": 17
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Carnival Venezia",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 4090,
+          "previous_ports": [
+            "Jan 06, 2027: Belize City",
+            "Jan 05, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jan 08, 2027: Grand Cayman",
+            "Jan 09, 2027: Jamaica",
+            "Jan 10, 2027: Cozumel",
+            "Jan 11, 2027: At Sea"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "MSC Seascape",
+          "arrival_hour": 8,
+          "departure_hour": 16,
+          "estimated_passengers": 5878,
+          "previous_ports": [
+            "Jan 06, 2027: At Sea",
+            "Jan 05, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jan 08, 2027: Cozumel",
+            "Jan 09, 2027: At Sea",
+            "Jan 10, 2027: Galveston"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Symphony Of The Seas",
+          "arrival_hour": 7,
+          "departure_hour": 16,
+          "estimated_passengers": 5518,
+          "previous_ports": [
+            "Jan 06, 2027: At Sea",
+            "Jan 05, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jan 08, 2027: Cozumel",
+            "Jan 09, 2027: At Sea",
+            "Jan 10, 2027: Galveston"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-01-08": {
       "flights": [
@@ -3078,7 +3370,42 @@
           "estimated_passengers": 11
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Carnival Miracle",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 2134,
+          "previous_ports": [
+            "Jan 07, 2027: Jamaica",
+            "Jan 06, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jan 09, 2027: Grand Cayman",
+            "Jan 10, 2027: Cozumel",
+            "Jan 12, 2027: At Sea",
+            "Jan 13, 2027: Galveston"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Celebrity Summit",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 1950,
+          "previous_ports": [
+            "Jan 07, 2027: Jamaica",
+            "Jan 06, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jan 09, 2027: Grand Cayman",
+            "Jan 10, 2027: Belize City",
+            "Jan 12, 2027: At Sea",
+            "Jan 13, 2027: Galveston"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-01-09": {
       "flights": [
@@ -3463,7 +3790,24 @@
           "estimated_passengers": 25
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Mein Schiff 1",
+          "arrival_hour": 8,
+          "departure_hour": 18,
+          "estimated_passengers": 2894,
+          "previous_ports": [
+            "Jan 08, 2027: Belize City",
+            "Jan 07, 2027: Miami"
+          ],
+          "next_ports": [
+            "Jan 10, 2027: Jamaica",
+            "Jan 13, 2027: At Sea",
+            "Jan 14, 2027: Miami"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-01-10": {
       "flights": [
@@ -4233,7 +4577,78 @@
           "estimated_passengers": 14
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Carnival Paradise",
+          "arrival_hour": 11,
+          "departure_hour": 19,
+          "estimated_passengers": 2124,
+          "previous_ports": [
+            "Jan 10, 2027: At Sea",
+            "Jan 09, 2027: Galveston",
+            "Jan 08, 2027: Belize City",
+            "Jan 07, 2027: Cozumel"
+          ],
+          "next_ports": [
+            "Jan 12, 2027: Cozumel",
+            "Jan 13, 2027: Grand Cayman",
+            "Jan 14, 2027: At Sea",
+            "Jan 15, 2027: Galveston"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "MSC Poesia",
+          "arrival_hour": 8,
+          "departure_hour": 18,
+          "estimated_passengers": 2550,
+          "previous_ports": [
+            "Jan 10, 2027: Belize City",
+            "Jan 09, 2027: Miami"
+          ],
+          "next_ports": [
+            "Jan 12, 2027: Jamaica",
+            "Jan 13, 2027: Turks and Caicos",
+            "Jan 15, 2027: At Sea",
+            "Jan 16, 2027: Miami"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Norwegian Luna",
+          "arrival_hour": 10,
+          "departure_hour": 18,
+          "estimated_passengers": 3570,
+          "previous_ports": [
+            "Jan 10, 2027: Grand Cayman",
+            "Jan 09, 2027: New York"
+          ],
+          "next_ports": [
+            "Jan 12, 2027: Jamaica",
+            "Jan 13, 2027: Cozumel",
+            "Jan 15, 2027: At Sea",
+            "Jan 16, 2027: New York"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Oceania Marina",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 1258,
+          "previous_ports": [
+            "Jan 10, 2027: Jamaica",
+            "Jan 09, 2027: Miami"
+          ],
+          "next_ports": [
+            "Jan 12, 2027: Grand Cayman",
+            "Jan 13, 2027: Mexico",
+            "Jan 15, 2027: At Sea",
+            "Jan 16, 2027: Miami"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-01-12": {
       "flights": [
@@ -4618,7 +5033,75 @@
           "estimated_passengers": 13
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Icon Of The Seas",
+          "arrival_hour": 7,
+          "departure_hour": 16,
+          "estimated_passengers": 5610,
+          "previous_ports": [
+            "Jan 11, 2027: At Sea",
+            "Jan 10, 2027: Miami"
+          ],
+          "next_ports": [
+            "Jan 13, 2027: Cozumel",
+            "Jan 14, 2027: At Sea",
+            "Jan 15, 2027: Miami"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Mardi Gras",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 5200,
+          "previous_ports": [
+            "Jan 11, 2027: Belize City",
+            "Jan 10, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jan 13, 2027: Grand Cayman",
+            "Jan 14, 2027: Jamaica",
+            "Jan 15, 2027: Cozumel",
+            "Jan 16, 2027: At Sea"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Norwegian Viva",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 3100,
+          "previous_ports": [
+            "Jan 11, 2027: Belize City",
+            "Jan 10, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jan 13, 2027: Jamaica",
+            "Jan 14, 2027: Grand Cayman",
+            "Jan 16, 2027: At Sea",
+            "Jan 17, 2027: Galveston"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Radiance Of The Seas",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 2100,
+          "previous_ports": [
+            "Jan 11, 2027: Grand Cayman",
+            "Jan 10, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jan 13, 2027: Jamaica",
+            "Jan 14, 2027: Cozumel",
+            "Jan 16, 2027: At Sea",
+            "Jan 17, 2027: Galveston"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-01-13": {
       "flights": [
@@ -5003,7 +5486,93 @@
           "estimated_passengers": 27
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Carnival Legend",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 2124,
+          "previous_ports": [
+            "Jan 12, 2027: Grand Cayman",
+            "Jan 11, 2027: Jamaica",
+            "Jan 10, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jan 14, 2027: Cozumel",
+            "Jan 16, 2027: At Sea",
+            "Jan 17, 2027: Galveston"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Carnival Liberty",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 2974,
+          "previous_ports": [
+            "Jan 12, 2027: At Sea",
+            "Jan 11, 2027: Galveston",
+            "Jan 10, 2027: Cozumel"
+          ],
+          "next_ports": [
+            "Jan 14, 2027: Cozumel",
+            "Jan 15, 2027: At Sea",
+            "Jan 16, 2027: Galveston"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Celebrity Silhouette",
+          "arrival_hour": 9,
+          "departure_hour": 17,
+          "estimated_passengers": 2852,
+          "previous_ports": [
+            "Jan 12, 2027: Grand Cayman",
+            "Jan 11, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jan 14, 2027: Jamaica",
+            "Jan 15, 2027: Belize City",
+            "Jan 17, 2027: At Sea",
+            "Jan 18, 2027: Galveston"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Enchantment Of The Seas",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 1950,
+          "previous_ports": [
+            "Jan 12, 2027: At Sea",
+            "Jan 11, 2027: Tampa",
+            "Jan 10, 2027: Belize City"
+          ],
+          "next_ports": [
+            "Jan 14, 2027: Cozumel",
+            "Jan 15, 2027: At Sea",
+            "Jan 16, 2027: Tampa"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Norwegian Breakaway",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 3903,
+          "previous_ports": [
+            "Jan 12, 2027: Belize City",
+            "Jan 11, 2027: New York"
+          ],
+          "next_ports": [
+            "Jan 14, 2027: Jamaica",
+            "Jan 15, 2027: Grand Cayman",
+            "Jan 17, 2027: At Sea",
+            "Jan 18, 2027: New York"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-01-14": {
       "flights": [
@@ -5388,7 +5957,57 @@
           "estimated_passengers": 10
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "MSC Seascape",
+          "arrival_hour": 8,
+          "departure_hour": 16,
+          "estimated_passengers": 5878,
+          "previous_ports": [
+            "Jan 13, 2027: At Sea",
+            "Jan 12, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jan 15, 2027: Cozumel",
+            "Jan 16, 2027: At Sea",
+            "Jan 17, 2027: Galveston"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Sun Princess",
+          "arrival_hour": 7,
+          "departure_hour": 16,
+          "estimated_passengers": 4300,
+          "previous_ports": [
+            "Jan 13, 2027: Belize City",
+            "Jan 12, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jan 15, 2027: Jamaica",
+            "Jan 16, 2027: Grand Cayman",
+            "Jan 18, 2027: At Sea",
+            "Jan 19, 2027: Galveston"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Symphony Of The Seas",
+          "arrival_hour": 7,
+          "departure_hour": 16,
+          "estimated_passengers": 5518,
+          "previous_ports": [
+            "Jan 13, 2027: At Sea",
+            "Jan 12, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jan 15, 2027: Cozumel",
+            "Jan 16, 2027: At Sea",
+            "Jan 17, 2027: Galveston"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-01-15": {
       "flights": [
@@ -6543,7 +7162,24 @@
           "estimated_passengers": 10
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Seven Seas Splendor",
+          "arrival_hour": 7,
+          "departure_hour": 17,
+          "estimated_passengers": 750,
+          "previous_ports": [
+            "Jan 16, 2027: Belize City",
+            "Jan 15, 2027: Miami"
+          ],
+          "next_ports": [
+            "Jan 18, 2027: Jamaica",
+            "Jan 21, 2027: At Sea",
+            "Jan 22, 2027: Miami"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-01-18": {
       "flights": [
@@ -6928,7 +7564,42 @@
           "estimated_passengers": 8
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "MSC World America",
+          "arrival_hour": 9,
+          "departure_hour": 18,
+          "estimated_passengers": 5252,
+          "previous_ports": [
+            "Jan 17, 2027: At Sea",
+            "Jan 16, 2027: Miami"
+          ],
+          "next_ports": [
+            "Jan 19, 2027: Cozumel",
+            "Jan 20, 2027: Miami",
+            "Jan 21, 2027: San Juan",
+            "Jan 22, 2027: At Sea"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Norwegian Luna",
+          "arrival_hour": 10,
+          "departure_hour": 18,
+          "estimated_passengers": 3570,
+          "previous_ports": [
+            "Jan 17, 2027: Grand Cayman",
+            "Jan 16, 2027: New York"
+          ],
+          "next_ports": [
+            "Jan 19, 2027: Jamaica",
+            "Jan 20, 2027: Cozumel",
+            "Jan 22, 2027: At Sea",
+            "Jan 23, 2027: New York"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-01-19": {
       "flights": [
@@ -7313,7 +7984,74 @@
           "estimated_passengers": 28
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Norwegian Viva",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 3100,
+          "previous_ports": [
+            "Jan 18, 2027: Belize City",
+            "Jan 17, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jan 20, 2027: Jamaica",
+            "Jan 21, 2027: Grand Cayman",
+            "Jan 23, 2027: At Sea",
+            "Jan 24, 2027: Galveston"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Resilient Lady",
+          "arrival_hour": 8,
+          "departure_hour": 18,
+          "estimated_passengers": 2700,
+          "previous_ports": [
+            "Jan 18, 2027: Jamaica",
+            "Jan 17, 2027: Miami"
+          ],
+          "next_ports": [
+            "Jan 20, 2027: Grand Cayman",
+            "Jan 23, 2027: At Sea",
+            "Jan 24, 2027: Miami"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Star Princess",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 4300,
+          "previous_ports": [
+            "Jan 18, 2027: Jamaica",
+            "Jan 17, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jan 20, 2027: Grand Cayman",
+            "Jan 21, 2027: Belize City",
+            "Jan 23, 2027: At Sea",
+            "Jan 24, 2027: Galveston"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Viking Mars",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 930,
+          "previous_ports": [
+            "Jan 18, 2027: Jamaica",
+            "Jan 17, 2027: Miami"
+          ],
+          "next_ports": [
+            "Jan 20, 2027: Grand Cayman",
+            "Jan 23, 2027: At Sea",
+            "Jan 24, 2027: Miami"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-01-20": {
       "flights": [
@@ -7698,7 +8436,94 @@
           "estimated_passengers": 21
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Carnival Jubilee",
+          "arrival_hour": 9,
+          "departure_hour": 18,
+          "estimated_passengers": 5374,
+          "previous_ports": [
+            "Jan 19, 2027: At Sea",
+            "Jan 18, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jan 21, 2027: Cozumel",
+            "Jan 22, 2027: At Sea",
+            "Jan 23, 2027: Galveston"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Enchantment Of The Seas",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 1950,
+          "previous_ports": [
+            "Jan 19, 2027: At Sea",
+            "Jan 18, 2027: Tampa",
+            "Jan 17, 2027: Belize City"
+          ],
+          "next_ports": [
+            "Jan 21, 2027: Cozumel",
+            "Jan 22, 2027: At Sea",
+            "Jan 23, 2027: Tampa"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Norwegian Breakaway",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 3903,
+          "previous_ports": [
+            "Jan 19, 2027: Belize City",
+            "Jan 18, 2027: New York"
+          ],
+          "next_ports": [
+            "Jan 21, 2027: Jamaica",
+            "Jan 22, 2027: Grand Cayman",
+            "Jan 24, 2027: At Sea",
+            "Jan 25, 2027: New York"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Radiance Of The Seas",
+          "arrival_hour": 7,
+          "departure_hour": 16,
+          "estimated_passengers": 2100,
+          "previous_ports": [
+            "Jan 19, 2027: Grand Cayman",
+            "Jan 18, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jan 21, 2027: Jamaica",
+            "Jan 22, 2027: Cozumel",
+            "Jan 24, 2027: At Sea",
+            "Jan 25, 2027: Galveston"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Star Of The Seas",
+          "arrival_hour": 7,
+          "departure_hour": 16,
+          "estimated_passengers": 5610,
+          "previous_ports": [
+            "Jan 19, 2027: At Sea",
+            "Jan 18, 2027: Miami",
+            "Jan 17, 2027: Jamaica",
+            "Jan 16, 2027: Grand Cayman"
+          ],
+          "next_ports": [
+            "Jan 21, 2027: Grand Cayman",
+            "Jan 22, 2027: Jamaica",
+            "Jan 23, 2027: At Sea",
+            "Jan 24, 2027: Miami"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-01-21": {
       "flights": [
@@ -8083,7 +8908,40 @@
           "estimated_passengers": 18
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "MSC Seascape",
+          "arrival_hour": 8,
+          "departure_hour": 16,
+          "estimated_passengers": 5878,
+          "previous_ports": [
+            "Jan 20, 2027: At Sea",
+            "Jan 19, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jan 22, 2027: Cozumel",
+            "Jan 23, 2027: At Sea",
+            "Jan 24, 2027: Galveston"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Symphony Of The Seas",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 5518,
+          "previous_ports": [
+            "Jan 20, 2027: At Sea",
+            "Jan 19, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jan 22, 2027: Cozumel",
+            "Jan 23, 2027: At Sea",
+            "Jan 24, 2027: Galveston"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-01-22": {
       "flights": [
@@ -8853,7 +9711,40 @@
           "estimated_passengers": 5
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Mein Schiff 1",
+          "arrival_hour": 8,
+          "departure_hour": 18,
+          "estimated_passengers": 2894,
+          "previous_ports": [
+            "Jan 22, 2027: Belize City",
+            "Jan 21, 2027: Miami"
+          ],
+          "next_ports": [
+            "Jan 24, 2027: Jamaica",
+            "Jan 27, 2027: At Sea",
+            "Jan 28, 2027: Miami"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Oceania Allura",
+          "arrival_hour": 10,
+          "departure_hour": 18,
+          "estimated_passengers": 1200,
+          "previous_ports": [
+            "Jan 22, 2027: Belize City",
+            "Jan 21, 2027: Miami"
+          ],
+          "next_ports": [
+            "Jan 24, 2027: Jamaica",
+            "Jan 27, 2027: At Sea",
+            "Jan 28, 2027: Miami"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-01-24": {
       "flights": [
@@ -9623,7 +10514,58 @@
           "estimated_passengers": 27
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Carnival Miracle",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 2134,
+          "previous_ports": [
+            "Jan 24, 2027: Jamaica",
+            "Jan 23, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jan 26, 2027: Grand Cayman",
+            "Jan 27, 2027: Cozumel",
+            "Jan 29, 2027: At Sea",
+            "Jan 30, 2027: Galveston"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Explora I",
+          "arrival_hour": 9,
+          "departure_hour": 19,
+          "estimated_passengers": 920,
+          "previous_ports": [
+            "Jan 24, 2027: Jamaica",
+            "Jan 23, 2027: Miami"
+          ],
+          "next_ports": [
+            "Jan 26, 2027: Belize City",
+            "Jan 29, 2027: At Sea",
+            "Jan 30, 2027: Miami"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Norwegian Luna",
+          "arrival_hour": 10,
+          "departure_hour": 18,
+          "estimated_passengers": 3570,
+          "previous_ports": [
+            "Jan 24, 2027: Grand Cayman",
+            "Jan 23, 2027: New York"
+          ],
+          "next_ports": [
+            "Jan 26, 2027: Jamaica",
+            "Jan 27, 2027: Cozumel",
+            "Jan 29, 2027: At Sea",
+            "Jan 30, 2027: New York"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-01-26": {
       "flights": [
@@ -10008,7 +10950,75 @@
           "estimated_passengers": 9
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Carnival Horizon",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 3974,
+          "previous_ports": [
+            "Jan 25, 2027: Grand Cayman",
+            "Jan 24, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jan 27, 2027: Jamaica",
+            "Jan 28, 2027: Cayman Islands",
+            "Jan 30, 2027: At Sea",
+            "Jan 31, 2027: Galveston"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Icon Of The Seas",
+          "arrival_hour": 7,
+          "departure_hour": 16,
+          "estimated_passengers": 5610,
+          "previous_ports": [
+            "Jan 25, 2027: At Sea",
+            "Jan 24, 2027: Miami"
+          ],
+          "next_ports": [
+            "Jan 27, 2027: Cozumel",
+            "Jan 28, 2027: At Sea",
+            "Jan 29, 2027: Miami"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Norwegian Viva",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 3100,
+          "previous_ports": [
+            "Jan 25, 2027: Belize City",
+            "Jan 24, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jan 27, 2027: Jamaica",
+            "Jan 28, 2027: Grand Cayman",
+            "Jan 30, 2027: At Sea",
+            "Jan 31, 2027: Galveston"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Radiance Of The Seas",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 2100,
+          "previous_ports": [
+            "Jan 25, 2027: Grand Cayman",
+            "Jan 24, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jan 27, 2027: Jamaica",
+            "Jan 28, 2027: Cozumel",
+            "Jan 30, 2027: At Sea",
+            "Jan 31, 2027: Galveston"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-01-27": {
       "flights": [
@@ -10393,7 +11403,57 @@
           "estimated_passengers": 19
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Carnival Celebration",
+          "arrival_hour": 8,
+          "departure_hour": 16,
+          "estimated_passengers": 5374,
+          "previous_ports": [
+            "Jan 26, 2027: At Sea",
+            "Jan 25, 2027: Miami"
+          ],
+          "next_ports": [
+            "Jan 28, 2027: Cozumel",
+            "Jan 29, 2027: At Sea",
+            "Jan 30, 2027: Miami"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Norwegian Breakaway",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 3903,
+          "previous_ports": [
+            "Jan 26, 2027: Belize City",
+            "Jan 25, 2027: New York"
+          ],
+          "next_ports": [
+            "Jan 28, 2027: Jamaica",
+            "Jan 29, 2027: Grand Cayman",
+            "Jan 31, 2027: At Sea",
+            "Feb 01, 2027: New York"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Symphony Of The Seas",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 5518,
+          "previous_ports": [
+            "Jan 26, 2027: At Sea",
+            "Jan 25, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jan 28, 2027: Cozumel",
+            "Jan 29, 2027: At Sea",
+            "Jan 30, 2027: Galveston"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-01-28": {
       "flights": [
@@ -10778,7 +11838,74 @@
           "estimated_passengers": 26
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Carnival Legend",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 2124,
+          "previous_ports": [
+            "Jan 27, 2027: Grand Cayman",
+            "Jan 26, 2027: Jamaica",
+            "Jan 25, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jan 29, 2027: Cozumel",
+            "Jan 31, 2027: At Sea",
+            "Feb 01, 2027: Galveston"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Enchantment Of The Seas",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 1950,
+          "previous_ports": [
+            "Jan 27, 2027: At Sea",
+            "Jan 26, 2027: Tampa",
+            "Jan 25, 2027: Belize City"
+          ],
+          "next_ports": [
+            "Jan 29, 2027: Cozumel",
+            "Jan 30, 2027: At Sea",
+            "Jan 31, 2027: Tampa"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "MSC Seascape",
+          "arrival_hour": 8,
+          "departure_hour": 16,
+          "estimated_passengers": 5878,
+          "previous_ports": [
+            "Jan 27, 2027: At Sea",
+            "Jan 26, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jan 29, 2027: Cozumel",
+            "Jan 30, 2027: At Sea",
+            "Jan 31, 2027: Galveston"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Sun Princess",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 4300,
+          "previous_ports": [
+            "Jan 27, 2027: Belize City",
+            "Jan 26, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Feb 01, 2027: Galveston",
+            "Jan 29, 2027: Jamaica",
+            "Jan 30, 2027: Grand Cayman"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-01-29": {
       "flights": [
@@ -11163,7 +12290,41 @@
           "estimated_passengers": 23
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Oceania Marina",
+          "arrival_hour": 7,
+          "departure_hour": 16,
+          "estimated_passengers": 1258,
+          "previous_ports": [
+            "Jan 28, 2027: Jamaica",
+            "Jan 27, 2027: Miami"
+          ],
+          "next_ports": [
+            "Feb 02, 2027: Miami",
+            "Jan 30, 2027: Grand Cayman",
+            "Jan 31, 2027: Mexico"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Rotterdam",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 2668,
+          "previous_ports": [
+            "Jan 28, 2027: Cozumel",
+            "Jan 27, 2027: Fort Lauderdale"
+          ],
+          "next_ports": [
+            "Feb 01, 2027: Belize City",
+            "Feb 02, 2027: Fort Lauderdale",
+            "Jan 30, 2027: Jamaica",
+            "Jan 31, 2027: Grand Cayman"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-01-30": {
       "flights": [
@@ -11933,7 +13094,29 @@
           "estimated_passengers": 28
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Aurora",
+          "arrival_hour": 6,
+          "departure_hour": 18,
+          "estimated_passengers": 1874,
+          "previous_ports": [
+            "Jan 30, 2027: Jamaica",
+            "Jan 29, 2027: Fort Lauderdale"
+          ],
+          "next_ports": [
+            "Feb 01, 2027: Belize City",
+            "Feb 04, 2027: At Sea",
+            "Feb 05, 2027: Fort Lauderdale"
+          ],
+          "is_arrival": true
+        }
+      ]
     }
+  },
+  "meta": {
+    "flight_source": "modelled",
+    "cruise_source": "recovered",
+    "cruise_source_note": "Restored from the published schedule snapshot of 2026-06-20."
   }
 }

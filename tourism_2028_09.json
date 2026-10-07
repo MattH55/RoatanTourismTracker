@@ -2693,7 +2693,24 @@
           "estimated_passengers": 11
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "MSC Seascape",
+          "arrival_hour": 8,
+          "departure_hour": 16,
+          "estimated_passengers": 5878,
+          "previous_ports": [
+            "Sep 06, 2028: At Sea",
+            "Sep 05, 2028: Galveston"
+          ],
+          "next_ports": [
+            "Sep 08, 2028: Cozumel",
+            "Sep 09, 2028: At Sea",
+            "Sep 10, 2028: Galveston"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2028-09-08": {
       "flights": [
@@ -4233,7 +4250,25 @@
           "estimated_passengers": 21
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "MSC World America",
+          "arrival_hour": 9,
+          "departure_hour": 18,
+          "estimated_passengers": 5252,
+          "previous_ports": [
+            "Sep 10, 2028: At Sea",
+            "Sep 09, 2028: Miami"
+          ],
+          "next_ports": [
+            "Sep 12, 2028: Cozumel",
+            "Sep 13, 2028: Miami",
+            "Sep 14, 2028: San Juan",
+            "Sep 15, 2028: At Sea"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2028-09-12": {
       "flights": [
@@ -5388,7 +5423,24 @@
           "estimated_passengers": 14
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "MSC Seascape",
+          "arrival_hour": 8,
+          "departure_hour": 16,
+          "estimated_passengers": 5878,
+          "previous_ports": [
+            "Sep 13, 2028: At Sea",
+            "Sep 12, 2028: Galveston"
+          ],
+          "next_ports": [
+            "Sep 15, 2028: Cozumel",
+            "Sep 16, 2028: At Sea",
+            "Sep 17, 2028: Galveston"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2028-09-15": {
       "flights": [
@@ -8083,7 +8135,24 @@
           "estimated_passengers": 6
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "MSC Seascape",
+          "arrival_hour": 8,
+          "departure_hour": 16,
+          "estimated_passengers": 5878,
+          "previous_ports": [
+            "Sep 20, 2028: At Sea",
+            "Sep 19, 2028: Galveston"
+          ],
+          "next_ports": [
+            "Sep 22, 2028: Cozumel",
+            "Sep 23, 2028: At Sea",
+            "Sep 24, 2028: Galveston"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2028-09-22": {
       "flights": [
@@ -9623,7 +9692,25 @@
           "estimated_passengers": 11
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "MSC World America",
+          "arrival_hour": 9,
+          "departure_hour": 18,
+          "estimated_passengers": 5252,
+          "previous_ports": [
+            "Sep 24, 2028: At Sea",
+            "Sep 23, 2028: Miami"
+          ],
+          "next_ports": [
+            "Sep 26, 2028: Cozumel",
+            "Sep 27, 2028: Miami",
+            "Sep 28, 2028: San Juan",
+            "Sep 29, 2028: At Sea"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2028-09-26": {
       "flights": [
@@ -10778,7 +10865,24 @@
           "estimated_passengers": 16
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "MSC Seascape",
+          "arrival_hour": 8,
+          "departure_hour": 16,
+          "estimated_passengers": 5878,
+          "previous_ports": [
+            "Sep 27, 2028: At Sea",
+            "Sep 26, 2028: Galveston"
+          ],
+          "next_ports": [
+            "Sep 29, 2028: Cozumel",
+            "Sep 30, 2028: At Sea",
+            "Oct 01, 2028: Galveston"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2028-09-29": {
       "flights": [
@@ -11550,5 +11654,10 @@
       ],
       "cruises": []
     }
+  },
+  "meta": {
+    "flight_source": "modelled",
+    "cruise_source": "recovered",
+    "cruise_source_note": "Restored from the published schedule snapshot of 2026-06-20."
   }
 }

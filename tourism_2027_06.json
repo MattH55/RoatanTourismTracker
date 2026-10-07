@@ -383,7 +383,25 @@
           "estimated_passengers": 14
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Carnival Breeze",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 3646,
+          "previous_ports": [
+            "May 31, 2027: Grand Cayman",
+            "May 30, 2027: Miami"
+          ],
+          "next_ports": [
+            "Jun 02, 2027: Jamaica",
+            "Jun 03, 2027: Cayman Islands",
+            "Jun 05, 2027: At Sea",
+            "Jun 06, 2027: Miami"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-06-02": {
       "flights": [
@@ -768,7 +786,74 @@
           "estimated_passengers": 11
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Carnival Liberty",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 2974,
+          "previous_ports": [
+            "Jun 01, 2027: At Sea",
+            "May 31, 2027: Galveston",
+            "May 30, 2027: Cozumel"
+          ],
+          "next_ports": [
+            "Jun 03, 2027: Cozumel",
+            "Jun 04, 2027: At Sea",
+            "Jun 05, 2027: Galveston"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Carnival Vista",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 3934,
+          "previous_ports": [
+            "May 31, 2027: Aruba",
+            "May 30, 2027: Miami",
+            "Jun 01, 2027: Curacao"
+          ],
+          "next_ports": [
+            "Jun 03, 2027: Bonaire",
+            "Jun 05, 2027: At Sea",
+            "Jun 06, 2027: Miami"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Enchantment Of The Seas",
+          "arrival_hour": 9,
+          "departure_hour": 17,
+          "estimated_passengers": 1950,
+          "previous_ports": [
+            "May 31, 2027: Belize City",
+            "Jun 01, 2027: Tampa"
+          ],
+          "next_ports": [
+            "Jun 03, 2027: Cozumel",
+            "Jun 04, 2027: At Sea",
+            "Jun 05, 2027: Tampa"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Symphony Of The Seas",
+          "arrival_hour": 7,
+          "departure_hour": 15,
+          "estimated_passengers": 5518,
+          "previous_ports": [
+            "Jun 01, 2027: At Sea",
+            "May 31, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jun 03, 2027: Cozumel",
+            "Jun 04, 2027: At Sea",
+            "Jun 05, 2027: Galveston"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-06-03": {
       "flights": [
@@ -1153,7 +1238,24 @@
           "estimated_passengers": 20
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "MSC Seascape",
+          "arrival_hour": 8,
+          "departure_hour": 16,
+          "estimated_passengers": 5878,
+          "previous_ports": [
+            "Jun 02, 2027: At Sea",
+            "Jun 01, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jun 04, 2027: Cozumel",
+            "Jun 05, 2027: At Sea",
+            "Jun 06, 2027: Galveston"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-06-04": {
       "flights": [
@@ -2693,7 +2795,25 @@
           "estimated_passengers": 30
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "MSC World America",
+          "arrival_hour": 9,
+          "departure_hour": 18,
+          "estimated_passengers": 5252,
+          "previous_ports": [
+            "Jun 06, 2027: At Sea",
+            "Jun 05, 2027: Miami"
+          ],
+          "next_ports": [
+            "Jun 08, 2027: Cozumel",
+            "Jun 09, 2027: Miami",
+            "Jun 10, 2027: San Juan",
+            "Jun 11, 2027: At Sea"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-06-08": {
       "flights": [
@@ -3078,7 +3198,42 @@
           "estimated_passengers": 29
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Enchantment Of The Seas",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 1950,
+          "previous_ports": [
+            "Jun 07, 2027: At Sea",
+            "Jun 06, 2027: Tampa",
+            "Jun 05, 2027: Belize City"
+          ],
+          "next_ports": [
+            "Jun 09, 2027: Cozumel",
+            "Jun 10, 2027: At Sea",
+            "Jun 11, 2027: Tampa"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Harmony Of The Seas",
+          "arrival_hour": 7,
+          "departure_hour": 16,
+          "estimated_passengers": 5479,
+          "previous_ports": [
+            "Jun 07, 2027: Belize City",
+            "Jun 06, 2027: Grand Cayman",
+            "Jun 05, 2027: Fort Lauderdale"
+          ],
+          "next_ports": [
+            "Jun 09, 2027: Jamaica",
+            "Jun 11, 2027: At Sea",
+            "Jun 12, 2027: Fort Lauderdale"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-06-09": {
       "flights": [
@@ -3463,7 +3618,24 @@
           "estimated_passengers": 5
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Carnival Jubilee",
+          "arrival_hour": 9,
+          "departure_hour": 18,
+          "estimated_passengers": 5374,
+          "previous_ports": [
+            "Jun 08, 2027: At Sea",
+            "Jun 07, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jun 10, 2027: Cozumel",
+            "Jun 11, 2027: At Sea",
+            "Jun 12, 2027: Galveston"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-06-10": {
       "flights": [
@@ -3848,7 +4020,43 @@
           "estimated_passengers": 5
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "MSC Seascape",
+          "arrival_hour": 8,
+          "departure_hour": 16,
+          "estimated_passengers": 5878,
+          "previous_ports": [
+            "Jun 09, 2027: At Sea",
+            "Jun 08, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jun 11, 2027: Cozumel",
+            "Jun 12, 2027: At Sea",
+            "Jun 13, 2027: Galveston"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Star Of The Seas",
+          "arrival_hour": 7,
+          "departure_hour": 15,
+          "estimated_passengers": 5610,
+          "previous_ports": [
+            "Jun 09, 2027: At Sea",
+            "Jun 08, 2027: Miami",
+            "Jun 07, 2027: Jamaica",
+            "Jun 06, 2027: Grand Cayman"
+          ],
+          "next_ports": [
+            "Jun 11, 2027: Grand Cayman",
+            "Jun 12, 2027: Jamaica",
+            "Jun 13, 2027: At Sea",
+            "Jun 14, 2027: Miami"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-06-11": {
       "flights": [
@@ -5773,7 +5981,41 @@
           "estimated_passengers": 12
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Carnival Breeze",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 3646,
+          "previous_ports": [
+            "Jun 14, 2027: Grand Cayman",
+            "Jun 13, 2027: Miami"
+          ],
+          "next_ports": [
+            "Jun 16, 2027: Jamaica",
+            "Jun 17, 2027: Cayman Islands",
+            "Jun 19, 2027: At Sea",
+            "Jun 20, 2027: Miami"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Icon Of The Seas",
+          "arrival_hour": 7,
+          "departure_hour": 16,
+          "estimated_passengers": 5610,
+          "previous_ports": [
+            "Jun 14, 2027: At Sea",
+            "Jun 13, 2027: Miami"
+          ],
+          "next_ports": [
+            "Jun 16, 2027: Cozumel",
+            "Jun 17, 2027: At Sea",
+            "Jun 18, 2027: Miami"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-06-16": {
       "flights": [
@@ -6158,7 +6400,58 @@
           "estimated_passengers": 15
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Carnival Liberty",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 2974,
+          "previous_ports": [
+            "Jun 15, 2027: At Sea",
+            "Jun 14, 2027: Galveston",
+            "Jun 13, 2027: Cozumel"
+          ],
+          "next_ports": [
+            "Jun 17, 2027: Cozumel",
+            "Jun 18, 2027: At Sea",
+            "Jun 19, 2027: Galveston"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Enchantment Of The Seas",
+          "arrival_hour": 9,
+          "departure_hour": 17,
+          "estimated_passengers": 1950,
+          "previous_ports": [
+            "Jun 15, 2027: At Sea",
+            "Jun 14, 2027: Tampa",
+            "Jun 13, 2027: Belize City"
+          ],
+          "next_ports": [
+            "Jun 17, 2027: Cozumel",
+            "Jun 18, 2027: At Sea",
+            "Jun 19, 2027: Tampa"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Symphony Of The Seas",
+          "arrival_hour": 7,
+          "departure_hour": 15,
+          "estimated_passengers": 5518,
+          "previous_ports": [
+            "Jun 15, 2027: At Sea",
+            "Jun 14, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jun 17, 2027: Cozumel",
+            "Jun 18, 2027: At Sea",
+            "Jun 19, 2027: Galveston"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-06-17": {
       "flights": [
@@ -6543,7 +6836,40 @@
           "estimated_passengers": 25
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Carnival Celebration",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 5374,
+          "previous_ports": [
+            "Jun 16, 2027: At Sea",
+            "Jun 15, 2027: Miami"
+          ],
+          "next_ports": [
+            "Jun 18, 2027: Cozumel",
+            "Jun 19, 2027: At Sea",
+            "Jun 20, 2027: Miami"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "MSC Seascape",
+          "arrival_hour": 8,
+          "departure_hour": 16,
+          "estimated_passengers": 5878,
+          "previous_ports": [
+            "Jun 16, 2027: At Sea",
+            "Jun 15, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jun 18, 2027: Cozumel",
+            "Jun 19, 2027: At Sea",
+            "Jun 20, 2027: Galveston"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-06-18": {
       "flights": [
@@ -8083,7 +8409,25 @@
           "estimated_passengers": 27
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "MSC World America",
+          "arrival_hour": 9,
+          "departure_hour": 18,
+          "estimated_passengers": 5252,
+          "previous_ports": [
+            "Jun 20, 2027: At Sea",
+            "Jun 19, 2027: Miami"
+          ],
+          "next_ports": [
+            "Jun 22, 2027: Cozumel",
+            "Jun 23, 2027: Miami",
+            "Jun 24, 2027: San Juan",
+            "Jun 25, 2027: At Sea"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-06-22": {
       "flights": [
@@ -8468,7 +8812,42 @@
           "estimated_passengers": 29
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Enchantment Of The Seas",
+          "arrival_hour": 7,
+          "departure_hour": 15,
+          "estimated_passengers": 1950,
+          "previous_ports": [
+            "Jun 21, 2027: At Sea",
+            "Jun 20, 2027: Tampa",
+            "Jun 19, 2027: Belize City"
+          ],
+          "next_ports": [
+            "Jun 23, 2027: Cozumel",
+            "Jun 24, 2027: At Sea",
+            "Jun 25, 2027: Tampa"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Harmony Of The Seas",
+          "arrival_hour": 7,
+          "departure_hour": 16,
+          "estimated_passengers": 5479,
+          "previous_ports": [
+            "Jun 21, 2027: Belize City",
+            "Jun 20, 2027: Grand Cayman",
+            "Jun 19, 2027: Fort Lauderdale"
+          ],
+          "next_ports": [
+            "Jun 23, 2027: Jamaica",
+            "Jun 25, 2027: At Sea",
+            "Jun 26, 2027: Fort Lauderdale"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-06-23": {
       "flights": [
@@ -8853,7 +9232,43 @@
           "estimated_passengers": 27
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Carnival Jubilee",
+          "arrival_hour": 9,
+          "departure_hour": 18,
+          "estimated_passengers": 5374,
+          "previous_ports": [
+            "Jun 22, 2027: At Sea",
+            "Jun 21, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jun 24, 2027: Cozumel",
+            "Jun 25, 2027: At Sea",
+            "Jun 26, 2027: Galveston"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Carnival Paradise",
+          "arrival_hour": 11,
+          "departure_hour": 19,
+          "estimated_passengers": 2124,
+          "previous_ports": [
+            "Jun 22, 2027: At Sea",
+            "Jun 21, 2027: Galveston",
+            "Jun 20, 2027: Belize City",
+            "Jun 19, 2027: Cozumel"
+          ],
+          "next_ports": [
+            "Jun 24, 2027: Cozumel",
+            "Jun 25, 2027: Grand Cayman",
+            "Jun 26, 2027: At Sea",
+            "Jun 27, 2027: Galveston"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-06-24": {
       "flights": [
@@ -9238,7 +9653,24 @@
           "estimated_passengers": 12
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "MSC Seascape",
+          "arrival_hour": 8,
+          "departure_hour": 16,
+          "estimated_passengers": 5878,
+          "previous_ports": [
+            "Jun 23, 2027: At Sea",
+            "Jun 22, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jun 25, 2027: Cozumel",
+            "Jun 26, 2027: At Sea",
+            "Jun 27, 2027: Galveston"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-06-25": {
       "flights": [
@@ -11163,7 +11595,24 @@
           "estimated_passengers": 26
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Carnival Breeze",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 3646,
+          "previous_ports": [
+            "Jun 28, 2027: Grand Cayman",
+            "Jun 27, 2027: Miami"
+          ],
+          "next_ports": [
+            "Jul 01, 2027: Cayman Islands",
+            "Jul 03, 2027: Miami",
+            "Jun 30, 2027: Jamaica"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2027-06-30": {
       "flights": [
@@ -11548,7 +11997,63 @@
           "estimated_passengers": 8
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Carnival Liberty",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 2974,
+          "previous_ports": [
+            "Jun 29, 2027: At Sea",
+            "Jun 28, 2027: Galveston",
+            "Jun 27, 2027: Cozumel"
+          ],
+          "next_ports": [
+            "Jul 01, 2027: Cozumel",
+            "Jul 02, 2027: At Sea",
+            "Jul 03, 2027: Galveston"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Enchantment Of The Seas",
+          "arrival_hour": 9,
+          "departure_hour": 17,
+          "estimated_passengers": 1950,
+          "previous_ports": [
+            "Jun 29, 2027: At Sea",
+            "Jun 28, 2027: Tampa",
+            "Jun 27, 2027: Belize City"
+          ],
+          "next_ports": [
+            "Jul 01, 2027: Cozumel",
+            "Jul 02, 2027: At Sea",
+            "Jul 03, 2027: Tampa"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Symphony Of The Seas",
+          "arrival_hour": 7,
+          "departure_hour": 15,
+          "estimated_passengers": 5518,
+          "previous_ports": [
+            "Jun 29, 2027: At Sea",
+            "Jun 28, 2027: Galveston"
+          ],
+          "next_ports": [
+            "Jul 01, 2027: Cozumel",
+            "Jul 02, 2027: At Sea",
+            "Jul 03, 2027: Galveston"
+          ],
+          "is_arrival": true
+        }
+      ]
     }
+  },
+  "meta": {
+    "flight_source": "modelled",
+    "cruise_source": "recovered",
+    "cruise_source_note": "Restored from the published schedule snapshot of 2026-06-20."
   }
 }
