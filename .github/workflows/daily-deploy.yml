@@ -2,7 +2,8 @@ name: Daily Roatan Tourism Tracker Update & Deploy
 
 on:
   schedule:
-    - cron: '0 5 * * *'
+    # 11:00 UTC = 5am in Roatan, so hoy.txt is today's update and manana.txt tomorrow's
+    - cron: '0 11 * * *'
   workflow_dispatch:
   push:
     branches: [main]

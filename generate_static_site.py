@@ -23,6 +23,7 @@ from app import (
     _validate_port_order
 )
 from scraper import get_weather_data
+from daily_message import write_daily_messages
 
 OUTPUT_DIR = 'static_site'
 os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -699,6 +700,8 @@ if __name__ == '__main__':
     write_robots_txt()
     write_sitemap()
     write_cname()
+    write_daily_messages(OUTPUT_DIR)
+    print(f"[OK] {OUTPUT_DIR}/hoy.txt, manana.txt, whatsapp.html")
     print(f"[OK] {OUTPUT_DIR}/robots.txt, {OUTPUT_DIR}/sitemap.xml")
     print(f"[OK] Static site complete: {OUTPUT_DIR}/")
     print(f"[OK] Upload the entire '{OUTPUT_DIR}/' folder to your web host.")
