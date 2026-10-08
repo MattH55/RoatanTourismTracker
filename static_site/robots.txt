@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://roatantourismtracker.online/sitemap.xml
