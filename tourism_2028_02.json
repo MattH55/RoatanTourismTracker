@@ -385,27 +385,12 @@
       ],
       "cruises": [
         {
-          "ship_name": "Legend Of The Seas",
-          "arrival_hour": 8,
-          "departure_hour": 17,
-          "estimated_passengers": 5610,
-          "previous_ports": [
-            "Jan 31, 2028: Jamaica",
-            "Jan 30, 2028: Galveston"
-          ],
-          "next_ports": [
-            "Feb 02, 2028: Grand Cayman",
-            "Feb 03, 2028: Cozumel",
-            "Feb 05, 2028: At Sea",
-            "Feb 06, 2028: Galveston"
-          ],
-          "is_arrival": true
-        },
-        {
           "ship_name": "Mariner Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 3114,
+          "is_arrival": true,
           "previous_ports": [
             "Jan 31, 2028: Grand Cayman",
             "Jan 30, 2028: Jamaica",
@@ -415,14 +400,15 @@
             "Feb 02, 2028: Belize City",
             "Feb 04, 2028: At Sea",
             "Feb 05, 2028: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Norwegian Escape",
+          "cruise_line": "Norwegian Cruise Line",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 4248,
+          "is_arrival": true,
           "previous_ports": [
             "Jan 31, 2028: At Sea",
             "Jan 30, 2028: Miami",
@@ -432,8 +418,7 @@
             "Feb 02, 2028: Harvest Caye Belize",
             "Feb 03, 2028: At Sea",
             "Feb 04, 2028: Miami"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -823,9 +808,11 @@
       "cruises": [
         {
           "ship_name": "Carnival Jubilee",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 9,
           "departure_hour": 18,
           "estimated_passengers": 5374,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 01, 2028: At Sea",
             "Jan 31, 2028: Galveston"
@@ -834,14 +821,15 @@
             "Feb 03, 2028: Cozumel",
             "Feb 04, 2028: At Sea",
             "Feb 05, 2028: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Icon Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 5610,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 01, 2028: At Sea",
             "Jan 31, 2028: Miami"
@@ -850,14 +838,15 @@
             "Feb 03, 2028: Cozumel",
             "Feb 04, 2028: At Sea",
             "Feb 05, 2028: Miami"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Norwegian Getaway",
+          "cruise_line": "Norwegian Cruise Line",
           "arrival_hour": 9,
           "departure_hour": 17,
           "estimated_passengers": 3903,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 01, 2028: At Sea",
             "Jan 31, 2028: Miami",
@@ -868,8 +857,7 @@
             "Feb 04, 2028: Belize City",
             "Feb 06, 2028: At Sea",
             "Feb 07, 2028: Miami"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -1259,9 +1247,11 @@
       "cruises": [
         {
           "ship_name": "Brilliance Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 2188,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 02, 2028: At Sea",
             "Feb 01, 2028: Galveston",
@@ -1272,14 +1262,15 @@
             "Feb 04, 2028: Belize City",
             "Feb 06, 2028: At Sea",
             "Feb 07, 2028: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "MSC Seascape",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
           "departure_hour": 16,
           "estimated_passengers": 5878,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 02, 2028: At Sea",
             "Feb 01, 2028: Galveston"
@@ -1288,8 +1279,7 @@
             "Feb 04, 2028: Cozumel",
             "Feb 05, 2028: At Sea",
             "Feb 06, 2028: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -1679,9 +1669,11 @@
       "cruises": [
         {
           "ship_name": "Viking Mars",
+          "cruise_line": "Viking Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 930,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 03, 2028: Jamaica",
             "Feb 02, 2028: Miami"
@@ -1690,8 +1682,7 @@
             "Feb 05, 2028: Grand Cayman",
             "Feb 08, 2028: At Sea",
             "Feb 09, 2028: Miami"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -2081,9 +2072,11 @@
       "cruises": [
         {
           "ship_name": "Mein Schiff 3",
+          "cruise_line": "TUI Cruises",
           "arrival_hour": 8,
           "departure_hour": 18,
           "estimated_passengers": 2506,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 04, 2028: Jamaica",
             "Feb 03, 2028: Miami"
@@ -2092,8 +2085,7 @@
             "Feb 06, 2028: Grand Cayman",
             "Feb 09, 2028: At Sea",
             "Feb 10, 2028: Miami"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -2868,9 +2860,11 @@
       "cruises": [
         {
           "ship_name": "Carnival Paradise",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 11,
           "departure_hour": 19,
           "estimated_passengers": 2124,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 06, 2028: At Sea",
             "Feb 05, 2028: Galveston",
@@ -2882,14 +2876,15 @@
             "Feb 09, 2028: Grand Cayman",
             "Feb 10, 2028: At Sea",
             "Feb 11, 2028: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Hero Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 7,
           "departure_hour": 16,
           "estimated_passengers": 5610,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 06: Jamaica",
             "Feb 05: Galveston"
@@ -2898,14 +2893,15 @@
             "Feb 08: Grand Cayman",
             "Feb 09: Cozumel",
             "Feb 11: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Norwegian Aura",
+          "cruise_line": "Norwegian Cruise Line",
           "arrival_hour": 10,
           "departure_hour": 18,
           "estimated_passengers": 3835,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 06, 2028: Jamaica",
             "Feb 05, 2028: Galveston"
@@ -2915,8 +2911,7 @@
             "Feb 09, 2028: Belize City",
             "Feb 11, 2028: At Sea",
             "Feb 12, 2028: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -3306,9 +3301,11 @@
       "cruises": [
         {
           "ship_name": "Norwegian Escape",
+          "cruise_line": "Norwegian Cruise Line",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 4248,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 07, 2028: At Sea",
             "Feb 06, 2028: Miami",
@@ -3318,14 +3315,15 @@
             "Feb 09, 2028: Harvest Caye Belize",
             "Feb 10, 2028: At Sea",
             "Feb 11, 2028: Miami"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Serenade Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 2100,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 07, 2028: Jamaica",
             "Feb 06, 2028: Galveston"
@@ -3335,14 +3333,15 @@
             "Feb 10, 2028: Cozumel",
             "Feb 12, 2028: At Sea",
             "Feb 13, 2028: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Sun Princess",
+          "cruise_line": "Princess Cruises",
           "arrival_hour": 7,
           "departure_hour": 16,
           "estimated_passengers": 4300,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 07, 2028: Belize City",
             "Feb 06, 2028: Galveston"
@@ -3352,8 +3351,7 @@
             "Feb 10, 2028: Grand Cayman",
             "Feb 12, 2028: At Sea",
             "Feb 13, 2028: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -3743,9 +3741,11 @@
       "cruises": [
         {
           "ship_name": "Carnival Liberty",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 2974,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 08, 2028: At Sea",
             "Feb 07, 2028: Galveston",
@@ -3755,14 +3755,15 @@
             "Feb 10, 2028: Cozumel",
             "Feb 11, 2028: At Sea",
             "Feb 12, 2028: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Icon Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 5610,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 08, 2028: At Sea",
             "Feb 07, 2028: Miami"
@@ -3771,14 +3772,15 @@
             "Feb 10, 2028: Cozumel",
             "Feb 11, 2028: At Sea",
             "Feb 12, 2028: Miami"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Norwegian Getaway",
+          "cruise_line": "Norwegian Cruise Line",
           "arrival_hour": 9,
           "departure_hour": 17,
           "estimated_passengers": 3903,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 08, 2028: Grand Cayman",
             "Feb 07, 2028: Miami"
@@ -3788,8 +3790,7 @@
             "Feb 11, 2028: Belize City",
             "Feb 13, 2028: At Sea",
             "Feb 14, 2028: Miami"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -4179,9 +4180,11 @@
       "cruises": [
         {
           "ship_name": "Brilliance Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 2188,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 09, 2028: Grand Cayman",
             "Feb 08, 2028: Jamaica",
@@ -4191,14 +4194,15 @@
             "Feb 11, 2028: Belize City",
             "Feb 13, 2028: At Sea",
             "Feb 14, 2028: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "MSC Seascape",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
           "departure_hour": 16,
           "estimated_passengers": 5878,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 09, 2028: At Sea",
             "Feb 08, 2028: Galveston"
@@ -4207,8 +4211,7 @@
             "Feb 11, 2028: Cozumel",
             "Feb 12, 2028: At Sea",
             "Feb 13, 2028: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -4598,9 +4601,11 @@
       "cruises": [
         {
           "ship_name": "Seven Seas Prestige",
+          "cruise_line": "Regent Seven Seas Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 822,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 10, 2028: Jamaica",
             "Feb 09, 2028: Miami"
@@ -4609,8 +4614,7 @@
             "Feb 12, 2028: Grand Cayman",
             "Feb 15, 2028: At Sea",
             "Feb 16, 2028: Miami"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -5770,9 +5774,11 @@
       "cruises": [
         {
           "ship_name": "MSC World America",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 9,
           "departure_hour": 18,
           "estimated_passengers": 5252,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 13, 2028: At Sea",
             "Feb 12, 2028: Miami"
@@ -5782,14 +5788,15 @@
             "Feb 16, 2028: Miami",
             "Feb 17, 2028: San Juan",
             "Feb 18, 2028: At Sea"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Norwegian Aura",
+          "cruise_line": "Norwegian Cruise Line",
           "arrival_hour": 10,
           "departure_hour": 18,
           "estimated_passengers": 3835,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 13, 2028: Jamaica",
             "Feb 12, 2028: Galveston"
@@ -5799,8 +5806,7 @@
             "Feb 16, 2028: Belize City",
             "Feb 18, 2028: At Sea",
             "Feb 19, 2028: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -6189,10 +6195,20 @@
       ],
       "cruises": [
         {
+          "ship_name": "Carnival Spirit",
+          "cruise_line": "Carnival Cruises",
+          "arrival_hour": 9,
+          "departure_hour": 18,
+          "estimated_passengers": 2134,
+          "is_arrival": true
+        },
+        {
           "ship_name": "Norwegian Escape",
+          "cruise_line": "Norwegian Cruise Line",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 4248,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 14, 2028: At Sea",
             "Feb 13, 2028: Miami",
@@ -6202,14 +6218,15 @@
             "Feb 16, 2028: Harvest Caye Belize",
             "Feb 17, 2028: At Sea",
             "Feb 18, 2028: Miami"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Oceania Sonata",
+          "cruise_line": "Oceania Cruises",
           "arrival_hour": 9,
           "departure_hour": 17,
           "estimated_passengers": 1390,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 14, 2028: Jamaica",
             "Feb 13, 2028: Miami"
@@ -6218,14 +6235,15 @@
             "Feb 16, 2028: Grand Cayman",
             "Feb 19, 2028: At Sea",
             "Feb 20, 2028: Miami"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Serenade Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 7,
           "departure_hour": 15,
           "estimated_passengers": 2100,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 14, 2028: Jamaica",
             "Feb 13, 2028: Galveston"
@@ -6235,8 +6253,7 @@
             "Feb 17, 2028: Cozumel",
             "Feb 19, 2028: At Sea",
             "Feb 20, 2028: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -6626,9 +6643,11 @@
       "cruises": [
         {
           "ship_name": "Brilliance Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 2188,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 15, 2028: Grand Cayman",
             "Feb 14, 2028: Jamaica",
@@ -6638,14 +6657,15 @@
             "Feb 17, 2028: Belize City",
             "Feb 19, 2028: At Sea",
             "Feb 20, 2028: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Carnival Jubilee",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 9,
           "departure_hour": 18,
           "estimated_passengers": 5374,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 15, 2028: At Sea",
             "Feb 14, 2028: Galveston"
@@ -6654,14 +6674,15 @@
             "Feb 17, 2028: Cozumel",
             "Feb 18, 2028: At Sea",
             "Feb 19, 2028: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Icon Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 5610,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 15, 2028: At Sea",
             "Feb 14, 2028: Miami"
@@ -6670,14 +6691,15 @@
             "Feb 17, 2028: Cozumel",
             "Feb 18, 2028: At Sea",
             "Feb 19, 2028: Miami"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Norwegian Getaway",
+          "cruise_line": "Norwegian Cruise Line",
           "arrival_hour": 9,
           "departure_hour": 17,
           "estimated_passengers": 3903,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 15, 2028: Grand Cayman",
             "Feb 14, 2028: Miami"
@@ -6687,14 +6709,15 @@
             "Feb 18, 2028: Belize City",
             "Feb 20, 2028: At Sea",
             "Feb 21, 2028: Miami"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Regal Princess",
+          "cruise_line": "Princess Cruises",
           "arrival_hour": 7,
           "departure_hour": 16,
           "estimated_passengers": 3560,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 15, 2028: At Sea",
             "Feb 14, 2028: Fort Lauderdale",
@@ -6704,8 +6727,7 @@
           "next_ports": [
             "Feb 17, 2028: At Sea",
             "Feb 18, 2028: Fort Lauderdale"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -7095,9 +7117,11 @@
       "cruises": [
         {
           "ship_name": "MSC Seascape",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
           "departure_hour": 16,
           "estimated_passengers": 5878,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 16, 2028: At Sea",
             "Feb 15, 2028: Galveston"
@@ -7106,14 +7130,15 @@
             "Feb 18, 2028: Cozumel",
             "Feb 19, 2028: At Sea",
             "Feb 20, 2028: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Star Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 7,
           "departure_hour": 15,
           "estimated_passengers": 5610,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 16, 2028: At Sea",
             "Feb 15, 2028: Miami",
@@ -7125,8 +7150,7 @@
             "Feb 19, 2028: Jamaica",
             "Feb 20, 2028: At Sea",
             "Feb 21, 2028: Miami"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -7516,9 +7540,11 @@
       "cruises": [
         {
           "ship_name": "Viking Mars",
+          "cruise_line": "Viking Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 930,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 17, 2028: Jamaica",
             "Feb 16, 2028: Miami"
@@ -7527,8 +7553,7 @@
             "Feb 19, 2028: Grand Cayman",
             "Feb 22, 2028: At Sea",
             "Feb 23, 2028: Miami"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -7918,9 +7943,11 @@
       "cruises": [
         {
           "ship_name": "Mein Schiff 3",
+          "cruise_line": "TUI Cruises",
           "arrival_hour": 8,
           "departure_hour": 18,
           "estimated_passengers": 2506,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 18, 2028: Jamaica",
             "Feb 17, 2028: Miami"
@@ -7929,8 +7956,7 @@
             "Feb 20, 2028: Grand Cayman",
             "Feb 23, 2028: At Sea",
             "Feb 24, 2028: Miami"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -8705,9 +8731,11 @@
       "cruises": [
         {
           "ship_name": "Carnival Sunshine",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 3002,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 20, 2028: Belize City",
             "Feb 19, 2028: Galveston"
@@ -8717,14 +8745,15 @@
             "Feb 23, 2028: Grand Cayman",
             "Feb 25, 2028: At Sea",
             "Feb 26, 2028: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Hero Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 7,
           "departure_hour": 16,
           "estimated_passengers": 5610,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 20: Jamaica",
             "Feb 19: Galveston"
@@ -8733,14 +8762,15 @@
             "Feb 22: Grand Cayman",
             "Feb 23: Cozumel",
             "Feb 25: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "MSC Poesia",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
           "departure_hour": 18,
-          "estimated_passengers": 2550,
+          "estimated_passengers": 2446,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 20, 2028: Belize City",
             "Feb 19, 2028: Miami"
@@ -8750,14 +8780,15 @@
             "Feb 23, 2028: Turks and Caicos",
             "Feb 25, 2028: At Sea",
             "Feb 26, 2028: Miami"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Norwegian Aura",
+          "cruise_line": "Norwegian Cruise Line",
           "arrival_hour": 10,
           "departure_hour": 18,
           "estimated_passengers": 3835,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 20, 2028: Jamaica",
             "Feb 19, 2028: Galveston"
@@ -8767,8 +8798,7 @@
             "Feb 23, 2028: Belize City",
             "Feb 25, 2028: At Sea",
             "Feb 26, 2028: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -9158,9 +9188,11 @@
       "cruises": [
         {
           "ship_name": "AIDAbella",
+          "cruise_line": "AIDA",
           "arrival_hour": 10,
           "departure_hour": 18,
           "estimated_passengers": 2030,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 21, 2028: Belize City",
             "Feb 20, 2028: Miami"
@@ -9169,14 +9201,15 @@
             "Feb 23, 2028: Jamaica",
             "Feb 26, 2028: At Sea",
             "Feb 27, 2028: Miami"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Carnival Breeze",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 3646,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 21, 2028: Grand Cayman",
             "Feb 20, 2028: Miami"
@@ -9186,14 +9219,15 @@
             "Feb 24, 2028: Cayman Islands",
             "Feb 26, 2028: At Sea",
             "Feb 27, 2028: Miami"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Norwegian Escape",
+          "cruise_line": "Norwegian Cruise Line",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 4248,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 21, 2028: At Sea",
             "Feb 20, 2028: Miami",
@@ -9203,14 +9237,15 @@
             "Feb 23, 2028: Harvest Caye Belize",
             "Feb 24, 2028: At Sea",
             "Feb 25, 2028: Miami"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Serenade Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 2100,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 21, 2028: Jamaica",
             "Feb 20, 2028: Galveston"
@@ -9220,8 +9255,7 @@
             "Feb 24, 2028: Cozumel",
             "Feb 26, 2028: At Sea",
             "Feb 27, 2028: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -9611,9 +9645,11 @@
       "cruises": [
         {
           "ship_name": "Carnival Liberty",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 2974,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 22, 2028: At Sea",
             "Feb 21, 2028: Galveston",
@@ -9623,14 +9659,23 @@
             "Feb 24, 2028: Cozumel",
             "Feb 25, 2028: At Sea",
             "Feb 26, 2028: Galveston"
-          ],
+          ]
+        },
+        {
+          "ship_name": "Carnival Spirit",
+          "cruise_line": "Carnival Cruises",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 2134,
           "is_arrival": true
         },
         {
           "ship_name": "Icon Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 5610,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 22, 2028: At Sea",
             "Feb 21, 2028: Miami"
@@ -9639,14 +9684,15 @@
             "Feb 24, 2028: Cozumel",
             "Feb 25, 2028: At Sea",
             "Feb 26, 2028: Miami"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Norwegian Getaway",
+          "cruise_line": "Norwegian Cruise Line",
           "arrival_hour": 9,
           "departure_hour": 17,
           "estimated_passengers": 3903,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 22, 2028: Grand Cayman",
             "Feb 21, 2028: Miami"
@@ -9656,8 +9702,7 @@
             "Feb 25, 2028: Belize City",
             "Feb 27, 2028: At Sea",
             "Feb 28, 2028: Miami"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -10047,9 +10092,11 @@
       "cruises": [
         {
           "ship_name": "Brilliance Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 2188,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 23, 2028: Grand Cayman",
             "Feb 22, 2028: Jamaica",
@@ -10059,14 +10106,15 @@
             "Feb 25, 2028: Belize City",
             "Feb 27, 2028: At Sea",
             "Feb 28, 2028: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Carnival Celebration",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 5374,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 23, 2028: At Sea",
             "Feb 22, 2028: Miami"
@@ -10075,14 +10123,15 @@
             "Feb 25, 2028: Cozumel",
             "Feb 26, 2028: At Sea",
             "Feb 27, 2028: Miami"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "MSC Seascape",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
           "departure_hour": 16,
           "estimated_passengers": 5878,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 23, 2028: At Sea",
             "Feb 22, 2028: Galveston"
@@ -10091,8 +10140,7 @@
             "Feb 25, 2028: Cozumel",
             "Feb 26, 2028: At Sea",
             "Feb 27, 2028: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -11637,9 +11685,11 @@
       "cruises": [
         {
           "ship_name": "MSC World America",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 9,
           "departure_hour": 18,
           "estimated_passengers": 5252,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 27, 2028: At Sea",
             "Feb 26, 2028: Miami"
@@ -11649,14 +11699,15 @@
             "Mar 02, 2028: San Juan",
             "Mar 03, 2028: Miami",
             "Feb 29, 2028: Cozumel"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Norwegian Aura",
+          "cruise_line": "Norwegian Cruise Line",
           "arrival_hour": 10,
           "departure_hour": 18,
           "estimated_passengers": 3835,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 27, 2028: Jamaica",
             "Feb 26, 2028: Galveston"
@@ -11665,8 +11716,7 @@
             "Mar 01, 2028: Belize City",
             "Mar 03, 2028: Galveston",
             "Feb 29, 2028: Grand Cayman"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -12056,9 +12106,11 @@
       "cruises": [
         {
           "ship_name": "Norwegian Escape",
+          "cruise_line": "Norwegian Cruise Line",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 4248,
+          "is_arrival": true,
           "previous_ports": [
             "Feb 28, 2028: At Sea",
             "Feb 27, 2028: Miami",
@@ -12068,15 +12120,15 @@
             "Mar 01, 2028: Harvest Caye Belize",
             "Mar 02, 2028: At Sea",
             "Mar 03, 2028: Miami"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     }
   },
   "meta": {
     "flight_source": "modelled",
-    "cruise_source": "recovered",
-    "cruise_source_note": "Restored from the published schedule snapshot of 2026-06-20."
+    "cruise_source": "scraped",
+    "cruise_source_url": "https://www.cruisetimetables.com/roatanhondurasschedule-feb2028.html",
+    "cruise_checked": "2026-10-08"
   }
 }

@@ -771,9 +771,11 @@
       "cruises": [
         {
           "ship_name": "Carnival Miracle",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 2134,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 01, 2026: At Sea",
             "Oct 31, 2026: Galveston",
@@ -784,8 +786,7 @@
             "Nov 04, 2026: Cozumel",
             "Nov 06, 2026: At Sea",
             "Nov 07, 2026: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -1175,9 +1176,11 @@
       "cruises": [
         {
           "ship_name": "Carnival Dream",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 3646,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 02, 2026: At Sea",
             "Nov 01, 2026: Galveston",
@@ -1189,14 +1192,15 @@
             "Nov 05, 2026: Jamaica",
             "Nov 06, 2026: At Sea",
             "Nov 07, 2026: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Icon Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 7,
           "departure_hour": 16,
           "estimated_passengers": 5610,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 02, 2026: At Sea",
             "Nov 01, 2026: Miami"
@@ -1205,14 +1209,15 @@
             "Nov 04, 2026: Cozumel",
             "Nov 05, 2026: At Sea",
             "Nov 06, 2026: Miami"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Norwegian Viva",
+          "cruise_line": "Norwegian Cruise Line",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 3100,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 02, 2026: Belize City",
             "Nov 01, 2026: Galveston"
@@ -1222,8 +1227,7 @@
             "Nov 05, 2026: Grand Cayman",
             "Nov 07, 2026: At Sea",
             "Nov 08, 2026: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -1613,9 +1617,11 @@
       "cruises": [
         {
           "ship_name": "Carnival Celebration",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 9,
           "departure_hour": 18,
           "estimated_passengers": 5374,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 03, 2026: At Sea",
             "Nov 02, 2026: Miami"
@@ -1624,14 +1630,15 @@
             "Nov 05, 2026: Cozumel",
             "Nov 06, 2026: At Sea",
             "Nov 07, 2026: Miami"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Carnival Liberty",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 2974,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 03, 2026: At Sea",
             "Nov 02, 2026: Galveston",
@@ -1641,31 +1648,15 @@
             "Nov 05, 2026: Cozumel",
             "Nov 06, 2026: At Sea",
             "Nov 07, 2026: Galveston"
-          ],
-          "is_arrival": true
-        },
-        {
-          "ship_name": "Margaritaville At Sea Islander",
-          "arrival_hour": 9,
-          "departure_hour": 17,
-          "estimated_passengers": 2680,
-          "previous_ports": [
-            "Nov 03, 2026: Belize City",
-            "Nov 02, 2026: Galveston"
-          ],
-          "next_ports": [
-            "Nov 05, 2026: Jamaica",
-            "Nov 06, 2026: Cozumel",
-            "Nov 08, 2026: At Sea",
-            "Nov 09, 2026: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Norwegian Aqua",
+          "cruise_line": "Norwegian Cruise Line",
           "arrival_hour": 7,
           "departure_hour": 17,
           "estimated_passengers": 3571,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 03, 2026: Grand Cayman",
             "Nov 02, 2026: Galveston"
@@ -1675,14 +1666,15 @@
             "Nov 06, 2026: Cozumel",
             "Nov 08, 2026: At Sea",
             "Nov 09, 2026: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Symphony Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 5518,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 03, 2026: At Sea",
             "Nov 02, 2026: Galveston"
@@ -1691,8 +1683,7 @@
             "Nov 05, 2026: Cozumel",
             "Nov 06, 2026: At Sea",
             "Nov 07, 2026: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -2081,10 +2072,20 @@
       ],
       "cruises": [
         {
+          "ship_name": "Margaritaville At Sea Islander",
+          "cruise_line": "Margaritaville At Sea",
+          "arrival_hour": 7,
+          "departure_hour": 15,
+          "estimated_passengers": 2680,
+          "is_arrival": true
+        },
+        {
           "ship_name": "MSC Seascape",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
           "departure_hour": 16,
           "estimated_passengers": 5878,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 04, 2026: At Sea",
             "Nov 03, 2026: Galveston"
@@ -2093,8 +2094,7 @@
             "Nov 06, 2026: Cozumel",
             "Nov 07, 2026: At Sea",
             "Nov 08, 2026: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -2484,9 +2484,11 @@
       "cruises": [
         {
           "ship_name": "Rotterdam",
+          "cruise_line": "Holland America Line",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 2668,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 05, 2026: Cozumel",
             "Nov 04, 2026: Fort Lauderdale"
@@ -2496,8 +2498,7 @@
             "Nov 08, 2026: Grand Cayman",
             "Nov 09, 2026: Belize City",
             "Nov 10, 2026: At Sea"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -3272,9 +3273,11 @@
       "cruises": [
         {
           "ship_name": "Viking Mars",
+          "cruise_line": "Viking Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 930,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 07, 2026: Jamaica",
             "Nov 06, 2026: Miami"
@@ -3283,8 +3286,7 @@
             "Nov 09, 2026: Grand Cayman",
             "Nov 12, 2026: At Sea",
             "Nov 13, 2026: Miami"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -3674,9 +3676,11 @@
       "cruises": [
         {
           "ship_name": "MSC Poesia",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
           "departure_hour": 18,
-          "estimated_passengers": 2550,
+          "estimated_passengers": 2446,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 08, 2026: Belize City",
             "Nov 07, 2026: Miami"
@@ -3686,14 +3690,15 @@
             "Nov 11, 2026: Turks and Caicos",
             "Nov 13, 2026: At Sea",
             "Nov 14, 2026: Miami"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "MSC World America",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 9,
           "departure_hour": 18,
           "estimated_passengers": 5252,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 08, 2026: At Sea",
             "Nov 07, 2026: Miami"
@@ -3703,14 +3708,15 @@
             "Nov 11, 2026: Miami",
             "Nov 12, 2026: San Juan",
             "Nov 13, 2026: At Sea"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Norwegian Luna",
+          "cruise_line": "Norwegian Cruise Line",
           "arrival_hour": 10,
           "departure_hour": 18,
           "estimated_passengers": 3570,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 08, 2026: Grand Cayman",
             "Nov 07, 2026: New York"
@@ -3720,8 +3726,7 @@
             "Nov 11, 2026: Cozumel",
             "Nov 13, 2026: At Sea",
             "Nov 14, 2026: New York"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -4111,9 +4116,11 @@
       "cruises": [
         {
           "ship_name": "Norwegian Viva",
+          "cruise_line": "Norwegian Cruise Line",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 3100,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 09, 2026: Belize City",
             "Nov 08, 2026: Galveston"
@@ -4123,14 +4130,15 @@
             "Nov 12, 2026: Grand Cayman",
             "Nov 14, 2026: At Sea",
             "Nov 15, 2026: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Star Princess",
+          "cruise_line": "Princess Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 4300,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 09, 2026: Jamaica",
             "Nov 08, 2026: Galveston"
@@ -4140,8 +4148,7 @@
             "Nov 12, 2026: Belize City",
             "Nov 14, 2026: At Sea",
             "Nov 15, 2026: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -4531,9 +4538,11 @@
       "cruises": [
         {
           "ship_name": "Carnival Jubilee",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 9,
           "departure_hour": 18,
           "estimated_passengers": 5374,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 10, 2026: At Sea",
             "Nov 09, 2026: Galveston"
@@ -4542,14 +4551,15 @@
             "Nov 12, 2026: Cozumel",
             "Nov 13, 2026: At Sea",
             "Nov 14, 2026: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Carnival Venezia",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 9,
           "departure_hour": 18,
           "estimated_passengers": 4090,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 10, 2026: Belize City",
             "Nov 09, 2026: Galveston"
@@ -4559,14 +4569,15 @@
             "Nov 13, 2026: Jamaica",
             "Nov 14, 2026: Cozumel",
             "Nov 15, 2026: At Sea"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Star Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 7,
           "departure_hour": 16,
           "estimated_passengers": 5610,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 10, 2026: At Sea",
             "Nov 09, 2026: Miami",
@@ -4578,8 +4589,7 @@
             "Nov 13, 2026: Jamaica",
             "Nov 14, 2026: At Sea",
             "Nov 15, 2026: Miami"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -4969,9 +4979,11 @@
       "cruises": [
         {
           "ship_name": "Carnival Liberty",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 2974,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 11, 2026: At Sea",
             "Nov 10, 2026: Galveston",
@@ -4981,14 +4993,15 @@
             "Nov 13, 2026: Cozumel",
             "Nov 14, 2026: At Sea",
             "Nov 15, 2026: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "MSC Seascape",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
           "departure_hour": 16,
           "estimated_passengers": 5878,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 11, 2026: At Sea",
             "Nov 10, 2026: Galveston"
@@ -4997,14 +5010,15 @@
             "Nov 13, 2026: Cozumel",
             "Nov 14, 2026: At Sea",
             "Nov 15, 2026: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Symphony Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 7,
           "departure_hour": 16,
           "estimated_passengers": 5518,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 11, 2026: At Sea",
             "Nov 10, 2026: Galveston"
@@ -5013,8 +5027,7 @@
             "Nov 13, 2026: Cozumel",
             "Nov 14, 2026: At Sea",
             "Nov 15, 2026: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -5789,9 +5802,11 @@
       "cruises": [
         {
           "ship_name": "Mein Schiff 1",
+          "cruise_line": "TUI Cruises",
           "arrival_hour": 8,
           "departure_hour": 18,
           "estimated_passengers": 2894,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 13, 2026: Belize City",
             "Nov 12, 2026: Miami"
@@ -5800,8 +5815,7 @@
             "Nov 15, 2026: Jamaica",
             "Nov 18, 2026: At Sea",
             "Nov 19, 2026: Miami"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -6576,9 +6590,11 @@
       "cruises": [
         {
           "ship_name": "Norwegian Luna",
+          "cruise_line": "Norwegian Cruise Line",
           "arrival_hour": 10,
           "departure_hour": 18,
           "estimated_passengers": 3570,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 15, 2026: Grand Cayman",
             "Nov 14, 2026: New York"
@@ -6588,8 +6604,7 @@
             "Nov 18, 2026: Cozumel",
             "Nov 20, 2026: At Sea",
             "Nov 21, 2026: New York"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -6979,9 +6994,11 @@
       "cruises": [
         {
           "ship_name": "Icon Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 7,
           "departure_hour": 16,
           "estimated_passengers": 5610,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 16, 2026: At Sea",
             "Nov 15, 2026: Miami"
@@ -6990,14 +7007,15 @@
             "Nov 18, 2026: Cozumel",
             "Nov 19, 2026: At Sea",
             "Nov 20, 2026: Miami"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Mardi Gras",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 5200,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 16, 2026: Belize City",
             "Nov 15, 2026: Galveston"
@@ -7007,14 +7025,15 @@
             "Nov 19, 2026: Jamaica",
             "Nov 20, 2026: Cozumel",
             "Nov 21, 2026: At Sea"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Norwegian Viva",
+          "cruise_line": "Norwegian Cruise Line",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 3100,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 16, 2026: Belize City",
             "Nov 15, 2026: Galveston"
@@ -7024,14 +7043,15 @@
             "Nov 19, 2026: Grand Cayman",
             "Nov 21, 2026: At Sea",
             "Nov 22, 2026: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Radiance Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 2100,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 16, 2026: Grand Cayman",
             "Nov 15, 2026: Galveston"
@@ -7041,8 +7061,7 @@
             "Nov 19, 2026: Cozumel",
             "Nov 21, 2026: At Sea",
             "Nov 22, 2026: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -7432,9 +7451,11 @@
       "cruises": [
         {
           "ship_name": "Carnival Dream",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 3646,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 17, 2026: Belize City",
             "Nov 16, 2026: Cozumel",
@@ -7445,14 +7466,15 @@
             "Nov 20, 2026: Jamaica",
             "Nov 21, 2026: At Sea",
             "Nov 22, 2026: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Crystal Symphony",
+          "cruise_line": "Crystal Cruises",
           "arrival_hour": 10,
           "departure_hour": 18,
           "estimated_passengers": 606,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 17, 2026: Belize City",
             "Nov 16, 2026: Miami"
@@ -7461,14 +7483,15 @@
             "Nov 19, 2026: Jamaica",
             "Nov 22, 2026: At Sea",
             "Nov 23, 2026: Miami"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Symphony Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 5518,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 17, 2026: At Sea",
             "Nov 16, 2026: Galveston"
@@ -7477,14 +7500,15 @@
             "Nov 19, 2026: Cozumel",
             "Nov 20, 2026: At Sea",
             "Nov 21, 2026: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Viking Mars",
+          "cruise_line": "Viking Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 930,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 17, 2026: Jamaica",
             "Nov 16, 2026: Miami"
@@ -7493,8 +7517,7 @@
             "Nov 19, 2026: Grand Cayman",
             "Nov 22, 2026: At Sea",
             "Nov 23, 2026: Miami"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -7884,22 +7907,25 @@
       "cruises": [
         {
           "ship_name": "Jewel Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 2100,
+          "is_arrival": true,
           "previous_ports": [
             "Grand Cayman"
           ],
           "next_ports": [
             "Jamaica"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "MSC Seascape",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
           "departure_hour": 16,
           "estimated_passengers": 5878,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 18, 2026: At Sea",
             "Nov 17, 2026: Galveston"
@@ -7908,14 +7934,15 @@
             "Nov 20, 2026: Cozumel",
             "Nov 21, 2026: At Sea",
             "Nov 22, 2026: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Norwegian Gem",
+          "cruise_line": "Norwegian Cruise Line",
           "arrival_hour": 7,
           "departure_hour": 13,
-          "estimated_passengers": 2394,
+          "estimated_passengers": 2382,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 18, 2026: Grand Cayman",
             "Nov 17, 2026: Galveston"
@@ -7925,14 +7952,15 @@
             "Nov 21, 2026: Belize City",
             "Nov 23, 2026: At Sea",
             "Nov 24, 2026: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Sun Princess",
+          "cruise_line": "Princess Cruises",
           "arrival_hour": 8,
-          "departure_hour": 17,
+          "departure_hour": 16,
           "estimated_passengers": 4300,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 18, 2026: Belize City",
             "Nov 17, 2026: Galveston"
@@ -7942,8 +7970,7 @@
             "Nov 21, 2026: Grand Cayman",
             "Nov 23, 2026: At Sea",
             "Nov 24, 2026: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -8718,9 +8745,11 @@
       "cruises": [
         {
           "ship_name": "Explora I",
+          "cruise_line": "Explora Journeys",
           "arrival_hour": 8,
           "departure_hour": 19,
           "estimated_passengers": 920,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 20, 2026: Jamaica",
             "Nov 19, 2026: Miami"
@@ -8729,8 +8758,7 @@
             "Nov 22, 2026: Belize City",
             "Nov 25, 2026: At Sea",
             "Nov 26, 2026: Miami"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -9120,9 +9148,11 @@
       "cruises": [
         {
           "ship_name": "Queen Elizabeth",
-          "arrival_hour": 6,
-          "departure_hour": 18,
+          "cruise_line": "Cunard Line",
+          "arrival_hour": 8,
+          "departure_hour": 17,
           "estimated_passengers": 2080,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 21, 2026: Jamaica",
             "Nov 20, 2026: Fort Lauderdale"
@@ -9132,8 +9162,7 @@
             "Nov 24, 2026: Cozumel",
             "Nov 26, 2026: At Sea",
             "Nov 27, 2026: Fort Lauderdale"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -9523,9 +9552,11 @@
       "cruises": [
         {
           "ship_name": "MSC World America",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 9,
           "departure_hour": 18,
           "estimated_passengers": 5252,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 22, 2026: At Sea",
             "Nov 21, 2026: Miami"
@@ -9535,14 +9566,15 @@
             "Nov 25, 2026: Miami",
             "Nov 26, 2026: San Juan",
             "Nov 27, 2026: At Sea"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Norwegian Luna",
+          "cruise_line": "Norwegian Cruise Line",
           "arrival_hour": 10,
           "departure_hour": 18,
           "estimated_passengers": 3570,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 22, 2026: Grand Cayman",
             "Nov 21, 2026: New York"
@@ -9552,8 +9584,7 @@
             "Nov 25, 2026: Cozumel",
             "Nov 27, 2026: At Sea",
             "Nov 28, 2026: New York"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -9943,9 +9974,11 @@
       "cruises": [
         {
           "ship_name": "Norwegian Gem",
+          "cruise_line": "Norwegian Cruise Line",
           "arrival_hour": 7,
           "departure_hour": 16,
-          "estimated_passengers": 2394,
+          "estimated_passengers": 2382,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 23, 2026: Grand Cayman",
             "Nov 22, 2026: Galveston"
@@ -9955,14 +9988,15 @@
             "Nov 26, 2026: Belize City",
             "Nov 28, 2026: At Sea",
             "Nov 29, 2026: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Norwegian Viva",
+          "cruise_line": "Norwegian Cruise Line",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 3100,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 23, 2026: Belize City",
             "Nov 22, 2026: Galveston"
@@ -9972,14 +10006,15 @@
             "Nov 26, 2026: Grand Cayman",
             "Nov 28, 2026: At Sea",
             "Nov 29, 2026: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Seven Seas Grandeur",
+          "cruise_line": "Regent Seven Seas Cruises",
           "arrival_hour": 13,
           "departure_hour": 20,
           "estimated_passengers": 746,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 23, 2026: Jamaica",
             "Nov 22, 2026: Miami"
@@ -9988,14 +10023,15 @@
             "Nov 25, 2026: Grand Cayman",
             "Nov 28, 2026: At Sea",
             "Nov 29, 2026: Miami"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Star Princess",
+          "cruise_line": "Princess Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 4300,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 23, 2026: Jamaica",
             "Nov 22, 2026: Galveston"
@@ -10005,8 +10041,7 @@
             "Nov 26, 2026: Belize City",
             "Nov 28, 2026: At Sea",
             "Nov 29, 2026: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -10396,9 +10431,11 @@
       "cruises": [
         {
           "ship_name": "Carnival Jubilee",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 9,
           "departure_hour": 18,
           "estimated_passengers": 5374,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 24, 2026: At Sea",
             "Nov 23, 2026: Galveston"
@@ -10407,14 +10444,15 @@
             "Nov 26, 2026: Cozumel",
             "Nov 27, 2026: At Sea",
             "Nov 28, 2026: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Carnival Legend",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 9,
           "departure_hour": 17,
-          "estimated_passengers": 2124,
+          "estimated_passengers": 2134,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 24, 2026: Grand Cayman",
             "Nov 23, 2026: Jamaica",
@@ -10424,14 +10462,15 @@
             "Nov 26, 2026: Cozumel",
             "Nov 28, 2026: At Sea",
             "Nov 29, 2026: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Enchantment Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 9,
           "departure_hour": 17,
           "estimated_passengers": 1950,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 24, 2026: At Sea",
             "Nov 23, 2026: Tampa",
@@ -10441,14 +10480,15 @@
             "Nov 26, 2026: Cozumel",
             "Nov 27, 2026: At Sea",
             "Nov 28, 2026: Tampa"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Norwegian Breakaway",
+          "cruise_line": "Norwegian Cruise Line",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 3903,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 24, 2026: Belize City",
             "Nov 23, 2026: New York"
@@ -10458,14 +10498,15 @@
             "Nov 27, 2026: Grand Cayman",
             "Nov 29, 2026: At Sea",
             "Nov 30, 2026: New York"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Seven Seas Splendor",
+          "cruise_line": "Regent Seven Seas Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 750,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 24, 2026: Belize City",
             "Nov 23, 2026: Miami"
@@ -10474,14 +10515,15 @@
             "Nov 26, 2026: Jamaica",
             "Nov 29, 2026: At Sea",
             "Nov 30, 2026: Miami"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Star Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 7,
           "departure_hour": 16,
           "estimated_passengers": 5610,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 24, 2026: At Sea",
             "Nov 23, 2026: Miami",
@@ -10493,8 +10535,7 @@
             "Nov 27, 2026: Jamaica",
             "Nov 28, 2026: At Sea",
             "Nov 29, 2026: Miami"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -10884,9 +10925,11 @@
       "cruises": [
         {
           "ship_name": "Carnival Venezia",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 4090,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 25, 2026: Belize City",
             "Nov 24, 2026: Galveston"
@@ -10896,14 +10939,15 @@
             "Nov 28, 2026: Jamaica",
             "Nov 29, 2026: Cozumel",
             "Nov 30, 2026: At Sea"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "MSC Seascape",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
           "departure_hour": 16,
           "estimated_passengers": 5878,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 25, 2026: At Sea",
             "Nov 24, 2026: Galveston"
@@ -10912,14 +10956,15 @@
             "Nov 27, 2026: Cozumel",
             "Nov 28, 2026: At Sea",
             "Nov 29, 2026: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Rotterdam",
+          "cruise_line": "Holland America Line",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 2668,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 25, 2026: Cozumel",
             "Nov 24, 2026: Fort Lauderdale"
@@ -10929,14 +10974,15 @@
             "Nov 28, 2026: Grand Cayman",
             "Nov 29, 2026: Belize City",
             "Nov 30, 2026: At Sea"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Symphony Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 7,
           "departure_hour": 16,
           "estimated_passengers": 5518,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 25, 2026: At Sea",
             "Nov 24, 2026: Galveston"
@@ -10945,8 +10991,7 @@
             "Nov 27, 2026: Cozumel",
             "Nov 28, 2026: At Sea",
             "Nov 29, 2026: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -11336,9 +11381,11 @@
       "cruises": [
         {
           "ship_name": "Carnival Miracle",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 2134,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 26, 2026: Jamaica",
             "Nov 25, 2026: Galveston"
@@ -11347,8 +11394,7 @@
             "Dec 01, 2026: Galveston",
             "Nov 28, 2026: Grand Cayman",
             "Nov 29, 2026: Cozumel"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -11738,9 +11784,11 @@
       "cruises": [
         {
           "ship_name": "Mein Schiff 1",
+          "cruise_line": "TUI Cruises",
           "arrival_hour": 8,
           "departure_hour": 18,
           "estimated_passengers": 2894,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 27, 2026: Belize City",
             "Nov 26, 2026: Miami"
@@ -11748,8 +11796,7 @@
           "next_ports": [
             "Dec 02, 2026: Miami",
             "Nov 29, 2026: Jamaica"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -12524,9 +12571,11 @@
       "cruises": [
         {
           "ship_name": "Carnival Paradise",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 11,
           "departure_hour": 19,
           "estimated_passengers": 2124,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 29, 2026: At Sea",
             "Nov 28, 2026: Galveston",
@@ -12538,14 +12587,15 @@
             "Dec 02, 2026: Grand Cayman",
             "Dec 03, 2026: At Sea",
             "Dec 04, 2026: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "MSC Poesia",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
           "departure_hour": 18,
-          "estimated_passengers": 2550,
+          "estimated_passengers": 2446,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 29, 2026: Belize City",
             "Nov 28, 2026: Miami"
@@ -12555,14 +12605,15 @@
             "Dec 02, 2026: Turks and Caicos",
             "Dec 04, 2026: At Sea",
             "Dec 05, 2026: Miami"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Norwegian Luna",
+          "cruise_line": "Norwegian Cruise Line",
           "arrival_hour": 10,
           "departure_hour": 18,
           "estimated_passengers": 3570,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 29, 2026: Grand Cayman",
             "Nov 28, 2026: New York"
@@ -12572,15 +12623,15 @@
             "Dec 02, 2026: Cozumel",
             "Dec 04, 2026: At Sea",
             "Dec 05, 2026: New York"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     }
   },
   "meta": {
     "flight_source": "modelled",
-    "cruise_source": "recovered",
-    "cruise_source_note": "Restored from the published schedule snapshot of 2026-06-20."
+    "cruise_source": "scraped",
+    "cruise_source_url": "https://www.cruisetimetables.com/roatanhondurasschedule-nov2026.html",
+    "cruise_checked": "2026-10-08"
   }
 }

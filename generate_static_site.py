@@ -37,7 +37,9 @@ def data_notice(meta):
     """Plain-language note on where a month's numbers come from."""
     cruise_src = meta.get('cruise_source')
     if cruise_src == 'scraped':
-        cruise = 'Cruise calls come from published port schedules.'
+        checked = meta.get('cruise_checked')
+        cruise = ('Cruise calls come from the published port schedule'
+                  + (f' (checked {checked})' if checked else '') + '; lines can change itineraries.')
     elif cruise_src == 'recovered':
         cruise = 'Cruise calls come from published port schedules (snapshot of 2026-06-20); lines can change itineraries.'
     else:

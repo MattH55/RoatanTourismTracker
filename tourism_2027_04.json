@@ -386,9 +386,11 @@
       "cruises": [
         {
           "ship_name": "Carnival Legend",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
-          "estimated_passengers": 2124,
+          "estimated_passengers": 2134,
+          "is_arrival": true,
           "previous_ports": [
             "Mar 31, 2027: Grand Cayman",
             "Mar 30, 2027: Jamaica",
@@ -398,14 +400,15 @@
             "Apr 02, 2027: Cozumel",
             "Apr 04, 2027: At Sea",
             "Apr 05, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Carnival Venezia",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 4090,
+          "is_arrival": true,
           "previous_ports": [
             "Mar 31, 2027: Belize City",
             "Mar 30, 2027: Galveston"
@@ -415,14 +418,15 @@
             "Apr 03, 2027: Jamaica",
             "Apr 04, 2027: Cozumel",
             "Apr 05, 2027: At Sea"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "MSC Seascape",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
           "departure_hour": 16,
           "estimated_passengers": 5878,
+          "is_arrival": true,
           "previous_ports": [
             "Mar 31, 2027: At Sea",
             "Mar 30, 2027: Galveston"
@@ -431,14 +435,15 @@
             "Apr 02, 2027: Cozumel",
             "Apr 03, 2027: At Sea",
             "Apr 04, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Symphony Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 7,
           "departure_hour": 16,
           "estimated_passengers": 5518,
+          "is_arrival": true,
           "previous_ports": [
             "Mar 31, 2027: At Sea",
             "Mar 30, 2027: Galveston"
@@ -447,8 +452,7 @@
             "Apr 02, 2027: Cozumel",
             "Apr 03, 2027: At Sea",
             "Apr 04, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -1223,9 +1227,11 @@
       "cruises": [
         {
           "ship_name": "Mein Schiff 1",
+          "cruise_line": "TUI Cruises",
           "arrival_hour": 8,
           "departure_hour": 18,
           "estimated_passengers": 2894,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 02, 2027: Belize City",
             "Apr 01, 2027: Miami"
@@ -1234,8 +1240,7 @@
             "Apr 04, 2027: Jamaica",
             "Apr 07, 2027: At Sea",
             "Apr 08, 2027: Miami"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -2010,9 +2015,11 @@
       "cruises": [
         {
           "ship_name": "Carnival Paradise",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 11,
           "departure_hour": 19,
           "estimated_passengers": 2124,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 04, 2027: At Sea",
             "Apr 03, 2027: Galveston",
@@ -2024,14 +2031,15 @@
             "Apr 07, 2027: Grand Cayman",
             "Apr 08, 2027: At Sea",
             "Apr 09, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "MSC Poesia",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
           "departure_hour": 18,
-          "estimated_passengers": 2550,
+          "estimated_passengers": 2446,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 04, 2027: Belize City",
             "Apr 03, 2027: Miami"
@@ -2041,14 +2049,15 @@
             "Apr 07, 2027: Turks and Caicos",
             "Apr 09, 2027: At Sea",
             "Apr 10, 2027: Miami"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Radiance Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 9,
           "departure_hour": 18,
           "estimated_passengers": 2100,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 04, 2027: Grand Cayman",
             "Apr 03, 2027: Galveston"
@@ -2058,8 +2067,7 @@
             "Apr 07, 2027: Cozumel",
             "Apr 09, 2027: At Sea",
             "Apr 10, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -2449,9 +2457,11 @@
       "cruises": [
         {
           "ship_name": "Carnival Dream",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 3646,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 05, 2027: Belize City",
             "Apr 04, 2027: Cozumel",
@@ -2462,14 +2472,15 @@
             "Apr 08, 2027: Jamaica",
             "Apr 09, 2027: At Sea",
             "Apr 10, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Icon Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 7,
           "departure_hour": 16,
           "estimated_passengers": 5610,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 05, 2027: At Sea",
             "Apr 04, 2027: Miami"
@@ -2478,14 +2489,15 @@
             "Apr 07, 2027: Cozumel",
             "Apr 08, 2027: At Sea",
             "Apr 09, 2027: Miami"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Mardi Gras",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 5200,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 05, 2027: Belize City",
             "Apr 04, 2027: Galveston"
@@ -2495,14 +2507,15 @@
             "Apr 08, 2027: Jamaica",
             "Apr 09, 2027: Cozumel",
             "Apr 10, 2027: At Sea"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Norwegian Viva",
+          "cruise_line": "Norwegian Cruise Line",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 3100,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 05, 2027: Belize City",
             "Apr 04, 2027: Galveston"
@@ -2512,8 +2525,7 @@
             "Apr 08, 2027: Grand Cayman",
             "Apr 10, 2027: At Sea",
             "Apr 11, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -2903,9 +2915,11 @@
       "cruises": [
         {
           "ship_name": "Carnival Liberty",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 2974,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 06, 2027: At Sea",
             "Apr 05, 2027: Galveston",
@@ -2915,14 +2929,15 @@
             "Apr 08, 2027: Cozumel",
             "Apr 09, 2027: At Sea",
             "Apr 10, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Celebrity Silhouette",
+          "cruise_line": "Celebrity Cruises",
           "arrival_hour": 9,
           "departure_hour": 17,
           "estimated_passengers": 2852,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 06, 2027: Grand Cayman",
             "Apr 05, 2027: Galveston"
@@ -2932,14 +2947,15 @@
             "Apr 09, 2027: Belize City",
             "Apr 11, 2027: At Sea",
             "Apr 12, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Enchantment Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 7,
           "departure_hour": 16,
           "estimated_passengers": 1950,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 06, 2027: At Sea",
             "Apr 05, 2027: Tampa",
@@ -2949,8 +2965,7 @@
             "Apr 08, 2027: Cozumel",
             "Apr 09, 2027: At Sea",
             "Apr 10, 2027: Tampa"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -3340,9 +3355,11 @@
       "cruises": [
         {
           "ship_name": "MSC Seascape",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
           "departure_hour": 16,
           "estimated_passengers": 5878,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 07, 2027: At Sea",
             "Apr 06, 2027: Galveston"
@@ -3351,14 +3368,15 @@
             "Apr 09, 2027: Cozumel",
             "Apr 10, 2027: At Sea",
             "Apr 11, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Symphony Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 7,
           "departure_hour": 16,
           "estimated_passengers": 5518,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 07, 2027: At Sea",
             "Apr 06, 2027: Galveston"
@@ -3367,8 +3385,7 @@
             "Apr 09, 2027: Cozumel",
             "Apr 10, 2027: At Sea",
             "Apr 11, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -4913,9 +4930,11 @@
       "cruises": [
         {
           "ship_name": "MSC World America",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 9,
           "departure_hour": 18,
           "estimated_passengers": 5252,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 11, 2027: At Sea",
             "Apr 10, 2027: Miami"
@@ -4925,8 +4944,7 @@
             "Apr 14, 2027: Miami",
             "Apr 15, 2027: San Juan",
             "Apr 16, 2027: At Sea"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -5316,9 +5334,11 @@
       "cruises": [
         {
           "ship_name": "Radiance Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 9,
           "departure_hour": 18,
           "estimated_passengers": 2100,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 12, 2027: Grand Cayman",
             "Apr 11, 2027: Galveston"
@@ -5328,8 +5348,7 @@
             "Apr 15, 2027: Cozumel",
             "Apr 17, 2027: At Sea",
             "Apr 18, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -5719,9 +5738,11 @@
       "cruises": [
         {
           "ship_name": "Carnival Jubilee",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 9,
           "departure_hour": 18,
           "estimated_passengers": 5374,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 13, 2027: At Sea",
             "Apr 12, 2027: Galveston"
@@ -5730,14 +5751,15 @@
             "Apr 15, 2027: Cozumel",
             "Apr 16, 2027: At Sea",
             "Apr 17, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Enchantment Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 9,
           "departure_hour": 17,
           "estimated_passengers": 1950,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 13, 2027: At Sea",
             "Apr 12, 2027: Tampa",
@@ -5747,14 +5769,15 @@
             "Apr 15, 2027: Cozumel",
             "Apr 16, 2027: At Sea",
             "Apr 17, 2027: Tampa"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Star Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 7,
           "departure_hour": 16,
           "estimated_passengers": 5610,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 13, 2027: At Sea",
             "Apr 12, 2027: Miami",
@@ -5766,8 +5789,7 @@
             "Apr 16, 2027: Jamaica",
             "Apr 17, 2027: At Sea",
             "Apr 18, 2027: Miami"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -6157,9 +6179,11 @@
       "cruises": [
         {
           "ship_name": "Carnival Venezia",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 4090,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 14, 2027: Belize City",
             "Apr 13, 2027: Galveston"
@@ -6169,14 +6193,15 @@
             "Apr 17, 2027: Jamaica",
             "Apr 18, 2027: Cozumel",
             "Apr 19, 2027: At Sea"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "MSC Seascape",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
           "departure_hour": 16,
           "estimated_passengers": 5878,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 14, 2027: At Sea",
             "Apr 13, 2027: Galveston"
@@ -6185,14 +6210,15 @@
             "Apr 16, 2027: Cozumel",
             "Apr 17, 2027: At Sea",
             "Apr 18, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Symphony Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 7,
           "departure_hour": 16,
           "estimated_passengers": 5518,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 14, 2027: At Sea",
             "Apr 13, 2027: Galveston"
@@ -6201,8 +6227,7 @@
             "Apr 16, 2027: Cozumel",
             "Apr 17, 2027: At Sea",
             "Apr 18, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -7362,9 +7387,11 @@
       "cruises": [
         {
           "ship_name": "Carnival Miracle",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 2134,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 17, 2027: Jamaica",
             "Apr 16, 2027: Galveston"
@@ -7374,8 +7401,7 @@
             "Apr 20, 2027: Cozumel",
             "Apr 22, 2027: At Sea",
             "Apr 23, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -7765,9 +7791,11 @@
       "cruises": [
         {
           "ship_name": "Carnival Paradise",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 11,
           "departure_hour": 19,
           "estimated_passengers": 2124,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 18, 2027: At Sea",
             "Apr 17, 2027: Galveston",
@@ -7779,14 +7807,15 @@
             "Apr 21, 2027: Grand Cayman",
             "Apr 22, 2027: At Sea",
             "Apr 23, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Radiance Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 9,
           "departure_hour": 18,
           "estimated_passengers": 2100,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 18, 2027: Grand Cayman",
             "Apr 17, 2027: Galveston"
@@ -7796,8 +7825,7 @@
             "Apr 21, 2027: Cozumel",
             "Apr 23, 2027: At Sea",
             "Apr 24, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -8187,9 +8215,11 @@
       "cruises": [
         {
           "ship_name": "Carnival Dream",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 3646,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 19, 2027: Belize City",
             "Apr 18, 2027: Cozumel",
@@ -8200,14 +8230,15 @@
             "Apr 22, 2027: Jamaica",
             "Apr 23, 2027: At Sea",
             "Apr 24, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Icon Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 7,
           "departure_hour": 16,
           "estimated_passengers": 5610,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 19, 2027: At Sea",
             "Apr 18, 2027: Miami"
@@ -8216,14 +8247,15 @@
             "Apr 21, 2027: Cozumel",
             "Apr 22, 2027: At Sea",
             "Apr 23, 2027: Miami"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Norwegian Viva",
+          "cruise_line": "Norwegian Cruise Line",
           "arrival_hour": 9,
           "departure_hour": 18,
           "estimated_passengers": 3100,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 19, 2027: Belize City",
             "Apr 18, 2027: Galveston"
@@ -8233,8 +8265,7 @@
             "Apr 22, 2027: Grand Cayman",
             "Apr 24, 2027: At Sea",
             "Apr 25, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -8624,9 +8655,11 @@
       "cruises": [
         {
           "ship_name": "Carnival Firenze",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 4126,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 20, 2027: Mexico",
             "Apr 19, 2027: Galveston"
@@ -8636,14 +8669,15 @@
             "Apr 23, 2027: Cozumel",
             "Apr 25, 2027: At Sea",
             "Apr 26, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Carnival Liberty",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 2974,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 20, 2027: At Sea",
             "Apr 19, 2027: Galveston",
@@ -8653,14 +8687,15 @@
             "Apr 22, 2027: Cozumel",
             "Apr 23, 2027: At Sea",
             "Apr 24, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Enchantment Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 7,
           "departure_hour": 15,
           "estimated_passengers": 1950,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 20, 2027: At Sea",
             "Apr 19, 2027: Tampa",
@@ -8670,8 +8705,7 @@
             "Apr 22, 2027: Cozumel",
             "Apr 23, 2027: At Sea",
             "Apr 24, 2027: Tampa"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -9061,9 +9095,11 @@
       "cruises": [
         {
           "ship_name": "MSC Seascape",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
           "departure_hour": 16,
           "estimated_passengers": 5878,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 21, 2027: At Sea",
             "Apr 20, 2027: Galveston"
@@ -9072,14 +9108,15 @@
             "Apr 23, 2027: Cozumel",
             "Apr 24, 2027: At Sea",
             "Apr 25, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Symphony Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 7,
           "departure_hour": 16,
           "estimated_passengers": 5518,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 21, 2027: At Sea",
             "Apr 20, 2027: Galveston"
@@ -9088,8 +9125,7 @@
             "Apr 23, 2027: Cozumel",
             "Apr 24, 2027: At Sea",
             "Apr 25, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -10634,9 +10670,11 @@
       "cruises": [
         {
           "ship_name": "MSC World America",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 9,
           "departure_hour": 18,
           "estimated_passengers": 5252,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 25, 2027: At Sea",
             "Apr 24, 2027: Miami"
@@ -10646,8 +10684,7 @@
             "Apr 28, 2027: Miami",
             "Apr 29, 2027: San Juan",
             "Apr 30, 2027: At Sea"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -11037,9 +11074,11 @@
       "cruises": [
         {
           "ship_name": "Norwegian Viva",
+          "cruise_line": "Norwegian Cruise Line",
           "arrival_hour": 9,
           "departure_hour": 18,
           "estimated_passengers": 3100,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 26, 2027: Belize City",
             "Apr 25, 2027: Galveston"
@@ -11048,14 +11087,15 @@
             "May 01, 2027: Galveston",
             "Apr 28, 2027: Jamaica",
             "Apr 29, 2027: Grand Cayman"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Radiance Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 9,
           "departure_hour": 18,
           "estimated_passengers": 2100,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 26, 2027: Grand Cayman",
             "Apr 25, 2027: Galveston"
@@ -11064,8 +11104,7 @@
             "May 01, 2027: Galveston",
             "Apr 28, 2027: Jamaica",
             "Apr 29, 2027: Cozumel"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -11455,9 +11494,11 @@
       "cruises": [
         {
           "ship_name": "Carnival Jubilee",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 9,
           "departure_hour": 18,
           "estimated_passengers": 5374,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 27, 2027: At Sea",
             "Apr 26, 2027: Galveston"
@@ -11466,14 +11507,15 @@
             "Apr 29, 2027: Cozumel",
             "Apr 30, 2027: At Sea",
             "May 01, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Carnival Liberty",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 2974,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 27, 2027: At Sea",
             "Apr 26, 2027: Galveston",
@@ -11483,14 +11525,15 @@
             "Apr 29, 2027: Cozumel",
             "Apr 30, 2027: At Sea",
             "May 01, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Symphony Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 9,
           "departure_hour": 17,
           "estimated_passengers": 5518,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 27, 2027: At Sea",
             "Apr 26, 2027: Galveston"
@@ -11499,8 +11542,7 @@
             "Apr 29, 2027: Cozumel",
             "Apr 30, 2027: At Sea",
             "May 01, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -11890,9 +11932,11 @@
       "cruises": [
         {
           "ship_name": "Carnival Firenze",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 4126,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 28, 2027: Mexico",
             "Apr 27, 2027: Galveston"
@@ -11901,14 +11945,15 @@
             "May 01, 2027: Cozumel",
             "May 03, 2027: Galveston",
             "Apr 30, 2027: Jamaica"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Carnival Venezia",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 4090,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 28, 2027: Belize City",
             "Apr 27, 2027: Galveston"
@@ -11918,14 +11963,15 @@
             "May 02, 2027: Cozumel",
             "May 03, 2027: Galveston",
             "Apr 30, 2027: Grand Cayman"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "MSC Seascape",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
           "departure_hour": 16,
           "estimated_passengers": 5878,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 28, 2027: At Sea",
             "Apr 27, 2027: Galveston"
@@ -11933,14 +11979,15 @@
           "next_ports": [
             "May 01, 2027: Galveston",
             "Apr 30, 2027: Cozumel"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Star Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 5610,
+          "is_arrival": true,
           "previous_ports": [
             "Apr 28, 2027: At Sea",
             "Apr 27, 2027: Miami",
@@ -11952,8 +11999,7 @@
             "May 01, 2027: Jamaica",
             "May 02, 2027: At Sea",
             "May 03, 2027: Miami"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -12345,7 +12391,8 @@
   },
   "meta": {
     "flight_source": "modelled",
-    "cruise_source": "recovered",
-    "cruise_source_note": "Restored from the published schedule snapshot of 2026-06-20."
+    "cruise_source": "scraped",
+    "cruise_source_url": "https://www.cruisetimetables.com/roatanhondurasschedule-apr2027.html",
+    "cruise_checked": "2026-10-08"
   }
 }

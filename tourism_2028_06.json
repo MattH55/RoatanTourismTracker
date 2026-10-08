@@ -386,9 +386,11 @@
       "cruises": [
         {
           "ship_name": "MSC Seascape",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
           "departure_hour": 16,
           "estimated_passengers": 5878,
+          "is_arrival": true,
           "previous_ports": [
             "May 31, 2028: At Sea",
             "May 30, 2028: Galveston"
@@ -397,8 +399,7 @@
             "Jun 02, 2028: Cozumel",
             "Jun 03, 2028: At Sea",
             "Jun 04, 2028: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -1943,9 +1944,11 @@
       "cruises": [
         {
           "ship_name": "MSC World America",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 9,
           "departure_hour": 18,
           "estimated_passengers": 5252,
+          "is_arrival": true,
           "previous_ports": [
             "Jun 04, 2028: At Sea",
             "Jun 03, 2028: Miami"
@@ -1955,8 +1958,7 @@
             "Jun 07, 2028: Miami",
             "Jun 08, 2028: San Juan",
             "Jun 09, 2028: At Sea"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -2343,7 +2345,16 @@
           "estimated_passengers": 27
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Norwegian Prima",
+          "cruise_line": "Norwegian Cruise Line",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 3099,
+          "is_arrival": true
+        }
+      ]
     },
     "2028-06-07": {
       "flights": [
@@ -2728,7 +2739,16 @@
           "estimated_passengers": 20
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Carnival Tropicale",
+          "cruise_line": "Carnival Cruises",
+          "arrival_hour": 9,
+          "departure_hour": 18,
+          "estimated_passengers": 5282,
+          "is_arrival": true
+        }
+      ]
     },
     "2028-06-08": {
       "flights": [
@@ -3116,9 +3136,11 @@
       "cruises": [
         {
           "ship_name": "MSC Seascape",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
           "departure_hour": 16,
           "estimated_passengers": 5878,
+          "is_arrival": true,
           "previous_ports": [
             "Jun 07, 2028: At Sea",
             "Jun 06, 2028: Galveston"
@@ -3127,8 +3149,7 @@
             "Jun 09, 2028: Cozumel",
             "Jun 10, 2028: At Sea",
             "Jun 11, 2028: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -5055,7 +5076,24 @@
           "estimated_passengers": 22
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Margaritaville At Sea Beachcomber",
+          "cruise_line": "Margaritaville At Sea",
+          "arrival_hour": 8,
+          "departure_hour": 16,
+          "estimated_passengers": 3470,
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Norwegian Prima",
+          "cruise_line": "Norwegian Cruise Line",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 3099,
+          "is_arrival": true
+        }
+      ]
     },
     "2028-06-14": {
       "flights": [
@@ -5828,9 +5866,11 @@
       "cruises": [
         {
           "ship_name": "MSC Seascape",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
           "departure_hour": 16,
           "estimated_passengers": 5878,
+          "is_arrival": true,
           "previous_ports": [
             "Jun 14, 2028: At Sea",
             "Jun 13, 2028: Galveston"
@@ -5839,8 +5879,7 @@
             "Jun 16, 2028: Cozumel",
             "Jun 17, 2028: At Sea",
             "Jun 18, 2028: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -7385,9 +7424,11 @@
       "cruises": [
         {
           "ship_name": "MSC World America",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 9,
           "departure_hour": 18,
           "estimated_passengers": 5252,
+          "is_arrival": true,
           "previous_ports": [
             "Jun 18, 2028: At Sea",
             "Jun 17, 2028: Miami"
@@ -7397,8 +7438,7 @@
             "Jun 21, 2028: Miami",
             "Jun 22, 2028: San Juan",
             "Jun 23, 2028: At Sea"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -7785,7 +7825,24 @@
           "estimated_passengers": 24
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Margaritaville At Sea Beachcomber",
+          "cruise_line": "Margaritaville At Sea",
+          "arrival_hour": 8,
+          "departure_hour": 16,
+          "estimated_passengers": 3470,
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Norwegian Prima",
+          "cruise_line": "Norwegian Cruise Line",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 3099,
+          "is_arrival": true
+        }
+      ]
     },
     "2028-06-21": {
       "flights": [
@@ -8170,7 +8227,16 @@
           "estimated_passengers": 15
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Carnival Tropicale",
+          "cruise_line": "Carnival Cruises",
+          "arrival_hour": 9,
+          "departure_hour": 18,
+          "estimated_passengers": 5282,
+          "is_arrival": true
+        }
+      ]
     },
     "2028-06-22": {
       "flights": [
@@ -8558,9 +8624,11 @@
       "cruises": [
         {
           "ship_name": "MSC Seascape",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
           "departure_hour": 16,
           "estimated_passengers": 5878,
+          "is_arrival": true,
           "previous_ports": [
             "Jun 21, 2028: At Sea",
             "Jun 20, 2028: Galveston"
@@ -8569,8 +8637,7 @@
             "Jun 23, 2028: Cozumel",
             "Jun 24, 2028: At Sea",
             "Jun 25, 2028: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -10497,7 +10564,16 @@
           "estimated_passengers": 12
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Norwegian Prima",
+          "cruise_line": "Norwegian Cruise Line",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 3099,
+          "is_arrival": true
+        }
+      ]
     },
     "2028-06-28": {
       "flights": [
@@ -11270,9 +11346,11 @@
       "cruises": [
         {
           "ship_name": "MSC Seascape",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
           "departure_hour": 16,
           "estimated_passengers": 5878,
+          "is_arrival": true,
           "previous_ports": [
             "Jun 28, 2028: At Sea",
             "Jun 27, 2028: Galveston"
@@ -11280,8 +11358,7 @@
           "next_ports": [
             "Jul 01, 2028: Galveston",
             "Jun 30, 2028: Cozumel"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -11673,7 +11750,8 @@
   },
   "meta": {
     "flight_source": "modelled",
-    "cruise_source": "recovered",
-    "cruise_source_note": "Restored from the published schedule snapshot of 2026-06-20."
+    "cruise_source": "scraped",
+    "cruise_source_url": "https://www.cruisetimetables.com/roatanhondurasschedule-jun2028.html",
+    "cruise_checked": "2026-10-08"
   }
 }

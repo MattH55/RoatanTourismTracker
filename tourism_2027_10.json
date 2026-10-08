@@ -1926,9 +1926,11 @@
       "cruises": [
         {
           "ship_name": "Carnival Breeze",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 3646,
+          "is_arrival": true,
           "previous_ports": [
             "Oct 04, 2027: Grand Cayman",
             "Oct 03, 2027: Miami"
@@ -1938,14 +1940,15 @@
             "Oct 07, 2027: Cayman Islands",
             "Oct 09, 2027: At Sea",
             "Oct 10, 2027: Miami"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Margaritaville At Sea Islander",
+          "cruise_line": "Margaritaville At Sea",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 2680,
+          "is_arrival": true,
           "previous_ports": [
             "Oct 04, 2027: Belize City",
             "Oct 03, 2027: Galveston"
@@ -1955,8 +1958,7 @@
             "Oct 07, 2027: Cozumel",
             "Oct 09, 2027: At Sea",
             "Oct 10, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -2346,9 +2348,11 @@
       "cruises": [
         {
           "ship_name": "Carnival Liberty",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 2974,
+          "is_arrival": true,
           "previous_ports": [
             "Oct 05, 2027: At Sea",
             "Oct 04, 2027: Galveston",
@@ -2358,14 +2362,15 @@
             "Oct 07, 2027: Cozumel",
             "Oct 08, 2027: At Sea",
             "Oct 09, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Enchantment Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 9,
           "departure_hour": 17,
           "estimated_passengers": 1950,
+          "is_arrival": true,
           "previous_ports": [
             "Oct 05, 2027: At Sea",
             "Oct 04, 2027: Tampa",
@@ -2375,14 +2380,15 @@
             "Oct 07, 2027: Cozumel",
             "Oct 08, 2027: At Sea",
             "Oct 09, 2027: Tampa"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Icon Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 9,
           "departure_hour": 17,
           "estimated_passengers": 5610,
+          "is_arrival": true,
           "previous_ports": [
             "Oct 05, 2027: At Sea",
             "Oct 04, 2027: Miami"
@@ -2391,8 +2397,7 @@
             "Oct 07, 2027: Cozumel",
             "Oct 08, 2027: At Sea",
             "Oct 09, 2027: Miami"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -2782,9 +2787,11 @@
       "cruises": [
         {
           "ship_name": "Carnival Celebration",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 5374,
+          "is_arrival": true,
           "previous_ports": [
             "Oct 06, 2027: At Sea",
             "Oct 05, 2027: Miami"
@@ -2793,14 +2800,15 @@
             "Oct 08, 2027: Cozumel",
             "Oct 09, 2027: At Sea",
             "Oct 10, 2027: Miami"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "MSC Seascape",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
           "departure_hour": 16,
           "estimated_passengers": 5878,
+          "is_arrival": true,
           "previous_ports": [
             "Oct 06, 2027: At Sea",
             "Oct 05, 2027: Galveston"
@@ -2809,8 +2817,7 @@
             "Oct 08, 2027: Cozumel",
             "Oct 09, 2027: At Sea",
             "Oct 10, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -4355,9 +4362,11 @@
       "cruises": [
         {
           "ship_name": "MSC World America",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 9,
           "departure_hour": 18,
           "estimated_passengers": 5252,
+          "is_arrival": true,
           "previous_ports": [
             "Oct 10, 2027: At Sea",
             "Oct 09, 2027: Miami"
@@ -4367,8 +4376,7 @@
             "Oct 13, 2027: Miami",
             "Oct 14, 2027: San Juan",
             "Oct 15, 2027: At Sea"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -4758,9 +4766,11 @@
       "cruises": [
         {
           "ship_name": "Enchantment Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 1950,
+          "is_arrival": true,
           "previous_ports": [
             "Oct 11, 2027: At Sea",
             "Oct 10, 2027: Tampa",
@@ -4770,8 +4780,7 @@
             "Oct 13, 2027: Cozumel",
             "Oct 14, 2027: At Sea",
             "Oct 15, 2027: Tampa"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -5161,9 +5170,11 @@
       "cruises": [
         {
           "ship_name": "Carnival Jubilee",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 9,
           "departure_hour": 18,
           "estimated_passengers": 5374,
+          "is_arrival": true,
           "previous_ports": [
             "Oct 12, 2027: At Sea",
             "Oct 11, 2027: Galveston"
@@ -5172,14 +5183,15 @@
             "Oct 14, 2027: Cozumel",
             "Oct 15, 2027: At Sea",
             "Oct 16, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Carnival Paradise",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 11,
           "departure_hour": 19,
           "estimated_passengers": 2124,
+          "is_arrival": true,
           "previous_ports": [
             "Oct 12, 2027: At Sea",
             "Oct 11, 2027: Galveston",
@@ -5191,14 +5203,15 @@
             "Oct 15, 2027: Grand Cayman",
             "Oct 16, 2027: At Sea",
             "Oct 17, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Harmony Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 5479,
+          "is_arrival": true,
           "previous_ports": [
             "Oct 12, 2027: Belize City",
             "Oct 11, 2027: Grand Cayman",
@@ -5208,14 +5221,15 @@
             "Oct 14, 2027: Jamaica",
             "Oct 16, 2027: At Sea",
             "Oct 17, 2027: Fort Lauderdale"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Margaritaville At Sea Islander",
+          "cruise_line": "Margaritaville At Sea",
           "arrival_hour": 11,
           "departure_hour": 19,
           "estimated_passengers": 2680,
+          "is_arrival": true,
           "previous_ports": [
             "Oct 12, 2027: Belize City",
             "Oct 11, 2027: Galveston"
@@ -5225,8 +5239,7 @@
             "Oct 15, 2027: Cozumel",
             "Oct 17, 2027: At Sea",
             "Oct 18, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -5616,9 +5629,11 @@
       "cruises": [
         {
           "ship_name": "MSC Seascape",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
           "departure_hour": 16,
           "estimated_passengers": 5878,
+          "is_arrival": true,
           "previous_ports": [
             "Oct 13, 2027: At Sea",
             "Oct 12, 2027: Galveston"
@@ -5627,14 +5642,15 @@
             "Oct 15, 2027: Cozumel",
             "Oct 16, 2027: At Sea",
             "Oct 17, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Star Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 7,
           "departure_hour": 15,
           "estimated_passengers": 5610,
+          "is_arrival": true,
           "previous_ports": [
             "Oct 13, 2027: At Sea",
             "Oct 12, 2027: Miami",
@@ -5646,8 +5662,7 @@
             "Oct 16, 2027: Jamaica",
             "Oct 17, 2027: At Sea",
             "Oct 18, 2027: Miami"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -7577,9 +7592,11 @@
       "cruises": [
         {
           "ship_name": "Hero Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 7,
           "departure_hour": 16,
           "estimated_passengers": 5610,
+          "is_arrival": true,
           "previous_ports": [
             "Oct 18: Jamaica",
             "Oct 17: Galveston"
@@ -7588,14 +7605,15 @@
             "Oct 20: Grand Cayman",
             "Oct 21: Cozumel",
             "Oct 23: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Margaritaville At Sea Islander",
+          "cruise_line": "Margaritaville At Sea",
           "arrival_hour": 12,
           "departure_hour": 20,
           "estimated_passengers": 2680,
+          "is_arrival": true,
           "previous_ports": [
             "Oct 18, 2027: Belize City",
             "Oct 17, 2027: Galveston"
@@ -7605,8 +7623,7 @@
             "Oct 21, 2027: Cozumel",
             "Oct 23, 2027: At Sea",
             "Oct 24, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -7996,9 +8013,11 @@
       "cruises": [
         {
           "ship_name": "Carnival Liberty",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 2974,
+          "is_arrival": true,
           "previous_ports": [
             "Oct 19, 2027: At Sea",
             "Oct 18, 2027: Galveston",
@@ -8008,14 +8027,15 @@
             "Oct 21, 2027: Cozumel",
             "Oct 22, 2027: At Sea",
             "Oct 23, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Enchantment Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 9,
           "departure_hour": 17,
           "estimated_passengers": 1950,
+          "is_arrival": true,
           "previous_ports": [
             "Oct 19, 2027: At Sea",
             "Oct 18, 2027: Tampa",
@@ -8025,14 +8045,15 @@
             "Oct 21, 2027: Cozumel",
             "Oct 22, 2027: At Sea",
             "Oct 23, 2027: Tampa"
-          ],
-          "is_arrival": true
+          ]
         },
         {
           "ship_name": "Icon Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 9,
           "departure_hour": 17,
           "estimated_passengers": 5610,
+          "is_arrival": true,
           "previous_ports": [
             "Oct 19, 2027: At Sea",
             "Oct 18, 2027: Miami"
@@ -8041,8 +8062,7 @@
             "Oct 21, 2027: Cozumel",
             "Oct 22, 2027: At Sea",
             "Oct 23, 2027: Miami"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -8432,9 +8452,11 @@
       "cruises": [
         {
           "ship_name": "MSC Seascape",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
           "departure_hour": 16,
           "estimated_passengers": 5878,
+          "is_arrival": true,
           "previous_ports": [
             "Oct 20, 2027: At Sea",
             "Oct 19, 2027: Galveston"
@@ -8443,8 +8465,7 @@
             "Oct 22, 2027: Cozumel",
             "Oct 23, 2027: At Sea",
             "Oct 24, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -9989,9 +10010,11 @@
       "cruises": [
         {
           "ship_name": "MSC World America",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 9,
           "departure_hour": 18,
           "estimated_passengers": 5252,
+          "is_arrival": true,
           "previous_ports": [
             "Oct 24, 2027: At Sea",
             "Oct 23, 2027: Miami"
@@ -10001,8 +10024,7 @@
             "Oct 27, 2027: Miami",
             "Oct 28, 2027: San Juan",
             "Oct 29, 2027: At Sea"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -10392,9 +10414,11 @@
       "cruises": [
         {
           "ship_name": "Enchantment Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 1950,
+          "is_arrival": true,
           "previous_ports": [
             "Oct 25, 2027: At Sea",
             "Oct 24, 2027: Tampa",
@@ -10404,8 +10428,7 @@
             "Oct 27, 2027: Cozumel",
             "Oct 28, 2027: At Sea",
             "Oct 29, 2027: Tampa"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -10795,9 +10818,11 @@
       "cruises": [
         {
           "ship_name": "Carnival Jubilee",
+          "cruise_line": "Carnival Cruises",
           "arrival_hour": 9,
           "departure_hour": 18,
           "estimated_passengers": 5374,
+          "is_arrival": true,
           "previous_ports": [
             "Oct 26, 2027: At Sea",
             "Oct 25, 2027: Galveston"
@@ -10806,8 +10831,7 @@
             "Oct 28, 2027: Cozumel",
             "Oct 29, 2027: At Sea",
             "Oct 30, 2027: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -12354,7 +12378,8 @@
   },
   "meta": {
     "flight_source": "modelled",
-    "cruise_source": "recovered",
-    "cruise_source_note": "Restored from the published schedule snapshot of 2026-06-20."
+    "cruise_source": "scraped",
+    "cruise_source_url": "https://www.cruisetimetables.com/roatanhondurasschedule-oct2027.html",
+    "cruise_checked": "2026-10-08"
   }
 }

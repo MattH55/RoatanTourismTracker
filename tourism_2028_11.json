@@ -383,7 +383,16 @@
           "estimated_passengers": 21
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Carnival Jubilee",
+          "cruise_line": "Carnival Cruises",
+          "arrival_hour": 9,
+          "departure_hour": 18,
+          "estimated_passengers": 5374,
+          "is_arrival": true
+        }
+      ]
     },
     "2028-11-02": {
       "flights": [
@@ -771,9 +780,11 @@
       "cruises": [
         {
           "ship_name": "MSC Seascape",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
           "departure_hour": 16,
           "estimated_passengers": 5878,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 01, 2028: At Sea",
             "Oct 31, 2028: Galveston"
@@ -782,8 +793,7 @@
             "Nov 03, 2028: Cozumel",
             "Nov 04, 2028: At Sea",
             "Nov 05, 2028: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -3095,7 +3105,16 @@
           "estimated_passengers": 29
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Carnival Tropicale",
+          "cruise_line": "Carnival Cruises",
+          "arrival_hour": 9,
+          "departure_hour": 18,
+          "estimated_passengers": 5282,
+          "is_arrival": true
+        }
+      ]
     },
     "2028-11-09": {
       "flights": [
@@ -3483,9 +3502,11 @@
       "cruises": [
         {
           "ship_name": "MSC Seascape",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
           "departure_hour": 16,
           "estimated_passengers": 5878,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 08, 2028: At Sea",
             "Nov 07, 2028: Galveston"
@@ -3494,8 +3515,7 @@
             "Nov 10, 2028: Cozumel",
             "Nov 11, 2028: At Sea",
             "Nov 12, 2028: Galveston"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -8504,10 +8524,20 @@
       ],
       "cruises": [
         {
+          "ship_name": "Carnival Tropicale",
+          "cruise_line": "Carnival Cruises",
+          "arrival_hour": 9,
+          "departure_hour": 18,
+          "estimated_passengers": 5282,
+          "is_arrival": true
+        },
+        {
           "ship_name": "Seven Seas Prestige",
+          "cruise_line": "Regent Seven Seas Cruises",
           "arrival_hour": 7,
           "departure_hour": 16,
           "estimated_passengers": 822,
+          "is_arrival": true,
           "previous_ports": [
             "Nov 21, 2028: Jamaica",
             "Nov 20, 2028: Miami"
@@ -8516,8 +8546,7 @@
             "Nov 23, 2028: Grand Cayman",
             "Nov 26, 2028: At Sea",
             "Nov 27, 2028: Miami"
-          ],
-          "is_arrival": true
+          ]
         }
       ]
     },
@@ -8904,7 +8933,16 @@
           "estimated_passengers": 8
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Viking Mars",
+          "cruise_line": "Viking Cruises",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 930,
+          "is_arrival": true
+        }
+      ]
     },
     "2028-11-24": {
       "flights": [
@@ -11604,7 +11642,8 @@
   },
   "meta": {
     "flight_source": "modelled",
-    "cruise_source": "recovered",
-    "cruise_source_note": "Restored from the published schedule snapshot of 2026-06-20."
+    "cruise_source": "scraped",
+    "cruise_source_url": "https://www.cruisetimetables.com/roatanhondurasschedule-nov2028.html",
+    "cruise_checked": "2026-10-08"
   }
 }
