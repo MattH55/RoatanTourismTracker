@@ -151,17 +151,32 @@ def create_daily_hourly_chart(hourly_data, date_str, filter_mode='all'):
             marker_color='#A23B72',
             hovertemplate='%{y:,.0f} passengers<br>%{x}<extra>Cruise Arrivals</extra>'
         ))
-
-    # Net line: flights only (the change in overnight visitors). Cruise departures
-    # aren't shown because ships leave the same day they arrive.
-    if show_flights:
-        net = [hourly_data[h]['in_flights'] - hourly_data[h]['out_flights'] for h in hours]
-        fig.add_trace(go.Scatter(
-            name='Net Flight Flow', x=labels, y=net,
-            mode='lines+markers', line=dict(color='#2ECC40', width=3),
-            marker=dict(size=8),
-            hovertemplate='Net: %{y:+,.0f} passengers<br>%{x}<extra></extra>'
+        fig.add_trace(go.Bar(
+            name='Cruise Departures', x=labels, y=[-x for x in out_cruise],
+            marker_color='#C73E1D',
+            hovertemplate='%{y:,.0f} passengers<br>%{x}<extra>Cruise Departures</extra>'
         ))
+
+    # Net inflow line
+    if show_flights and show_cruises:
+        net = [hourly_data[h]['total_in'] - hourly_data[h]['total_out'] for h in hours]
+        net_name = 'Net Inflow'
+    elif show_flights:
+        net = [hourly_data[h]['in_flights'] - hourly_data[h]['out_flights'] for h in hours]
+        net_name = 'Net Flight Flow'
+    elif show_cruises:
+        net = [hourly_data[h]['in_cruise'] - hourly_data[h]['out_cruise'] for h in hours]
+        net_name = 'Net Cruise Flow'
+    else:
+        net = [0] * 24
+        net_name = 'Net'
+
+    fig.add_trace(go.Scatter(
+        name=net_name, x=labels, y=net,
+        mode='lines+markers', line=dict(color='#2ECC40', width=3),
+        marker=dict(size=8),
+        hovertemplate='Net: %{y:+,.0f} passengers<br>%{x}<extra></extra>'
+    ))
 
     if filter_mode == 'all':
         subtitle = 'All Traffic'
@@ -244,16 +259,22 @@ def create_flight_traffic_chart(monthly_data, year=2026, month=6):
 
 
 def create_cruise_traffic_chart(monthly_data, year=2026, month=6):
-    """Daily cruise passenger arrivals across the month (ships leave the same day)."""
+    """Create a daily bar chart showing cruise inflow/outflow across the whole month."""
     days = sorted(monthly_data['days'].keys())
     daily_in = []
+    daily_out = []
+    daily_net = []
     day_labels = []
     month_abbr = datetime(year, month, 1).strftime('%b')
 
     for d in days:
         day_data = monthly_data['days'][d]
         hourly = process_daily_data(day_data)
-        daily_in.append(sum(hourly[h]['in_cruise'] for h in range(24)))
+        in_c = sum(hourly[h]['in_cruise'] for h in range(24))
+        out_c = sum(hourly[h]['out_cruise'] for h in range(24))
+        daily_in.append(in_c)
+        daily_out.append(out_c)
+        daily_net.append(in_c - out_c)
         day_num = int(d.split('-')[2])
         day_labels.append(f'{month_abbr} {day_num}')
 
@@ -263,6 +284,17 @@ def create_cruise_traffic_chart(monthly_data, year=2026, month=6):
         name='Arrivals', x=day_labels, y=daily_in,
         marker_color='#A23B72',
         hovertemplate='%{y:,.0f} arriving by cruise<br>%{x}<extra>Arrivals</extra>'
+    ))
+    fig.add_trace(go.Bar(
+        name='Departures', x=day_labels, y=daily_out,
+        marker_color='#C73E1D',
+        hovertemplate='%{y:,.0f} departing by cruise<br>%{x}<extra>Departures</extra>'
+    ))
+    fig.add_trace(go.Scatter(
+        name='Net', x=day_labels, y=daily_net,
+        mode='lines+markers', line=dict(color='#2ECC40', width=3),
+        marker=dict(size=6),
+        hovertemplate='Net: %{y:+,.0f}<br>%{x}<extra></extra>'
     ))
 
     month_label = datetime(year, month, 1).strftime('%B %Y')
@@ -371,6 +403,12 @@ def create_log_scale_chart(monthly_data, year=2026, month=6):
         mode='lines+markers', line=dict(color='#F18F01', width=2),
         marker=dict(size=6, symbol='diamond'),
         hovertemplate='%{y:,.0f} departing by flight<br>%{x}<extra>Flight Departures</extra>'
+    ))
+    fig.add_trace(go.Scatter(
+        name='Cruise Departures', x=day_labels, y=daily_out_cruise,
+        mode='lines+markers', line=dict(color='#C73E1D', width=2),
+        marker=dict(size=6, symbol='x'),
+        hovertemplate='%{y:,.0f} departing by cruise<br>%{x}<extra>Cruise Departures</extra>'
     ))
 
     month_label = datetime(year, month, 1).strftime('%B %Y')
@@ -653,6 +691,11 @@ def create_combined_volume_chart(monthly_data, year=2026, month=6):
         marker_color='#A23B72',
         hovertemplate='%{y:,.0f} arriving by cruise<br>%{x}<extra>Cruise Arrivals</extra>'
     ))
+    fig.add_trace(go.Bar(
+        name='Cruise Departures', x=day_labels, y=daily_out_cruise,
+        marker_color='#C73E1D',
+        hovertemplate='%{y:,.0f} departing by cruise<br>%{x}<extra>Cruise Departures</extra>'
+    ))
 
     month_label = datetime(year, month, 1).strftime('%B %Y')
     fig.update_layout(
@@ -714,6 +757,11 @@ def create_hourly_pattern_chart(monthly_data, year=2026, month=6):
         name='Cruise Arrivals', x=labels, y=avg_in_cruise,
         marker_color='#A23B72',
         hovertemplate='Avg %{y:,.0f} arriving by cruise<br>%{x}<extra>Cruise Arrivals</extra>'
+    ))
+    fig.add_trace(go.Bar(
+        name='Cruise Departures', x=labels, y=[-x for x in avg_out_cruise],
+        marker_color='#C73E1D',
+        hovertemplate='Avg %{y:,.0f} departing by cruise<br>%{x}<extra>Cruise Departures</extra>'
     ))
 
     month_label = datetime(year, month, 1).strftime('%B %Y')
@@ -780,6 +828,7 @@ def create_event_timeline_chart(monthly_data, year=2026, month=6):
     all_flight_arrivals = []
     all_flight_departures = []
     all_cruise_arrivals = []
+    all_cruise_departures = []
 
     for d in days:
         day_data = monthly_data['days'][d]
@@ -801,6 +850,7 @@ def create_event_timeline_chart(monthly_data, year=2026, month=6):
 
         for c in day_data.get('cruises', []):
             arr_h = c.get('arrival_hour', 8)
+            dep_h = c.get('departure_hour', 17)
             pax = c.get('estimated_passengers', 2000)
             ship = c.get('ship_name', '')
             # Enrich with itinerary data (pass cruise date for date-based matching)
@@ -813,6 +863,8 @@ def create_event_timeline_chart(monthly_data, year=2026, month=6):
             next_str = ' → '.join(next_ports) if next_ports else 'N/A'
             all_cruise_arrivals.append(dict(x=day_num, y=arr_h, size=pax, label=day_label, ship=ship,
                                            prev=prev_str, next=next_str, seg=segment, price=avg_price))
+            all_cruise_departures.append(dict(x=day_num, y=dep_h, size=pax, label=day_label, ship=ship,
+                                            prev=prev_str, next=next_str, seg=segment, price=avg_price))
 
     # Flight arrivals
     if all_flight_arrivals:
@@ -861,6 +913,23 @@ def create_event_timeline_chart(monthly_data, year=2026, month=6):
             ),
             hovertemplate='<b>Cruise Arrival</b><br>Day: %{x}<br>Time: %{y:.0f}:00<br>Ship: %{customdata[0]}<br>Passengers: %{customdata[1]}<br>Previous: %{customdata[2]}<br>Next: %{customdata[3]}<br>Segment: %{customdata[4]}<br>Avg Price: $%{customdata[5]}<extra></extra>',
             customdata=[[e.get('ship', ''), e.get('size', 0), e.get('prev', 'N/A'), e.get('next', 'N/A'), e.get('seg', ''), e.get('price', 0)] for e in all_cruise_arrivals]
+        ))
+
+    # Cruise departures
+    if all_cruise_departures:
+        fig.add_trace(go.Scatter(
+            name='Cruise Departures',
+            x=[e['x'] for e in all_cruise_departures],
+            y=[e['y'] for e in all_cruise_departures],
+            mode='markers',
+            marker=dict(
+                size=[max(10, e['size'] / 100) for e in all_cruise_departures],
+                color='#C73E1D', opacity=0.7,
+                symbol='diamond',
+                line=dict(width=1, color='white')
+            ),
+            hovertemplate='<b>Cruise Departure</b><br>Day: %{x}<br>Time: %{y:.0f}:00<br>Ship: %{customdata[0]}<br>Passengers: %{customdata[1]}<br>Previous: %{customdata[2]}<br>Next: %{customdata[3]}<br>Segment: %{customdata[4]}<br>Avg Price: $%{customdata[5]}<extra></extra>',
+            customdata=[[e.get('ship', ''), e.get('size', 0), e.get('prev', 'N/A'), e.get('next', 'N/A'), e.get('seg', ''), e.get('price', 0)] for e in all_cruise_departures]
         ))
 
     month_label = datetime(year, month, 1).strftime('%B %Y')
