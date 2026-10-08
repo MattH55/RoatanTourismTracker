@@ -33,7 +33,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Generate static site (pages, scanner, robots.txt, sitemap.xml)
+      - name: Generate static site (pages, robots.txt, sitemap.xml)
         run: python generate_static_site.py
 
       - name: Configure GitHub Pages

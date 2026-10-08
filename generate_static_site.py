@@ -3,7 +3,7 @@ Generate complete static HTML site matching the Flask app exactly.
 Produces static_site/index.html + static_site/YYYY-MM.html per month.
 Each month page has all 13 charts, cruise schedule table, and day selector.
 """
-import sys, os, json, shutil
+import sys, os, json
 sys.path.insert(0, '.')
 
 from datetime import datetime, timezone
@@ -50,12 +50,7 @@ def data_notice(meta):
 
 def write_robots_txt():
     with open(os.path.join(OUTPUT_DIR, 'robots.txt'), 'w', encoding='utf-8') as f:
-        f.write(f'User-agent: *\nAllow: /\nDisallow: /r/\n\nSitemap: {SITE_URL}/sitemap.xml\n')
-
-
-def copy_scanner_pages():
-    """Card redeem/admin pages (scanner/web) are served under /r/."""
-    shutil.copytree('scanner/web', os.path.join(OUTPUT_DIR, 'r'), dirs_exist_ok=True)
+        f.write(f'User-agent: *\nAllow: /\n\nSitemap: {SITE_URL}/sitemap.xml\n')
 
 
 def write_cname():
@@ -701,7 +696,6 @@ if __name__ == '__main__':
     print(f"\n[OK] {index_path}")
     write_robots_txt()
     write_sitemap()
-    copy_scanner_pages()
     write_cname()
     print(f"[OK] {OUTPUT_DIR}/robots.txt, {OUTPUT_DIR}/sitemap.xml")
     print(f"[OK] Static site complete: {OUTPUT_DIR}/")
