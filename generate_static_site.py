@@ -24,6 +24,7 @@ from app import (
 )
 from scraper import get_weather_data
 from daily_message import write_daily_messages
+from channel_page import CHANNEL_BAR_CSS, PAGE as CHANNEL_PAGE, channel_bar_html, channel_url, write_channel_page
 
 OUTPUT_DIR = 'static_site'
 os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -66,6 +67,8 @@ def write_sitemap():
     now = datetime.now(timezone.utc)
     now_index = now.year * 12 + now.month
     urls = [(f'{SITE_URL}/', 'daily', '1.0')]
+    if channel_url():
+        urls.append((f'{SITE_URL}/{CHANNEL_PAGE}', 'daily', '0.9'))
     for (year, month), mk in zip(AVAILABLE_MONTHS, MONTH_KEYS):
         months_ahead = year * 12 + month - now_index
         if months_ahead < 0:
@@ -418,7 +421,7 @@ def generate_month_page(year, month):
     </script>
 
     <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
-    <style>{CSS}</style>
+    <style>{CSS}{CHANNEL_BAR_CSS}</style>
 </head>
 <body>
     <div class="header">
@@ -431,6 +434,7 @@ def generate_month_page(year, month):
         </div>
     </div>
 
+    {channel_bar_html()}
     {notice_html}
 
     <div class="stats-row">{stats_cards}</div>
@@ -661,12 +665,15 @@ def generate_index_page():
             border-top: 1px solid #21262d;
             padding-top: 16px;
         }}
+        {CHANNEL_BAR_CSS}
     </style>
 </head>
 <body>
     <h1>Roatan Tourism Tracker</h1>
     <p class="subtitle">Flight &amp; cruise analytics for Roatan, Honduras &mdash; June 2026 through November 2028</p>
     <p class="value-prop">See previous &amp; next ports for every cruise stopping in Roatan, plus flight traffic, passenger volumes, and hourly patterns by month.</p>
+
+    {channel_bar_html()}
 
     <h2>Select a Month</h2>
     <div class="month-grid" role="navigation" aria-label="Monthly cruise schedule navigation">
@@ -701,6 +708,7 @@ if __name__ == '__main__':
     write_sitemap()
     write_cname()
     write_daily_messages(OUTPUT_DIR)
+    write_channel_page(OUTPUT_DIR, SITE_URL)
     print(f"[OK] {OUTPUT_DIR}/hoy.txt, manana.txt, whatsapp.html")
     print(f"[OK] {OUTPUT_DIR}/robots.txt, {OUTPUT_DIR}/sitemap.xml")
     print(f"[OK] Static site complete: {OUTPUT_DIR}/")

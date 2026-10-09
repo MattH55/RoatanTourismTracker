@@ -5,3 +5,4 @@ numpy
 requests
 beautifulsoup4
 gunicorn
+qrcode==7.4.2
