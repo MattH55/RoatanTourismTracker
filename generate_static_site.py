@@ -35,8 +35,9 @@ BUILD_DATE = datetime.now(timezone.utc).strftime('%Y-%m-%d')
 MONTH_KEYS = [get_month_key(y, m) for y, m in AVAILABLE_MONTHS]
 
 
-def data_notice(meta):
+def data_notice(meta, days=None):
     """Plain-language note on where a month's numbers come from."""
+    days = days or {}
     cruise_src = meta.get('cruise_source')
     if cruise_src == 'scraped':
         checked = meta.get('cruise_checked')
@@ -46,8 +47,14 @@ def data_notice(meta):
         cruise = 'Cruise calls come from published port schedules (snapshot of 2026-06-20); lines can change itineraries.'
     else:
         cruise = '<strong>Cruise calls for this month are placeholder estimates, not a confirmed schedule.</strong>'
-    flights = ('Flight figures are modelled from a typical daily airline schedule and average load factors, '
-               'not live flight data.')
+    real_days = sorted(d for d, day in days.items() if day.get('flight_source') == 'real')
+    if real_days:
+        span = real_days[0] if len(real_days) == 1 else f'{real_days[0]} to {real_days[-1]}'
+        flights = (f'Flights for {len(real_days)} day(s) ({span}) are real schedules from AeroDataBox, with '
+                   'passengers estimated from aircraft size; other days are modelled from a typical airline schedule.')
+    else:
+        flights = ('Flight figures are modelled from a typical daily airline schedule and average load factors, '
+                   'not live flight data.')
     return (f'<p class="data-notice">{cruise} {flights} '
             f'Passenger counts are estimates. Last updated {BUILD_DATE}.</p>')
 
@@ -322,7 +329,7 @@ def generate_month_page(year, month):
         summary = 'No cruise ship calls currently scheduled.'
     description = escape(f"Roatan cruise schedule for {label}: {summary} "
                          f"See every ship with previous and next ports, passenger estimates, and daily crowd charts.")
-    notice_html = data_notice(monthly_data.get('meta', {}))
+    notice_html = data_notice(monthly_data.get('meta', {}), monthly_data.get('days'))
 
     # Prev/next month navigation
     idx = MONTH_KEYS.index(mk)

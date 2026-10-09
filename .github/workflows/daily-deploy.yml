@@ -40,7 +40,9 @@ jobs:
         continue-on-error: true
 
       # Real RTB arrivals/departures for today and tomorrow (needs the AERODATABOX_API_KEY secret).
-      # Without it, or if the API fails, the daily message simply leaves flights out.
+      # They feed the daily message and replace the modelled schedule in the charts for those
+      # days. Without the key, or if the API fails, the message leaves flights out and the
+      # charts keep the modelled schedule.
       - name: Fetch flights
         run: python update_flights.py
         continue-on-error: true
