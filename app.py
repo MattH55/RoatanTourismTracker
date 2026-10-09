@@ -428,15 +428,31 @@ def create_log_scale_chart(monthly_data, year=2026, month=6):
     return json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
 
 
+# Region of a flight's other end. Real flights (from AeroDataBox) carry the country
+# code; the modelled schedule only has an airport code.
+EUROPE_COUNTRIES = {'GB', 'IE', 'FR', 'DE', 'ES', 'IT', 'NL', 'BE', 'PT', 'CH', 'AT', 'SE', 'NO', 'DK',
+                    'FI', 'PL', 'CZ', 'IS', 'LU', 'GR', 'HU', 'RO'}
+AIRPORT_REGIONS = {
+    'MIA': 'United States', 'FLL': 'United States', 'IAH': 'United States', 'HOU': 'United States',
+    'ATL': 'United States', 'DFW': 'United States', 'TEB': 'United States', 'YYZ': 'Canada',
+}
+
+
+def flight_region(flight):
+    country = flight.get('country')
+    if country:
+        if country == 'US':
+            return 'United States'
+        if country == 'CA':
+            return 'Canada'
+        if country in EUROPE_COUNTRIES:
+            return 'United Kingdom / Europe'
+        return 'Latin America / Other'
+    return AIRPORT_REGIONS.get(flight.get('origin', ''), 'Latin America / Other')
+
+
 def create_origin_pie_chart(monthly_data, year=2026, month=6):
     """Create a pie chart showing tourist origin breakdown from flight origins and cruise line data."""
-    airport_regions = {
-        'MIA': 'United States', 'FLL': 'United States', 'IAH': 'United States',
-        'ATL': 'United States', 'HOU': 'United States', 'TEB': 'United States',
-        'PTY': 'Latin America / Other', 'SAL': 'Latin America / Other',
-        'RTB': 'Latin America / Other',
-    }
-
     cruise_composition = {
         'Carnival': {'United States': 0.85, 'Canada': 0.07, 'United Kingdom / Europe': 0.03, 'Latin America / Other': 0.05},
         'Royal Caribbean': {'United States': 0.78, 'Canada': 0.10, 'United Kingdom / Europe': 0.07, 'Latin America / Other': 0.05},
@@ -491,10 +507,8 @@ def create_origin_pie_chart(monthly_data, year=2026, month=6):
 
         for f in day_data.get('flights', []):
             if f.get('is_arrival'):
-                origin = f.get('origin', '')
                 pax = f.get('estimated_passengers', 100)
-                region = airport_regions.get(origin, 'Latin America / Other')
-                region_totals[region] += pax
+                region_totals[flight_region(f)] += pax
 
         for c in day_data.get('cruises', []):
             ship_name = c.get('ship_name', '')
@@ -545,13 +559,6 @@ def create_origin_pie_chart(monthly_data, year=2026, month=6):
 
 def create_origin_inflow_chart(monthly_data, year=2026, month=6):
     """Create a multi-line chart showing daily inflows broken down by origin region."""
-    airport_regions = {
-        'MIA': 'United States', 'FLL': 'United States', 'IAH': 'United States',
-        'ATL': 'United States', 'HOU': 'United States', 'TEB': 'United States',
-        'PTY': 'Latin America / Other', 'SAL': 'Latin America / Other',
-        'RTB': 'Latin America / Other',
-    }
-
     cruise_composition = {
         'Carnival': {'United States': 0.85, 'Canada': 0.07, 'United Kingdom / Europe': 0.03, 'Latin America / Other': 0.05},
         'Royal Caribbean': {'United States': 0.78, 'Canada': 0.10, 'United Kingdom / Europe': 0.07, 'Latin America / Other': 0.05},
@@ -609,10 +616,8 @@ def create_origin_inflow_chart(monthly_data, year=2026, month=6):
 
         for f in day_data.get('flights', []):
             if f.get('is_arrival'):
-                origin = f.get('origin', '')
                 pax = f.get('estimated_passengers', 100)
-                region = airport_regions.get(origin, 'Latin America / Other')
-                region_totals[region] += pax
+                region_totals[flight_region(f)] += pax
 
         for c in day_data.get('cruises', []):
             ship_name = c.get('ship_name', '')
@@ -1136,10 +1141,9 @@ def create_monthly_stats(monthly_data):
         for c in day_data.get('cruises', []):
             total_cruise_ships += 1
             pax = c.get('estimated_passengers', 2000)
-            if c.get('is_arrival'):
-                total_cruise_arrivals += pax
-            else:
-                total_cruise_departures += pax
+            # A cruise call is a same-day visit: everyone who comes ashore leaves with the ship
+            total_cruise_arrivals += pax
+            total_cruise_departures += pax
 
     total_arrivals = total_flight_arrivals + total_cruise_arrivals
     total_departures = total_flight_departures + total_cruise_departures
@@ -2024,7 +2028,7 @@ def generate_static_html():
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-L2LFYE0L4B"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      function gtag(){{dataLayer.push(arguments);}}
       gtag('js', new Date());
 
       gtag('config', 'G-L2LFYE0L4B');
@@ -2144,7 +2148,6 @@ def generate_static_html():
                 {{ label: 'Flight Arrivals', value: s.total_flight_arrivals.toLocaleString() }},
                 {{ label: 'Flight Departures', value: s.total_flight_departures.toLocaleString() }},
                 {{ label: 'Cruise Arrivals', value: s.total_cruise_arrivals.toLocaleString() }},
-                {{ label: 'Cruise Departures', value: s.total_cruise_departures.toLocaleString() }},
                 {{ label: 'Total Flights', value: s.total_flights.toLocaleString() }},
                 {{ label: 'Total Cruise Ships', value: s.total_cruise_ships.toLocaleString() }},
             ];

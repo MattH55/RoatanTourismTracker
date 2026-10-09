@@ -385,17 +385,11 @@
       ],
       "cruises": [
         {
-          "ship_name": "Royal Caribbean Oasis of the Seas",
-          "arrival_hour": 8,
+          "ship_name": "Carnival Jubilee",
+          "cruise_line": "Carnival Cruises",
+          "arrival_hour": 9,
           "departure_hour": 18,
-          "estimated_passengers": 5700,
-          "is_arrival": true
-        },
-        {
-          "ship_name": "Norwegian Epic",
-          "arrival_hour": 7,
-          "departure_hour": 17,
-          "estimated_passengers": 3990,
+          "estimated_passengers": 5374,
           "is_arrival": true
         }
       ]
@@ -785,11 +779,21 @@
       ],
       "cruises": [
         {
-          "ship_name": "MSC Meraviglia",
+          "ship_name": "MSC Seascape",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
-          "departure_hour": 17,
-          "estimated_passengers": 5700,
-          "is_arrival": true
+          "departure_hour": 16,
+          "estimated_passengers": 5878,
+          "is_arrival": true,
+          "previous_ports": [
+            "Nov 01, 2028: At Sea",
+            "Oct 31, 2028: Galveston"
+          ],
+          "next_ports": [
+            "Nov 03, 2028: Cozumel",
+            "Nov 04, 2028: At Sea",
+            "Nov 05, 2028: Galveston"
+          ]
         }
       ]
     },
@@ -1176,15 +1180,7 @@
           "estimated_passengers": 28
         }
       ],
-      "cruises": [
-        {
-          "ship_name": "MSC Seaside",
-          "arrival_hour": 9,
-          "departure_hour": 17,
-          "estimated_passengers": 4750,
-          "is_arrival": true
-        }
-      ]
+      "cruises": []
     },
     "2028-11-04": {
       "flights": [
@@ -1569,15 +1565,7 @@
           "estimated_passengers": 24
         }
       ],
-      "cruises": [
-        {
-          "ship_name": "Celebrity Edge",
-          "arrival_hour": 8,
-          "departure_hour": 16,
-          "estimated_passengers": 2850,
-          "is_arrival": true
-        }
-      ]
+      "cruises": []
     },
     "2028-11-05": {
       "flights": [
@@ -1962,29 +1950,7 @@
           "estimated_passengers": 22
         }
       ],
-      "cruises": [
-        {
-          "ship_name": "Princess Royal",
-          "arrival_hour": 8,
-          "departure_hour": 17,
-          "estimated_passengers": 3420,
-          "is_arrival": true
-        },
-        {
-          "ship_name": "MSC Meraviglia",
-          "arrival_hour": 8,
-          "departure_hour": 17,
-          "estimated_passengers": 5700,
-          "is_arrival": true
-        },
-        {
-          "ship_name": "Royal Caribbean Oasis of the Seas",
-          "arrival_hour": 8,
-          "departure_hour": 18,
-          "estimated_passengers": 5700,
-          "is_arrival": true
-        }
-      ]
+      "cruises": []
     },
     "2028-11-06": {
       "flights": [
@@ -2369,15 +2335,7 @@
           "estimated_passengers": 30
         }
       ],
-      "cruises": [
-        {
-          "ship_name": "Royal Caribbean Harmony of the Seas",
-          "arrival_hour": 8,
-          "departure_hour": 18,
-          "estimated_passengers": 5700,
-          "is_arrival": true
-        }
-      ]
+      "cruises": []
     },
     "2028-11-07": {
       "flights": [
@@ -2762,22 +2720,7 @@
           "estimated_passengers": 15
         }
       ],
-      "cruises": [
-        {
-          "ship_name": "Royal Caribbean Harmony of the Seas",
-          "arrival_hour": 8,
-          "departure_hour": 18,
-          "estimated_passengers": 5700,
-          "is_arrival": true
-        },
-        {
-          "ship_name": "Celebrity Apex",
-          "arrival_hour": 8,
-          "departure_hour": 16,
-          "estimated_passengers": 2850,
-          "is_arrival": true
-        }
-      ]
+      "cruises": []
     },
     "2028-11-08": {
       "flights": [
@@ -3164,24 +3107,11 @@
       ],
       "cruises": [
         {
-          "ship_name": "MSC Meraviglia",
-          "arrival_hour": 8,
-          "departure_hour": 17,
-          "estimated_passengers": 5700,
-          "is_arrival": true
-        },
-        {
-          "ship_name": "Princess Royal",
-          "arrival_hour": 8,
-          "departure_hour": 17,
-          "estimated_passengers": 3420,
-          "is_arrival": true
-        },
-        {
-          "ship_name": "Royal Caribbean Harmony of the Seas",
-          "arrival_hour": 8,
+          "ship_name": "Carnival Tropicale",
+          "cruise_line": "Carnival Cruises",
+          "arrival_hour": 9,
           "departure_hour": 18,
-          "estimated_passengers": 5700,
+          "estimated_passengers": 5282,
           "is_arrival": true
         }
       ]
@@ -3571,18 +3501,21 @@
       ],
       "cruises": [
         {
-          "ship_name": "Royal Caribbean Harmony of the Seas",
+          "ship_name": "MSC Seascape",
+          "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
-          "departure_hour": 18,
-          "estimated_passengers": 5700,
-          "is_arrival": true
-        },
-        {
-          "ship_name": "Holland America Nieuw Amsterdam",
-          "arrival_hour": 9,
-          "departure_hour": 18,
-          "estimated_passengers": 2565,
-          "is_arrival": true
+          "departure_hour": 16,
+          "estimated_passengers": 5878,
+          "is_arrival": true,
+          "previous_ports": [
+            "Nov 08, 2028: At Sea",
+            "Nov 07, 2028: Galveston"
+          ],
+          "next_ports": [
+            "Nov 10, 2028: Cozumel",
+            "Nov 11, 2028: At Sea",
+            "Nov 12, 2028: Galveston"
+          ]
         }
       ]
     },
@@ -3969,15 +3902,7 @@
           "estimated_passengers": 15
         }
       ],
-      "cruises": [
-        {
-          "ship_name": "Disney Fantasy",
-          "arrival_hour": 7,
-          "departure_hour": 15,
-          "estimated_passengers": 3800,
-          "is_arrival": true
-        }
-      ]
+      "cruises": []
     },
     "2028-11-11": {
       "flights": [
@@ -4362,22 +4287,7 @@
           "estimated_passengers": 28
         }
       ],
-      "cruises": [
-        {
-          "ship_name": "Carnival Magic",
-          "arrival_hour": 8,
-          "departure_hour": 17,
-          "estimated_passengers": 3800,
-          "is_arrival": true
-        },
-        {
-          "ship_name": "Holland America Nieuw Amsterdam",
-          "arrival_hour": 9,
-          "departure_hour": 18,
-          "estimated_passengers": 2565,
-          "is_arrival": true
-        }
-      ]
+      "cruises": []
     },
     "2028-11-12": {
       "flights": [
@@ -4762,29 +4672,7 @@
           "estimated_passengers": 17
         }
       ],
-      "cruises": [
-        {
-          "ship_name": "Celebrity Apex",
-          "arrival_hour": 8,
-          "departure_hour": 16,
-          "estimated_passengers": 2850,
-          "is_arrival": true
-        },
-        {
-          "ship_name": "AIDAnova",
-          "arrival_hour": 8,
-          "departure_hour": 17,
-          "estimated_passengers": 2375,
-          "is_arrival": true
-        },
-        {
-          "ship_name": "Royal Caribbean Oasis of the Seas",
-          "arrival_hour": 8,
-          "departure_hour": 18,
-          "estimated_passengers": 5700,
-          "is_arrival": true
-        }
-      ]
+      "cruises": []
     },
     "2028-11-13": {
       "flights": [
@@ -5169,15 +5057,7 @@
           "estimated_passengers": 21
         }
       ],
-      "cruises": [
-        {
-          "ship_name": "Disney Fantasy",
-          "arrival_hour": 7,
-          "departure_hour": 15,
-          "estimated_passengers": 3800,
-          "is_arrival": true
-        }
-      ]
+      "cruises": []
     },
     "2028-11-14": {
       "flights": [
@@ -5562,15 +5442,7 @@
           "estimated_passengers": 12
         }
       ],
-      "cruises": [
-        {
-          "ship_name": "Royal Caribbean Oasis of the Seas",
-          "arrival_hour": 8,
-          "departure_hour": 18,
-          "estimated_passengers": 5700,
-          "is_arrival": true
-        }
-      ]
+      "cruises": []
     },
     "2028-11-15": {
       "flights": [
@@ -5955,29 +5827,7 @@
           "estimated_passengers": 10
         }
       ],
-      "cruises": [
-        {
-          "ship_name": "MSC Seaside",
-          "arrival_hour": 9,
-          "departure_hour": 17,
-          "estimated_passengers": 4750,
-          "is_arrival": true
-        },
-        {
-          "ship_name": "MSC Meraviglia",
-          "arrival_hour": 8,
-          "departure_hour": 17,
-          "estimated_passengers": 5700,
-          "is_arrival": true
-        },
-        {
-          "ship_name": "Celebrity Edge",
-          "arrival_hour": 8,
-          "departure_hour": 16,
-          "estimated_passengers": 2850,
-          "is_arrival": true
-        }
-      ]
+      "cruises": []
     },
     "2028-11-16": {
       "flights": [
@@ -6362,22 +6212,7 @@
           "estimated_passengers": 10
         }
       ],
-      "cruises": [
-        {
-          "ship_name": "AIDAnova",
-          "arrival_hour": 8,
-          "departure_hour": 17,
-          "estimated_passengers": 2375,
-          "is_arrival": true
-        },
-        {
-          "ship_name": "Norwegian Bliss",
-          "arrival_hour": 7,
-          "departure_hour": 16,
-          "estimated_passengers": 3800,
-          "is_arrival": true
-        }
-      ]
+      "cruises": []
     },
     "2028-11-17": {
       "flights": [
@@ -6762,22 +6597,7 @@
           "estimated_passengers": 19
         }
       ],
-      "cruises": [
-        {
-          "ship_name": "MSC Meraviglia",
-          "arrival_hour": 8,
-          "departure_hour": 17,
-          "estimated_passengers": 5700,
-          "is_arrival": true
-        },
-        {
-          "ship_name": "Celebrity Apex",
-          "arrival_hour": 8,
-          "departure_hour": 16,
-          "estimated_passengers": 2850,
-          "is_arrival": true
-        }
-      ]
+      "cruises": []
     },
     "2028-11-18": {
       "flights": [
@@ -7162,15 +6982,7 @@
           "estimated_passengers": 26
         }
       ],
-      "cruises": [
-        {
-          "ship_name": "Royal Caribbean Oasis of the Seas",
-          "arrival_hour": 8,
-          "departure_hour": 18,
-          "estimated_passengers": 5700,
-          "is_arrival": true
-        }
-      ]
+      "cruises": []
     },
     "2028-11-19": {
       "flights": [
@@ -7555,22 +7367,7 @@
           "estimated_passengers": 19
         }
       ],
-      "cruises": [
-        {
-          "ship_name": "Princess Royal",
-          "arrival_hour": 8,
-          "departure_hour": 17,
-          "estimated_passengers": 3420,
-          "is_arrival": true
-        },
-        {
-          "ship_name": "Carnival Magic",
-          "arrival_hour": 8,
-          "departure_hour": 17,
-          "estimated_passengers": 3800,
-          "is_arrival": true
-        }
-      ]
+      "cruises": []
     },
     "2028-11-20": {
       "flights": [
@@ -7955,15 +7752,7 @@
           "estimated_passengers": 26
         }
       ],
-      "cruises": [
-        {
-          "ship_name": "Carnival Magic",
-          "arrival_hour": 8,
-          "departure_hour": 17,
-          "estimated_passengers": 3800,
-          "is_arrival": true
-        }
-      ]
+      "cruises": []
     },
     "2028-11-21": {
       "flights": [
@@ -8348,22 +8137,7 @@
           "estimated_passengers": 29
         }
       ],
-      "cruises": [
-        {
-          "ship_name": "Princess Royal",
-          "arrival_hour": 8,
-          "departure_hour": 17,
-          "estimated_passengers": 3420,
-          "is_arrival": true
-        },
-        {
-          "ship_name": "Disney Fantasy",
-          "arrival_hour": 7,
-          "departure_hour": 15,
-          "estimated_passengers": 3800,
-          "is_arrival": true
-        }
-      ]
+      "cruises": []
     },
     "2028-11-22": {
       "flights": [
@@ -8750,25 +8524,29 @@
       ],
       "cruises": [
         {
-          "ship_name": "Celebrity Apex",
-          "arrival_hour": 8,
-          "departure_hour": 16,
-          "estimated_passengers": 2850,
+          "ship_name": "Carnival Tropicale",
+          "cruise_line": "Carnival Cruises",
+          "arrival_hour": 9,
+          "departure_hour": 18,
+          "estimated_passengers": 5282,
           "is_arrival": true
         },
         {
-          "ship_name": "Celebrity Edge",
-          "arrival_hour": 8,
-          "departure_hour": 16,
-          "estimated_passengers": 2850,
-          "is_arrival": true
-        },
-        {
-          "ship_name": "Norwegian Bliss",
+          "ship_name": "Seven Seas Prestige",
+          "cruise_line": "Regent Seven Seas Cruises",
           "arrival_hour": 7,
           "departure_hour": 16,
-          "estimated_passengers": 3800,
-          "is_arrival": true
+          "estimated_passengers": 822,
+          "is_arrival": true,
+          "previous_ports": [
+            "Nov 21, 2028: Jamaica",
+            "Nov 20, 2028: Miami"
+          ],
+          "next_ports": [
+            "Nov 23, 2028: Grand Cayman",
+            "Nov 26, 2028: At Sea",
+            "Nov 27, 2028: Miami"
+          ]
         }
       ]
     },
@@ -9157,17 +8935,11 @@
       ],
       "cruises": [
         {
-          "ship_name": "Norwegian Epic",
-          "arrival_hour": 7,
-          "departure_hour": 17,
-          "estimated_passengers": 3990,
-          "is_arrival": true
-        },
-        {
-          "ship_name": "Celebrity Apex",
+          "ship_name": "Viking Mars",
+          "cruise_line": "Viking Cruises",
           "arrival_hour": 8,
-          "departure_hour": 16,
-          "estimated_passengers": 2850,
+          "departure_hour": 17,
+          "estimated_passengers": 930,
           "is_arrival": true
         }
       ]
@@ -9555,29 +9327,7 @@
           "estimated_passengers": 22
         }
       ],
-      "cruises": [
-        {
-          "ship_name": "MSC Seaside",
-          "arrival_hour": 9,
-          "departure_hour": 17,
-          "estimated_passengers": 4750,
-          "is_arrival": true
-        },
-        {
-          "ship_name": "Holland America Nieuw Amsterdam",
-          "arrival_hour": 9,
-          "departure_hour": 18,
-          "estimated_passengers": 2565,
-          "is_arrival": true
-        },
-        {
-          "ship_name": "Carnival Magic",
-          "arrival_hour": 8,
-          "departure_hour": 17,
-          "estimated_passengers": 3800,
-          "is_arrival": true
-        }
-      ]
+      "cruises": []
     },
     "2028-11-25": {
       "flights": [
@@ -9962,15 +9712,7 @@
           "estimated_passengers": 12
         }
       ],
-      "cruises": [
-        {
-          "ship_name": "Disney Fantasy",
-          "arrival_hour": 7,
-          "departure_hour": 15,
-          "estimated_passengers": 3800,
-          "is_arrival": true
-        }
-      ]
+      "cruises": []
     },
     "2028-11-26": {
       "flights": [
@@ -10355,29 +10097,7 @@
           "estimated_passengers": 7
         }
       ],
-      "cruises": [
-        {
-          "ship_name": "Carnival Vista",
-          "arrival_hour": 8,
-          "departure_hour": 16,
-          "estimated_passengers": 3800,
-          "is_arrival": true
-        },
-        {
-          "ship_name": "AIDAnova",
-          "arrival_hour": 8,
-          "departure_hour": 17,
-          "estimated_passengers": 2375,
-          "is_arrival": true
-        },
-        {
-          "ship_name": "Royal Caribbean Oasis of the Seas",
-          "arrival_hour": 8,
-          "departure_hour": 18,
-          "estimated_passengers": 5700,
-          "is_arrival": true
-        }
-      ]
+      "cruises": []
     },
     "2028-11-27": {
       "flights": [
@@ -10762,22 +10482,7 @@
           "estimated_passengers": 30
         }
       ],
-      "cruises": [
-        {
-          "ship_name": "Royal Caribbean Harmony of the Seas",
-          "arrival_hour": 8,
-          "departure_hour": 18,
-          "estimated_passengers": 5700,
-          "is_arrival": true
-        },
-        {
-          "ship_name": "Celebrity Apex",
-          "arrival_hour": 8,
-          "departure_hour": 16,
-          "estimated_passengers": 2850,
-          "is_arrival": true
-        }
-      ]
+      "cruises": []
     },
     "2028-11-28": {
       "flights": [
@@ -11162,15 +10867,7 @@
           "estimated_passengers": 22
         }
       ],
-      "cruises": [
-        {
-          "ship_name": "Princess Royal",
-          "arrival_hour": 8,
-          "departure_hour": 17,
-          "estimated_passengers": 3420,
-          "is_arrival": true
-        }
-      ]
+      "cruises": []
     },
     "2028-11-29": {
       "flights": [
@@ -11555,15 +11252,7 @@
           "estimated_passengers": 13
         }
       ],
-      "cruises": [
-        {
-          "ship_name": "Costa Smeralda",
-          "arrival_hour": 8,
-          "departure_hour": 17,
-          "estimated_passengers": 5700,
-          "is_arrival": true
-        }
-      ]
+      "cruises": []
     },
     "2028-11-30": {
       "flights": [
@@ -11948,15 +11637,13 @@
           "estimated_passengers": 24
         }
       ],
-      "cruises": [
-        {
-          "ship_name": "AIDAnova",
-          "arrival_hour": 8,
-          "departure_hour": 17,
-          "estimated_passengers": 2375,
-          "is_arrival": true
-        }
-      ]
+      "cruises": []
     }
+  },
+  "meta": {
+    "flight_source": "modelled",
+    "cruise_source": "scraped",
+    "cruise_source_url": "https://www.cruisetimetables.com/roatanhondurasschedule-nov2028.html",
+    "cruise_checked": "2026-10-08"
   }
 }

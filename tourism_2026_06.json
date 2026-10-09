@@ -4233,7 +4233,62 @@
           "estimated_passengers": 11
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Carnival Paradise",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 2124,
+          "previous_ports": [
+            "Jun 10, 2026: At Sea",
+            "Jun 09, 2026: Galveston",
+            "Jun 08, 2026: Belize City",
+            "Jun 07, 2026: Cozumel"
+          ],
+          "next_ports": [
+            "Jun 12, 2026: Cozumel",
+            "Jun 13, 2026: Grand Cayman",
+            "Jun 14, 2026: At Sea",
+            "Jun 15, 2026: Galveston"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "MSC Seascape",
+          "arrival_hour": 8,
+          "departure_hour": 16,
+          "estimated_passengers": 5878,
+          "previous_ports": [
+            "Jun 10, 2026: At Sea",
+            "Jun 09, 2026: Galveston"
+          ],
+          "next_ports": [
+            "Jun 12, 2026: Cozumel",
+            "Jun 13, 2026: At Sea",
+            "Jun 14, 2026: Galveston"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Star Of The Seas",
+          "arrival_hour": 7,
+          "departure_hour": 16,
+          "estimated_passengers": 5610,
+          "previous_ports": [
+            "Jun 10, 2026: At Sea",
+            "Jun 09, 2026: Miami",
+            "Jun 08, 2026: Jamaica",
+            "Jun 07, 2026: Grand Cayman"
+          ],
+          "next_ports": [
+            "Jun 12, 2026: Grand Cayman",
+            "Jun 13, 2026: Jamaica",
+            "Jun 14, 2026: At Sea",
+            "Jun 15, 2026: Miami"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2026-06-12": {
       "flights": [
@@ -5773,7 +5828,25 @@
           "estimated_passengers": 16
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Enchantment Of The Seas",
+          "arrival_hour": 10,
+          "departure_hour": 18,
+          "estimated_passengers": 1950,
+          "previous_ports": [
+            "Jun 14, 2026: At Sea",
+            "Jun 13, 2026: Tampa",
+            "Jun 12, 2026: Belize City"
+          ],
+          "next_ports": [
+            "Jun 16, 2026: Cozumel",
+            "Jun 17, 2026: At Sea",
+            "Jun 18, 2026: Tampa"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2026-06-16": {
       "flights": [
@@ -6158,7 +6231,40 @@
           "estimated_passengers": 30
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Carnival Jubilee",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 5374,
+          "previous_ports": [
+            "Jun 15, 2026: At Sea",
+            "Jun 14, 2026: Galveston"
+          ],
+          "next_ports": [
+            "Jun 17, 2026: Cozumel",
+            "Jun 18, 2026: At Sea",
+            "Jun 19, 2026: Galveston"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Icon Of The Seas",
+          "arrival_hour": 7,
+          "departure_hour": 16,
+          "estimated_passengers": 5610,
+          "previous_ports": [
+            "Jun 15, 2026: At Sea",
+            "Jun 14, 2026: Miami"
+          ],
+          "next_ports": [
+            "Jun 17, 2026: Cozumel",
+            "Jun 18, 2026: At Sea",
+            "Jun 19, 2026: Miami"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2026-06-17": {
       "flights": [
@@ -6543,7 +6649,58 @@
           "estimated_passengers": 30
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Norwegian Escape",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 4248,
+          "previous_ports": [
+            "Jun 16, 2026: At Sea",
+            "Jun 15, 2026: Miami",
+            "Jun 14, 2026: Cozumel"
+          ],
+          "next_ports": [
+            "Jun 18, 2026: Harvest Caye Belize",
+            "Jun 19, 2026: At Sea",
+            "Jun 20, 2026: Miami"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Regal Princess",
+          "arrival_hour": 7,
+          "departure_hour": 16,
+          "estimated_passengers": 3560,
+          "previous_ports": [
+            "Jun 16, 2026: At Sea",
+            "Jun 15, 2026: Fort Lauderdale",
+            "Jun 14, 2026: San Juan",
+            "Jun 13, 2026: St Thomas Island USVI"
+          ],
+          "next_ports": [
+            "Jun 18, 2026: At Sea",
+            "Jun 19, 2026: Fort Lauderdale"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Symphony Of The Seas",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 5518,
+          "previous_ports": [
+            "Jun 16, 2026: At Sea",
+            "Jun 15, 2026: Galveston"
+          ],
+          "next_ports": [
+            "Jun 18, 2026: Cozumel",
+            "Jun 19, 2026: At Sea",
+            "Jun 20, 2026: Galveston"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2026-06-18": {
       "flights": [
@@ -6928,7 +7085,40 @@
           "estimated_passengers": 6
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Carnival Celebration",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 5374,
+          "previous_ports": [
+            "Jun 17, 2026: At Sea",
+            "Jun 16, 2026: Miami"
+          ],
+          "next_ports": [
+            "Jun 19, 2026: Cozumel",
+            "Jun 20, 2026: At Sea",
+            "Jun 21, 2026: Miami"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "MSC Seascape",
+          "arrival_hour": 8,
+          "departure_hour": 16,
+          "estimated_passengers": 5878,
+          "previous_ports": [
+            "Jun 17, 2026: At Sea",
+            "Jun 16, 2026: Galveston"
+          ],
+          "next_ports": [
+            "Jun 19, 2026: Cozumel",
+            "Jun 20, 2026: At Sea",
+            "Jun 21, 2026: Galveston"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2026-06-19": {
       "flights": [
@@ -8468,7 +8658,25 @@
           "estimated_passengers": 9
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "MSC World America",
+          "arrival_hour": 9,
+          "departure_hour": 18,
+          "estimated_passengers": 5252,
+          "previous_ports": [
+            "Jun 21, 2026: At Sea",
+            "Jun 20, 2026: Miami"
+          ],
+          "next_ports": [
+            "Jun 23, 2026: Cozumel",
+            "Jun 24, 2026: Miami",
+            "Jun 25, 2026: San Juan",
+            "Jun 26, 2026: At Sea"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2026-06-23": {
       "flights": [
@@ -8853,7 +9061,41 @@
           "estimated_passengers": 10
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Carnival Jubilee",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 5374,
+          "previous_ports": [
+            "Jun 22, 2026: At Sea",
+            "Jun 21, 2026: Galveston"
+          ],
+          "next_ports": [
+            "Jun 24, 2026: Cozumel",
+            "Jun 25, 2026: At Sea",
+            "Jun 26, 2026: Galveston"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Enchantment Of The Seas",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 1950,
+          "previous_ports": [
+            "Jun 22, 2026: At Sea",
+            "Jun 21, 2026: Tampa",
+            "Jun 20, 2026: Belize City"
+          ],
+          "next_ports": [
+            "Jun 24, 2026: Cozumel",
+            "Jun 25, 2026: At Sea",
+            "Jun 26, 2026: Tampa"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2026-06-24": {
       "flights": [
@@ -9238,7 +9480,60 @@
           "estimated_passengers": 29
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Carnival Paradise",
+          "arrival_hour": 11,
+          "departure_hour": 19,
+          "estimated_passengers": 2124,
+          "previous_ports": [
+            "Jun 23, 2026: At Sea",
+            "Jun 22, 2026: Galveston",
+            "Jun 21, 2026: Belize City",
+            "Jun 20, 2026: Cozumel"
+          ],
+          "next_ports": [
+            "Jun 25, 2026: Cozumel",
+            "Jun 26, 2026: Grand Cayman",
+            "Jun 27, 2026: At Sea",
+            "Jun 28, 2026: Galveston"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Norwegian Escape",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 4248,
+          "previous_ports": [
+            "Jun 23, 2026: At Sea",
+            "Jun 22, 2026: Miami",
+            "Jun 21, 2026: Cozumel"
+          ],
+          "next_ports": [
+            "Jun 25, 2026: Harvest Caye Belize",
+            "Jun 26, 2026: At Sea",
+            "Jun 27, 2026: Miami"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Symphony Of The Seas",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 5518,
+          "previous_ports": [
+            "Jun 23, 2026: At Sea",
+            "Jun 22, 2026: Galveston"
+          ],
+          "next_ports": [
+            "Jun 25, 2026: Cozumel",
+            "Jun 26, 2026: At Sea",
+            "Jun 27, 2026: Galveston"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2026-06-25": {
       "flights": [
@@ -9623,7 +9918,24 @@
           "estimated_passengers": 12
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "MSC Seascape",
+          "arrival_hour": 8,
+          "departure_hour": 16,
+          "estimated_passengers": 5878,
+          "previous_ports": [
+            "Jun 24, 2026: At Sea",
+            "Jun 23, 2026: Galveston"
+          ],
+          "next_ports": [
+            "Jun 26, 2026: Cozumel",
+            "Jun 27, 2026: At Sea",
+            "Jun 28, 2026: Galveston"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2026-06-26": {
       "flights": [
@@ -11548,7 +11860,47 @@
           "estimated_passengers": 20
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Enchantment Of The Seas",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 1950,
+          "previous_ports": [
+            "Jun 29, 2026: At Sea",
+            "Jun 28, 2026: Tampa",
+            "Jun 27, 2026: Belize City"
+          ],
+          "next_ports": [
+            "Jul 01, 2026: Cozumel",
+            "Jul 02, 2026: At Sea",
+            "Jul 03, 2026: Tampa"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Mardi Gras",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 5200,
+          "previous_ports": [
+            "Jun 29, 2026: Belize City",
+            "Jun 28, 2026: Galveston"
+          ],
+          "next_ports": [
+            "Jul 01, 2026: Grand Cayman",
+            "Jul 02, 2026: Jamaica",
+            "Jul 03, 2026: Cozumel",
+            "Jul 04, 2026: At Sea"
+          ],
+          "is_arrival": true
+        }
+      ]
     }
+  },
+  "meta": {
+    "flight_source": "modelled",
+    "cruise_source": "recovered",
+    "cruise_source_note": "Restored from the published schedule snapshot of 2026-06-20."
   }
 }

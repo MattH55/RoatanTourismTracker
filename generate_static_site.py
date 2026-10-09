@@ -6,7 +6,8 @@ Each month page has all 13 charts, cruise schedule table, and day selector.
 import sys, os, json
 sys.path.insert(0, '.')
 
-from datetime import datetime
+from datetime import datetime, timezone
+from html import escape
 
 print("Importing Flask app functions...")
 from app import (
@@ -22,11 +23,79 @@ from app import (
     _validate_port_order
 )
 from scraper import get_weather_data
+from daily_message import write_daily_messages
+from channel_page import CHANNEL_BAR_CSS, PAGE as CHANNEL_PAGE, channel_bar_html, channel_url, write_channel_page
 
 OUTPUT_DIR = 'static_site'
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
+SITE_URL = 'https://roatantourismtracker.online'
+BUILD_DATE = datetime.now(timezone.utc).strftime('%Y-%m-%d')
+
 MONTH_KEYS = [get_month_key(y, m) for y, m in AVAILABLE_MONTHS]
+
+
+def data_notice(meta, days=None):
+    """Plain-language note on where a month's numbers come from."""
+    days = days or {}
+    cruise_src = meta.get('cruise_source')
+    if cruise_src == 'scraped':
+        checked = meta.get('cruise_checked')
+        cruise = ('Cruise calls come from the published port schedule'
+                  + (f' (checked {checked})' if checked else '') + '; lines can change itineraries.')
+    elif cruise_src == 'recovered':
+        cruise = 'Cruise calls come from published port schedules (snapshot of 2026-06-20); lines can change itineraries.'
+    else:
+        cruise = '<strong>Cruise calls for this month are placeholder estimates, not a confirmed schedule.</strong>'
+    real_days = sorted(d for d, day in days.items() if day.get('flight_source') == 'real')
+    if real_days:
+        span = real_days[0] if len(real_days) == 1 else f'{real_days[0]} to {real_days[-1]}'
+        flights = (f'Flights for {len(real_days)} day(s) ({span}) are real schedules from AeroDataBox, with '
+                   'passengers estimated from aircraft size; other days are modelled from a typical airline schedule.')
+    else:
+        flights = ('Flight figures are modelled from a typical daily airline schedule and average load factors, '
+                   'not live flight data.')
+    return (f'<p class="data-notice">{cruise} {flights} '
+            f'Passenger counts are estimates. Last updated {BUILD_DATE}.</p>')
+
+
+def write_robots_txt():
+    with open(os.path.join(OUTPUT_DIR, 'robots.txt'), 'w', encoding='utf-8') as f:
+        f.write(f'User-agent: *\nAllow: /\n\nSitemap: {SITE_URL}/sitemap.xml\n')
+
+
+def write_cname():
+    with open(os.path.join(OUTPUT_DIR, 'CNAME'), 'w', encoding='utf-8') as f:
+        f.write(SITE_URL.split('://', 1)[1] + '\n')
+
+
+def write_sitemap():
+    """Sitemap with the current month and upcoming months ranked highest."""
+    now = datetime.now(timezone.utc)
+    now_index = now.year * 12 + now.month
+    urls = [(f'{SITE_URL}/', 'daily', '1.0')]
+    if channel_url():
+        urls.append((f'{SITE_URL}/{CHANNEL_PAGE}', 'daily', '0.9'))
+    for (year, month), mk in zip(AVAILABLE_MONTHS, MONTH_KEYS):
+        months_ahead = year * 12 + month - now_index
+        if months_ahead < 0:
+            freq, prio = 'monthly', '0.4'
+        elif months_ahead == 0:
+            freq, prio = 'daily', '0.9'
+        elif months_ahead <= 3:
+            freq, prio = 'weekly', '0.8'
+        else:
+            freq, prio = 'weekly', '0.6'
+        urls.append((f'{SITE_URL}/{mk}.html', freq, prio))
+    body = ''.join(
+        f'  <url>\n    <loc>{loc}</loc>\n    <lastmod>{BUILD_DATE}</lastmod>\n'
+        f'    <changefreq>{freq}</changefreq>\n    <priority>{prio}</priority>\n  </url>\n'
+        for loc, freq, prio in urls
+    )
+    with open(os.path.join(OUTPUT_DIR, 'sitemap.xml'), 'w', encoding='utf-8') as f:
+        f.write('<?xml version="1.0" encoding="UTF-8"?>\n'
+                '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+                f'{body}</urlset>\n')
 
 
 def generate_cruise_schedule_rows(monthly_data, year, month):
@@ -190,6 +259,12 @@ body {
 .section-title {
     color: #A23B72; font-size: 18px; margin-bottom: 12px; padding: 0 4px;
 }
+.data-notice {
+    font-size: 12px; color: #8b949e; margin-bottom: 16px;
+    padding: 8px 12px; border-left: 3px solid #F18F01;
+    background: #161b22; border-radius: 0 6px 6px 0;
+}
+.data-notice strong { color: #F18F01; }
 @media (max-width: 900px) {
     .chart-grid { grid-template-columns: 1fr; }
     .header { flex-direction: column; align-items: flex-start; }
@@ -238,6 +313,24 @@ def generate_month_page(year, month):
     cruise_rows = generate_cruise_schedule_rows(monthly_data, year, month)
     cruise_table_html = render_cruise_table(cruise_rows)
 
+    # SEO summary drawn from the month's actual schedule
+    page_url = f'{SITE_URL}/{mk}.html'
+    ships_by_day = {}
+    for r in cruise_rows:
+        ships_by_day.setdefault(r['date'], []).append(r)
+    if cruise_rows:
+        busiest = max(ships_by_day, key=lambda d: (sum(r['estimated_passengers'] for r in ships_by_day[d]), d))
+        busiest_dt = datetime.strptime(busiest, '%Y-%m-%d')
+        busiest_label = f"{busiest_dt:%b} {busiest_dt.day}"
+        summary = (f"{len(cruise_rows)} cruise ship calls on {len(ships_by_day)} days; "
+                   f"busiest day {busiest_label} with {len(ships_by_day[busiest])} ship"
+                   f"{'s' if len(ships_by_day[busiest]) != 1 else ''}.")
+    else:
+        summary = 'No cruise ship calls currently scheduled.'
+    description = escape(f"Roatan cruise schedule for {label}: {summary} "
+                         f"See every ship with previous and next ports, passenger estimates, and daily crowd charts.")
+    notice_html = data_notice(monthly_data.get('meta', {}), monthly_data.get('days'))
+
     # Prev/next month navigation
     idx = MONTH_KEYS.index(mk)
     prev_link = f'<a href="{MONTH_KEYS[idx-1]}.html">&larr; {get_month_label(*AVAILABLE_MONTHS[idx-1])}</a>' if idx > 0 else '<span style="opacity:0.3;">&larr; Prev</span>'
@@ -251,7 +344,6 @@ def generate_month_page(year, month):
             ('Flight Arrivals', f"{stats['total_flight_arrivals']:,}"),
             ('Flight Departures', f"{stats['total_flight_departures']:,}"),
             ('Cruise Arrivals', f"{stats['total_cruise_arrivals']:,}"),
-            ('Cruise Departures', f"{stats['total_cruise_departures']:,}"),
             ('Total Flights', f"{stats['total_flights']:,}"),
             ('Total Cruise Ships', f"{stats['total_cruise_ships']:,}"),
         ]
@@ -287,7 +379,7 @@ def generate_month_page(year, month):
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-L2LFYE0L4B"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      function gtag(){{dataLayer.push(arguments);}}
       gtag('js', new Date());
 
       gtag('config', 'G-L2LFYE0L4B');
@@ -295,13 +387,19 @@ def generate_month_page(year, month):
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roatan Cruise Schedule {label} | Previous &amp; Next Ports</title>
-    <meta name="description" content="Roatan cruise schedule for {label}. See every ship visiting Roatan with previous and next ports, passenger counts, and daily traffic charts.">
+    <meta name="description" content="{description}">
+    <link rel="canonical" href="{page_url}">
 
     <!-- Open Graph -->
+    <meta property="og:site_name" content="Roatan Tourism Tracker">
+    <meta property="og:locale" content="en_US">
     <meta property="og:title" content="Roatan Cruise Schedule {label}">
-    <meta property="og:description" content="See previous and next ports for every cruise stopping in Roatan in {label}.">
+    <meta property="og:description" content="{description}">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://roatantourismtracker.online/{mk}.html">
+    <meta property="og:url" content="{page_url}">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Roatan Cruise Schedule {label}">
+    <meta name="twitter:description" content="{description}">
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -309,18 +407,28 @@ def generate_month_page(year, month):
       "@context": "https://schema.org",
       "@type": "WebPage",
       "name": "Roatan Cruise Schedule {label}",
-      "url": "https://roatantourismtracker.online/{mk}.html",
-      "description": "Cruise ship schedule for Roatan, Honduras in {label} with previous and next ports.",
+      "url": "{page_url}",
+      "description": {json.dumps(description)},
+      "dateModified": "{BUILD_DATE}",
+      "inLanguage": "en",
+      "about": {{ "@type": "Place", "name": "Roatan, Bay Islands, Honduras" }},
       "isPartOf": {{
         "@type": "WebSite",
         "name": "Roatan Tourism Tracker",
-        "url": "https://roatantourismtracker.online"
+        "url": "{SITE_URL}/"
+      }},
+      "breadcrumb": {{
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {{ "@type": "ListItem", "position": 1, "name": "All months", "item": "{SITE_URL}/" }},
+          {{ "@type": "ListItem", "position": 2, "name": "{label}", "item": "{page_url}" }}
+        ]
       }}
     }}
     </script>
 
     <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
-    <style>{CSS}</style>
+    <style>{CSS}{CHANNEL_BAR_CSS}</style>
 </head>
 <body>
     <div class="header">
@@ -332,6 +440,9 @@ def generate_month_page(year, month):
             {next_link}
         </div>
     </div>
+
+    {channel_bar_html()}
+    {notice_html}
 
     <div class="stats-row">{stats_cards}</div>
 
@@ -467,7 +578,7 @@ def generate_index_page():
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-L2LFYE0L4B"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      function gtag(){{dataLayer.push(arguments);}}
       gtag('js', new Date());
 
       gtag('config', 'G-L2LFYE0L4B');
@@ -476,12 +587,16 @@ def generate_index_page():
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roatan Cruise Schedule 2026&ndash;2028 | Previous &amp; Next Ports</title>
     <meta name="description" content="View the full Roatan cruise schedule for 2026&ndash;2028. See which ships are coming to Roatan and the ports they visit before and after.">
+    <link rel="canonical" href="{SITE_URL}/">
+    <meta property="og:site_name" content="Roatan Tourism Tracker">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Roatan Cruise Schedule 2026&ndash;2028">
     <meta property="og:description" content="See previous and next ports for every cruise stopping in Roatan, Honduras.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://roatantourismtracker.online">
+    <meta property="og:url" content="{SITE_URL}/">
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -557,6 +672,7 @@ def generate_index_page():
             border-top: 1px solid #21262d;
             padding-top: 16px;
         }}
+        {CHANNEL_BAR_CSS}
     </style>
 </head>
 <body>
@@ -564,12 +680,15 @@ def generate_index_page():
     <p class="subtitle">Flight &amp; cruise analytics for Roatan, Honduras &mdash; June 2026 through November 2028</p>
     <p class="value-prop">See previous &amp; next ports for every cruise stopping in Roatan, plus flight traffic, passenger volumes, and hourly patterns by month.</p>
 
+    {channel_bar_html()}
+
     <h2>Select a Month</h2>
     <div class="month-grid" role="navigation" aria-label="Monthly cruise schedule navigation">
 {cards}    </div>
 
     <footer>
-        <p>Last updated: 2026-06-25 &mdash; Data covers June 2026 through November 2028 &mdash; <a href="https://roatantourismtracker.online" style="color:#484f58;">roatantourismtracker.online</a></p>
+        <p>Last updated: {BUILD_DATE} &mdash; Data covers June 2026 through November 2028 &mdash; <a href="{SITE_URL}/" style="color:#484f58;">roatantourismtracker.online</a></p>
+        <p>Cruise calls come from published port schedules and can change. Flight figures are modelled from a typical airline schedule, not live flight data. Passenger counts are estimates.</p>
     </footer>
 </body>
 </html>"""
@@ -592,6 +711,13 @@ if __name__ == '__main__':
     with open(index_path, 'w', encoding='utf-8') as f:
         f.write(generate_index_page())
     print(f"\n[OK] {index_path}")
+    write_robots_txt()
+    write_sitemap()
+    write_cname()
+    write_daily_messages(OUTPUT_DIR)
+    write_channel_page(OUTPUT_DIR, SITE_URL)
+    print(f"[OK] {OUTPUT_DIR}/hoy.txt, manana.txt, whatsapp.html")
+    print(f"[OK] {OUTPUT_DIR}/robots.txt, {OUTPUT_DIR}/sitemap.xml")
     print(f"[OK] Static site complete: {OUTPUT_DIR}/")
     print(f"[OK] Upload the entire '{OUTPUT_DIR}/' folder to your web host.")
     print(f"[OK] Open {OUTPUT_DIR}/index.html in a browser to preview.")

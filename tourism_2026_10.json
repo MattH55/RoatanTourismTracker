@@ -383,7 +383,24 @@
           "estimated_passengers": 6
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "MSC Seascape",
+          "arrival_hour": 8,
+          "departure_hour": 16,
+          "estimated_passengers": 5878,
+          "previous_ports": [
+            "Sep 30, 2026: At Sea",
+            "Sep 29, 2026: Galveston"
+          ],
+          "next_ports": [
+            "Oct 02, 2026: Cozumel",
+            "Oct 03, 2026: At Sea",
+            "Oct 04, 2026: Galveston"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2026-10-02": {
       "flights": [
@@ -1923,7 +1940,25 @@
           "estimated_passengers": 26
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Enchantment Of The Seas",
+          "arrival_hour": 10,
+          "departure_hour": 18,
+          "estimated_passengers": 1950,
+          "previous_ports": [
+            "Oct 04, 2026: At Sea",
+            "Oct 03, 2026: Tampa",
+            "Oct 02, 2026: Belize City"
+          ],
+          "next_ports": [
+            "Oct 06, 2026: Cozumel",
+            "Oct 07, 2026: At Sea",
+            "Oct 08, 2026: Tampa"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2026-10-06": {
       "flights": [
@@ -2308,7 +2343,25 @@
           "estimated_passengers": 7
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Regal Princess",
+          "arrival_hour": 7,
+          "departure_hour": 16,
+          "estimated_passengers": 3560,
+          "previous_ports": [
+            "Sep 30, 2026: Belize City",
+            "Oct 05, 2026: Fort Lauderdale",
+            "Oct 04, 2026: San Juan",
+            "Oct 03, 2026: St Thomas Island USVI"
+          ],
+          "next_ports": [
+            "Oct 07, 2026: At Sea",
+            "Oct 08, 2026: Fort Lauderdale"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2026-10-07": {
       "flights": [
@@ -2693,7 +2746,40 @@
           "estimated_passengers": 7
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Carnival Celebration",
+          "arrival_hour": 9,
+          "departure_hour": 18,
+          "estimated_passengers": 5374,
+          "previous_ports": [
+            "Oct 06, 2026: At Sea",
+            "Oct 05, 2026: Miami"
+          ],
+          "next_ports": [
+            "Oct 08, 2026: Cozumel",
+            "Oct 09, 2026: At Sea",
+            "Oct 10, 2026: Miami"
+          ],
+          "is_arrival": true
+        },
+        {
+          "ship_name": "Symphony Of The Seas",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 5518,
+          "previous_ports": [
+            "Oct 06, 2026: At Sea",
+            "Oct 05, 2026: Galveston"
+          ],
+          "next_ports": [
+            "Oct 08, 2026: Cozumel",
+            "Oct 09, 2026: At Sea",
+            "Oct 10, 2026: Galveston"
+          ],
+          "is_arrival": true
+        }
+      ]
     },
     "2026-10-08": {
       "flights": [
@@ -3078,7 +3164,25 @@
           "estimated_passengers": 6
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "MSC Seascape",
+          "cruise_line": "MSC Cruises",
+          "arrival_hour": 8,
+          "departure_hour": 16,
+          "estimated_passengers": 5878,
+          "is_arrival": true,
+          "previous_ports": [
+            "Oct 07, 2026: At Sea",
+            "Oct 06, 2026: Galveston"
+          ],
+          "next_ports": [
+            "Oct 09, 2026: Cozumel",
+            "Oct 10, 2026: At Sea",
+            "Oct 11, 2026: Galveston"
+          ]
+        }
+      ]
     },
     "2026-10-09": {
       "flights": [
@@ -4618,7 +4722,26 @@
           "estimated_passengers": 13
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "MSC World America",
+          "cruise_line": "MSC Cruises",
+          "arrival_hour": 9,
+          "departure_hour": 18,
+          "estimated_passengers": 5252,
+          "is_arrival": true,
+          "previous_ports": [
+            "Oct 11, 2026: At Sea",
+            "Oct 10, 2026: Miami"
+          ],
+          "next_ports": [
+            "Oct 13, 2026: Cozumel",
+            "Oct 14, 2026: Miami",
+            "Oct 15, 2026: San Juan",
+            "Oct 16, 2026: At Sea"
+          ]
+        }
+      ]
     },
     "2026-10-13": {
       "flights": [
@@ -5388,7 +5511,43 @@
           "estimated_passengers": 21
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Carnival Jubilee",
+          "cruise_line": "Carnival Cruises",
+          "arrival_hour": 9,
+          "departure_hour": 18,
+          "estimated_passengers": 5374,
+          "is_arrival": true,
+          "previous_ports": [
+            "Oct 13, 2026: At Sea",
+            "Oct 12, 2026: Galveston"
+          ],
+          "next_ports": [
+            "Oct 15, 2026: Cozumel",
+            "Oct 16, 2026: At Sea",
+            "Oct 17, 2026: Galveston"
+          ]
+        },
+        {
+          "ship_name": "Enchantment Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
+          "arrival_hour": 7,
+          "departure_hour": 16,
+          "estimated_passengers": 1950,
+          "is_arrival": true,
+          "previous_ports": [
+            "Oct 13, 2026: At Sea",
+            "Oct 12, 2026: Tampa",
+            "Oct 11, 2026: Belize City"
+          ],
+          "next_ports": [
+            "Oct 15, 2026: Cozumel",
+            "Oct 16, 2026: At Sea",
+            "Oct 17, 2026: Tampa"
+          ]
+        }
+      ]
     },
     "2026-10-15": {
       "flights": [
@@ -5773,7 +5932,45 @@
           "estimated_passengers": 27
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "MSC Seascape",
+          "cruise_line": "MSC Cruises",
+          "arrival_hour": 8,
+          "departure_hour": 16,
+          "estimated_passengers": 5878,
+          "is_arrival": true,
+          "previous_ports": [
+            "Oct 14, 2026: At Sea",
+            "Oct 13, 2026: Galveston"
+          ],
+          "next_ports": [
+            "Oct 16, 2026: Cozumel",
+            "Oct 17, 2026: At Sea",
+            "Oct 18, 2026: Galveston"
+          ]
+        },
+        {
+          "ship_name": "Star Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 5610,
+          "is_arrival": true,
+          "previous_ports": [
+            "Oct 14, 2026: At Sea",
+            "Oct 13, 2026: Miami",
+            "Oct 12, 2026: Jamaica",
+            "Oct 11, 2026: Grand Cayman"
+          ],
+          "next_ports": [
+            "Oct 16, 2026: Grand Cayman",
+            "Oct 17, 2026: Jamaica",
+            "Oct 18, 2026: At Sea",
+            "Oct 19, 2026: Miami"
+          ]
+        }
+      ]
     },
     "2026-10-16": {
       "flights": [
@@ -6928,7 +7125,26 @@
           "estimated_passengers": 17
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Carnival Miracle",
+          "cruise_line": "Carnival Cruises",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 2134,
+          "is_arrival": true,
+          "previous_ports": [
+            "Oct 17, 2026: Jamaica",
+            "Oct 16, 2026: Galveston"
+          ],
+          "next_ports": [
+            "Oct 19, 2026: Grand Cayman",
+            "Oct 20, 2026: Cozumel",
+            "Oct 22, 2026: At Sea",
+            "Oct 23, 2026: Galveston"
+          ]
+        }
+      ]
     },
     "2026-10-19": {
       "flights": [
@@ -7313,7 +7529,26 @@
           "estimated_passengers": 13
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Enchantment Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
+          "arrival_hour": 10,
+          "departure_hour": 18,
+          "estimated_passengers": 1950,
+          "is_arrival": true,
+          "previous_ports": [
+            "Oct 18, 2026: At Sea",
+            "Oct 17, 2026: Tampa",
+            "Oct 16, 2026: Belize City"
+          ],
+          "next_ports": [
+            "Oct 20, 2026: Cozumel",
+            "Oct 21, 2026: At Sea",
+            "Oct 22, 2026: Tampa"
+          ]
+        }
+      ]
     },
     "2026-10-20": {
       "flights": [
@@ -7698,7 +7933,79 @@
           "estimated_passengers": 29
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Icon Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
+          "arrival_hour": 7,
+          "departure_hour": 16,
+          "estimated_passengers": 5610,
+          "is_arrival": true,
+          "previous_ports": [
+            "Oct 19, 2026: At Sea",
+            "Oct 18, 2026: Miami"
+          ],
+          "next_ports": [
+            "Oct 21, 2026: Cozumel",
+            "Oct 22, 2026: At Sea",
+            "Oct 23, 2026: Miami"
+          ]
+        },
+        {
+          "ship_name": "Mardi Gras",
+          "cruise_line": "Carnival Cruises",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 5200,
+          "is_arrival": true,
+          "previous_ports": [
+            "Oct 19, 2026: Belize City",
+            "Oct 18, 2026: Galveston"
+          ],
+          "next_ports": [
+            "Oct 21, 2026: Grand Cayman",
+            "Oct 22, 2026: Jamaica",
+            "Oct 23, 2026: Cozumel",
+            "Oct 24, 2026: At Sea"
+          ]
+        },
+        {
+          "ship_name": "Margaritaville At Sea Islander",
+          "cruise_line": "Margaritaville At Sea",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 2680,
+          "is_arrival": true,
+          "previous_ports": [
+            "Oct 19, 2026: Belize City",
+            "Oct 18, 2026: Galveston"
+          ],
+          "next_ports": [
+            "Oct 21, 2026: Jamaica",
+            "Oct 22, 2026: Cozumel",
+            "Oct 24, 2026: At Sea",
+            "Oct 25, 2026: Galveston"
+          ]
+        },
+        {
+          "ship_name": "Norwegian Aqua",
+          "cruise_line": "Norwegian Cruise Line",
+          "arrival_hour": 9,
+          "departure_hour": 17,
+          "estimated_passengers": 3571,
+          "is_arrival": true,
+          "previous_ports": [
+            "Oct 19, 2026: Grand Cayman",
+            "Oct 18, 2026: Galveston"
+          ],
+          "next_ports": [
+            "Oct 21, 2026: Jamaica",
+            "Oct 22, 2026: Cozumel",
+            "Oct 24, 2026: At Sea",
+            "Oct 25, 2026: Galveston"
+          ]
+        }
+      ]
     },
     "2026-10-21": {
       "flights": [
@@ -8083,7 +8390,43 @@
           "estimated_passengers": 15
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Carnival Liberty",
+          "cruise_line": "Carnival Cruises",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 2974,
+          "is_arrival": true,
+          "previous_ports": [
+            "Oct 20, 2026: At Sea",
+            "Oct 19, 2026: Galveston",
+            "Oct 18, 2026: Cozumel"
+          ],
+          "next_ports": [
+            "Oct 22, 2026: Cozumel",
+            "Oct 23, 2026: At Sea",
+            "Oct 24, 2026: Galveston"
+          ]
+        },
+        {
+          "ship_name": "Symphony Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 5518,
+          "is_arrival": true,
+          "previous_ports": [
+            "Oct 20, 2026: At Sea",
+            "Oct 19, 2026: Galveston"
+          ],
+          "next_ports": [
+            "Oct 22, 2026: Cozumel",
+            "Oct 23, 2026: At Sea",
+            "Oct 24, 2026: Galveston"
+          ]
+        }
+      ]
     },
     "2026-10-22": {
       "flights": [
@@ -8468,7 +8811,25 @@
           "estimated_passengers": 8
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "MSC Seascape",
+          "cruise_line": "MSC Cruises",
+          "arrival_hour": 8,
+          "departure_hour": 16,
+          "estimated_passengers": 5878,
+          "is_arrival": true,
+          "previous_ports": [
+            "Oct 21, 2026: At Sea",
+            "Oct 20, 2026: Galveston"
+          ],
+          "next_ports": [
+            "Oct 23, 2026: Cozumel",
+            "Oct 24, 2026: At Sea",
+            "Oct 25, 2026: Galveston"
+          ]
+        }
+      ]
     },
     "2026-10-23": {
       "flights": [
@@ -10008,7 +10369,26 @@
           "estimated_passengers": 11
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "MSC World America",
+          "cruise_line": "MSC Cruises",
+          "arrival_hour": 9,
+          "departure_hour": 18,
+          "estimated_passengers": 5252,
+          "is_arrival": true,
+          "previous_ports": [
+            "Oct 25, 2026: At Sea",
+            "Oct 24, 2026: Miami"
+          ],
+          "next_ports": [
+            "Oct 27, 2026: Cozumel",
+            "Oct 28, 2026: Miami",
+            "Oct 29, 2026: San Juan",
+            "Oct 30, 2026: At Sea"
+          ]
+        }
+      ]
     },
     "2026-10-27": {
       "flights": [
@@ -10393,7 +10773,44 @@
           "estimated_passengers": 17
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Norwegian Aqua",
+          "cruise_line": "Norwegian Cruise Line",
+          "arrival_hour": 9,
+          "departure_hour": 17,
+          "estimated_passengers": 3571,
+          "is_arrival": true,
+          "previous_ports": [
+            "Oct 26, 2026: Grand Cayman",
+            "Oct 25, 2026: Galveston"
+          ],
+          "next_ports": [
+            "Oct 28, 2026: Jamaica",
+            "Oct 29, 2026: Cozumel",
+            "Oct 31, 2026: At Sea",
+            "Nov 01, 2026: Galveston"
+          ]
+        },
+        {
+          "ship_name": "Star Princess",
+          "cruise_line": "Princess Cruises",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 4300,
+          "is_arrival": true,
+          "previous_ports": [
+            "Oct 26, 2026: Jamaica",
+            "Oct 25, 2026: Galveston"
+          ],
+          "next_ports": [
+            "Oct 28, 2026: Grand Cayman",
+            "Oct 29, 2026: Belize City",
+            "Oct 31, 2026: At Sea",
+            "Nov 01, 2026: Galveston"
+          ]
+        }
+      ]
     },
     "2026-10-28": {
       "flights": [
@@ -10778,7 +11195,60 @@
           "estimated_passengers": 6
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Carnival Jubilee",
+          "cruise_line": "Carnival Cruises",
+          "arrival_hour": 9,
+          "departure_hour": 18,
+          "estimated_passengers": 5374,
+          "is_arrival": true,
+          "previous_ports": [
+            "Oct 27, 2026: At Sea",
+            "Oct 26, 2026: Galveston"
+          ],
+          "next_ports": [
+            "Oct 29, 2026: Cozumel",
+            "Oct 30, 2026: At Sea",
+            "Oct 31, 2026: Galveston"
+          ]
+        },
+        {
+          "ship_name": "Regal Princess",
+          "cruise_line": "Princess Cruises",
+          "arrival_hour": 8,
+          "departure_hour": 18,
+          "estimated_passengers": 3560,
+          "is_arrival": true,
+          "previous_ports": [
+            "Oct 27, 2026: At Sea",
+            "Oct 26, 2026: Fort Lauderdale",
+            "Oct 25, 2026: San Juan",
+            "Oct 24, 2026: St Thomas Island USVI"
+          ],
+          "next_ports": [
+            "Oct 29, 2026: At Sea",
+            "Oct 30, 2026: Fort Lauderdale"
+          ]
+        },
+        {
+          "ship_name": "Symphony Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 5518,
+          "is_arrival": true,
+          "previous_ports": [
+            "Oct 27, 2026: At Sea",
+            "Oct 26, 2026: Galveston"
+          ],
+          "next_ports": [
+            "Oct 29, 2026: Cozumel",
+            "Oct 30, 2026: At Sea",
+            "Oct 31, 2026: Galveston"
+          ]
+        }
+      ]
     },
     "2026-10-29": {
       "flights": [
@@ -11163,7 +11633,61 @@
           "estimated_passengers": 15
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Carnival Paradise",
+          "cruise_line": "Carnival Cruises",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 2124,
+          "is_arrival": true,
+          "previous_ports": [
+            "Oct 28, 2026: At Sea",
+            "Oct 27, 2026: Galveston",
+            "Oct 26, 2026: Belize City",
+            "Oct 25, 2026: Cozumel"
+          ],
+          "next_ports": [
+            "Oct 30, 2026: Cozumel",
+            "Oct 31, 2026: Grand Cayman",
+            "Nov 01, 2026: At Sea",
+            "Nov 02, 2026: Galveston"
+          ]
+        },
+        {
+          "ship_name": "MSC Seascape",
+          "cruise_line": "MSC Cruises",
+          "arrival_hour": 8,
+          "departure_hour": 16,
+          "estimated_passengers": 5878,
+          "is_arrival": true,
+          "previous_ports": [
+            "Oct 28, 2026: At Sea",
+            "Oct 27, 2026: Galveston"
+          ],
+          "next_ports": [
+            "Oct 30, 2026: Cozumel",
+            "Oct 31, 2026: At Sea",
+            "Nov 01, 2026: Galveston"
+          ]
+        },
+        {
+          "ship_name": "Viking Mars",
+          "cruise_line": "Viking Cruises",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 930,
+          "is_arrival": true,
+          "previous_ports": [
+            "Oct 28, 2026: Jamaica",
+            "Oct 27, 2026: Miami"
+          ],
+          "next_ports": [
+            "Nov 02, 2026: Miami",
+            "Oct 30, 2026: Grand Cayman"
+          ]
+        }
+      ]
     },
     "2026-10-30": {
       "flights": [
@@ -11548,7 +12072,22 @@
           "estimated_passengers": 13
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Jewel Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 2100,
+          "is_arrival": true,
+          "previous_ports": [
+            "Grand Cayman"
+          ],
+          "next_ports": [
+            "Jamaica"
+          ]
+        }
+      ]
     },
     "2026-10-31": {
       "flights": [
@@ -11935,5 +12474,11 @@
       ],
       "cruises": []
     }
+  },
+  "meta": {
+    "flight_source": "modelled",
+    "cruise_source": "scraped",
+    "cruise_source_url": "https://www.cruisetimetables.com/roatanhondurasschedule-oct2026.html",
+    "cruise_checked": "2026-10-08"
   }
 }

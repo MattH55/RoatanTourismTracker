@@ -190,7 +190,21 @@ def get_cruise_ship_capacity(ship_name):
     return 2500
 
 
-def scrape_cruise_ships(url):
+CRUISE_SCHEDULE_URL = 'https://www.cruisetimetables.com/roatanhondurasschedule-{abbr}{year}.html'
+
+
+def cruise_schedule_url(year, month):
+    return CRUISE_SCHEDULE_URL.format(abbr=datetime(year, month, 1).strftime('%b').lower(), year=year)
+
+
+def scrape_cruise_ships(year, month):
+    """Scrape one month of Roatan cruise calls from cruisetimetables.com.
+
+    Returns a list of dicts (date, ship_name, cruise_line, arrival_hour, departure_hour,
+    estimated_passengers), or None if the page could not be fetched or read completely,
+    so callers can keep existing data instead of wiping it.
+    """
+    url = cruise_schedule_url(year, month)
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
@@ -198,88 +212,57 @@ def scrape_cruise_ships(url):
     }
     print(f"Fetching cruise schedule from: {url}")
     try:
-        response = requests.get(url, headers=headers, timeout=30)
-        response.raise_for_status()
+        response = requests.get(url, headers=headers, timeout=30, allow_redirects=False)
     except Exception as e:
-        print(f"Error fetching cruise data: {e}")
-        return []
+        print(f"  Error fetching cruise data: {e}")
+        return None
+    if response.status_code != 200:
+        # Past months redirect away; anything else is an error. Either way, no data.
+        print(f"  HTTP {response.status_code}, skipping")
+        return None
+
     soup = BeautifulSoup(response.text, 'html.parser')
+    month_heading = soup.find('div', class_='psovde-month')
+    # The legend follows the last listing; without it the page may be truncated.
+    if month_heading is None or 'Legend (number of passengers)' not in response.text:
+        print("  Schedule layout not recognised, skipping")
+        return None
+    heading = month_heading.get_text(strip=True)
+    if heading.lower() != datetime(year, month, 1).strftime('%B').lower():
+        print(f"  Page is for '{heading}', not the requested month, skipping")
+        return None
+
     ships = []
-    tables = soup.find_all('table')
-    print(f"Found {len(tables)} tables on page")
-    for table in tables:
-        rows = table.find_all('tr')
-        for row in rows:
-            cells = row.find_all(['td', 'th'])
-            if len(cells) < 3:
-                continue
-            ship_name = cells[0].get_text(strip=True) if len(cells) > 0 else ''
-            if not ship_name or len(ship_name) < 3:
-                ship_name = cells[1].get_text(strip=True) if len(cells) > 1 else ''
-            skip_words = ['SHIP', 'DATE', 'DAY', 'TIME', 'ARRIVE', 'DEPART',
-                          'SCHEDULE', 'CRUISE', 'PORT', 'ROATAN']
-            if any(s in ship_name.upper() for s in skip_words):
-                continue
-            if len(ship_name) < 3:
-                continue
-            date_str = ''
-            for cell in cells:
-                text = cell.get_text(strip=True)
-                if re.match(r'[A-Z][a-z]{2}\s+\d{1,2}', text) or re.match(r'\d{1,2}/\d{1,2}/\d{4}', text):
-                    date_str = text
-                    break
-            arrival = TYPICAL_CRUISE_ARRIVAL_HOUR
-            departure = TYPICAL_CRUISE_DEPARTURE_HOUR
-            for cell in cells:
-                text = cell.get_text(strip=True)
-                time_match = re.findall(r'(\d{1,2}):(\d{2})', text)
-                if time_match and len(time_match) >= 1:
-                    try:
-                        arrival = int(time_match[0][0])
-                    except:
-                        pass
-                if time_match and len(time_match) >= 2:
-                    try:
-                        departure = int(time_match[1][0])
-                    except:
-                        pass
-            capacity = get_cruise_ship_capacity(ship_name)
-            estimated_passengers = int(capacity * 0.95)
-            ship_info = {
-                'ship_name': ship_name,
-                'date_str': date_str,
-                'arrival_hour': arrival,
-                'departure_hour': departure,
-                'capacity': capacity,
-                'estimated_passengers': estimated_passengers,
-                'type': 'cruise',
-                'source_url': url,
-            }
-            ships.append(ship_info)
-            print(f"  Found ship: {ship_name} | Date: {date_str} | "
-                  f"Arr: {arrival}:00 Dep: {departure}:00 | Pax: {estimated_passengers}")
-    if not ships:
-        print("No ships found via table parsing, trying alternative methods...")
-        page_text = soup.get_text()
-        ship_patterns = re.finditer(
-            r'([A-Z][a-z]+(?:\s+[A-Z][a-z]+)+)\s+.*?(?:arrive|depart|am|pm)',
-            page_text, re.IGNORECASE)
-        for match in ship_patterns:
-            name = match.group(1).strip()
-            skip = ['HTTP', 'WWW', 'CRUISE', 'SCHEDULE', 'ROATAN', 'HONDURAS']
-            if len(name) > 5 and not any(s in name.upper() for s in skip):
-                capacity = get_cruise_ship_capacity(name)
-                ships.append({
-                    'ship_name': name,
-                    'date_str': '',
-                    'arrival_hour': TYPICAL_CRUISE_ARRIVAL_HOUR,
-                    'departure_hour': TYPICAL_CRUISE_DEPARTURE_HOUR,
-                    'capacity': capacity,
-                    'estimated_passengers': int(capacity * 0.95),
-                    'type': 'cruise',
-                    'source_url': url,
-                })
-                print(f"  Found ship (alt): {name} | Pax: {int(capacity * 0.95)}")
+    day = None
+    for listing in soup.find_all('div', class_='psovde-listing'):
+        ship_el = listing.find('div', class_='psovde-ship')
+        link = ship_el.find('a') if ship_el else None
+        if link is None:
+            continue  # column header row
+        # A blank day cell means another ship on the same day as the row above.
+        day_match = re.search(r'\b(\d{1,2})\b', listing.find('div', class_='psovde-day').get_text(' ', strip=True))
+        if day_match:
+            day = int(day_match.group(1))
+        times = listing.find('div', class_='psovde-times')
+        time_match = re.search(r'a\s*(\d{2})(\d{2})\s*d\s*(\d{2})(\d{2})', times.get_text(' ', strip=True) if times else '')
+        pax_el = listing.find('div', class_='psovde-passengers')
+        pax_digits = re.sub(r'\D', '', pax_el.get_text() if pax_el else '')
+        logo = listing.find('img')
+        if day is None:
+            print("  Listing without a day, skipping page")
+            return None
+
+        name = link.get_text(strip=True)
+        ships.append({
+            'date': f"{year:04d}-{month:02d}-{day:02d}",
+            'ship_name': name,
+            'cruise_line': (logo.get('alt', '').replace(' logo', '') if logo else ''),
+            'arrival_hour': int(time_match.group(1)) if time_match else TYPICAL_CRUISE_ARRIVAL_HOUR,
+            'departure_hour': int(time_match.group(3)) if time_match else TYPICAL_CRUISE_DEPARTURE_HOUR,
+            'estimated_passengers': int(pax_digits) if pax_digits else int(get_cruise_ship_capacity(name) * 0.95),
+            'source_url': url,
+        })
+    print(f"  Found {len(ships)} cruise calls")
     return ships
 
 
@@ -443,6 +426,23 @@ def get_weather_data(year, month):
     return weather_data
 
 
+def cruise_entry(ship, previous_ports=None, next_ports=None):
+    """Cruise record as stored in tourism_YYYY_MM.json."""
+    entry = {
+        'ship_name': ship['ship_name'],
+        'cruise_line': ship.get('cruise_line', ''),
+        'arrival_hour': ship['arrival_hour'],
+        'departure_hour': ship['departure_hour'],
+        'estimated_passengers': ship['estimated_passengers'],
+        'is_arrival': True,
+    }
+    if previous_ports:
+        entry['previous_ports'] = previous_ports
+    if next_ports:
+        entry['next_ports'] = next_ports
+    return entry
+
+
 def generate_monthly_data(year=2026, month=6):
     """Generate full month of data for a given year/month with daily variations."""
     random.seed(year * 1000 + month)
@@ -511,8 +511,7 @@ def generate_monthly_data(year=2026, month=6):
     ]
 
     # Try to scrape real cruise data
-    cruise_url = f"https://www.cruisetimetables.com/roatanhondurasschedule-{month_abbr}{year}.html"
-    scraped_ships = scrape_cruise_ships(cruise_url)
+    scraped_ships = scrape_cruise_ships(year, month)
 
     monthly_data = {'days': {}}
 
@@ -539,24 +538,10 @@ def generate_monthly_data(year=2026, month=6):
             })
 
         # Add cruise ships (rotating schedule - different ships on different days)
-        if scraped_ships:
-            # Use scraped data - assign ships to days based on date_str matching
+        if scraped_ships is not None:
             for ship in scraped_ships:
-                ship_date = ship.get('date_str', '')
-                if ship_date:
-                    try:
-                        parsed = datetime.strptime(ship_date, '%b %d')
-                        ship_day = parsed.day
-                        if ship_day == day:
-                            day_data['cruises'].append({
-                                'ship_name': ship['ship_name'],
-                                'arrival_hour': ship['arrival_hour'],
-                                'departure_hour': ship['departure_hour'],
-                                'estimated_passengers': ship['estimated_passengers'],
-                                'is_arrival': True,
-                            })
-                    except:
-                        pass
+                if ship['date'] == date_str:
+                    day_data['cruises'].append(cruise_entry(ship))
         else:
             # Use sample data rotation
             ships_per_day = random.randint(1, 3)
@@ -572,6 +557,13 @@ def generate_monthly_data(year=2026, month=6):
                 })
 
         monthly_data['days'][date_str] = day_data
+
+    # Record provenance so the site can label modelled/sample figures honestly
+    monthly_data['meta'] = {
+        'flight_source': 'modelled',
+        'cruise_source': 'scraped' if scraped_ships is not None else 'sample',
+        'generated_at': datetime.now().strftime('%Y-%m-%d'),
+    }
 
     print(f"Generated data for {month_name} {year}: {num_days} days, "
           f"{sum(len(d['flights']) for d in monthly_data['days'].values())} flights, "

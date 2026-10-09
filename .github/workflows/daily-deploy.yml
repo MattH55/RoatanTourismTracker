@@ -2,20 +2,27 @@ name: Daily Roatan Tourism Tracker Update & Deploy
 
 on:
   schedule:
-    - cron: '0 5 * * *'
+    # 11:00 UTC = 5am in Roatan, so hoy.txt is today's update and manana.txt tomorrow's
+    - cron: '0 11 * * *'
   workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write   # commit the refreshed cruise schedule
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write     # This is the key fix
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
@@ -27,14 +34,53 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Generate fresh data & static HTML
-        run: python generate_static.py
+      # If the schedule site is down, keep the data on file and still deploy.
+      - name: Refresh cruise schedule
+        run: python update_cruise_schedule.py
+        continue-on-error: true
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+      # Real RTB arrivals/departures for today and tomorrow (needs the AERODATABOX_API_KEY secret).
+      # They feed the daily message and replace the modelled schedule in the charts for those
+      # days. Without the key, or if the API fails, the message leaves flights out and the
+      # charts keep the modelled schedule.
+      - name: Fetch flights
+        run: python update_flights.py
+        continue-on-error: true
+        env:
+          AERODATABOX_API_KEY: ${{ secrets.AERODATABOX_API_KEY }}
+
+      - name: Commit refreshed schedule
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898333+github-actions[bot]@users.noreply.github.com"
+          git add tourism_*.json
+          if [ -d flights ]; then git add flights; fi
+          if git diff --cached --quiet; then
+            echo "Cruise schedule unchanged"
+          else
+            git commit -m "Update cruise schedule and flights ($(date -u +%Y-%m-%d))"
+            git pull --rebase origin "$GITHUB_REF_NAME"
+            git push origin "HEAD:$GITHUB_REF_NAME"
+          fi
+
+      - name: Generate static site (pages, robots.txt, sitemap.xml)
+        run: python generate_static_site.py
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
-          publish_branch: gh-pages
-          force_orphan: true
-          enable_jekyll: false
+          path: ./static_site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
