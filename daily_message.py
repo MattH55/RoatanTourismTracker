@@ -14,6 +14,7 @@ import os
 from datetime import datetime, timedelta, timezone
 
 SITE = 'roatantourismtracker.online'
+FLIGHTS_DIR = 'flights'
 ROATAN_TZ = timezone(timedelta(hours=-6))
 OUTLOOK_DAYS = 3
 
@@ -62,6 +63,57 @@ def _hour(h):
     return f'{h % 12 or 12}{suffix}'
 
 
+def _clock(hhmm):
+    h, m = map(int, hhmm.split(':'))
+    return f"{h % 12 or 12}:{m:02d}{'am' if h < 12 else 'pm'}"
+
+
+def _shift(hhmm, minutes):
+    t = datetime(2000, 1, 1, *map(int, hhmm.split(':'))) + timedelta(minutes=minutes)
+    return f'{t:%H:%M}'
+
+
+def _flights_on(day):
+    """Real flights saved by update_flights.py, or None if none were fetched for this day."""
+    path = os.path.join(FLIGHTS_DIR, f'RTB_{day.isoformat()}.json')
+    if not os.path.exists(path):
+        return None
+    with open(path, encoding='utf-8') as f:
+        return json.load(f)
+
+
+def flight_lines(day):
+    data = _flights_on(day)
+    if data is None:
+        return []
+    live = lambda fs: [f for f in fs if not str(f.get('status', '')).lower().startswith('cancel')]
+    arrivals, departures = live(data['arrivals']), live(data['departures'])
+    intl_arr = [f for f in arrivals if f['international']]
+    intl_dep = [f for f in departures if f['international']]
+    regional = len(arrivals) - len(intl_arr)
+
+    lines = ['', '✈️ VUELOS INTERNACIONALES / INTERNATIONAL FLIGHTS']
+    if not intl_arr and not intl_dep:
+        lines.append('Sin vuelos internacionales / No international flights')
+    if intl_arr:
+        lines.append('🛬 Llegadas / Arrivals:')
+        lines += [f" {_clock(f['time'])} {f['airline']} – {f['city']}" for f in intl_arr]
+    if intl_dep:
+        lines.append('🛫 Salidas / Departures:')
+        lines += [f" {_clock(f['time'])} {f['airline']} – {f['city']}" for f in intl_dep]
+    if intl_arr or intl_dep:
+        lines.append('🚕 Hora pico aeropuerto / Airport rush:')
+        if intl_dep:
+            lines.append(f" Llevar / Drop-offs: {_clock(_shift(intl_dep[0]['time'], -150))}–"
+                         f"{_clock(_shift(intl_dep[-1]['time'], -120))}")
+        if intl_arr:
+            lines.append(f" Recoger / Pick-ups: {_clock(intl_arr[0]['time'])}–"
+                         f"{_clock(_shift(intl_arr[-1]['time'], 45))}")
+    if regional:
+        lines.append(f'➕ {regional} llegadas nacionales y regionales / domestic & regional arrivals')
+    return lines
+
+
 def _approx(n):
     return f'{round(n, -2):,}' if n >= 1000 else str(n)
 
@@ -78,8 +130,10 @@ def build_message(day, heading_es, heading_en, cache=None):
     """Plain-text message for one day plus a short outlook."""
     cache = {} if cache is None else cache
     cruises = _cruises_on(day, cache)
-    lines = [f'🛳️ ROATÁN {heading_es} / {heading_en}', f'{_label_es(day)} · {_label_en(day)}', '']
+    plane = '✈️' if _flights_on(day) is not None else ''
+    lines = [f'🛳️{plane} ROATÁN {heading_es} / {heading_en}', f'{_label_es(day)} · {_label_en(day)}', '']
 
+    lines.append('🚢 CRUCEROS / CRUISE SHIPS')
     if cruises is None:
         lines += ['Sin datos para esta fecha / No schedule data for this date']
     else:
@@ -97,6 +151,8 @@ def build_message(day, heading_es, heading_en, cache=None):
         else:
             lines.append(f'{icon} {es} / {en}')
 
+    lines += flight_lines(day)
+
     outlook = []
     for i in range(1, OUTLOOK_DAYS + 1):
         d = day + timedelta(days=i)
@@ -110,7 +166,10 @@ def build_message(day, heading_es, heading_en, cache=None):
     if outlook:
         lines += ['', '📅 Próximos días / Next days:'] + outlook
 
-    lines += ['', 'Horarios estimados, pueden cambiar. / Estimates; times can change.', SITE]
+    footer = 'Horarios estimados, pueden cambiar. / Estimates; times can change.'
+    if _flights_on(day) is not None:
+        footer += '\nVuelos / Flights: AeroDataBox'
+    lines += ['', footer, SITE]
     return '\n'.join(lines) + '\n'
 
 

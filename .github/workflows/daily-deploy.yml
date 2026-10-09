@@ -39,15 +39,24 @@ jobs:
         run: python update_cruise_schedule.py
         continue-on-error: true
 
+      # Real RTB arrivals/departures for today and tomorrow (needs the AERODATABOX_API_KEY secret).
+      # Without it, or if the API fails, the daily message simply leaves flights out.
+      - name: Fetch flights
+        run: python update_flights.py
+        continue-on-error: true
+        env:
+          AERODATABOX_API_KEY: ${{ secrets.AERODATABOX_API_KEY }}
+
       - name: Commit refreshed schedule
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898333+github-actions[bot]@users.noreply.github.com"
           git add tourism_*.json
+          if [ -d flights ]; then git add flights; fi
           if git diff --cached --quiet; then
             echo "Cruise schedule unchanged"
           else
-            git commit -m "Update cruise schedule ($(date -u +%Y-%m-%d))"
+            git commit -m "Update cruise schedule and flights ($(date -u +%Y-%m-%d))"
             git pull --rebase origin "$GITHUB_REF_NAME"
             git push origin "HEAD:$GITHUB_REF_NAME"
           fi
