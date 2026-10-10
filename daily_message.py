@@ -117,8 +117,36 @@ def flight_lines(day):
             lines.append(f" Recoger / Pick-ups: {_clock(long_arr[0]['time'])}–"
                          f"{_clock(_shift(long_arr[-1]['time'], 45))}")
     if regional:
-        lines.append(f'➕ {regional} llegadas nacionales y regionales / domestic & regional arrivals')
+        lines.append(f'👇 {regional} vuelos nacionales en el siguiente mensaje / '
+                     f'{regional} domestic arrivals in the next message')
     return lines
+
+
+def _short_airline(name):
+    return 'Sosa' if 'sosa' in name.lower() else name
+
+
+def domestic_message(day, heading_es, heading_en):
+    """Second message: every domestic (Honduras) flight, posted after the main update.
+
+    None when there are no domestic flights or no flight data for the day."""
+    data = _flights_on(day)
+    if data is None:
+        return None
+    live = lambda fs: [f for f in fs if not str(f.get('status', '')).lower().startswith('cancel')]
+    arrivals = [f for f in live(data['arrivals']) if not f['international']]
+    departures = [f for f in live(data['departures']) if not f['international']]
+    if not arrivals and not departures:
+        return None
+    row = lambda f: f" {_clock(f['time'])} {_short_airline(f['airline'])} – {f['city']}"
+    lines = [f'🇭🇳 VUELOS NACIONALES {heading_es} / DOMESTIC FLIGHTS {heading_en}',
+             f'{_label_es(day)} · {_label_en(day)}', '']
+    if arrivals:
+        lines += [f'🛬 Llegadas / Arrivals ({len(arrivals)}):'] + [row(f) for f in arrivals]
+    if departures:
+        lines += ['', f'🛫 Salidas / Departures ({len(departures)}):'] + [row(f) for f in departures]
+    lines += ['', 'Horarios estimados, pueden cambiar. / Estimates; times can change.', SITE]
+    return '\n'.join(lines) + '\n'
 
 
 def _approx(n):
@@ -183,24 +211,35 @@ def build_message(day, heading_es, heading_en, cache=None):
 def write_daily_messages(output_dir, today=None):
     today = today or roatan_today()
     cache = {}
-    hoy = build_message(today, 'HOY', 'TODAY', cache)
-    manana = build_message(today + timedelta(days=1), 'MAÑANA', 'TOMORROW', cache)
-    for name, text in [('hoy.txt', hoy), ('manana.txt', manana)]:
-        with open(os.path.join(output_dir, name), 'w', encoding='utf-8') as f:
+    tomorrow = today + timedelta(days=1)
+    messages = [
+        ('hoy', 'Hoy / Today (morning post)', build_message(today, 'HOY', 'TODAY', cache)),
+        ('hoy_vuelos', 'Hoy – vuelos nacionales / Today – domestic flights (post right after)',
+         domestic_message(today, 'HOY', 'TODAY')),
+        ('manana', 'Mañana / Tomorrow (evening post)', build_message(tomorrow, 'MAÑANA', 'TOMORROW', cache)),
+        ('manana_vuelos', 'Mañana – vuelos nacionales / Tomorrow – domestic flights (post right after)',
+         domestic_message(tomorrow, 'MAÑANA', 'TOMORROW')),
+    ]
+    for key, _, text in messages:
+        path = os.path.join(output_dir, f'{key}.txt')
+        if text is None:
+            if os.path.exists(path):
+                os.remove(path)
+            continue
+        with open(path, 'w', encoding='utf-8') as f:
             f.write(text)
     with open(os.path.join(output_dir, 'whatsapp.html'), 'w', encoding='utf-8') as f:
-        f.write(_copy_page(hoy, manana, today))
+        f.write(_copy_page([m for m in messages if m[2] is not None], today))
 
 
-def _copy_page(hoy, manana, today):
+def _copy_page(messages, today):
     blocks = ''.join(f'''
   <section>
     <h2>{title}</h2>
     <pre id="{key}">{html.escape(text)}</pre>
     <button onclick="copyText('{key}', this)">Copiar / Copy</button>
     <a class="button" href="https://wa.me/?text={_urlquote(text)}">Abrir en WhatsApp</a>
-  </section>''' for key, title, text in [('hoy', 'Hoy / Today (morning post)', hoy),
-                                          ('manana', 'Mañana / Tomorrow (evening post)', manana)])
+  </section>''' for key, title, text in messages)
     return f'''<!DOCTYPE html>
 <html lang="es">
 <head>
@@ -228,7 +267,7 @@ def _copy_page(hoy, manana, today):
 <body>
 <main>
   <h1>Roatán – actualización diaria</h1>
-  <p>Generado / Generated {today.isoformat()} · también en / also at /hoy.txt y /manana.txt</p>
+  <p>Generado / Generated {today.isoformat()} · también en / also at /hoy.txt, /manana.txt y /manana_vuelos.txt</p>
   {blocks}
 </main>
 <script>
