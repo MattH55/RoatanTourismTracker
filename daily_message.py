@@ -82,6 +82,11 @@ def _flights_on(day):
         return json.load(f)
 
 
+# Short hops within Central America carry few tourists; the airport rush follows the
+# long-haul flights (US, Canada, Europe).
+CENTRAL_AMERICA = {'HN', 'BZ', 'GT', 'SV', 'NI', 'CR', 'PA'}
+
+
 def flight_lines(day):
     data = _flights_on(day)
     if data is None:
@@ -101,14 +106,16 @@ def flight_lines(day):
     if intl_dep:
         lines.append('🛫 Salidas / Departures:')
         lines += [f" {_clock(f['time'])} {f['airline']} – {f['city']}" for f in intl_dep]
-    if intl_arr or intl_dep:
+    long_arr = [f for f in intl_arr if f.get('country') not in CENTRAL_AMERICA] or intl_arr
+    long_dep = [f for f in intl_dep if f.get('country') not in CENTRAL_AMERICA] or intl_dep
+    if long_arr or long_dep:
         lines.append('🚕 Hora pico aeropuerto / Airport rush:')
-        if intl_dep:
-            lines.append(f" Llevar / Drop-offs: {_clock(_shift(intl_dep[0]['time'], -150))}–"
-                         f"{_clock(_shift(intl_dep[-1]['time'], -120))}")
-        if intl_arr:
-            lines.append(f" Recoger / Pick-ups: {_clock(intl_arr[0]['time'])}–"
-                         f"{_clock(_shift(intl_arr[-1]['time'], 45))}")
+        if long_dep:
+            lines.append(f" Llevar / Drop-offs: {_clock(_shift(long_dep[0]['time'], -150))}–"
+                         f"{_clock(_shift(long_dep[-1]['time'], -120))}")
+        if long_arr:
+            lines.append(f" Recoger / Pick-ups: {_clock(long_arr[0]['time'])}–"
+                         f"{_clock(_shift(long_arr[-1]['time'], 45))}")
     if regional:
         lines.append(f'➕ {regional} llegadas nacionales y regionales / domestic & regional arrivals')
     return lines
