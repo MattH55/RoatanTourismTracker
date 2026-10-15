@@ -161,6 +161,42 @@ def _label_en(day):
     return f'{day:%a} {day:%b} {day.day}'
 
 
+# Roatan has two cruise docks. Carnival Corporation's lines use its own Isla Tropicale
+# (Dixon Cove, formerly Mahogany Bay); every other line uses the Port of Roatan in Coxen
+# Hole. This matches Discover Roatan's per-ship listings; a ship can occasionally be moved.
+ISLA_TROPICALE = ('Isla Tropicale', 'Dixon Cove / Mahogany Bay')
+PORT_OF_ROATAN = ('Puerto de Roatán', 'Coxen Hole')
+CARNIVAL_GROUP = ('carnival', 'princess', 'holland america', 'costa', 'aida', 'cunard', 'p & o', 'p&o',
+                  'seabourn')
+CARNIVAL_GROUP_SHIP_NAMES = ('mardi gras', 'rotterdam', 'eurodam', 'nieuw', 'zuiderdam', 'oosterdam',
+                             'westerdam', 'koningsdam', 'volendam', 'zaandam', 'queen ', 'aurora',
+                             'arcadia', 'iona', 'arvia')
+
+
+def dock_for(cruise):
+    line = (cruise.get('cruise_line') or '').lower()
+    name = cruise.get('ship_name', '').lower()
+    if any(k in line for k in CARNIVAL_GROUP):
+        return ISLA_TROPICALE
+    if line:
+        return PORT_OF_ROATAN
+    # Older records have no cruise line; fall back on the ship name.
+    if any(k in name for k in CARNIVAL_GROUP) or any(k in name for k in CARNIVAL_GROUP_SHIP_NAMES):
+        return ISLA_TROPICALE
+    return PORT_OF_ROATAN
+
+
+def _rush(cruises):
+    """Return-to-ship windows (1 hour before each departure), overlapping ones merged."""
+    windows = []
+    for h in sorted({c['departure_hour'] for c in cruises}):
+        if windows and h - 1 <= windows[-1][1]:
+            windows[-1][1] = h
+        else:
+            windows.append([h - 1, h])
+    return ', '.join(f'{_hour(a)}–{_hour(b)}' for a, b in windows)
+
+
 def build_message(day, heading_es, heading_en, cache=None):
     """Plain-text message for one day plus a short outlook."""
     cache = {} if cache is None else cache
@@ -176,13 +212,16 @@ def build_message(day, heading_es, heading_en, cache=None):
         icon, es, en = _level(pax)
         if cruises:
             lines.append(f'{icon} {es} / {en}: ~{_approx(pax)} cruceristas / cruise visitors')
-            lines.append('')
-            for c in cruises:
-                lines.append(f"🚢 {c['ship_name']}: {_hour(c['arrival_hour'])}–{_hour(c['departure_hour'])} "
-                             f"(~{_approx(c.get('estimated_passengers', 0))})")
-            departures = sorted({c['departure_hour'] for c in cruises})
-            rush = ', '.join(f'{_hour(h - 1)}–{_hour(h)}' for h in departures)
-            lines += ['', f'⏰ Regreso al barco / Return rush: {rush}']
+            for dock in (PORT_OF_ROATAN, ISLA_TROPICALE):
+                at_dock = [c for c in cruises if dock_for(c) == dock]
+                if not at_dock:
+                    continue
+                dock_pax = sum(c.get('estimated_passengers', 0) for c in at_dock)
+                lines += ['', f'📍 {dock[0]} ({dock[1]}) · ~{_approx(dock_pax)}']
+                for c in at_dock:
+                    lines.append(f"🚢 {c['ship_name']}: {_hour(c['arrival_hour'])}–{_hour(c['departure_hour'])} "
+                                 f"(~{_approx(c.get('estimated_passengers', 0))})")
+                lines.append(f'⏰ Regreso al barco / Return rush: {_rush(at_dock)}')
         else:
             lines.append(f'{icon} {es} / {en}')
 
