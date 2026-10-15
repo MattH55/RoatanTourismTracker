@@ -3863,6 +3863,14 @@
           ]
         },
         {
+          "ship_name": "Regal Princess",
+          "cruise_line": "Princess Cruises",
+          "arrival_hour": 7,
+          "departure_hour": 17,
+          "estimated_passengers": 3560,
+          "is_arrival": true
+        },
+        {
           "ship_name": "Seven Seas Grandeur",
           "cruise_line": "Regent Seven Seas Cruises",
           "arrival_hour": 8,
@@ -13012,6 +13020,6 @@
     "flight_source": "modelled",
     "cruise_source": "scraped",
     "cruise_source_url": "https://www.cruisetimetables.com/roatanhondurasschedule-mar2028.html",
-    "cruise_checked": "2026-10-13"
+    "cruise_checked": "2026-10-15"
   }
 }
