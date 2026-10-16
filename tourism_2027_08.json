@@ -1632,6 +1632,14 @@
             "Aug 07, 2027: At Sea",
             "Aug 08, 2027: Galveston"
           ]
+        },
+        {
+          "ship_name": "Hero Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
+          "arrival_hour": 7,
+          "departure_hour": 16,
+          "estimated_passengers": 5610,
+          "is_arrival": true
         }
       ]
     },
@@ -12436,7 +12444,7 @@
         {
           "ship_name": "Margaritaville At Sea Islander",
           "cruise_line": "Margaritaville At Sea",
-          "arrival_hour": 12,
+          "arrival_hour": 13,
           "departure_hour": 20,
           "estimated_passengers": 2680,
           "is_arrival": true,
@@ -12458,6 +12466,6 @@
     "flight_source": "modelled",
     "cruise_source": "scraped",
     "cruise_source_url": "https://www.cruisetimetables.com/roatanhondurasschedule-aug2027.html",
-    "cruise_checked": "2026-10-15"
+    "cruise_checked": "2026-10-16"
   }
 }
