@@ -4660,24 +4660,6 @@
             "Jan 15, 2028: At Sea",
             "Jan 16, 2028: Miami"
           ]
-        },
-        {
-          "ship_name": "Serenade Of The Seas",
-          "cruise_line": "Royal Caribbean Cruises",
-          "arrival_hour": 8,
-          "departure_hour": 17,
-          "estimated_passengers": 2100,
-          "is_arrival": true,
-          "previous_ports": [
-            "Jan 10, 2028: Jamaica",
-            "Jan 09, 2028: Galveston"
-          ],
-          "next_ports": [
-            "Jan 12, 2028: Grand Cayman",
-            "Jan 13, 2028: Cozumel",
-            "Jan 15, 2028: At Sea",
-            "Jan 16, 2028: Galveston"
-          ]
         }
       ]
     },
@@ -12968,6 +12950,6 @@
     "flight_source": "modelled",
     "cruise_source": "scraped",
     "cruise_source_url": "https://www.cruisetimetables.com/roatanhondurasschedule-jan2028.html",
-    "cruise_checked": "2026-10-16"
+    "cruise_checked": "2026-10-17"
   }
 }
