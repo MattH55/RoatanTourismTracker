@@ -770,6 +770,14 @@
       ],
       "cruises": [
         {
+          "ship_name": "Carnival Horizon",
+          "cruise_line": "Carnival Cruises",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 3974,
+          "is_arrival": true
+        },
+        {
           "ship_name": "Norwegian Prima",
           "cruise_line": "Norwegian Cruise Line",
           "arrival_hour": 8,
@@ -6261,6 +6269,14 @@
       ],
       "cruises": [
         {
+          "ship_name": "Carnival Horizon",
+          "cruise_line": "Carnival Cruises",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 3974,
+          "is_arrival": true
+        },
+        {
           "ship_name": "Norwegian Prima",
           "cruise_line": "Norwegian Cruise Line",
           "arrival_hour": 8,
@@ -11741,6 +11757,14 @@
       ],
       "cruises": [
         {
+          "ship_name": "Carnival Horizon",
+          "cruise_line": "Carnival Cruises",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 3974,
+          "is_arrival": true
+        },
+        {
           "ship_name": "Norwegian Prima",
           "cruise_line": "Norwegian Cruise Line",
           "arrival_hour": 8,
@@ -12140,6 +12164,6 @@
     "flight_source": "modelled",
     "cruise_source": "scraped",
     "cruise_source_url": "https://www.cruisetimetables.com/roatanhondurasschedule-may2028.html",
-    "cruise_checked": "2026-10-21"
+    "cruise_checked": "2026-10-22"
   }
 }

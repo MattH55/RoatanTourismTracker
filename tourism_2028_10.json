@@ -1155,6 +1155,14 @@
       ],
       "cruises": [
         {
+          "ship_name": "Carnival Horizon",
+          "cruise_line": "Carnival Cruises",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 3974,
+          "is_arrival": true
+        },
+        {
           "ship_name": "Margaritaville At Sea Beachcomber",
           "cruise_line": "Margaritaville At Sea",
           "arrival_hour": 8,
@@ -12113,13 +12121,22 @@
           "estimated_passengers": 5
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Carnival Horizon",
+          "cruise_line": "Carnival Cruises",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 3974,
+          "is_arrival": true
+        }
+      ]
     }
   },
   "meta": {
     "flight_source": "modelled",
     "cruise_source": "scraped",
     "cruise_source_url": "https://www.cruisetimetables.com/roatanhondurasschedule-oct2028.html",
-    "cruise_checked": "2026-10-21"
+    "cruise_checked": "2026-10-22"
   }
 }
