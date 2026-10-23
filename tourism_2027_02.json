@@ -6258,6 +6258,14 @@
       ],
       "cruises": [
         {
+          "ship_name": "Carnival Paradise",
+          "cruise_line": "Carnival Cruises",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 2124,
+          "is_arrival": true
+        },
+        {
           "ship_name": "MSC World America",
           "cruise_line": "MSC Cruises",
           "arrival_hour": 9,
@@ -11872,6 +11880,6 @@
     "flight_source": "modelled",
     "cruise_source": "scraped",
     "cruise_source_url": "https://www.cruisetimetables.com/roatanhondurasschedule-feb2027.html",
-    "cruise_checked": "2026-10-22"
+    "cruise_checked": "2026-10-23"
   }
 }
