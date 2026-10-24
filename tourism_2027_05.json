@@ -6434,7 +6434,16 @@
           "estimated_passengers": 10
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Carnival Horizon",
+          "cruise_line": "Carnival Cruises",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 3974,
+          "is_arrival": true
+        }
+      ]
     },
     "2027-05-17": {
       "flights": [
@@ -12455,6 +12464,6 @@
     "flight_source": "modelled",
     "cruise_source": "scraped",
     "cruise_source_url": "https://www.cruisetimetables.com/roatanhondurasschedule-may2027.html",
-    "cruise_checked": "2026-10-22"
+    "cruise_checked": "2026-10-24"
   }
 }
