@@ -385,24 +385,6 @@
       ],
       "cruises": [
         {
-          "ship_name": "Mariner Of The Seas",
-          "cruise_line": "Royal Caribbean Cruises",
-          "arrival_hour": 8,
-          "departure_hour": 17,
-          "estimated_passengers": 3114,
-          "is_arrival": true,
-          "previous_ports": [
-            "Jan 31, 2028: Grand Cayman",
-            "Jan 30, 2028: Jamaica",
-            "Jan 29, 2028: Galveston"
-          ],
-          "next_ports": [
-            "Feb 02, 2028: Belize City",
-            "Feb 04, 2028: At Sea",
-            "Feb 05, 2028: Galveston"
-          ]
-        },
-        {
           "ship_name": "Norwegian Escape",
           "cruise_line": "Norwegian Cruise Line",
           "arrival_hour": 8,
@@ -12129,6 +12111,6 @@
     "flight_source": "modelled",
     "cruise_source": "scraped",
     "cruise_source_url": "https://www.cruisetimetables.com/roatanhondurasschedule-feb2028.html",
-    "cruise_checked": "2026-10-25"
+    "cruise_checked": "2026-10-26"
   }
 }
