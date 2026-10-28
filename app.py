@@ -916,7 +916,7 @@ def create_event_timeline_chart(monthly_data, year=2026, month=6):
                 symbol='square',
                 line=dict(width=1, color='white')
             ),
-            hovertemplate='<b>Cruise Arrival</b><br>Day: %{x}<br>Time: %{y:.0f}:00<br>Ship: %{customdata[0]}<br>Passengers: %{customdata[1]}<br>Previous: %{customdata[2]}<br>Next: %{customdata[3]}<br>Segment: %{customdata[4]}<br>Avg Price: $%{customdata[5]}<extra></extra>',
+            hovertemplate='<b>Cruise Arrival</b><br>Day: %{x}<br>Time: %{y:.0f}:00<br>Ship: %{customdata[0]}<br>Passengers: %{customdata[1]}<br>Previous: %{customdata[2]}<br>Next: %{customdata[3]}<extra></extra>',
             customdata=[[e.get('ship', ''), e.get('size', 0), e.get('prev', 'N/A'), e.get('next', 'N/A'), e.get('seg', ''), e.get('price', 0)] for e in all_cruise_arrivals]
         ))
 
@@ -933,7 +933,7 @@ def create_event_timeline_chart(monthly_data, year=2026, month=6):
                 symbol='diamond',
                 line=dict(width=1, color='white')
             ),
-            hovertemplate='<b>Cruise Departure</b><br>Day: %{x}<br>Time: %{y:.0f}:00<br>Ship: %{customdata[0]}<br>Passengers: %{customdata[1]}<br>Previous: %{customdata[2]}<br>Next: %{customdata[3]}<br>Segment: %{customdata[4]}<br>Avg Price: $%{customdata[5]}<extra></extra>',
+            hovertemplate='<b>Cruise Departure</b><br>Day: %{x}<br>Time: %{y:.0f}:00<br>Ship: %{customdata[0]}<br>Passengers: %{customdata[1]}<br>Previous: %{customdata[2]}<br>Next: %{customdata[3]}<extra></extra>',
             customdata=[[e.get('ship', ''), e.get('size', 0), e.get('prev', 'N/A'), e.get('next', 'N/A'), e.get('seg', ''), e.get('price', 0)] for e in all_cruise_departures]
         ))
 
