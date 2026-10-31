@@ -5450,6 +5450,14 @@
           "departure_hour": 17,
           "estimated_passengers": 3974,
           "is_arrival": true
+        },
+        {
+          "ship_name": "Star Princess",
+          "cruise_line": "Princess Cruises",
+          "arrival_hour": 7,
+          "departure_hour": 16,
+          "estimated_passengers": 4300,
+          "is_arrival": true
         }
       ]
     },
@@ -11671,6 +11679,6 @@
     "flight_source": "modelled",
     "cruise_source": "scraped",
     "cruise_source_url": "https://www.cruisetimetables.com/roatanhondurasschedule-nov2028.html",
-    "cruise_checked": "2026-10-30"
+    "cruise_checked": "2026-10-31"
   }
 }
