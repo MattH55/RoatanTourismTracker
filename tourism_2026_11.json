@@ -7471,7 +7471,7 @@
         {
           "ship_name": "Crystal Symphony",
           "cruise_line": "Crystal Cruises",
-          "arrival_hour": 10,
+          "arrival_hour": 11,
           "departure_hour": 18,
           "estimated_passengers": 606,
           "is_arrival": true,
@@ -12632,6 +12632,6 @@
     "flight_source": "modelled",
     "cruise_source": "scraped",
     "cruise_source_url": "https://www.cruisetimetables.com/roatanhondurasschedule-nov2026.html",
-    "cruise_checked": "2026-10-31"
+    "cruise_checked": "2026-11-01"
   }
 }
