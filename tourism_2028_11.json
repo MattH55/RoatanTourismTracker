@@ -11280,6 +11280,14 @@
       ],
       "cruises": [
         {
+          "ship_name": "Celebrity Xcel",
+          "cruise_line": "Celebrity Cruises",
+          "arrival_hour": 11,
+          "departure_hour": 18,
+          "estimated_passengers": 3260,
+          "is_arrival": true
+        },
+        {
           "ship_name": "Sky Princess",
           "cruise_line": "Princess Cruises",
           "arrival_hour": 7,
@@ -11679,6 +11687,6 @@
     "flight_source": "modelled",
     "cruise_source": "scraped",
     "cruise_source_url": "https://www.cruisetimetables.com/roatanhondurasschedule-nov2028.html",
-    "cruise_checked": "2026-11-08"
+    "cruise_checked": "2026-11-09"
   }
 }
