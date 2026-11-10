@@ -2743,6 +2743,14 @@
             "Sep 09, 2028: At Sea",
             "Sep 10, 2028: Galveston"
           ]
+        },
+        {
+          "ship_name": "Star Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
+          "arrival_hour": 7,
+          "departure_hour": 15,
+          "estimated_passengers": 5610,
+          "is_arrival": true
         }
       ]
     },
@@ -10586,6 +10594,14 @@
           "departure_hour": 16,
           "estimated_passengers": 2680,
           "is_arrival": true
+        },
+        {
+          "ship_name": "Star Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 5610,
+          "is_arrival": true
         }
       ]
     },
@@ -11767,6 +11783,6 @@
     "flight_source": "modelled",
     "cruise_source": "scraped",
     "cruise_source_url": "https://www.cruisetimetables.com/roatanhondurasschedule-sep2028.html",
-    "cruise_checked": "2026-11-09"
+    "cruise_checked": "2026-11-10"
   }
 }
