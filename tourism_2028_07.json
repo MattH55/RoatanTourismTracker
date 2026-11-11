@@ -4314,6 +4314,14 @@
           "is_arrival": true
         },
         {
+          "ship_name": "Harmony Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
+          "arrival_hour": 7,
+          "departure_hour": 16,
+          "estimated_passengers": 5479,
+          "is_arrival": true
+        },
+        {
           "ship_name": "Norwegian Prima",
           "cruise_line": "Norwegian Cruise Line",
           "arrival_hour": 8,
@@ -12179,6 +12187,6 @@
     "flight_source": "modelled",
     "cruise_source": "scraped",
     "cruise_source_url": "https://www.cruisetimetables.com/roatanhondurasschedule-jul2028.html",
-    "cruise_checked": "2026-11-10"
+    "cruise_checked": "2026-11-11"
   }
 }
