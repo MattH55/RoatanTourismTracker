@@ -1181,6 +1181,14 @@
       ],
       "cruises": [
         {
+          "ship_name": "Carnival Breeze",
+          "cruise_line": "Carnival Cruises",
+          "arrival_hour": 8,
+          "departure_hour": 18,
+          "estimated_passengers": 3646,
+          "is_arrival": true
+        },
+        {
           "ship_name": "MSC Seascape",
           "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
@@ -6282,6 +6290,14 @@
         }
       ],
       "cruises": [
+        {
+          "ship_name": "Carnival Breeze",
+          "cruise_line": "Carnival Cruises",
+          "arrival_hour": 9,
+          "departure_hour": 18,
+          "estimated_passengers": 3646,
+          "is_arrival": true
+        },
         {
           "ship_name": "Carnival Tropicale",
           "cruise_line": "Carnival Cruises",
@@ -12189,6 +12205,14 @@
       ],
       "cruises": [
         {
+          "ship_name": "Carnival Breeze",
+          "cruise_line": "Carnival Cruises",
+          "arrival_hour": 8,
+          "departure_hour": 18,
+          "estimated_passengers": 3646,
+          "is_arrival": true
+        },
+        {
           "ship_name": "MSC Seascape",
           "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
@@ -12212,6 +12236,6 @@
     "flight_source": "modelled",
     "cruise_source": "scraped",
     "cruise_source_url": "https://www.cruisetimetables.com/roatanhondurasschedule-aug2028.html",
-    "cruise_checked": "2026-11-11"
+    "cruise_checked": "2026-11-12"
   }
 }
