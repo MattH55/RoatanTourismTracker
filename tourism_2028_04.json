@@ -9778,6 +9778,14 @@
       ],
       "cruises": [
         {
+          "ship_name": "Hero Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
+          "arrival_hour": 8,
+          "departure_hour": 16,
+          "estimated_passengers": 5610,
+          "is_arrival": true
+        },
+        {
           "ship_name": "MSC World America",
           "cruise_line": "MSC Cruises",
           "arrival_hour": 9,
@@ -10574,7 +10582,16 @@
           "estimated_passengers": 9
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Icon Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 5610,
+          "is_arrival": true
+        }
+      ]
     },
     "2028-04-27": {
       "flights": [
@@ -12147,6 +12164,6 @@
     "flight_source": "modelled",
     "cruise_source": "scraped",
     "cruise_source_url": "https://www.cruisetimetables.com/roatanhondurasschedule-apr2028.html",
-    "cruise_checked": "2026-11-12"
+    "cruise_checked": "2026-11-14"
   }
 }

@@ -1579,7 +1579,16 @@
           "estimated_passengers": 21
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Icon Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
+          "arrival_hour": 9,
+          "departure_hour": 17,
+          "estimated_passengers": 5610,
+          "is_arrival": true
+        }
+      ]
     },
     "2028-10-05": {
       "flights": [
@@ -3523,6 +3532,14 @@
         }
       ],
       "cruises": [
+        {
+          "ship_name": "Hero Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
+          "arrival_hour": 8,
+          "departure_hour": 16,
+          "estimated_passengers": 5610,
+          "is_arrival": true
+        },
         {
           "ship_name": "MSC World America",
           "cruise_line": "MSC Cruises",
@@ -7059,7 +7076,16 @@
           "estimated_passengers": 17
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Icon Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 5610,
+          "is_arrival": true
+        }
+      ]
     },
     "2028-10-19": {
       "flights": [
@@ -11776,7 +11802,16 @@
           "estimated_passengers": 11
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Hero Of The Seas",
+          "cruise_line": "Royal Caribbean Cruises",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 5610,
+          "is_arrival": true
+        }
+      ]
     },
     "2028-10-31": {
       "flights": [
@@ -12177,6 +12212,6 @@
     "flight_source": "modelled",
     "cruise_source": "scraped",
     "cruise_source_url": "https://www.cruisetimetables.com/roatanhondurasschedule-oct2028.html",
-    "cruise_checked": "2026-11-12"
+    "cruise_checked": "2026-11-14"
   }
 }
