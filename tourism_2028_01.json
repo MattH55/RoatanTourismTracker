@@ -1194,8 +1194,8 @@
         {
           "ship_name": "MSC World America",
           "cruise_line": "MSC Cruises",
-          "arrival_hour": 9,
-          "departure_hour": 18,
+          "arrival_hour": 8,
+          "departure_hour": 17,
           "estimated_passengers": 5252,
           "is_arrival": true,
           "previous_ports": [
@@ -1212,8 +1212,8 @@
         {
           "ship_name": "Norwegian Aura",
           "cruise_line": "Norwegian Cruise Line",
-          "arrival_hour": 10,
-          "departure_hour": 18,
+          "arrival_hour": 8,
+          "departure_hour": 17,
           "estimated_passengers": 3835,
           "is_arrival": true,
           "previous_ports": [
@@ -2038,7 +2038,7 @@
         {
           "ship_name": "Brilliance Of The Seas",
           "cruise_line": "Royal Caribbean Cruises",
-          "arrival_hour": 9,
+          "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 2188,
           "is_arrival": true,
@@ -2056,8 +2056,8 @@
         {
           "ship_name": "Carnival Jubilee",
           "cruise_line": "Carnival Cruises",
-          "arrival_hour": 9,
-          "departure_hour": 18,
+          "arrival_hour": 8,
+          "departure_hour": 17,
           "estimated_passengers": 5374,
           "is_arrival": true,
           "previous_ports": [
@@ -2073,7 +2073,7 @@
         {
           "ship_name": "Icon Of The Seas",
           "cruise_line": "Royal Caribbean Cruises",
-          "arrival_hour": 9,
+          "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 5610,
           "is_arrival": true,
@@ -2090,7 +2090,7 @@
         {
           "ship_name": "Norwegian Getaway",
           "cruise_line": "Norwegian Cruise Line",
-          "arrival_hour": 9,
+          "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 3903,
           "is_arrival": true,
@@ -2108,8 +2108,8 @@
         {
           "ship_name": "Regal Princess",
           "cruise_line": "Princess Cruises",
-          "arrival_hour": 7,
-          "departure_hour": 16,
+          "arrival_hour": 8,
+          "departure_hour": 17,
           "estimated_passengers": 3560,
           "is_arrival": true,
           "previous_ports": [
@@ -2513,7 +2513,7 @@
           "ship_name": "MSC Seascape",
           "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
-          "departure_hour": 16,
+          "departure_hour": 17,
           "estimated_passengers": 5878,
           "is_arrival": true,
           "previous_ports": [
@@ -2529,8 +2529,8 @@
         {
           "ship_name": "Star Of The Seas",
           "cruise_line": "Royal Caribbean Cruises",
-          "arrival_hour": 7,
-          "departure_hour": 15,
+          "arrival_hour": 8,
+          "departure_hour": 17,
           "estimated_passengers": 5610,
           "is_arrival": true,
           "previous_ports": [
@@ -3329,7 +3329,7 @@
           "ship_name": "Mein Schiff 3",
           "cruise_line": "TUI Cruises",
           "arrival_hour": 8,
-          "departure_hour": 18,
+          "departure_hour": 17,
           "estimated_passengers": 2506,
           "is_arrival": true,
           "previous_ports": [
@@ -3732,7 +3732,7 @@
           "ship_name": "Azamara Quest",
           "cruise_line": "Azamara Cruises",
           "arrival_hour": 8,
-          "departure_hour": 15,
+          "departure_hour": 17,
           "estimated_passengers": 698,
           "is_arrival": true,
           "previous_ports": [
@@ -4134,8 +4134,8 @@
         {
           "ship_name": "Carnival Paradise",
           "cruise_line": "Carnival Cruises",
-          "arrival_hour": 11,
-          "departure_hour": 19,
+          "arrival_hour": 8,
+          "departure_hour": 17,
           "estimated_passengers": 2124,
           "is_arrival": true,
           "previous_ports": [
@@ -4172,8 +4172,8 @@
         {
           "ship_name": "Hero Of The Seas",
           "cruise_line": "Royal Caribbean Cruises",
-          "arrival_hour": 7,
-          "departure_hour": 16,
+          "arrival_hour": 8,
+          "departure_hour": 17,
           "estimated_passengers": 5610,
           "is_arrival": true,
           "previous_ports": [
@@ -4189,8 +4189,8 @@
         {
           "ship_name": "Norwegian Aura",
           "cruise_line": "Norwegian Cruise Line",
-          "arrival_hour": 10,
-          "departure_hour": 18,
+          "arrival_hour": 8,
+          "departure_hour": 17,
           "estimated_passengers": 3835,
           "is_arrival": true,
           "previous_ports": [
@@ -4593,8 +4593,8 @@
         {
           "ship_name": "AIDAbella",
           "cruise_line": "AIDA",
-          "arrival_hour": 10,
-          "departure_hour": 18,
+          "arrival_hour": 8,
+          "departure_hour": 17,
           "estimated_passengers": 2030,
           "is_arrival": true,
           "previous_ports": [
@@ -4646,8 +4646,8 @@
         {
           "ship_name": "Oceania Marina",
           "cruise_line": "Oceania Cruises",
-          "arrival_hour": 7,
-          "departure_hour": 16,
+          "arrival_hour": 8,
+          "departure_hour": 17,
           "estimated_passengers": 1258,
           "is_arrival": true,
           "previous_ports": [
@@ -5093,7 +5093,7 @@
         {
           "ship_name": "Norwegian Getaway",
           "cruise_line": "Norwegian Cruise Line",
-          "arrival_hour": 9,
+          "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 3903,
           "is_arrival": true,
@@ -5497,7 +5497,7 @@
         {
           "ship_name": "Brilliance Of The Seas",
           "cruise_line": "Royal Caribbean Cruises",
-          "arrival_hour": 9,
+          "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 2188,
           "is_arrival": true,
@@ -5516,7 +5516,7 @@
           "ship_name": "MSC Seascape",
           "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
-          "departure_hour": 16,
+          "departure_hour": 17,
           "estimated_passengers": 5878,
           "is_arrival": true,
           "previous_ports": [
@@ -6706,8 +6706,8 @@
         {
           "ship_name": "Crystal Symphony",
           "cruise_line": "Crystal Cruises",
-          "arrival_hour": 7,
-          "departure_hour": 15,
+          "arrival_hour": 8,
+          "departure_hour": 17,
           "estimated_passengers": 606,
           "is_arrival": true,
           "previous_ports": [
@@ -7109,8 +7109,8 @@
         {
           "ship_name": "MSC World America",
           "cruise_line": "MSC Cruises",
-          "arrival_hour": 9,
-          "departure_hour": 18,
+          "arrival_hour": 8,
+          "departure_hour": 17,
           "estimated_passengers": 5252,
           "is_arrival": true,
           "previous_ports": [
@@ -7127,8 +7127,8 @@
         {
           "ship_name": "Norwegian Aura",
           "cruise_line": "Norwegian Cruise Line",
-          "arrival_hour": 10,
-          "departure_hour": 18,
+          "arrival_hour": 8,
+          "departure_hour": 17,
           "estimated_passengers": 3835,
           "is_arrival": true,
           "previous_ports": [
@@ -7549,8 +7549,8 @@
         {
           "ship_name": "Sun Princess",
           "cruise_line": "Princess Cruises",
-          "arrival_hour": 7,
-          "departure_hour": 16,
+          "arrival_hour": 8,
+          "departure_hour": 17,
           "estimated_passengers": 4300,
           "is_arrival": true,
           "previous_ports": [
@@ -7953,7 +7953,7 @@
         {
           "ship_name": "Brilliance Of The Seas",
           "cruise_line": "Royal Caribbean Cruises",
-          "arrival_hour": 9,
+          "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 2188,
           "is_arrival": true,
@@ -7971,8 +7971,8 @@
         {
           "ship_name": "Carnival Jubilee",
           "cruise_line": "Carnival Cruises",
-          "arrival_hour": 9,
-          "departure_hour": 18,
+          "arrival_hour": 8,
+          "departure_hour": 17,
           "estimated_passengers": 5374,
           "is_arrival": true,
           "previous_ports": [
@@ -8005,7 +8005,7 @@
         {
           "ship_name": "Norwegian Getaway",
           "cruise_line": "Norwegian Cruise Line",
-          "arrival_hour": 9,
+          "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 3903,
           "is_arrival": true,
@@ -8410,7 +8410,7 @@
           "ship_name": "MSC Seascape",
           "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
-          "departure_hour": 16,
+          "departure_hour": 17,
           "estimated_passengers": 5878,
           "is_arrival": true,
           "previous_ports": [
@@ -8426,8 +8426,8 @@
         {
           "ship_name": "Star Of The Seas",
           "cruise_line": "Royal Caribbean Cruises",
-          "arrival_hour": 7,
-          "departure_hour": 15,
+          "arrival_hour": 8,
+          "departure_hour": 17,
           "estimated_passengers": 5610,
           "is_arrival": true,
           "previous_ports": [
@@ -9218,7 +9218,7 @@
           "ship_name": "Mein Schiff 3",
           "cruise_line": "TUI Cruises",
           "arrival_hour": 8,
-          "departure_hour": 18,
+          "departure_hour": 17,
           "estimated_passengers": 2506,
           "is_arrival": true,
           "previous_ports": [
@@ -10024,8 +10024,8 @@
         {
           "ship_name": "Norwegian Aura",
           "cruise_line": "Norwegian Cruise Line",
-          "arrival_hour": 10,
-          "departure_hour": 18,
+          "arrival_hour": 8,
+          "departure_hour": 17,
           "estimated_passengers": 3835,
           "is_arrival": true,
           "previous_ports": [
@@ -10464,8 +10464,8 @@
         {
           "ship_name": "Serenade Of The Seas",
           "cruise_line": "Royal Caribbean Cruises",
-          "arrival_hour": 7,
-          "departure_hour": 15,
+          "arrival_hour": 8,
+          "departure_hour": 17,
           "estimated_passengers": 2100,
           "is_arrival": true,
           "previous_ports": [
@@ -10885,7 +10885,7 @@
         {
           "ship_name": "Norwegian Getaway",
           "cruise_line": "Norwegian Cruise Line",
-          "arrival_hour": 9,
+          "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 3903,
           "is_arrival": true,
@@ -10903,8 +10903,8 @@
         {
           "ship_name": "Regal Princess",
           "cruise_line": "Princess Cruises",
-          "arrival_hour": 7,
-          "departure_hour": 16,
+          "arrival_hour": 8,
+          "departure_hour": 17,
           "estimated_passengers": 3560,
           "is_arrival": true,
           "previous_ports": [
@@ -11343,7 +11343,7 @@
           "ship_name": "MSC Seascape",
           "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
-          "departure_hour": 16,
+          "departure_hour": 17,
           "estimated_passengers": 5878,
           "is_arrival": true,
           "previous_ports": [
@@ -12901,7 +12901,7 @@
           "ship_name": "MSC Poesia",
           "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
-          "departure_hour": 18,
+          "departure_hour": 17,
           "estimated_passengers": 2446,
           "is_arrival": true,
           "previous_ports": [
@@ -12918,8 +12918,8 @@
         {
           "ship_name": "MSC World America",
           "cruise_line": "MSC Cruises",
-          "arrival_hour": 9,
-          "departure_hour": 18,
+          "arrival_hour": 8,
+          "departure_hour": 17,
           "estimated_passengers": 5252,
           "is_arrival": true,
           "previous_ports": [
@@ -12936,8 +12936,8 @@
         {
           "ship_name": "Norwegian Aura",
           "cruise_line": "Norwegian Cruise Line",
-          "arrival_hour": 10,
-          "departure_hour": 18,
+          "arrival_hour": 8,
+          "departure_hour": 17,
           "estimated_passengers": 3835,
           "is_arrival": true,
           "previous_ports": [
@@ -12958,6 +12958,6 @@
     "flight_source": "modelled",
     "cruise_source": "scraped",
     "cruise_source_url": "https://www.cruisetimetables.com/roatanhondurasschedule-jan2028.html",
-    "cruise_checked": "2026-11-15"
+    "cruise_checked": "2026-11-16"
   }
 }

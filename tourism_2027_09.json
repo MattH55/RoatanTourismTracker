@@ -773,7 +773,7 @@
           "ship_name": "MSC Seascape",
           "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
-          "departure_hour": 16,
+          "departure_hour": 17,
           "estimated_passengers": 5878,
           "is_arrival": true,
           "previous_ports": [
@@ -789,8 +789,8 @@
         {
           "ship_name": "Star Of The Seas",
           "cruise_line": "Royal Caribbean Cruises",
-          "arrival_hour": 7,
-          "departure_hour": 15,
+          "arrival_hour": 8,
+          "departure_hour": 17,
           "estimated_passengers": 5610,
           "is_arrival": true,
           "previous_ports": [
@@ -3174,8 +3174,8 @@
         {
           "ship_name": "Icon Of The Seas",
           "cruise_line": "Royal Caribbean Cruises",
-          "arrival_hour": 7,
-          "departure_hour": 15,
+          "arrival_hour": 8,
+          "departure_hour": 17,
           "estimated_passengers": 5610,
           "is_arrival": true,
           "previous_ports": [
@@ -3595,7 +3595,7 @@
           "ship_name": "MSC Seascape",
           "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
-          "departure_hour": 16,
+          "departure_hour": 17,
           "estimated_passengers": 5878,
           "is_arrival": true,
           "previous_ports": [
@@ -5152,8 +5152,8 @@
         {
           "ship_name": "MSC World America",
           "cruise_line": "MSC Cruises",
-          "arrival_hour": 9,
-          "departure_hour": 18,
+          "arrival_hour": 8,
+          "departure_hour": 17,
           "estimated_passengers": 5252,
           "is_arrival": true,
           "previous_ports": [
@@ -5574,8 +5574,8 @@
         {
           "ship_name": "Harmony Of The Seas",
           "cruise_line": "Royal Caribbean Cruises",
-          "arrival_hour": 7,
-          "departure_hour": 16,
+          "arrival_hour": 8,
+          "departure_hour": 17,
           "estimated_passengers": 5479,
           "is_arrival": true,
           "previous_ports": [
@@ -5978,8 +5978,8 @@
         {
           "ship_name": "Carnival Paradise",
           "cruise_line": "Carnival Cruises",
-          "arrival_hour": 11,
-          "departure_hour": 19,
+          "arrival_hour": 8,
+          "departure_hour": 17,
           "estimated_passengers": 2124,
           "is_arrival": true,
           "previous_ports": [
@@ -6385,7 +6385,7 @@
           "ship_name": "MSC Seascape",
           "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
-          "departure_hour": 16,
+          "departure_hour": 17,
           "estimated_passengers": 5878,
           "is_arrival": true,
           "previous_ports": [
@@ -8767,7 +8767,7 @@
         {
           "ship_name": "Enchantment Of The Seas",
           "cruise_line": "Royal Caribbean Cruises",
-          "arrival_hour": 9,
+          "arrival_hour": 8,
           "departure_hour": 17,
           "estimated_passengers": 1950,
           "is_arrival": true,
@@ -8785,8 +8785,8 @@
         {
           "ship_name": "Icon Of The Seas",
           "cruise_line": "Royal Caribbean Cruises",
-          "arrival_hour": 7,
-          "departure_hour": 15,
+          "arrival_hour": 8,
+          "departure_hour": 17,
           "estimated_passengers": 5610,
           "is_arrival": true,
           "previous_ports": [
@@ -9189,7 +9189,7 @@
           "ship_name": "MSC Seascape",
           "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
-          "departure_hour": 16,
+          "departure_hour": 17,
           "estimated_passengers": 5878,
           "is_arrival": true,
           "previous_ports": [
@@ -9205,8 +9205,8 @@
         {
           "ship_name": "Star Of The Seas",
           "cruise_line": "Royal Caribbean Cruises",
-          "arrival_hour": 7,
-          "departure_hour": 15,
+          "arrival_hour": 8,
+          "departure_hour": 17,
           "estimated_passengers": 5610,
           "is_arrival": true,
           "previous_ports": [
@@ -10766,8 +10766,8 @@
         {
           "ship_name": "MSC World America",
           "cruise_line": "MSC Cruises",
-          "arrival_hour": 9,
-          "departure_hour": 18,
+          "arrival_hour": 8,
+          "departure_hour": 17,
           "estimated_passengers": 5252,
           "is_arrival": true,
           "previous_ports": [
@@ -11170,8 +11170,8 @@
         {
           "ship_name": "Hero Of The Seas",
           "cruise_line": "Royal Caribbean Cruises",
-          "arrival_hour": 7,
-          "departure_hour": 16,
+          "arrival_hour": 8,
+          "departure_hour": 17,
           "estimated_passengers": 5610,
           "is_arrival": true,
           "previous_ports": [
@@ -11573,8 +11573,8 @@
         {
           "ship_name": "Carnival Paradise",
           "cruise_line": "Carnival Cruises",
-          "arrival_hour": 11,
-          "departure_hour": 19,
+          "arrival_hour": 8,
+          "departure_hour": 17,
           "estimated_passengers": 2124,
           "is_arrival": true,
           "previous_ports": [
@@ -11980,7 +11980,7 @@
           "ship_name": "MSC Seascape",
           "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
-          "departure_hour": 16,
+          "departure_hour": 17,
           "estimated_passengers": 5878,
           "is_arrival": true,
           "previous_ports": [
@@ -12000,6 +12000,6 @@
     "flight_source": "modelled",
     "cruise_source": "scraped",
     "cruise_source_url": "https://www.cruisetimetables.com/roatanhondurasschedule-sep2027.html",
-    "cruise_checked": "2026-11-15"
+    "cruise_checked": "2026-11-16"
   }
 }
