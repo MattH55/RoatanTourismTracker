@@ -4724,6 +4724,14 @@
       ],
       "cruises": [
         {
+          "ship_name": "Carnival Celebration",
+          "cruise_line": "Carnival Cruises",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 5374,
+          "is_arrival": true
+        },
+        {
           "ship_name": "Icon Of The Seas",
           "cruise_line": "Royal Caribbean Cruises",
           "arrival_hour": 8,
@@ -10245,6 +10253,14 @@
       ],
       "cruises": [
         {
+          "ship_name": "Carnival Celebration",
+          "cruise_line": "Carnival Cruises",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 5374,
+          "is_arrival": true
+        },
+        {
           "ship_name": "Carnival Firenze",
           "cruise_line": "Carnival Cruises",
           "arrival_hour": 8,
@@ -12237,6 +12253,6 @@
     "flight_source": "modelled",
     "cruise_source": "scraped",
     "cruise_source_url": "https://www.cruisetimetables.com/roatanhondurasschedule-jul2028.html",
-    "cruise_checked": "2026-11-17"
+    "cruise_checked": "2026-11-18"
   }
 }

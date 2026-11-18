@@ -779,6 +779,14 @@
       ],
       "cruises": [
         {
+          "ship_name": "Carnival Celebration",
+          "cruise_line": "Carnival Cruises",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 5374,
+          "is_arrival": true
+        },
+        {
           "ship_name": "MSC Seascape",
           "cruise_line": "MSC Cruises",
           "arrival_hour": 8,
@@ -11713,13 +11721,22 @@
           "estimated_passengers": 24
         }
       ],
-      "cruises": []
+      "cruises": [
+        {
+          "ship_name": "Carnival Celebration",
+          "cruise_line": "Carnival Cruises",
+          "arrival_hour": 8,
+          "departure_hour": 17,
+          "estimated_passengers": 5374,
+          "is_arrival": true
+        }
+      ]
     }
   },
   "meta": {
     "flight_source": "modelled",
     "cruise_source": "scraped",
     "cruise_source_url": "https://www.cruisetimetables.com/roatanhondurasschedule-nov2028.html",
-    "cruise_checked": "2026-11-17"
+    "cruise_checked": "2026-11-18"
   }
 }
