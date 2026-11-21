@@ -4675,7 +4675,7 @@
           "cruise_line": "Oceania Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
-          "estimated_passengers": 1258,
+          "estimated_passengers": 1248,
           "is_arrival": true,
           "previous_ports": [
             "Jan 10, 2027: Jamaica",
@@ -12370,7 +12370,7 @@
           "cruise_line": "Oceania Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
-          "estimated_passengers": 1258,
+          "estimated_passengers": 1248,
           "is_arrival": true,
           "previous_ports": [
             "Jan 28, 2027: Jamaica",
@@ -13195,6 +13195,6 @@
     "flight_source": "modelled",
     "cruise_source": "scraped",
     "cruise_source_url": "https://www.cruisetimetables.com/roatanhondurasschedule-jan2027.html",
-    "cruise_checked": "2026-11-20"
+    "cruise_checked": "2026-11-21"
   }
 }

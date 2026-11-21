@@ -862,7 +862,7 @@
           "cruise_line": "Oceania Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
-          "estimated_passengers": 1258,
+          "estimated_passengers": 1248,
           "is_arrival": true,
           "previous_ports": [
             "Mar 01, 2028: At Sea",
@@ -8408,7 +8408,7 @@
           "cruise_line": "Oceania Cruises",
           "arrival_hour": 8,
           "departure_hour": 17,
-          "estimated_passengers": 1258,
+          "estimated_passengers": 1248,
           "is_arrival": true,
           "previous_ports": [
             "Mar 19, 2028: Jamaica",
@@ -13010,6 +13010,6 @@
     "flight_source": "modelled",
     "cruise_source": "scraped",
     "cruise_source_url": "https://www.cruisetimetables.com/roatanhondurasschedule-mar2028.html",
-    "cruise_checked": "2026-11-20"
+    "cruise_checked": "2026-11-21"
   }
 }
