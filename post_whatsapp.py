@@ -67,7 +67,7 @@ def main():
         API_URL,
         data=json.dumps({'to': channel, 'body': text}).encode('utf-8'),
         headers={'Authorization': f'Bearer {token}', 'Content-Type': 'application/json',
-                 'Accept': 'application/json'},
+                 'Accept': 'application/json', 'User-Agent': 'roatan-tourism-tracker/1.0'},
         method='POST')
     try:
         with urllib.request.urlopen(req, timeout=30) as resp:
