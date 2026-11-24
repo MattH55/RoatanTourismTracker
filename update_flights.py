@@ -7,7 +7,7 @@ without a fetch keep the modelled schedule.
 
 AeroDataBox is a commercial flight-data API (https://aerodatabox.com). The key is read
 from the AERODATABOX_API_KEY environment variable (a GitHub Actions secret); it is
-called through RapidAPI. Each day costs two requests (two 12-hour windows), so the
+called through API.Market (prod.api.market). Each day costs two requests (two 12-hour windows), so the
 daily run uses about 120 requests a month.
 
 If the key is missing or a request fails, nothing is written for that day: the daily
@@ -68,7 +68,7 @@ def flights_path(day):
 
 
 def _fetch_window(day, start, end, api_key):
-    url = f'https://{API_HOST}/flights/airports/iata/{AIRPORT}/{day.isoformat()}T{start}/{day.isoformat()}T{end}'
+    url = f'https://prod.api.market/api/v1/aedbx/aerodatabox/flights/airports/iata/{AIRPORT}/{day.isoformat()}T{start}/{day.isoformat()}T{end}'
     params = {
         'direction': 'Both',
         'withLeg': 'false',
@@ -78,7 +78,7 @@ def _fetch_window(day, start, end, api_key):
         'withPrivate': 'false',
         'withLocation': 'false',
     }
-    headers = {'X-RapidAPI-Key': api_key, 'X-RapidAPI-Host': API_HOST}
+    headers = {'x-api-market-key': api_key, 'accept': '*/*'}
     response = requests.get(url, params=params, headers=headers, timeout=30)
     if response.status_code == 204:  # no flights in the window
         return {'arrivals': [], 'departures': []}
