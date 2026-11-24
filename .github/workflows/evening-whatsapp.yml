@@ -1,0 +1,56 @@
+name: Evening WhatsApp Post
+
+# Posts tomorrow's cruise update to the WhatsApp Channel in the evening (Roatan time).
+# GitHub often runs scheduled jobs hours late, so there are three attempts; the script
+# posts once per evening and refuses to post outside 15:00-23:59 Roatan time.
+# For reliable timing, trigger it externally instead (see README note / cron-job.org).
+on:
+  schedule:
+    - cron: '13 23 * * *'   # 5:13pm Roatan
+    - cron: '43 0 * * *'    # 6:43pm Roatan
+    - cron: '13 3 * * *'    # 9:13pm Roatan
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Post now even outside the evening window / if already posted'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write   # commit whatsapp_last_posted.txt
+
+concurrency:
+  group: whatsapp-post
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Post tomorrow's update
+        run: python post_whatsapp.py
+        env:
+          WHAPI_TOKEN: ${{ secrets.WHAPI_TOKEN }}
+          WHATSAPP_CHANNEL_ID: ${{ secrets.WHATSAPP_CHANNEL_ID }}
+          FORCE_POST: ${{ inputs.force && '1' || '' }}
+
+      - name: Record what was posted
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898333+github-actions[bot]@users.noreply.github.com"
+          git add whatsapp_last_posted.txt 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "Nothing to record"
+          else
+            git commit -m "WhatsApp post for $(cat whatsapp_last_posted.txt)"
+            git pull --rebase origin "$GITHUB_REF_NAME"
+            git push origin "HEAD:$GITHUB_REF_NAME"
+          fi

@@ -2,8 +2,12 @@ name: Daily Roatan Tourism Tracker Update & Deploy
 
 on:
   schedule:
-    # 11:00 UTC = 5am in Roatan, so hoy.txt is today's update and manana.txt tomorrow's
-    - cron: '0 11 * * *'
+    # Target 5am Roatan (11:00 UTC). GitHub often delays top-of-the-hour schedules by
+    # hours, so these are off the hour, with two backups. Rebuilding is idempotent:
+    # the commit step skips when nothing changed.
+    - cron: '17 10 * * *'   # 4:17am Roatan
+    - cron: '47 11 * * *'   # 5:47am Roatan (backup)
+    - cron: '17 13 * * *'   # 7:17am Roatan (backup)
   workflow_dispatch:
   push:
     branches: [main]
@@ -63,8 +67,12 @@ jobs:
             git push origin "HEAD:$GITHUB_REF_NAME"
           fi
 
+      # WHATSAPP_CHANNEL_URL (repo variable) turns on canal.html's follow button + QR
+      # and the "daily update" bar on the other pages.
       - name: Generate static site (pages, robots.txt, sitemap.xml)
         run: python generate_static_site.py
+        env:
+          WHATSAPP_CHANNEL_URL: ${{ vars.WHATSAPP_CHANNEL_URL }}
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
