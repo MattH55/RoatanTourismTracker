@@ -26,6 +26,7 @@ from scraper import get_weather_data
 from daily_message import write_daily_messages
 from channel_page import CHANNEL_BAR_CSS, PAGE as CHANNEL_PAGE, channel_bar_html, channel_url, write_channel_page
 from seo_pages import month_summary, month_figures, write_seo_pages
+from widget_pages import write_widget_pages
 
 OUTPUT_DIR = 'static_site'
 os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -80,6 +81,7 @@ def write_sitemap():
     for y in sorted({y for y, _ in AVAILABLE_MONTHS}):
         urls.append((f'{SITE_URL}/{y}.html', 'weekly', '0.8'))
     urls.append((f'{SITE_URL}/statistics.html', 'weekly', '0.7'))
+    urls.append((f'{SITE_URL}/embed.html', 'monthly', '0.5'))
     if channel_url():
         urls.append((f'{SITE_URL}/{CHANNEL_PAGE}', 'daily', '0.9'))
     for (year, month), mk in zip(AVAILABLE_MONTHS, MONTH_KEYS):
@@ -712,7 +714,7 @@ def generate_index_page():
 {cards}    </div>
 
     <footer>
-        <p>Last updated: {BUILD_DATE} &mdash; Data covers June 2026 through November 2028 &mdash; <a href="{SITE_URL}/" style="color:#484f58;">roatantourismtracker.online</a></p>
+        <p>Last updated: {BUILD_DATE} &mdash; Data covers June 2026 through November 2028 &mdash; <a href="{SITE_URL}/" style="color:#484f58;">roatantourismtracker.online</a> &mdash; <a href="embed.html" style="color:#484f58;">Add this to your website</a></p>
         <p>Cruise calls come from published port schedules and can change. Flight figures are modelled estimates from a typical airline schedule, not live flight data. Passenger counts are estimates.</p>
     </footer>
 </body>
@@ -739,6 +741,7 @@ if __name__ == '__main__':
     extra = write_seo_pages(OUTPUT_DIR, SITE_URL,
                             {ym: load_monthly_data(*ym) for ym in AVAILABLE_MONTHS}, BUILD_DATE)
     print(f"[OK] {', '.join(extra)}")
+    print(f"[OK] {', '.join(write_widget_pages(OUTPUT_DIR, SITE_URL, BUILD_DATE))}")
     write_robots_txt()
     write_sitemap()
     write_cname()

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto" data-view="card">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Roatan cruise ships today</title>
+<style>
+html { --bg:#ffffff; --text:#14181f; --muted:#5b6472; --border:#d9dde3; --soft:#f1f3f6; --link:#1a6f8f;
+       --amber-bg:#fff4dc; --amber-text:#7a4b00; --hi:#1a6f8f;
+       --c-none:#8b949e; --c-quiet:#1f9d55; --c-moderate:#d4a106; --c-busy:#e8710a; --c-very_busy:#d92d20; }
+html[data-theme="dark"] { --bg:#161b22; --text:#e6e9ee; --muted:#9aa4b1; --border:#30363d; --soft:#0d1117; --link:#6cb4d8;
+       --amber-bg:#3a2a05; --amber-text:#ffd27a; --hi:#6cb4d8;
+       --c-none:#8b949e; --c-quiet:#3fb950; --c-moderate:#f2cc60; --c-busy:#f18f01; --c-very_busy:#ff6b61; }
+@media (prefers-color-scheme: dark) {
+  html[data-theme="auto"] { --bg:#161b22; --text:#e6e9ee; --muted:#9aa4b1; --border:#30363d; --soft:#0d1117; --link:#6cb4d8;
+       --amber-bg:#3a2a05; --amber-text:#ffd27a; --hi:#6cb4d8;
+       --c-none:#8b949e; --c-quiet:#3fb950; --c-moderate:#f2cc60; --c-busy:#f18f01; --c-very_busy:#ff6b61; }
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: transparent; }
+body { font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: var(--text);
+       font-size: 14px; line-height: 1.35; }
+a { color: var(--link); }
+#card { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px 10px;
+        max-width: 400px; min-width: 240px; overflow: hidden; }
+.head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; }
+.title { font-size: 13px; font-weight: 700; letter-spacing: .4px; text-transform: uppercase; color: var(--muted); margin-right: 8px; }
+.date { font-size: 13px; color: var(--muted); }
+.big { font-size: 20px; font-weight: 700; margin: 8px 0 6px; }
+.badge { display: inline-block; padding: 3px 10px 3px 8px; border: 1px solid var(--border); border-radius: 999px;
+         font-size: 13px; font-weight: 600; background: var(--soft); white-space: nowrap; }
+.dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: -1px;
+       background: var(--c-none); }
+.dot.none { background: transparent; border: 2px solid var(--c-none); }
+.dot.quiet { background: var(--c-quiet); } .dot.moderate { background: var(--c-moderate); }
+.dot.busy { background: var(--c-busy); } .dot.very_busy { background: var(--c-very_busy); }
+.tomorrow { margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--border); font-size: 13px; }
+.tomorrow b { font-weight: 600; }
+.strip { display: flex; margin-top: 10px; }
+.strip .d { flex: 1 1 0; text-align: center; padding: 5px 0 6px; border-radius: 8px; border: 1px solid transparent; }
+.strip .d.top { border-color: var(--hi); background: var(--soft); }
+.strip .wd { font-size: 11px; color: var(--muted); font-weight: 600; }
+.strip .n { font-size: 16px; font-weight: 700; }
+.strip .dot { margin: 0; }
+.cap { font-size: 11px; color: var(--muted); margin-top: 4px; }
+.notice { display: block; margin: 8px 0 0; padding: 5px 9px; border-radius: 6px; font-size: 12px; background: var(--amber-bg); color: var(--amber-text); }
+.old .big, .old .tomorrow, .old .strip, .old .badge, .old .c-main { opacity: .45; }
+.foot { margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); }
+.foot a { color: var(--muted); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+[hidden] { display: none !important; }
+
+/* compact: one horizontal bar, about 90px tall */
+html[data-view="compact"] #card { max-width: none; height: 90px; padding: 8px 14px; display: flex; align-items: center; }
+html[data-view="compact"] .c-left { flex: 0 0 auto; margin-right: 16px; }
+html[data-view="compact"] .head { display: block; }
+html[data-view="compact"] .c-main { flex: 1 1 auto; min-width: 0; }
+html[data-view="compact"] .big { font-size: 17px; margin: 0 0 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+html[data-view="compact"] .tomorrow { border: 0; margin: 3px 0 0; padding: 0; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+html[data-view="compact"] .strip, html[data-view="compact"] .cap { display: none; }
+html[data-view="compact"] .notice { margin: 0 0 0 10px; display: inline-block; padding: 2px 7px; font-size: 11px; }
+html[data-view="compact"] .foot { border: 0; margin: 0 0 0 14px; padding: 0; flex: 0 0 auto; text-align: right; max-width: 190px; }
+html[data-view="compact"] .foot span { display: block; }
+html[data-view="compact"] .foot .sep { display: none; }
+@media (max-width: 520px) {
+  /* narrow: the attribution link moves to its own line under the numbers */
+  html[data-view="compact"] #card { padding: 5px 12px; flex-wrap: wrap; align-content: center; }
+  html[data-view="compact"] .c-left { display: none; }
+  html[data-view="compact"] .c-main { flex: 0 0 100%; }
+  html[data-view="compact"] .big { font-size: 15px; margin-bottom: 2px; }
+  html[data-view="compact"] .badge { font-size: 12px; padding: 1px 9px 1px 7px; }
+  html[data-view="compact"] .tomorrow { margin-top: 2px; }
+  html[data-view="compact"] .foot { flex: 0 0 100%; max-width: none; margin: 1px 0 0; text-align: left; line-height: 1.2; }
+  html[data-view="compact"] .foot span { display: inline; }
+  html[data-view="compact"] .foot .extra, html[data-view="compact"] .foot #updated { display: none; }
+}
+</style>
+</head>
+<body>
+<div id="card" role="region" aria-label="Roatan cruise ships">
+  <div class="c-left">
+    <div class="head"><span class="title" id="title">Roatan cruise ships</span> <span class="date" id="date"></span></div>
+  </div>
+  <div class="c-main">
+    <div class="big" id="big">&nbsp;</div>
+    <span class="badge" id="badge" hidden></span><span class="notice" id="notice" hidden></span>
+    <div class="tomorrow" id="tomorrow" hidden></div>
+    <div class="strip" id="strip" hidden></div>
+    <div class="cap" id="cap" hidden></div>
+  </div>
+  <div class="foot"><span id="updated"></span><span class="sep" id="sep1"> &middot; </span><span class="extra" id="est"></span><span class="sep extra"> &middot; </span><span><a id="site" href="https://roatantourismtracker.online/today.html" target="_blank" rel="noopener">roatantourismtracker.online</a></span></div>
+</div>
+<script>
+(function () {
+  'use strict';
+  var SITE = 'https://roatantourismtracker.online';
+  var DATA_URL = 'today.json';
+  var REFRESH_MS = 30 * 60 * 1000;
+  var CACHE_KEY = 'rtt-today-v1';
+
+  var T = {
+    en: {
+      title: 'Roatan cruise ships', today: 'Today', tomorrow: 'Tomorrow',
+      ship: 'ship', ships: 'ships', pax: 'passengers', noShips: 'no cruise ships',
+      updated: 'Updated', estimates: 'Estimates', lastUpdated: 'Last updated',
+      old: 'Data may be out of date', offline: 'Offline, showing last update',
+      unavailable: 'Schedule unavailable', seeSite: 'See roatantourismtracker.online',
+      next7: 'Next 7 days: ships per day', busiest: 'busiest', noData: 'no data',
+      wd: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'], wi: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+      mo: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      levels: { none: 'No cruise ships', quiet: 'Quiet', moderate: 'Moderate', busy: 'Busy', very_busy: 'Very busy' }
+    },
+    es: {
+      title: 'Cruceros en Roatán', today: 'Hoy', tomorrow: 'Mañana',
+      ship: 'barco', ships: 'barcos', pax: 'pasajeros', noShips: 'sin cruceros',
+      updated: 'Actualizado', estimates: 'Estimaciones', lastUpdated: 'Última actualización',
+      old: 'Los datos pueden estar desactualizados', offline: 'Sin conexión, se muestra la última actualización',
+      unavailable: 'Horario no disponible', seeSite: 'Ver roatantourismtracker.online',
+      next7: 'Próximos 7 días: barcos por día', busiest: 'más ocupado', noData: 'sin datos',
+      wd: ['dom', 'lun', 'mar', 'mié', 'jue', 'vie', 'sáb'], wi: ['D', 'L', 'M', 'X', 'J', 'V', 'S'],
+      mo: ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'],
+      levels: { none: 'Sin cruceros', quiet: 'Tranquilo', moderate: 'Moderado', busy: 'Ocupado', very_busy: 'Muy ocupado' }
+    }
+  };
+
+  function param(name, allowed, fallback) {
+    var m = new RegExp('[?&]' + name + '=([^&#]*)').exec(location.search);
+    var v = m ? decodeURIComponent(m[1]).toLowerCase() : '';
+    return allowed.indexOf(v) >= 0 ? v : fallback;
+  }
+  var view = param('view', ['card', 'compact'], 'card');
+  var theme = param('theme', ['light', 'dark', 'auto'], 'auto');
+  var lang = param('lang', ['en', 'es'], 'en');
+  var L = T[lang];
+  var root = document.documentElement;
+  root.setAttribute('data-view', view);
+  root.setAttribute('data-theme', theme);
+  root.setAttribute('lang', lang);
+
+  function $(id) { return document.getElementById(id); }
+
+  // Calendar date in Roatan (America/Tegucigalpa), whatever the viewer's own time zone.
+  function roatanDate(d) {
+    try {
+      var parts = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Tegucigalpa',
+        year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(d);
+      var o = {};
+      for (var i = 0; i < parts.length; i++) o[parts[i].type] = parts[i].value;
+      if (o.year && o.month && o.day) return o.year + '-' + o.month + '-' + o.day;
+    } catch (e) { /* older browser: fall through */ }
+    return new Date(d.getTime() - 6 * 3600e3).toISOString().slice(0, 10); // Roatan is UTC-6 all year
+  }
+  function utc(iso) { var p = iso.split('-'); return Date.UTC(+p[0], +p[1] - 1, +p[2]); }
+  function addDays(iso, n) { return new Date(utc(iso) + n * 864e5).toISOString().slice(0, 10); }
+  function daysBetween(a, b) { return Math.round((utc(b) - utc(a)) / 864e5); }
+  function dateLabel(iso) {
+    var d = new Date(utc(iso));
+    return lang === 'es'
+      ? L.wd[d.getUTCDay()] + ' ' + d.getUTCDate() + ' ' + L.mo[d.getUTCMonth()]
+      : L.wd[d.getUTCDay()] + ', ' + L.mo[d.getUTCMonth()] + ' ' + d.getUTCDate();
+  }
+  function num(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+  function levelLabel(key) { return L.levels[key] || key; }
+  function summary(row) {
+    if (!row.ships_count) return L.noShips;
+    return row.ships_count + ' ' + (row.ships_count === 1 ? L.ship : L.ships) +
+      ' · ~' + num(row.est_passengers) + ' ' + L.pax;
+  }
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  function setBadge(node, key) {
+    node.textContent = '';
+    node.appendChild(el('span', 'dot ' + key));
+    node.appendChild(document.createTextNode(levelLabel(key)));
+  }
+  function show(node, on) { node.hidden = !on; }
+
+  var data = null;      // last good today.json
+  var offline = false;
+
+  function valid(j) { return j && j.days && typeof j.days.length === 'number' && j.generated_at; }
+
+  function render() {
+    var today = roatanDate(new Date());
+    $('title').textContent = L.title;
+    $('date').textContent = dateLabel(today);
+    $('est').textContent = L.estimates;
+    var card = $('card');
+    var notes = [];
+    var row = null, tomorrow = null, byDate = {};
+    if (data) {
+      for (var i = 0; i < data.days.length; i++) byDate[data.days[i].date] = data.days[i];
+      row = byDate[today] || null;
+      tomorrow = byDate[addDays(today, 1)] || null;
+    }
+
+    var genDate = data ? roatanDate(new Date(data.generated_at)) : null;
+    var age = genDate ? daysBetween(genDate, today) : 0;
+    card.className = age > 3 ? 'old' : '';
+    if (age > 3) notes.push(L.old);
+    else if (age > 0) notes.push(L.lastUpdated + ' ' + dateLabel(genDate));
+    if (offline) notes.push(L.offline);
+    $('updated').textContent = genDate ? L.updated + ' ' + dateLabel(genDate) : '';
+    show($('sep1'), !!genDate);
+
+    if (!row) {
+      $('big').textContent = L.unavailable;
+      var b = $('badge');
+      b.textContent = '';
+      var a = el('a', null, L.seeSite);
+      a.href = SITE + '/today.html'; a.target = '_blank'; a.rel = 'noopener';
+      b.appendChild(a);
+      show(b, true); show($('tomorrow'), false); show($('strip'), false); show($('cap'), false);
+    } else {
+      $('big').textContent = L.today + ': ' + summary(row);
+      setBadge($('badge'), row.crowd); show($('badge'), true);
+
+      var t = $('tomorrow');
+      t.textContent = '';
+      if (tomorrow) {
+        t.appendChild(el('b', null, L.tomorrow + ': '));
+        t.appendChild(document.createTextNode(summary(tomorrow) + ' · '));
+        t.appendChild(el('span', 'dot ' + tomorrow.crowd));
+        t.appendChild(document.createTextNode(levelLabel(tomorrow.crowd)));
+      }
+      show(t, !!tomorrow);
+
+      var strip = $('strip'), top = null, d, r;
+      strip.textContent = '';
+      for (i = 0; i < 7; i++) {
+        r = byDate[addDays(today, i)];
+        if (r && r.est_passengers > 0 && (!top || r.est_passengers > top.est_passengers)) top = r;
+      }
+      for (i = 0; i < 7; i++) {
+        d = addDays(today, i);
+        r = byDate[d];
+        var cell = el('div', 'd' + (r && r === top ? ' top' : ''));
+        cell.appendChild(el('div', 'wd', L.wi[new Date(utc(d)).getUTCDay()]));
+        cell.appendChild(el('div', 'n', r ? String(r.ships_count) : '–'));
+        cell.appendChild(el('span', 'dot ' + (r ? r.crowd : 'none')));
+        cell.appendChild(el('span', 'sr', dateLabel(d) + ': ' +
+          (r ? summary(r) + ', ' + levelLabel(r.crowd) + (r === top ? ' (' + L.busiest + ')' : '') : L.noData)));
+        cell.title = dateLabel(d) + (r ? ': ' + summary(r) + ' · ' + levelLabel(r.crowd) : '');
+        strip.appendChild(cell);
+      }
+      show(strip, true);
+      $('cap').textContent = L.next7 + (top ? ' · ' + L.busiest + ': ' + dateLabel(top.date) : '');
+      show($('cap'), true);
+    }
+
+    $('notice').textContent = notes.join(' · ');
+    show($('notice'), notes.length > 0);
+    reportHeight();
+  }
+
+  function reportHeight() {
+    if (window.parent === window) return;
+    try {
+      var h = Math.ceil(document.documentElement.getBoundingClientRect().height);
+      window.parent.postMessage({ type: 'rtt-resize', height: h }, '*');
+    } catch (e) { /* not embedded */ }
+  }
+
+  function load() {
+    var x = new XMLHttpRequest();
+    var done = false;
+    function fail() { if (done) return; done = true; offline = true; render(); }
+    x.open('GET', DATA_URL + '?t=' + Date.now(), true);
+    x.timeout = 20000;
+    x.onload = function () {
+      if (done) return;
+      var j = null;
+      try { j = x.status >= 200 && x.status < 300 ? JSON.parse(x.responseText) : null; } catch (e) { j = null; }
+      if (!valid(j)) return fail();
+      done = true; data = j; offline = false;
+      try { localStorage.setItem(CACHE_KEY, x.responseText); } catch (e) { /* storage blocked */ }
+      render();
+    };
+    x.onerror = fail; x.ontimeout = fail;
+    try { x.send(); } catch (e) { fail(); }
+  }
+
+  // Start from the last copy this browser saw, so a failed first fetch is never a blank card.
+  try {
+    var cached = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null');
+    if (valid(cached)) data = cached;
+  } catch (e) { /* storage blocked or empty */ }
+  if (data) render();
+  load();
+  setInterval(load, REFRESH_MS);
+  setInterval(render, 10 * 60 * 1000); // picks up the date change at midnight Roatan time
+  document.addEventListener('visibilitychange', function () { if (!document.hidden) load(); });
+  window.addEventListener('resize', reportHeight);
+  window.addEventListener('load', reportHeight);
+})();
+</script>
+</body>
+</html>

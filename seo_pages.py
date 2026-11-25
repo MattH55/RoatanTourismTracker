@@ -14,11 +14,12 @@ published), not official arrival counts. Flight figures are modelled and left ou
 import calendar
 import json
 import os
+import re
 from collections import Counter
 from datetime import date, datetime, timedelta
-from html import escape
+from html import escape, unescape
 
-from daily_message import LEVELS, roatan_today, _level, _hour
+from daily_message import LEVELS, ROATAN_TZ, roatan_today, _level, _hour
 
 CRUISE_FIELDS = ('ship_name', 'cruise_line', 'arrival_hour', 'departure_hour', 'estimated_passengers')
 
@@ -187,7 +188,7 @@ def page(site_url, path, title, description, h1, body, build_date, extra_head=''
     <h1>{escape(h1)}</h1>
 {body}
     <footer>
-        <p>Last updated {build_date} &mdash; <a href="index.html">roatantourismtracker.online</a></p>
+        <p>Last updated {build_date} &mdash; <a href="index.html">roatantourismtracker.online</a> &mdash; <a href="embed.html">Add this to your website</a></p>
         <p>Cruise calls come from published port schedules and can change. Passenger figures are estimates
         (the published passenger count, or the ship's capacity when none is published), not official arrival counts.</p>
     </footer>
@@ -402,13 +403,156 @@ def statistics_page(site_url, all_data, build_date):
                 desc, 'Roatan Cruise Tourism Statistics', body, build_date)
 
 
-def write_seo_pages(output_dir, site_url, all_data, build_date):
+# ---------------------------------------------------------------- today.json
+
+TODAY_JSON = 'today.json'
+TODAY_JSON_DAYS = 14
+DISCLAIMER = ('Cruise calls come from published port schedules and can change. '
+              'Passenger figures are estimates, not official arrival counts.')
+
+
+def _level_key(minimum, en):
+    return 'none' if minimum == 0 else en.lower().replace(' ', '_')
+
+
+def crowd_levels():
+    """The site's crowd bands (daily_message.LEVELS) as data, quietest first."""
+    out, upper = [], None
+    for minimum, _icon, es, en in LEVELS:  # LEVELS runs busiest first
+        out.append({'key': _level_key(minimum, en), 'label': en, 'label_es': es,
+                    'min': minimum, 'max': upper})
+        upper = minimum - 1
+    out.reverse()
+    out[0]['max'] = 0
+    return out
+
+
+def _crowd_key(pax):
+    for minimum, _icon, _es, en in LEVELS:
+        if pax >= minimum:
+            return _level_key(minimum, en)
+    return 'none'
+
+
+def _hhmm(hour):
+    return None if hour is None else f'{int(hour) % 24:02d}:00'
+
+
+def _first_port(ports):
+    return next((_port(p) for p in ports or [] if _port(p) and _port(p) != 'At Sea'), None)
+
+
+def today_json(site_url, all_data, today, now=None):
+    """Machine-readable copy of what today.html shows, for the widget and TV pages.
+
+    Built from the same data and helpers as today_page(); days with no schedule
+    on file are left out, and unknown values are null."""
+    now = now or datetime.now(ROATAN_TZ)
+    days = []
+    for i in range(TODAY_JSON_DAYS):
+        d = today + timedelta(days=i)
+        cruises = _find_day(all_data, d)
+        if cruises is None:
+            continue
+        pax = day_pax(cruises)
+        ships = [{
+            'name': c.get('ship_name') or None,
+            'line': c.get('cruise_line') or None,
+            'arrive': _hhmm(c.get('arrival_hour')),
+            'depart': _hhmm(c.get('departure_hour')),
+            'est_passengers': c.get('estimated_passengers'),
+            'prev_port': _first_port(c.get('previous_ports')),
+            'next_port': _first_port(c.get('next_ports')),
+        } for c in sorted(cruises, key=lambda c: (c.get('arrival_hour', 0), c.get('ship_name', '')))]
+        days.append({'date': d.isoformat(), 'ships_count': len(cruises), 'est_passengers': pax,
+                     'crowd': _crowd_key(pax), 'ships': ships})
+    meta = (all_data.get((today.year, today.month)) or {}).get('meta') or {}
+    return {
+        'schema_version': 1,
+        'generated_at': now.astimezone(ROATAN_TZ).isoformat(timespec='seconds'),
+        'timezone': 'America/Tegucigalpa',
+        'source_checked': meta.get('cruise_checked') or None,
+        'site_url': site_url,
+        'crowd_levels': crowd_levels(),
+        'days': days,
+        'disclaimer': DISCLAIMER,
+    }
+
+
+def _int(text):
+    return int(text.replace(',', ''))
+
+
+def check_today_json(html, data, today):
+    """Compare today.json with the numbers actually printed in today.html.
+
+    Reads the rendered page rather than recomputing, so the two cannot drift
+    apart unnoticed. Returns a list of problems (empty when they agree)."""
+    problems = []
+    by_date = {d['date']: d for d in data['days']}
+    labels = {lv['key']: lv['label'] for lv in data['crowd_levels']}
+    row = by_date.get(today.isoformat())
+
+    lead = re.search(r'<span class="big">([\d,]+) cruise ships?</span> in port, '
+                     r'about <strong>([\d,]+)</strong> cruise passengers\. '
+                     r'Crowd level: \S+ <strong>([^<]+)</strong>', html)
+    if 'There is no schedule data on file' in html:
+        if row is not None:
+            problems.append('today.html has no data for today but today.json has a row')
+    elif row is None:
+        problems.append('today.json has no row for today but today.html shows one')
+    elif 'No cruise ships are scheduled in Roatan today' in html:
+        if row['ships_count'] or row['est_passengers']:
+            problems.append(f"today: page shows no ships, json has {row['ships_count']}")
+    elif not lead:
+        problems.append('could not find the ship and passenger totals in today.html')
+    else:
+        shown = (_int(lead.group(1)), _int(lead.group(2)), lead.group(3))
+        ours = (row['ships_count'], row['est_passengers'], labels[row['crowd']])
+        if shown != ours:
+            problems.append(f'today: page shows {shown}, json has {ours}')
+        table = html.split('<h2>Ships in port today</h2>', 1)[1].split('</table>', 1)[0]
+        shown_ships = [(unescape(n), _int(p)) for n, p in re.findall(
+            r'<tr><td><strong>([^<]*)</strong></td><td>[^<]*</td><td class="num">[^<]*</td>'
+            r'<td class="num">([\d,]+)</td>', table)]
+        our_ships = [(s['name'] or '', s['est_passengers'] or 0) for s in row['ships']]
+        if shown_ships != our_ships:
+            problems.append(f'today: ship list differs: page {shown_ships}, json {our_ships}')
+        if sum(p for _n, p in our_ships) != row['est_passengers']:
+            problems.append('today: ship passengers do not add up to the day total')
+
+    shown_next = {label: (_int(n), _int(p), en) for label, n, p, en in re.findall(
+        r'<tr><td><a href="[^"]+">([^<]+)</a></td><td class="num">([\d,]+)</td>'
+        r'<td class="num">([\d,]+)</td><td>\S+ ([^<]+)</td>', html)}
+    expected = {}
+    for i in range(1, 8):
+        r = by_date.get((today + timedelta(days=i)).isoformat())
+        if r is not None:
+            expected[_short_date(r['date'])] = (r['ships_count'], r['est_passengers'], labels[r['crowd']])
+    if shown_next != expected:
+        for label in sorted(set(shown_next) | set(expected)):
+            if shown_next.get(label) != expected.get(label):
+                problems.append(f'{label}: page shows {shown_next.get(label)}, json has {expected.get(label)}')
+    return problems
+
+
+def write_seo_pages(output_dir, site_url, all_data, build_date, today=None):
     years = sorted({y for y, _ in all_data})
-    pages = {'today.html': today_page(site_url, all_data, build_date),
+    today = today or roatan_today()  # one date for today.html and today.json
+    today_html = today_page(site_url, all_data, build_date, today)
+    pages = {'today.html': today_html,
              'statistics.html': statistics_page(site_url, all_data, build_date)}
     for y in years:
         pages[f'{y}.html'] = year_page(site_url, y, all_data, build_date, years)
     for name, html in pages.items():
         with open(os.path.join(output_dir, name), 'w', encoding='utf-8') as f:
             f.write(html)
-    return list(pages)
+
+    data = today_json(site_url, all_data, today)
+    problems = check_today_json(today_html, data, today)
+    if problems:
+        raise RuntimeError('today.json does not match today.html: ' + '; '.join(problems))
+    with open(os.path.join(output_dir, TODAY_JSON), 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=1)
+        f.write('\n')
+    return list(pages) + [TODAY_JSON]
