@@ -19,6 +19,7 @@ import json
 import os
 import re
 import sys
+import time
 from datetime import datetime, timedelta, timezone
 
 import requests
@@ -33,6 +34,13 @@ API_HOST = os.environ.get('AERODATABOX_HOST', 'aerodatabox.p.rapidapi.com')
 WINDOWS = [('00:00', '11:59'), ('12:00', '23:59')]  # the API allows at most 12 hours per call
 DAYS_AHEAD = int(os.environ.get('FLIGHT_DAYS_AHEAD', '1'))
 DEFAULT_SEATS = 100
+
+# The API rejects calls that come too close together (429 Too Many Requests), so space
+# them out and retry a 429 a few times before giving up on that day.
+REQUEST_GAP = 2.0             # seconds between calls
+RETRY_WAITS = [5, 15, 30]     # seconds to wait before each retry of a 429
+MAX_RETRY_WAIT = 60
+_last_request = float('-inf')
 
 # AeroDataBox spells models out ("Boeing 737-800"); the capacity table uses short keys.
 MANUFACTURER_PREFIXES = [
@@ -67,6 +75,31 @@ def flights_path(day):
     return os.path.join(FLIGHTS_DIR, f'{AIRPORT}_{day.isoformat()}.json')
 
 
+def _retry_wait(response, attempt):
+    """Seconds to wait after a 429: the server's Retry-After if it gives one, else RETRY_WAITS."""
+    try:
+        wait = float(response.headers.get('Retry-After', ''))
+    except ValueError:
+        return RETRY_WAITS[attempt]
+    return min(max(wait, 1.0), MAX_RETRY_WAIT)
+
+
+def _get(url, params, headers):
+    """GET with a pause between calls, retrying when the API says 429 Too Many Requests."""
+    global _last_request
+    for attempt in range(len(RETRY_WAITS) + 1):
+        pause = _last_request + REQUEST_GAP - time.monotonic()
+        if pause > 0:
+            time.sleep(pause)
+        response = requests.get(url, params=params, headers=headers, timeout=30)
+        _last_request = time.monotonic()
+        if response.status_code != 429 or attempt == len(RETRY_WAITS):
+            return response
+        wait = _retry_wait(response, attempt)
+        print(f'  429 Too Many Requests; retrying in {wait:.0f}s')
+        time.sleep(wait)
+
+
 def _fetch_window(day, start, end, api_key):
     url = f'https://prod.api.market/api/v1/aedbx/aerodatabox/flights/airports/iata/{AIRPORT}/{day.isoformat()}T{start}/{day.isoformat()}T{end}'
     params = {
@@ -79,7 +112,7 @@ def _fetch_window(day, start, end, api_key):
         'withLocation': 'false',
     }
     headers = {'x-api-market-key': api_key, 'accept': '*/*'}
-    response = requests.get(url, params=params, headers=headers, timeout=30)
+    response = _get(url, params, headers)
     if response.status_code == 204:  # no flights in the window
         return {'arrivals': [], 'departures': []}
     response.raise_for_status()
