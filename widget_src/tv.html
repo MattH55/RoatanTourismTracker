@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Cruise ships in Roatan: TV display</title>
+<style>
+/* Written for old TV browsers (Fire TV Silk, Tizen, webOS): no CSS variables, no grid,
+   no flex gap. Every size is in rem, and 1rem is 1% of the 16:9 stage width
+   (19.2px at 1080p), set in px by the script and by the vw fallback below. */
+html { font-size: 19.2px; font-size: 1vw; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; height: 100%; overflow: hidden; }
+body { background: #0d1117; color: #f0f3f6; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+       font-size: 1.5rem; line-height: 1.25; cursor: none; }
+[hidden] { display: none !important; }
+#stage { position: absolute; left: 50%; top: 50%; width: 100rem; height: 56.25rem; margin: -28.125rem 0 0 -50rem;
+         padding: 1rem 1.6rem 0.8rem; display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column;
+         -webkit-transition: -webkit-transform 2s; transition: transform 2s; }
+#banner { -webkit-flex: 0 0 auto; flex: 0 0 auto; background: #f5a524; color: #1c1300; font-weight: 700; font-size: 1.6rem;
+          padding: 0.45rem 1.2rem; border-radius: 0.6rem; margin-bottom: 0.7rem; text-align: center; }
+#top { -webkit-flex: 0 0 auto; flex: 0 0 auto; display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; height: 4.2rem; }
+#h1 { font-size: 2.9rem; font-weight: 700; -webkit-flex: 1 1 auto; flex: 1 1 auto; white-space: nowrap; }
+#dt { font-size: 2rem; color: #9aa4b1; margin-right: 2.2rem; white-space: nowrap; }
+#clock { font-size: 4rem; font-weight: 700; white-space: nowrap; }
+#clock small { font-size: 2rem; font-weight: 600; color: #9aa4b1; margin-left: 0.4rem; }
+#main { -webkit-flex: 1 1 0; flex: 1 1 0; min-height: 0; display: -webkit-flex; display: flex; margin-top: 0.6rem; }
+.panel { background: #161b22; border: 0.12rem solid #30363d; border-radius: 1rem; padding: 0.9rem 1.5rem 1rem; overflow: hidden;
+         display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; }
+#p0 { -webkit-flex: 0 0 57rem; flex: 0 0 57rem; margin-right: 1.2rem; }
+#p1 { -webkit-flex: 1 1 0; flex: 1 1 0; min-width: 0; }
+.plabel { font-size: 1.7rem; font-weight: 700; letter-spacing: 0.08rem; color: #6cb4d8; white-space: nowrap; }
+.plabel span { color: #9aa4b1; font-weight: 400; letter-spacing: 0; }
+.nums { display: -webkit-flex; display: flex; -webkit-align-items: baseline; align-items: baseline; white-space: nowrap; }
+.num { font-size: 6.5rem; font-weight: 800; line-height: 1.05; }
+.unit { font-size: 1.9rem; color: #9aa4b1; margin: 0 2rem 0 0.6rem; }
+#p1 .num { font-size: 4.6rem; }
+#p1 .unit { font-size: 1.5rem; margin-right: 1.2rem; }
+.msg { font-size: 3rem; font-weight: 700; margin: 1rem 0; }
+.brow { display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; -webkit-flex-wrap: wrap; flex-wrap: wrap; }
+.badge { display: inline-block; -webkit-flex: 0 0 auto; flex: 0 0 auto; margin-right: 1.4rem; font-size: 2.4rem; font-weight: 700;
+         padding: 0.3rem 1.3rem 0.35rem 1rem; border: 0.14rem solid #30363d; border-radius: 3rem; background: #0d1117; white-space: nowrap; }
+#p1 .badge { font-size: 1.8rem; }
+.dot { display: inline-block; width: 0.75em; height: 0.75em; border-radius: 50%; margin-right: 0.4em; background: #8b949e; }
+.rush { color: #f2cc60; white-space: nowrap; }
+.list { margin-top: 0.6rem; -webkit-flex: 1 1 0; flex: 1 1 0; min-height: 0; overflow: hidden; }
+.ship { display: -webkit-flex; display: flex; padding: 0.22rem 0; border-top: 0.08rem solid #262c36; white-space: nowrap; }
+.ship .nm { -webkit-flex: 1 1 0; flex: 1 1 0; min-width: 0; overflow: hidden; text-overflow: ellipsis; font-weight: 600; }
+.ship .tm { -webkit-flex: 0 0 auto; flex: 0 0 auto; margin-left: 1rem; color: #c9d1d9; }
+.ship .px { -webkit-flex: 0 0 6.2rem; flex: 0 0 6.2rem; text-align: right; color: #9aa4b1; }
+.list.two { display: -webkit-flex; display: flex; -webkit-flex-wrap: wrap; flex-wrap: wrap; -webkit-align-content: flex-start; align-content: flex-start; }
+.list.two .ship, .list.two .more { -webkit-flex: 0 0 48.5%; flex: 0 0 48.5%; margin-right: 1.5%; min-width: 0; }
+.list.two .ship .tm { margin-left: 0.6rem; }
+.list.two .ship .px { -webkit-flex-basis: 5.3rem; flex-basis: 5.3rem; }
+.more { color: #9aa4b1; padding-top: 0.22rem; border-top: 0.08rem solid #262c36; }
+#chart { -webkit-flex: 0 0 auto; flex: 0 0 auto; height: 10.7rem; margin-top: 0.8rem; background: #161b22; border: 0.12rem solid #30363d;
+         border-radius: 1rem; padding: 0.5rem 1rem 0.4rem; }
+#ctitle { color: #9aa4b1; height: 1.9rem; white-space: nowrap; }
+#cols { display: -webkit-flex; display: flex; height: 7.7rem; }
+.col { -webkit-flex: 1 1 0; flex: 1 1 0; display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column;
+       -webkit-justify-content: flex-end; justify-content: flex-end; -webkit-align-items: center; align-items: center; min-width: 0; }
+.val { font-weight: 700; white-space: nowrap; }
+.bar { width: 62%; border-radius: 0.4rem 0.4rem 0 0; background: #8b949e; position: relative; min-height: 0.25rem; }
+.col.top .val { color: #fff; background: #30363d; border: 0.1rem solid #6cb4d8; border-radius: 0.5rem; padding: 0 0.6rem; margin-bottom: 0.15rem; }
+.day { color: #c9d1d9; white-space: nowrap; height: 1.9rem; }
+.col.top .day { color: #fff; font-weight: 700; }
+#sponsor { -webkit-flex: 0 0 auto; flex: 0 0 auto; margin-top: 0.7rem; height: 3rem; display: -webkit-flex; display: flex;
+           -webkit-align-items: center; align-items: center; white-space: nowrap; overflow: hidden; }
+#slabel { font-size: 1.46rem; font-weight: 700; letter-spacing: 0.06rem; text-transform: uppercase; color: #0d1117; background: #9aa4b1;
+          border-radius: 0.4rem; padding: 0.1rem 0.7rem; margin-right: 1rem; }
+#simg { height: 2.6rem; max-width: 8rem; margin-right: 0.9rem; border-radius: 0.3rem; }
+#sname { font-weight: 700; margin-right: 0.8rem; }
+#stext { overflow: hidden; text-overflow: ellipsis; -webkit-flex: 0 1 auto; flex: 0 1 auto; }
+#surl { color: #6cb4d8; margin-left: 1rem; }
+#foot { -webkit-flex: 0 0 auto; flex: 0 0 auto; height: 4.9rem; margin-top: 0.6rem; display: -webkit-flex; display: flex;
+        -webkit-align-items: center; align-items: center; color: #9aa4b1; }
+#ftext { -webkit-flex: 1 1 auto; flex: 1 1 auto; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#ftext b { color: #f0f3f6; }
+#off { color: #f5a524; font-weight: 700; margin-left: 1rem; }
+#scan { margin-right: 1rem; white-space: nowrap; }
+#qr { -webkit-flex: 0 0 4.8rem; flex: 0 0 4.8rem; width: 4.8rem; height: 4.8rem; background: #fff; border-radius: 0.4rem; padding: 0.3rem; }
+#qr svg { display: block; width: 100%; height: 100%; }
+.old .num, .old .badge, .old .list, .old .rush, .old #cols { opacity: 0.4; }
+
+.quiet { background-color: #3fb950; } .moderate { background-color: #f2cc60; }
+.busy { background-color: #f18f01; } .very_busy { background-color: #ff5f56; }
+.dot.none { background: transparent; border: 0.14em solid #8b949e; }
+
+/* ?theme=light */
+body.light { background: #f3f5f8; color: #14181f; }
+.light .panel, .light #chart { background: #fff; border-color: #cfd5dd; }
+.light #dt, .light #clock small, .light .unit, .light .plabel span, .light #ctitle, .light #foot,
+.light .ship .px, .light .more { color: #4b5563; }
+.light .plabel, .light #surl { color: #14607d; }
+.light .badge { background: #f3f5f8; border-color: #cfd5dd; }
+.light .ship, .light .more { border-top-color: #e3e7ec; }
+.light .ship .tm, .light .day { color: #2d3540; }
+.light .rush { color: #8a5a00; }
+.light #ftext b { color: #14181f; }
+.light .col.top .val { color: #14181f; background: #e8f3f8; border-color: #14607d; }
+.light .col.top .day { color: #14181f; }
+.light #qr { border: 0.1rem solid #cfd5dd; }
+.light .quiet { background-color: #1f9d55; } .light .moderate { background-color: #d4a106; }
+.light .busy { background-color: #e8710a; } .light .very_busy { background-color: #d92d20; }
+.light #off { color: #a15c00; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="banner" hidden></div>
+  <div id="top"><div id="h1"></div><div id="dt"></div><div id="clock"></div></div>
+  <div id="main">
+    <div class="panel" id="p0"></div>
+    <div class="panel" id="p1"></div>
+  </div>
+  <div id="chart"><div id="ctitle"></div><div id="cols"></div></div>
+  <div id="sponsor" hidden><span id="slabel"></span><img id="simg" alt="" hidden><span id="sname"></span><span id="stext"></span><span id="surl"></span></div>
+  <div id="foot"><div id="ftext"></div><div id="scan"></div><div id="qr"><!--RTT_QR--></div></div>
+</div>
+<script>
+/* ES5 only: this has to run on TV browsers that are years old. */
+(function () {
+  'use strict';
+  var DATA_URL = 'today.json';
+  var SPONSORS_URL = 'sponsors.json';
+  var CACHE_KEY = 'rtt-today-v1';
+  var REFETCH_MS = 10 * 60 * 1000;
+  var RELOAD_MS = 6 * 3600 * 1000;
+  var SPONSOR_MS = 20 * 1000;
+  var LANG_MS = 30 * 1000;
+  var SHIFT_MS = 4 * 60 * 1000;
+  var ROATAN_OFFSET_MS = -6 * 3600 * 1000; // UTC-6 all year, no daylight saving
+
+  var T = {
+    en: {
+      title: 'Cruise ships in Roatan', today: 'TODAY', tomorrow: 'TOMORROW',
+      ship: 'ship', ships: 'ships', pax: 'passengers', noShips: 'No cruise ships',
+      rush: 'Return rush around', more: 'more', chart: 'Next 7 days · estimated cruise passengers per day',
+      busiest: 'Busiest', foot: 'Estimates from published schedules', updated: 'Updated',
+      lastUpdated: 'Last updated', stale: 'The schedule shown may have changed.',
+      old: 'Data may be out of date', offline: 'Offline', unavailable: 'Schedule unavailable',
+      sponsored: 'Sponsored', scan: 'Full schedule →',
+      wd: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      ws: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+      mo: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+      ms: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      levels: { none: 'No cruise ships', quiet: 'Quiet', moderate: 'Moderate', busy: 'Busy', very_busy: 'Very busy' }
+    },
+    es: {
+      title: 'Cruceros en Roatán', today: 'HOY', tomorrow: 'MAÑANA',
+      ship: 'barco', ships: 'barcos', pax: 'pasajeros', noShips: 'Sin cruceros',
+      rush: 'Regreso al barco:', more: 'más', chart: 'Próximos 7 días · pasajeros de crucero estimados por día',
+      busiest: 'Día pico', foot: 'Estimaciones según horarios publicados', updated: 'Actualizado',
+      lastUpdated: 'Última actualización', stale: 'El horario mostrado puede haber cambiado.',
+      old: 'Los datos pueden estar desactualizados', offline: 'Sin conexión', unavailable: 'Horario no disponible',
+      sponsored: 'Patrocinado', scan: 'Horario completo →',
+      wd: ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'],
+      ws: ['dom', 'lun', 'mar', 'mié', 'jue', 'vie', 'sáb'],
+      mo: ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'],
+      ms: ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'],
+      levels: { none: 'Sin cruceros', quiet: 'Tranquilo', moderate: 'Moderado', busy: 'Ocupado', very_busy: 'Muy ocupado' }
+    }
+  };
+
+  function param(name) {
+    var m = new RegExp('[?&]' + name + '=([^&#]*)').exec(location.search);
+    return m ? decodeURIComponent(m[1]).toLowerCase() : '';
+  }
+  var lang = param('lang') === 'es' ? 'es' : 'en';
+  var rotate = param('rotate') === '1';
+  var L = T[lang];
+  if (param('theme') === 'light') document.body.className = 'light';
+
+  function $(id) { return document.getElementById(id); }
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.appendChild(document.createTextNode(text));
+    return e;
+  }
+  function clear(node) { while (node.firstChild) node.removeChild(node.firstChild); }
+  function show(node, on) { if (on) node.removeAttribute('hidden'); else node.setAttribute('hidden', ''); }
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+  function num(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+
+  // Calendar date in Roatan. Intl where the TV has time-zone data, fixed UTC-6 otherwise.
+  function roatanDate(d) {
+    try {
+      var parts = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Tegucigalpa',
+        year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(d);
+      var o = {};
+      for (var i = 0; i < parts.length; i++) o[parts[i].type] = parts[i].value;
+      if (o.year && o.month && o.day) return o.year + '-' + o.month + '-' + o.day;
+    } catch (e) { /* fall through */ }
+    var r = new Date(d.getTime() + ROATAN_OFFSET_MS);
+    return r.getUTCFullYear() + '-' + pad(r.getUTCMonth() + 1) + '-' + pad(r.getUTCDate());
+  }
+  function utc(iso) { var p = iso.split('-'); return Date.UTC(+p[0], +p[1] - 1, +p[2]); }
+  function addDays(iso, n) {
+    var r = new Date(utc(iso) + n * 864e5);
+    return r.getUTCFullYear() + '-' + pad(r.getUTCMonth() + 1) + '-' + pad(r.getUTCDate());
+  }
+  function daysBetween(a, b) { return Math.round((utc(b) - utc(a)) / 864e5); }
+  function longDate(iso) {
+    var d = new Date(utc(iso));
+    return lang === 'es'
+      ? L.wd[d.getUTCDay()] + ' ' + d.getUTCDate() + ' de ' + L.mo[d.getUTCMonth()]
+      : L.wd[d.getUTCDay()] + ', ' + L.mo[d.getUTCMonth()] + ' ' + d.getUTCDate();
+  }
+  function shortDate(iso) {
+    var d = new Date(utc(iso));
+    return lang === 'es'
+      ? L.ws[d.getUTCDay()] + ' ' + d.getUTCDate() + ' ' + L.ms[d.getUTCMonth()]
+      : L.ws[d.getUTCDay()] + ', ' + L.ms[d.getUTCMonth()] + ' ' + d.getUTCDate();
+  }
+  function hourOf(hhmm) { return hhmm ? parseInt(hhmm.split(':')[0], 10) : null; }
+  function hour(h) { h = ((h % 24) + 24) % 24; return (h % 12 || 12) + (h < 12 ? 'am' : 'pm'); }
+  function levelLabel(key) { return L.levels[key] || key; }
+
+  var data = null, tried = false, offline = false, sponsors = [], sponsorAt = 0, lastDate = '';
+
+  function valid(j) { return j && j.days && typeof j.days.length === 'number' && j.generated_at; }
+
+  function badge(key) {
+    var b = el('div', 'badge');
+    b.appendChild(el('span', 'dot ' + key));
+    b.appendChild(document.createTextNode(levelLabel(key)));
+    return b;
+  }
+
+  // Same rule as today.html: the hour before each distinct departure time.
+  function rushText(row) {
+    var hours = [], i, h;
+    for (i = 0; i < row.ships.length; i++) {
+      h = hourOf(row.ships[i].depart);
+      if (h != null && hours.indexOf(h) < 0) hours.push(h);
+    }
+    if (!hours.length) return '';
+    hours.sort(function (a, b) { return a - b; });
+    var out = [];
+    for (i = 0; i < hours.length; i++) out.push(hour(hours[i] - 1) + '–' + hour(hours[i]));
+    return L.rush + ' ' + out.join(', ');
+  }
+
+  function panel(node, label, iso, row) {
+    clear(node);
+    var pl = el('div', 'plabel', label + ' ');
+    pl.appendChild(el('span', null, '· ' + shortDate(iso)));
+    node.appendChild(pl);
+    if (!row) { node.appendChild(el('div', 'msg', data || tried ? L.unavailable : '…')); return; }
+    if (!row.ships_count) {
+      node.appendChild(el('div', 'msg', L.noShips));
+      return;
+    }
+    var nums = el('div', 'nums');
+    nums.appendChild(el('span', 'num', String(row.ships_count)));
+    nums.appendChild(el('span', 'unit', row.ships_count === 1 ? L.ship : L.ships));
+    nums.appendChild(el('span', 'num', '~' + num(row.est_passengers)));
+    nums.appendChild(el('span', 'unit', L.pax));
+    node.appendChild(nums);
+    var brow = el('div', 'brow');
+    brow.appendChild(badge(row.crowd));
+    var rush = rushText(row);
+    if (rush) brow.appendChild(el('div', 'rush', rush));
+    node.appendChild(brow);
+
+    var list = el('div', 'list'), i, s, r, times;
+    for (i = 0; i < row.ships.length; i++) {
+      s = row.ships[i];
+      r = el('div', 'ship');
+      r.appendChild(el('span', 'nm', s.name || '—'));
+      times = (s.arrive ? hour(hourOf(s.arrive)) : '?') + '–' + (s.depart ? hour(hourOf(s.depart)) : '?');
+      r.appendChild(el('span', 'tm', s.arrive || s.depart ? times : ''));
+      r.appendChild(el('span', 'px', s.est_passengers != null ? '~' + num(s.est_passengers) : ''));
+      list.appendChild(r);
+    }
+    node.appendChild(list);
+    // If the rows do not fit, use two columns; then drop rows and say how many are hidden.
+    if (list.scrollHeight > list.clientHeight + 1) list.className = 'list two';
+    var hidden = 0, more = null;
+    while (list.scrollHeight > list.clientHeight + 1 && list.children.length > 1) {
+      if (more) list.removeChild(more);
+      list.removeChild(list.lastChild);
+      hidden++;
+      more = el('div', 'more', '+' + hidden + ' ' + L.more);
+      list.appendChild(more);
+    }
+  }
+
+  function chart(today, byDate) {
+    var cols = $('cols'), i, d, r, top = null, max = 0;
+    clear(cols);
+    clear($('ctitle')); $('ctitle').appendChild(document.createTextNode(L.chart));
+    for (i = 0; i < 7; i++) {
+      r = byDate[addDays(today, i)];
+      if (r && r.est_passengers > max) { max = r.est_passengers; top = r; }
+    }
+    for (i = 0; i < 7; i++) {
+      d = addDays(today, i);
+      r = byDate[d];
+      var dt = new Date(utc(d));
+      var col = el('div', 'col' + (r && r === top ? ' top' : ''));
+      var label = !r ? '—' : (r.est_passengers ? num(r.est_passengers) : '0');
+      if (r && r === top) label = L.busiest + ' · ' + label;
+      col.appendChild(el('div', 'val', label));
+      var bar = el('div', 'bar ' + (r ? r.crowd : 'none'));
+      bar.style.height = (r && max ? Math.max(0.25, 3.8 * r.est_passengers / max) : 0.25) + 'rem';
+      col.appendChild(bar);
+      col.appendChild(el('div', 'day', L.ws[dt.getUTCDay()] + ' ' + dt.getUTCDate()));
+      cols.appendChild(col);
+    }
+  }
+
+  function render() {
+    L = T[lang];
+    document.documentElement.setAttribute('lang', lang);
+    var today = roatanDate(new Date());
+    lastDate = today;
+    var byDate = {}, i;
+    if (data) for (i = 0; i < data.days.length; i++) byDate[data.days[i].date] = data.days[i];
+    clear($('h1')); $('h1').appendChild(document.createTextNode(L.title));
+    clear($('dt')); $('dt').appendChild(document.createTextNode(longDate(today)));
+
+    var genDate = data ? roatanDate(new Date(data.generated_at)) : null;
+    var age = genDate ? daysBetween(genDate, today) : 0;
+    var banner = $('banner');
+    clear(banner);
+    if (age > 3) banner.appendChild(document.createTextNode(L.old + ' · ' + L.lastUpdated + ' ' + shortDate(genDate)));
+    else if (age > 0) banner.appendChild(document.createTextNode(L.lastUpdated + ' ' + shortDate(genDate) + '. ' + L.stale));
+    show(banner, age > 0);
+    $('stage').className = age > 3 ? 'old' : '';
+
+    showSponsor();
+    panel($('p0'), L.today, today, byDate[today] || null);
+    panel($('p1'), L.tomorrow, addDays(today, 1), byDate[addDays(today, 1)] || null);
+    chart(today, byDate);
+
+    var ft = $('ftext');
+    clear(ft);
+    ft.appendChild(el('b', null, 'roatantourismtracker.online'));
+    ft.appendChild(document.createTextNode(' · ' + L.foot + (genDate ? ' · ' + L.updated + ' ' + shortDate(genDate) : '')));
+    if (offline) ft.appendChild(el('span', null, L.offline)).id = 'off';
+    clear($('scan')); $('scan').appendChild(document.createTextNode(L.scan));
+  }
+
+  function showSponsor() {
+    var box = $('sponsor');
+    if (!sponsors.length) { show(box, false); return; }
+    var s = sponsors[sponsorAt % sponsors.length];
+    clear($('slabel')); $('slabel').appendChild(document.createTextNode(L.sponsored));
+    clear($('sname')); $('sname').appendChild(document.createTextNode(s.name || ''));
+    clear($('stext')); $('stext').appendChild(document.createTextNode(s.text || ''));
+    clear($('surl')); $('surl').appendChild(document.createTextNode((s.url || '').replace(/^https?:\/\//, '').replace(/\/$/, '')));
+    var img = $('simg');
+    if (s.image && /^(https?:\/\/|\/|[\w.-]+\/|[\w-]+\.\w+$)/.test(s.image) && !/^\s*javascript:/i.test(s.image)) {
+      img.onerror = function () { show(img, false); };
+      if (img.getAttribute('src') !== s.image) img.setAttribute('src', s.image);
+      show(img, true);
+    } else { show(img, false); }
+    show(box, true);
+  }
+
+  function get(url, ok, fail) {
+    var x = new XMLHttpRequest(), done = false;
+    function bad() { if (!done) { done = true; fail(); } }
+    x.open('GET', url + (url.indexOf('?') < 0 ? '?' : '&') + 't=' + new Date().getTime(), true);
+    x.onreadystatechange = function () {
+      if (x.readyState !== 4 || done) return;
+      if (x.status >= 200 && x.status < 300) { done = true; ok(x.responseText); } else bad();
+    };
+    x.onerror = bad;
+    setTimeout(bad, 20000);
+    try { x.send(); } catch (e) { bad(); }
+  }
+
+  function load() {
+    get(DATA_URL, function (text) {
+      var j = null;
+      try { j = JSON.parse(text); } catch (e) { j = null; }
+      tried = true;
+      if (!valid(j)) { offline = true; render(); return; }
+      data = j; offline = false;
+      try { localStorage.setItem(CACHE_KEY, text); } catch (e) { /* no storage */ }
+      render();
+    }, function () { tried = true; offline = true; render(); });   // keeps the last good data on screen
+
+    get(SPONSORS_URL, function (text) {
+      var list = [], j, i;
+      try { j = JSON.parse(text); } catch (e) { j = null; }
+      if (j && typeof j.length === 'number') {
+        for (i = 0; i < j.length; i++) if (j[i] && (j[i].name || j[i].text)) list.push(j[i]);
+      }
+      var changed = list.length !== sponsors.length;
+      sponsors = list;
+      if (changed) render(); else showSponsor();
+    }, function () { /* no sponsors.json: show nothing, keep any already loaded */ });
+  }
+
+  function tick() {
+    var r = new Date(new Date().getTime() + ROATAN_OFFSET_MS);
+    var h = r.getUTCHours();
+    var c = $('clock');
+    clear(c);
+    c.appendChild(document.createTextNode((h % 12 || 12) + ':' + pad(r.getUTCMinutes())));
+    c.appendChild(el('small', null, h < 12 ? 'am' : 'pm'));
+    if (lastDate && roatanDate(new Date()) !== lastDate) render(); // midnight in Roatan
+  }
+
+  function fit() {
+    var w = window.innerWidth || document.documentElement.clientWidth;
+    var h = window.innerHeight || document.documentElement.clientHeight;
+    if (w && h) document.documentElement.style.fontSize = Math.min(w / 100, h / 56.25) + 'px';
+  }
+
+  // Reload only if the site answers, so a TV that is offline keeps its last screen.
+  function safeReload() {
+    get(location.pathname, function () { location.reload(true); },
+      function () { setTimeout(safeReload, 10 * 60 * 1000); });
+  }
+  function msUntilRoatan(hh, mm) {
+    var now = new Date().getTime();
+    var r = new Date(now + ROATAN_OFFSET_MS);
+    var target = Date.UTC(r.getUTCFullYear(), r.getUTCMonth(), r.getUTCDate(), hh, mm) - ROATAN_OFFSET_MS;
+    if (target <= now + 60000) target += 864e5;
+    return target - now;
+  }
+
+  var shifts = [[0, 0], [5, 3], [-4, 5], [-6, -3], [3, -5], [6, 4], [-3, 2], [4, -4]], shiftAt = 0;
+  function shift() {
+    shiftAt = (shiftAt + 1) % shifts.length;
+    var t = 'translate(' + shifts[shiftAt][0] + 'px,' + shifts[shiftAt][1] + 'px)';
+    $('stage').style.webkitTransform = t;
+    $('stage').style.transform = t;
+  }
+
+  fit();
+  window.onresize = function () { fit(); render(); };
+  try {
+    var cached = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null');
+    if (valid(cached)) data = cached;
+  } catch (e) { /* no storage */ }
+  render();
+  tick();
+  load();
+  setInterval(tick, 1000);
+  setInterval(load, REFETCH_MS);
+  setInterval(shift, SHIFT_MS);
+  setInterval(function () { if (sponsors.length > 1) { sponsorAt++; showSponsor(); } }, SPONSOR_MS);
+  if (rotate) setInterval(function () { lang = lang === 'en' ? 'es' : 'en'; render(); }, LANG_MS);
+  setTimeout(safeReload, RELOAD_MS);
+  // Just after the 5am build: 05:15 Roatan plus up to 2 minutes so TVs do not all hit at once.
+  setTimeout(safeReload, msUntilRoatan(5, 15) + Math.floor(Math.random() * 120000));
+})();
+</script>
+</body>
+</html>

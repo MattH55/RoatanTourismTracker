@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Example Dive Shop",
+    "text": "Two-tank morning dives, every day at 8am",
+    "url": "https://example.com",
+    "image": ""
+  },
+  {
+    "name": "Example Beach Hotel",
+    "text": "Day passes available at the front desk",
+    "url": "https://example.com/day-pass",
+    "image": ""
+  }
+]
