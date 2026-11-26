@@ -2,7 +2,7 @@
   "airport": "RTB",
   "date": "2026-11-26",
   "source": "AeroDataBox",
-  "fetched_at": "2026-11-25T22:30Z",
+  "fetched_at": "2026-11-26T11:01Z",
   "arrivals": [
     {
       "time": "06:50",
@@ -13,7 +13,7 @@
       "airport_iata": "LCE",
       "country": "hn",
       "international": true,
-      "status": "Expected"
+      "status": "Unknown"
     },
     {
       "time": "06:55",
@@ -24,7 +24,7 @@
       "airport_iata": "SAP",
       "country": "hn",
       "international": true,
-      "status": "Expected"
+      "status": "Unknown"
     },
     {
       "time": "07:25",
@@ -35,7 +35,7 @@
       "airport_iata": "TGU",
       "country": "hn",
       "international": true,
-      "status": "Expected"
+      "status": "Unknown"
     },
     {
       "time": "08:15",
@@ -46,7 +46,7 @@
       "airport_iata": "TGU",
       "country": "hn",
       "international": true,
-      "status": "Expected"
+      "status": "Unknown"
     },
     {
       "time": "08:55",
@@ -57,7 +57,7 @@
       "airport_iata": "GJA",
       "country": "hn",
       "international": true,
-      "status": "Expected"
+      "status": "Unknown"
     },
     {
       "time": "10:10",
@@ -68,7 +68,7 @@
       "airport_iata": "LCE",
       "country": "hn",
       "international": true,
-      "status": "Expected"
+      "status": "Unknown"
     },
     {
       "time": "10:15",
@@ -79,7 +79,7 @@
       "airport_iata": "TGU",
       "country": "hn",
       "international": true,
-      "status": "Expected"
+      "status": "Unknown"
     },
     {
       "time": "10:15",
@@ -90,7 +90,7 @@
       "airport_iata": "SAP",
       "country": "hn",
       "international": true,
-      "status": "Expected"
+      "status": "Unknown"
     },
     {
       "time": "11:00",
@@ -101,7 +101,7 @@
       "airport_iata": "GUA",
       "country": "gt",
       "international": true,
-      "status": "Expected"
+      "status": "Unknown"
     },
     {
       "time": "12:00",
@@ -224,7 +224,7 @@
       "airport_iata": "LCE",
       "country": "hn",
       "international": true,
-      "status": "Expected"
+      "status": "Unknown"
     },
     {
       "time": "07:35",
@@ -235,7 +235,7 @@
       "airport_iata": "TGU",
       "country": "hn",
       "international": true,
-      "status": "Expected"
+      "status": "Unknown"
     },
     {
       "time": "07:55",
@@ -246,7 +246,7 @@
       "airport_iata": "TGU",
       "country": "hn",
       "international": true,
-      "status": "Expected"
+      "status": "Unknown"
     },
     {
       "time": "08:00",
@@ -257,7 +257,7 @@
       "airport_iata": "SAP",
       "country": "hn",
       "international": true,
-      "status": "Expected"
+      "status": "Unknown"
     },
     {
       "time": "08:05",
@@ -268,7 +268,7 @@
       "airport_iata": "SAP",
       "country": "hn",
       "international": true,
-      "status": "Expected"
+      "status": "Unknown"
     },
     {
       "time": "11:40",
