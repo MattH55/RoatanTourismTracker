@@ -2,7 +2,7 @@
   "airport": "RTB",
   "date": "2026-11-26",
   "source": "AeroDataBox",
-  "fetched_at": "2026-11-26T20:35Z",
+  "fetched_at": "2026-11-26T22:21Z",
   "arrivals": [
     {
       "time": "06:50",
@@ -304,6 +304,17 @@
       "status": "Unknown"
     },
     {
+      "time": "12:17",
+      "number": "LN 30LJ",
+      "airline": "Libyan Airlines",
+      "aircraft": "Bombardier Learjet 31",
+      "city": "Fort Lauderdale",
+      "airport_iata": "FLL",
+      "country": "us",
+      "international": true,
+      "status": "Departed"
+    },
+    {
       "time": "13:15",
       "number": "AA 336",
       "airline": "American",
@@ -345,7 +356,7 @@
       "airport_iata": "IAH",
       "country": "us",
       "international": true,
-      "status": "Expected"
+      "status": "Departed"
     },
     {
       "time": "14:30",

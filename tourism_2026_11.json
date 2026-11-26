@@ -10931,6 +10931,19 @@
           "source": "aerodatabox"
         },
         {
+          "flight_number": "LN 30LJ",
+          "airline": "Libyan Airlines",
+          "aircraft": "Bombardier Learjet 31",
+          "origin": "RTB",
+          "destination": "FLL",
+          "country": "us",
+          "hour": 12,
+          "minute": 17,
+          "is_arrival": false,
+          "estimated_passengers": 85,
+          "source": "aerodatabox"
+        },
+        {
           "flight_number": "AA 336",
           "airline": "American",
           "aircraft": "Airbus A319",
@@ -11160,7 +11173,7 @@
         }
       ],
       "flight_source": "real",
-      "flights_fetched_at": "2026-11-26T20:35Z"
+      "flights_fetched_at": "2026-11-26T22:21Z"
     },
     "2026-11-27": {
       "flights": [
@@ -11666,7 +11679,7 @@
         }
       ],
       "flight_source": "real",
-      "flights_fetched_at": "2026-11-26T20:35Z"
+      "flights_fetched_at": "2026-11-26T22:21Z"
     },
     "2026-11-28": {
       "flights": [
