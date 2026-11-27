@@ -11321,6 +11321,19 @@
           "source": "aerodatabox"
         },
         {
+          "flight_number": "PXG 210",
+          "airline": "PXG",
+          "aircraft": "Cessna 560 Citation V",
+          "origin": "FLL",
+          "destination": "RTB",
+          "country": "us",
+          "hour": 12,
+          "minute": 12,
+          "is_arrival": true,
+          "estimated_passengers": 8,
+          "source": "aerodatabox"
+        },
+        {
           "flight_number": "UA 2043",
           "airline": "United",
           "aircraft": "Boeing 737-800",
@@ -11349,14 +11362,14 @@
         {
           "flight_number": "WS 2072",
           "airline": "WestJet",
-          "aircraft": "Boeing 737-800",
+          "aircraft": "Boeing 737 MAX 8",
           "origin": "YYZ",
           "destination": "RTB",
           "country": "ca",
           "hour": 14,
           "minute": 30,
           "is_arrival": true,
-          "estimated_passengers": 148,
+          "estimated_passengers": 151,
           "source": "aerodatabox"
         },
         {
@@ -11679,7 +11692,7 @@
         }
       ],
       "flight_source": "real",
-      "flights_fetched_at": "2026-11-27T11:01Z"
+      "flights_fetched_at": "2026-11-27T19:29Z"
     },
     "2026-11-28": {
       "flights": [
@@ -12145,7 +12158,7 @@
         }
       ],
       "flight_source": "real",
-      "flights_fetched_at": "2026-11-27T11:01Z"
+      "flights_fetched_at": "2026-11-27T19:29Z"
     },
     "2026-11-29": {
       "flights": [
