@@ -11529,6 +11529,19 @@
           "source": "aerodatabox"
         },
         {
+          "flight_number": "PXG 210",
+          "airline": "PXG",
+          "aircraft": "Cessna 560 Citation V",
+          "origin": "RTB",
+          "destination": "FLL",
+          "country": "us",
+          "hour": 10,
+          "minute": 19,
+          "is_arrival": false,
+          "estimated_passengers": 8,
+          "source": "aerodatabox"
+        },
+        {
           "flight_number": "S0 51",
           "airline": "Aerolineas Sosa",
           "aircraft": "BAe Jetstream 32",
@@ -11692,7 +11705,7 @@
         }
       ],
       "flight_source": "real",
-      "flights_fetched_at": "2026-11-27T20:22Z"
+      "flights_fetched_at": "2026-11-27T21:58Z"
     },
     "2026-11-28": {
       "flights": [
@@ -12158,7 +12171,7 @@
         }
       ],
       "flight_source": "real",
-      "flights_fetched_at": "2026-11-27T20:22Z"
+      "flights_fetched_at": "2026-11-27T21:58Z"
     },
     "2026-11-29": {
       "flights": [

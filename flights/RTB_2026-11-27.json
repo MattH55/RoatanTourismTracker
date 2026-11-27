@@ -2,7 +2,7 @@
   "airport": "RTB",
   "date": "2026-11-27",
   "source": "AeroDataBox",
-  "fetched_at": "2026-11-27T20:22Z",
+  "fetched_at": "2026-11-27T21:58Z",
   "arrivals": [
     {
       "time": "06:50",
@@ -302,6 +302,17 @@
       "country": "bz",
       "international": true,
       "status": "Unknown"
+    },
+    {
+      "time": "10:19",
+      "number": "PXG 210",
+      "airline": "PXG",
+      "aircraft": "Cessna 560 Citation V",
+      "city": "Fort Lauderdale",
+      "airport_iata": "FLL",
+      "country": "us",
+      "international": true,
+      "status": "Departed"
     },
     {
       "time": "11:40",
