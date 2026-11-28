@@ -11803,14 +11803,14 @@
         {
           "flight_number": "UA 2043",
           "airline": "United",
-          "aircraft": "Boeing 737-800",
+          "aircraft": "Boeing 737 MAX 9",
           "origin": "IAH",
           "destination": "RTB",
           "country": "us",
           "hour": 12,
           "minute": 24,
           "is_arrival": true,
-          "estimated_passengers": 148,
+          "estimated_passengers": 164,
           "source": "aerodatabox"
         },
         {
@@ -11829,27 +11829,27 @@
         {
           "flight_number": "DL 1808",
           "airline": "Delta Air Lines",
-          "aircraft": "Boeing 737-900",
+          "aircraft": "Airbus A321 NEO",
           "origin": "ATL",
           "destination": "RTB",
           "country": "us",
           "hour": 13,
           "minute": 28,
           "is_arrival": true,
-          "estimated_passengers": 153,
+          "estimated_passengers": 187,
           "source": "aerodatabox"
         },
         {
           "flight_number": "UA 2352",
           "airline": "United",
-          "aircraft": "Boeing 737",
+          "aircraft": "Boeing 737 MAX 8",
           "origin": "DEN",
           "destination": "RTB",
           "country": "us",
           "hour": 13,
           "minute": 54,
           "is_arrival": true,
-          "estimated_passengers": 127,
+          "estimated_passengers": 151,
           "source": "aerodatabox"
         },
         {
@@ -12171,7 +12171,7 @@
         }
       ],
       "flight_source": "real",
-      "flights_fetched_at": "2026-11-28T11:01Z"
+      "flights_fetched_at": "2026-11-28T18:15Z"
     },
     "2026-11-29": {
       "flights": [
@@ -12685,7 +12685,7 @@
       ],
       "cruises": [],
       "flight_source": "real",
-      "flights_fetched_at": "2026-11-28T11:01Z"
+      "flights_fetched_at": "2026-11-28T18:15Z"
     },
     "2026-11-30": {
       "flights": [

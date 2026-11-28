@@ -2,7 +2,7 @@
   "airport": "RTB",
   "date": "2026-11-28",
   "source": "AeroDataBox",
-  "fetched_at": "2026-11-28T11:01Z",
+  "fetched_at": "2026-11-28T18:15Z",
   "arrivals": [
     {
       "time": "06:50",
@@ -79,13 +79,13 @@
       "airport_iata": "LCE",
       "country": "hn",
       "international": true,
-      "status": "Expected"
+      "status": "Unknown"
     },
     {
       "time": "12:24",
       "number": "UA 2043",
       "airline": "United",
-      "aircraft": "Boeing 737-800",
+      "aircraft": "Boeing 737 MAX 9",
       "city": "Houston",
       "airport_iata": "IAH",
       "country": "us",
@@ -107,7 +107,7 @@
       "time": "13:28",
       "number": "DL 1808",
       "airline": "Delta Air Lines",
-      "aircraft": "Boeing 737-900",
+      "aircraft": "Airbus A321 NEO",
       "city": "Atlanta",
       "airport_iata": "ATL",
       "country": "us",
@@ -118,7 +118,7 @@
       "time": "13:54",
       "number": "UA 2352",
       "airline": "United",
-      "aircraft": "Boeing 737",
+      "aircraft": "Boeing 737 MAX 8",
       "city": "Denver",
       "airport_iata": "DEN",
       "country": "us",
@@ -145,7 +145,7 @@
       "airport_iata": "TGU",
       "country": "hn",
       "international": true,
-      "status": "Expected"
+      "status": "Unknown"
     },
     {
       "time": "16:10",
@@ -156,7 +156,7 @@
       "airport_iata": "SAP",
       "country": "hn",
       "international": true,
-      "status": "Expected"
+      "status": "Unknown"
     },
     {
       "time": "16:20",
@@ -167,7 +167,7 @@
       "airport_iata": "LCE",
       "country": "hn",
       "international": true,
-      "status": "Expected"
+      "status": "Unknown"
     },
     {
       "time": "16:45",
@@ -178,7 +178,7 @@
       "airport_iata": "SAP",
       "country": "hn",
       "international": true,
-      "status": "Expected"
+      "status": "Unknown"
     },
     {
       "time": "16:55",
@@ -189,7 +189,7 @@
       "airport_iata": "TGU",
       "country": "hn",
       "international": true,
-      "status": "Expected"
+      "status": "Unknown"
     }
   ],
   "departures": [
@@ -257,7 +257,7 @@
       "airport_iata": "LCE",
       "country": "hn",
       "international": true,
-      "status": "Expected"
+      "status": "Unknown"
     },
     {
       "time": "13:15",
@@ -268,7 +268,7 @@
       "airport_iata": "LCE",
       "country": "hn",
       "international": true,
-      "status": "Expected"
+      "status": "Unknown"
     },
     {
       "time": "13:15",
@@ -279,7 +279,7 @@
       "airport_iata": "TGU",
       "country": "hn",
       "international": true,
-      "status": "Expected"
+      "status": "Unknown"
     },
     {
       "time": "13:30",
@@ -301,7 +301,7 @@
       "airport_iata": "SAP",
       "country": "hn",
       "international": true,
-      "status": "Expected"
+      "status": "Unknown"
     },
     {
       "time": "14:07",
@@ -312,7 +312,7 @@
       "airport_iata": "DFW",
       "country": "us",
       "international": true,
-      "status": "Expected"
+      "status": "Unknown"
     },
     {
       "time": "14:55",
@@ -334,7 +334,7 @@
       "airport_iata": "SAP",
       "country": "hn",
       "international": true,
-      "status": "Expected"
+      "status": "Unknown"
     },
     {
       "time": "15:00",
@@ -367,7 +367,7 @@
       "airport_iata": "TGU",
       "country": "hn",
       "international": true,
-      "status": "Expected"
+      "status": "Unknown"
     },
     {
       "time": "17:00",
@@ -378,7 +378,7 @@
       "airport_iata": "LCE",
       "country": "hn",
       "international": true,
-      "status": "Expected"
+      "status": "Unknown"
     }
   ]
 }
