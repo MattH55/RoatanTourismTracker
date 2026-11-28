@@ -12171,7 +12171,7 @@
         }
       ],
       "flight_source": "real",
-      "flights_fetched_at": "2026-11-28T18:15Z"
+      "flights_fetched_at": "2026-11-28T19:10Z"
     },
     "2026-11-29": {
       "flights": [
@@ -12685,7 +12685,7 @@
       ],
       "cruises": [],
       "flight_source": "real",
-      "flights_fetched_at": "2026-11-28T18:15Z"
+      "flights_fetched_at": "2026-11-28T19:10Z"
     },
     "2026-11-30": {
       "flights": [
